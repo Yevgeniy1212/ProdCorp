@@ -1,0 +1,1215 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Структура предприятия</v8:content>
+		</v8:item>
+	</Title>
+	<Width>480</Width>
+	<Height>320</Height>
+	<AutoTitle>false</AutoTitle>
+	<Group>Horizontal</Group>
+	<CommandBarLocation>None</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="ДеревоПодразделений" id="1">
+			<Representation>Tree</Representation>
+			<SelectionMode>SingleRow</SelectionMode>
+			<RowSelectionMode>Row</RowSelectionMode>
+			<Header>false</Header>
+			<HorizontalLines>false</HorizontalLines>
+			<VerticalLines>false</VerticalLines>
+			<InitialTreeView>ExpandAllLevels</InitialTreeView>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>ДеревоПодразделений</DataPath>
+			<RowPictureDataPath>ДеревоПодразделений.Ссылка</RowPictureDataPath>
+			<RowsPicture>
+				<xr:Ref>StdPicture.Attribute</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+				<xr:TransparentPixel x="6" y="3"/>
+			</RowsPicture>
+			<TextColor>#191970</TextColor>
+			<BorderColor>#B0C4DE</BorderColor>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<ContextMenu name="ДеревоПодразделенийКонтекстноеМеню" id="2">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ДействиеРедактировать1" id="69">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДействиеРедактировать</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.Change</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Редактировать &lt;наименование подразделения&gt;</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ДействиеРедактировать1РасширеннаяПодсказка" id="79"/>
+					</Button>
+					<Button name="ПереместитьВГруппу" id="70">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПереместитьВГруппу</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.MoveItem</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Переместить в группу</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ПереместитьВГруппуРасширеннаяПодсказка" id="80"/>
+					</Button>
+					<Button name="СоздатьОрганизацию1" id="71">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ДеревоПодразделений.StandardCommand.Add</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Новое структурное подразделение</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="СоздатьОрганизацию1РасширеннаяПодсказка" id="81"/>
+					</Button>
+					<Button name="Удалить1" id="72">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ДеревоПодразделений.StandardCommand.Delete</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&amp;Установить пометку удаления</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="Удалить1РасширеннаяПодсказка" id="82"/>
+					</Button>
+					<Button name="Скопировать2" id="73">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ДеревоПодразделений.StandardCommand.Copy</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Скопировать</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="Скопировать2РасширеннаяПодсказка" id="83"/>
+					</Button>
+					<Button name="Обновить1" id="74">
+						<Type>CommandBarButton</Type>
+						<CommandName>0</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Обновить</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="Обновить1РасширеннаяПодсказка" id="84"/>
+					</Button>
+				</ChildItems>
+			</ContextMenu>
+			<AutoCommandBar name="ДеревоПодразделенийКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Popup name="Предприятие" id="7">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Предприятие</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Предприятие</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="85"/>
+						<ChildItems>
+							<Button name="ДействиеРедактировать" id="8">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ДействиеРедактировать</CommandName>
+								<Picture>
+									<xr:Ref>StdPicture.Change</xr:Ref>
+									<xr:LoadTransparent>true</xr:LoadTransparent>
+								</Picture>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Редактировать</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ДействиеРедактироватьРасширеннаяПодсказка" id="86"/>
+							</Button>
+							<Button name="ПереместитьВГруппу1" id="9">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ПереместитьВГруппу</CommandName>
+								<Picture>
+									<xr:Ref>StdPicture.MoveItem</xr:Ref>
+									<xr:LoadTransparent>true</xr:LoadTransparent>
+								</Picture>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Переместить в группу</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ПереместитьВГруппу1РасширеннаяПодсказка" id="87"/>
+							</Button>
+							<Button name="СоздатьОрганизацию" id="10">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.ДеревоПодразделений.StandardCommand.Add</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Новое структурное подразделение</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="СоздатьОрганизациюРасширеннаяПодсказка" id="88"/>
+							</Button>
+							<Button name="Удалить" id="12">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.ДеревоПодразделений.StandardCommand.Delete</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>&amp;Установить пометку удаления</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="УдалитьРасширеннаяПодсказка" id="89"/>
+							</Button>
+							<Button name="Скопировать" id="11">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.ДеревоПодразделений.StandardCommand.Copy</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Скопировать</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="СкопироватьРасширеннаяПодсказка" id="90"/>
+							</Button>
+							<Button name="Обновить" id="13">
+								<Type>CommandBarButton</Type>
+								<CommandName>0</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Обновить</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ОбновитьРасширеннаяПодсказка" id="91"/>
+							</Button>
+						</ChildItems>
+					</Popup>
+					<Button name="ДеревоПодразделенийКнопка1" id="55">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ДеревоПодразделений.StandardCommand.Change</CommandName>
+						<ExtendedTooltip name="ДеревоПодразделенийКнопка1РасширеннаяПодсказка" id="92"/>
+					</Button>
+					<Button name="ПереместитьВГруппу2" id="56">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПереместитьВГруппу</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.MoveItem</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Переместить в группу</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ПереместитьВГруппу2РасширеннаяПодсказка" id="93"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ДеревоПодразделенийРасширеннаяПодсказка" id="94"/>
+			<SearchStringAddition name="ДеревоПодразделенийСтрокаПоиска" id="95">
+				<AdditionSource>
+					<Item>ДеревоПодразделений</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДеревоПодразделенийСтрокаПоискаКонтекстноеМеню" id="96"/>
+				<ExtendedTooltip name="ДеревоПодразделенийСтрокаПоискаРасширеннаяПодсказка" id="97"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДеревоПодразделенийСостояниеПросмотра" id="98">
+				<AdditionSource>
+					<Item>ДеревоПодразделений</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДеревоПодразделенийСостояниеПросмотраКонтекстноеМеню" id="99"/>
+				<ExtendedTooltip name="ДеревоПодразделенийСостояниеПросмотраРасширеннаяПодсказка" id="100"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДеревоПодразделенийУправлениеПоиском" id="101">
+				<AdditionSource>
+					<Item>ДеревоПодразделений</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ДеревоПодразделенийУправлениеПоискомКонтекстноеМеню" id="102"/>
+				<ExtendedTooltip name="ДеревоПодразделенийУправлениеПоискомРасширеннаяПодсказка" id="103"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="DragCheck">ДеревоПодразделенийПроверкаПеретаскивания</Event>
+				<Event name="Selection">ДеревоПодразделенийВыбор</Event>
+				<Event name="BeforeAddRow">ДеревоПодразделенийПередНачаломДобавления</Event>
+				<Event name="BeforeDeleteRow">ДеревоПодразделенийПередУдалением</Event>
+				<Event name="OnActivateRow">ДеревоПодразделенийПриАктивизацииСтроки</Event>
+				<Event name="Drag">ДеревоПодразделенийПеретаскивание</Event>
+				<Event name="BeforeRowChange">ДеревоПодразделенийПередНачаломИзменения</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="ДеревоПодразделенийНаименование" id="27">
+					<DataPath>ДеревоПодразделений.Наименование</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="ДеревоПодразделенийНаименованиеКонтекстноеМеню" id="28"/>
+					<ExtendedTooltip name="ДеревоПодразделенийНаименованиеРасширеннаяПодсказка" id="104"/>
+				</InputField>
+				<InputField name="ДеревоПодразделенийКод" id="33">
+					<DataPath>ДеревоПодразделений.Код</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="ДеревоПодразделенийКодКонтекстноеМеню" id="34"/>
+					<ExtendedTooltip name="ДеревоПодразделенийКодРасширеннаяПодсказка" id="105"/>
+				</InputField>
+				<InputField name="ДеревоПодразделенийПодразделенияОрганизаций" id="31">
+					<DataPath>ДеревоПодразделений.ПодразделенияОрганизаций</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="ДеревоПодразделенийПодразделенияОрганизацийКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ДеревоПодразделенийПодразделенияОрганизацийРасширеннаяПодсказка" id="106"/>
+				</InputField>
+				<InputField name="ДеревоПодразделенийСсылка" id="29">
+					<DataPath>ДеревоПодразделений.Ссылка</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="ДеревоПодразделенийСсылкаКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ДеревоПодразделенийСсылкаРасширеннаяПодсказка" id="107"/>
+				</InputField>
+				<CheckBoxField name="ДеревоПодразделенийСсылкаПометкаУдаления" id="75">
+					<DataPath>ДеревоПодразделений.Ссылка.DeletionMark</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ДеревоПодразделенийСсылкаПометкаУдаленияКонтекстноеМеню" id="76"/>
+					<ExtendedTooltip name="ДеревоПодразделенийСсылкаПометкаУдаленияРасширеннаяПодсказка" id="108"/>
+				</CheckBoxField>
+			</ChildItems>
+		</Table>
+		<Table name="ДеревоПодразделенийОрганизаций" id="4">
+			<Representation>Tree</Representation>
+			<SelectionMode>SingleRow</SelectionMode>
+			<RowSelectionMode>Row</RowSelectionMode>
+			<Header>false</Header>
+			<HorizontalLines>false</HorizontalLines>
+			<VerticalLines>false</VerticalLines>
+			<InitialTreeView>ExpandAllLevels</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>ДеревоПодразделенийОрганизаций</DataPath>
+			<RowsPicture>
+				<xr:Ref>StdPicture.Attribute</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+				<xr:TransparentPixel x="6" y="3"/>
+			</RowsPicture>
+			<TextColor>#191970</TextColor>
+			<BorderColor>#B0C4DE</BorderColor>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<ContextMenu name="ДеревоПодразделенийОрганизацийКонтекстноеМеню" id="5">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ДеревоПодразделенийОрганизацийДействиеВключитьВПодразделение2" id="57">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДействиеВключитьВПодразделение</CommandName>
+						<Picture>
+							<xr:Ref>CommonPicture.фин_ВключитьВСтруктурноеПодразделение</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+							<xr:TransparentPixel x="14" y="1"/>
+						</Picture>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Включить в структурное подразделение</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ДеревоПодразделенийОрганизацийДействиеВключитьВПодразделение2РасширеннаяПодсказка" id="109"/>
+					</Button>
+					<Button name="ДеревоПодразделенийОрганизацийСписокОрганизаций" id="58">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СписокОрганизаций</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Список организаций...</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ДеревоПодразделенийОрганизацийСписокОрганизацийРасширеннаяПодсказка" id="110"/>
+					</Button>
+					<Button name="ДеревоПодразделенийОрганизацийОбновить1" id="59">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Обновить</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.Refresh</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="ДеревоПодразделенийОрганизацийОбновить1РасширеннаяПодсказка" id="111"/>
+					</Button>
+					<Popup name="Сортировка1" id="60">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сортировка</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сортировка</v8:content>
+							</v8:item>
+						</ToolTip>
+						<Picture>
+							<xr:Ref>StdPicture.Sort</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="Сортировка1РасширеннаяПодсказка" id="112"/>
+						<ChildItems>
+							<Button name="ДеревоПодразделенийОрганизацийУпорядочитьПоКод1" id="61">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.УпорядочитьПоКод</CommandName>
+								<ExtendedTooltip name="ДеревоПодразделенийОрганизацийУпорядочитьПоКод1РасширеннаяПодсказка" id="113"/>
+							</Button>
+							<Button name="ДеревоПодразделенийОрганизацийУпорядочитьПоНаименование1" id="62">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.УпорядочитьПоНаименование</CommandName>
+								<ExtendedTooltip name="ДеревоПодразделенийОрганизацийУпорядочитьПоНаименование1РасширеннаяПодсказка" id="114"/>
+							</Button>
+						</ChildItems>
+					</Popup>
+					<Button name="УдалитьОрг1" id="63">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ДеревоПодразделенийОрганизаций.StandardCommand.Delete</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&amp;Установить пометку удаления</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="УдалитьОрг1РасширеннаяПодсказка" id="115"/>
+					</Button>
+					<Button name="Действие6" id="64">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ДеревоПодразделенийОрганизаций.StandardCommand.Copy</CommandName>
+						<ExtendedTooltip name="Действие6РасширеннаяПодсказка" id="116"/>
+					</Button>
+					<Button name="Действие1" id="65">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ДеревоПодразделенийОрганизаций.StandardCommand.Add</CommandName>
+						<ExtendedTooltip name="Действие1РасширеннаяПодсказка" id="117"/>
+					</Button>
+					<Button name="ДеревоПодразделенийОрганизацийПереместитьПодразделениеОрганизации1" id="66">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПереместитьПодразделениеОрганизации</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.MoveItem</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Переместить в группу</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ДеревоПодразделенийОрганизацийПереместитьПодразделениеОрганизации1РасширеннаяПодсказка" id="118"/>
+					</Button>
+					<Button name="ДеревоПодразделенийОрганизацийДействиеРедактировать1" id="67">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДействиеРедактировать</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.Change</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Редактировать</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ДеревоПодразделенийОрганизацийДействиеРедактировать1РасширеннаяПодсказка" id="119"/>
+					</Button>
+					<Button name="ДеревоПодразделенийОрганизацийДействиеИсключитьИзПодразделения2" id="68">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДействиеИсключитьИзПодразделения</CommandName>
+						<Picture>
+							<xr:Ref>CommonPicture.фин_ИсключитьИзСтруктурногоПодразделения</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+							<xr:TransparentPixel x="12" y="1"/>
+						</Picture>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Исключить из структурного подразделения</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ДеревоПодразделенийОрганизацийДействиеИсключитьИзПодразделения2РасширеннаяПодсказка" id="120"/>
+					</Button>
+				</ChildItems>
+			</ContextMenu>
+			<AutoCommandBar name="ДеревоПодразделенийОрганизацийКоманднаяПанель" id="6">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Popup name="Организации" id="14">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подразделения организаций</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Организации</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ОрганизацииРасширеннаяПодсказка" id="121"/>
+						<ChildItems>
+							<Button name="ДеревоПодразделенийОрганизацийДействиеВключитьВПодразделение" id="15">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ДействиеВключитьВПодразделение</CommandName>
+								<Picture>
+									<xr:Ref>CommonPicture.фин_ВключитьВСтруктурноеПодразделение</xr:Ref>
+									<xr:LoadTransparent>true</xr:LoadTransparent>
+									<xr:TransparentPixel x="14" y="1"/>
+								</Picture>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Включить в структурное подразделение</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ДеревоПодразделенийОрганизацийДействиеВключитьВПодразделениеРасширеннаяПодсказка" id="122"/>
+							</Button>
+							<Button name="ДеревоПодразделенийОрганизацийДействиеИсключитьИзПодразделения" id="16">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ДействиеИсключитьИзПодразделения</CommandName>
+								<Picture>
+									<xr:Ref>CommonPicture.фин_ИсключитьИзСтруктурногоПодразделения</xr:Ref>
+									<xr:LoadTransparent>true</xr:LoadTransparent>
+									<xr:TransparentPixel x="12" y="1"/>
+								</Picture>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Исключить из структурного подразделения</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ДеревоПодразделенийОрганизацийДействиеИсключитьИзПодразделенияРасширеннаяПодсказка" id="123"/>
+							</Button>
+							<Button name="ДеревоПодразделенийОрганизацийДействиеРедактировать" id="17">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ДействиеРедактировать</CommandName>
+								<Picture>
+									<xr:Ref>StdPicture.Change</xr:Ref>
+									<xr:LoadTransparent>true</xr:LoadTransparent>
+								</Picture>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Редактировать</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ДеревоПодразделенийОрганизацийДействиеРедактироватьРасширеннаяПодсказка" id="124"/>
+							</Button>
+							<Button name="ДеревоПодразделенийОрганизацийПереместитьПодразделениеОрганизации" id="18">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ПереместитьПодразделениеОрганизации</CommandName>
+								<Picture>
+									<xr:Ref>StdPicture.MoveItem</xr:Ref>
+									<xr:LoadTransparent>true</xr:LoadTransparent>
+								</Picture>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Переместить в группу</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ДеревоПодразделенийОрганизацийПереместитьПодразделениеОрганизацииРасширеннаяПодсказка" id="125"/>
+							</Button>
+							<Button name="Действие" id="19">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.ДеревоПодразделенийОрганизаций.StandardCommand.Add</CommandName>
+								<ExtendedTooltip name="ДействиеРасширеннаяПодсказка" id="126"/>
+							</Button>
+							<Button name="Действие3" id="20">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.ДеревоПодразделенийОрганизаций.StandardCommand.Copy</CommandName>
+								<ExtendedTooltip name="Действие3РасширеннаяПодсказка" id="127"/>
+							</Button>
+							<Button name="УдалитьОрг" id="21">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.ДеревоПодразделенийОрганизаций.StandardCommand.Delete</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>&amp;Установить пометку удаления</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="УдалитьОргРасширеннаяПодсказка" id="128"/>
+							</Button>
+							<Popup name="Сортировка" id="22">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Сортировка</v8:content>
+									</v8:item>
+								</Title>
+								<ToolTip>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Сортировка</v8:content>
+									</v8:item>
+								</ToolTip>
+								<Picture>
+									<xr:Ref>StdPicture.Sort</xr:Ref>
+									<xr:LoadTransparent>true</xr:LoadTransparent>
+								</Picture>
+								<ExtendedTooltip name="СортировкаРасширеннаяПодсказка" id="129"/>
+								<ChildItems>
+									<Button name="ДеревоПодразделенийОрганизацийУпорядочитьПоКод" id="23">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.УпорядочитьПоКод</CommandName>
+										<ExtendedTooltip name="ДеревоПодразделенийОрганизацийУпорядочитьПоКодРасширеннаяПодсказка" id="130"/>
+									</Button>
+									<Button name="ДеревоПодразделенийОрганизацийУпорядочитьПоНаименование" id="24">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.УпорядочитьПоНаименование</CommandName>
+										<ExtendedTooltip name="ДеревоПодразделенийОрганизацийУпорядочитьПоНаименованиеРасширеннаяПодсказка" id="131"/>
+									</Button>
+								</ChildItems>
+							</Popup>
+							<Button name="ДеревоПодразделенийОрганизацийОбновить" id="25">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.Обновить</CommandName>
+								<Picture>
+									<xr:Ref>StdPicture.Refresh</xr:Ref>
+									<xr:LoadTransparent>true</xr:LoadTransparent>
+								</Picture>
+								<ExtendedTooltip name="ДеревоПодразделенийОрганизацийОбновитьРасширеннаяПодсказка" id="132"/>
+							</Button>
+							<Button name="ДеревоПодразделенийОрганизацийСписокОрганизаций1" id="26">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СписокОрганизаций</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Список организаций...</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ДеревоПодразделенийОрганизацийСписокОрганизаций1РасширеннаяПодсказка" id="133"/>
+							</Button>
+						</ChildItems>
+					</Popup>
+					<Button name="ДеревоПодразделенийОрганизацийДействиеВключитьВПодразделение1" id="48">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДействиеВключитьВПодразделение</CommandName>
+						<Picture>
+							<xr:Ref>CommonPicture.фин_ВключитьВСтруктурноеПодразделение</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+							<xr:TransparentPixel x="14" y="1"/>
+						</Picture>
+						<ExtendedTooltip name="ДеревоПодразделенийОрганизацийДействиеВключитьВПодразделение1РасширеннаяПодсказка" id="134"/>
+					</Button>
+					<Button name="ДеревоПодразделенийОрганизацийДействиеИсключитьИзПодразделения1" id="49">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДействиеИсключитьИзПодразделения</CommandName>
+						<Picture>
+							<xr:Ref>CommonPicture.фин_ИсключитьИзСтруктурногоПодразделения</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+							<xr:TransparentPixel x="12" y="1"/>
+						</Picture>
+						<ExtendedTooltip name="ДеревоПодразделенийОрганизацийДействиеИсключитьИзПодразделения1РасширеннаяПодсказка" id="135"/>
+					</Button>
+					<Button name="ДеревоПодразделенийОрганизацийИзменить" id="50">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ДеревоПодразделенийОрганизаций.StandardCommand.Change</CommandName>
+						<ExtendedTooltip name="ДеревоПодразделенийОрганизацийИзменитьРасширеннаяПодсказка" id="136"/>
+					</Button>
+					<Button name="ДеревоПодразделенийОрганизацийПереместитьВГруппу" id="51">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПереместитьВГруппу</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.MoveItem</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="ДеревоПодразделенийОрганизацийПереместитьВГруппуРасширеннаяПодсказка" id="137"/>
+					</Button>
+					<Button name="ДеревоПодразделенийОрганизацийСписокОрганизаций2" id="54">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СписокОрганизаций</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Организации</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ДеревоПодразделенийОрганизацийСписокОрганизаций2РасширеннаяПодсказка" id="138"/>
+					</Button>
+					<Button name="ДеревоПодразделенийОрганизацийФормированиеСпискаУправленческихПодразделенийПоРегламентированным" id="157">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ФормированиеСпискаУправленческихПодразделенийПоРегламентированным</CommandName>
+						<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ДеревоПодразделенийОрганизацийФормированиеСпискаУправленческихПодразделенийПоРегламентированнымРасширеннаяПодсказка" id="158"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ДеревоПодразделенийОрганизацийРасширеннаяПодсказка" id="139"/>
+			<SearchStringAddition name="ДеревоПодразделенийОрганизацийСтрокаПоиска" id="140">
+				<AdditionSource>
+					<Item>ДеревоПодразделенийОрганизаций</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДеревоПодразделенийОрганизацийСтрокаПоискаКонтекстноеМеню" id="141"/>
+				<ExtendedTooltip name="ДеревоПодразделенийОрганизацийСтрокаПоискаРасширеннаяПодсказка" id="142"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДеревоПодразделенийОрганизацийСостояниеПросмотра" id="143">
+				<AdditionSource>
+					<Item>ДеревоПодразделенийОрганизаций</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДеревоПодразделенийОрганизацийСостояниеПросмотраКонтекстноеМеню" id="144"/>
+				<ExtendedTooltip name="ДеревоПодразделенийОрганизацийСостояниеПросмотраРасширеннаяПодсказка" id="145"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДеревоПодразделенийОрганизацийУправлениеПоиском" id="146">
+				<AdditionSource>
+					<Item>ДеревоПодразделенийОрганизаций</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ДеревоПодразделенийОрганизацийУправлениеПоискомКонтекстноеМеню" id="147"/>
+				<ExtendedTooltip name="ДеревоПодразделенийОрганизацийУправлениеПоискомРасширеннаяПодсказка" id="148"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ДеревоПодразделенийОрганизацийВыбор</Event>
+				<Event name="BeforeAddRow">ДеревоПодразделенийОрганизацийПередНачаломДобавления</Event>
+				<Event name="BeforeDeleteRow">ДеревоПодразделенийОрганизацийПередУдалением</Event>
+				<Event name="OnActivateRow">ДеревоПодразделенийОрганизацийПриАктивизацииСтроки</Event>
+				<Event name="DragStart">ДеревоПодразделенийОрганизацийНачалоПеретаскивания</Event>
+				<Event name="BeforeRowChange">ДеревоПодразделенийОрганизацийПередНачаломИзменения</Event>
+			</Events>
+			<ChildItems>
+				<ColumnGroup name="ДеревоПодразделенийОрганизацийГруппа1" id="45">
+					<ExtendedTooltip name="ДеревоПодразделенийОрганизацийГруппа1РасширеннаяПодсказка" id="149"/>
+					<ChildItems>
+						<InputField name="ДеревоПодразделенийОрганизацийСсылкаВладелец" id="46">
+							<Visible>false</Visible>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>#B0C4DE</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="ДеревоПодразделенийОрганизацийСсылкаВладелецКонтекстноеМеню" id="47"/>
+							<ExtendedTooltip name="ДеревоПодразделенийОрганизацийСсылкаВладелецРасширеннаяПодсказка" id="150"/>
+						</InputField>
+						<InputField name="ДеревоПодразделенийОрганизацийНаименование" id="43">
+							<DataPath>ДеревоПодразделенийОрганизаций.Наименование</DataPath>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>#B0C4DE</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="ДеревоПодразделенийОрганизацийНаименованиеКонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="ДеревоПодразделенийОрганизацийНаименованиеРасширеннаяПодсказка" id="151"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<InputField name="ДеревоПодразделенийОрганизацийКод" id="41">
+					<DataPath>ДеревоПодразделенийОрганизаций.Код</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="ДеревоПодразделенийОрганизацийКодКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="ДеревоПодразделенийОрганизацийКодРасширеннаяПодсказка" id="152"/>
+				</InputField>
+				<InputField name="ДеревоПодразделенийОрганизацийПодразделение" id="39">
+					<DataPath>ДеревоПодразделенийОрганизаций.Подразделения</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="ДеревоПодразделенийОрганизацийПодразделениеКонтекстноеМеню" id="40"/>
+					<ExtendedTooltip name="ДеревоПодразделенийОрганизацийПодразделениеРасширеннаяПодсказка" id="153"/>
+				</InputField>
+				<CheckBoxField name="ДеревоПодразделенийОрганизацийНесколькоПодразделений" id="35">
+					<DataPath>ДеревоПодразделенийОрганизаций.НесколькоПодразделений</DataPath>
+					<Visible>false</Visible>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ДеревоПодразделенийОрганизацийНесколькоПодразделенийКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ДеревоПодразделенийОрганизацийНесколькоПодразделенийРасширеннаяПодсказка" id="154"/>
+				</CheckBoxField>
+				<InputField name="ДеревоПодразделенийОрганизацийСсылка" id="37">
+					<DataPath>ДеревоПодразделенийОрганизаций.Ссылка</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="ДеревоПодразделенийОрганизацийСсылкаКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="ДеревоПодразделенийОрганизацийСсылкаРасширеннаяПодсказка" id="155"/>
+				</InputField>
+				<CheckBoxField name="ДеревоПодразделенийОрганизацийНаУдаление" id="77">
+					<DataPath>ДеревоПодразделенийОрганизаций.НаУдаление</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ДеревоПодразделенийОрганизацийНаУдалениеКонтекстноеМеню" id="78"/>
+					<ExtendedTooltip name="ДеревоПодразделенийОрганизацийНаУдалениеРасширеннаяПодсказка" id="156"/>
+				</CheckBoxField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ДеревоПодразделений" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дерево подразделений</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Наименование" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Код" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПодразделенияОрганизаций" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подразделения юридических лиц</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Ссылка" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Подразделения</v8:Type>
+					</Type>
+				</Column>
+				<Column name="НаУдаление" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>На удаление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ДеревоПодразделенийОрганизаций" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дерево подразделений организаций</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Наименование" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Код" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Подразделения" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подразделения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Ссылка" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ПодразделенияОрганизаций</v8:Type>
+						<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+					</Type>
+				</Column>
+				<Column name="НесколькоПодразделений" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Несколько подразделений</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="НаУдаление" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>На удаление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ПорядокСортировкиПодразделенийОрганизаций" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Порядок сортировки подразделений организаций</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДеревоПодразделенийОрганизацийНаименование</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДеревоПодразделенийСсылка</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДеревоПодразделенийОрганизацийКод</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДеревоПодразделенийОрганизаций.НаУдаление</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#C0C0C0</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="false" italic="true" underline="false" strikeout="true" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДеревоПодразделенийНаименование</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДеревоПодразделенийКод</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДеревоПодразделенийПодразделенияОрганизаций</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДеревоПодразделенийСсылка</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДеревоПодразделений.НаУдаление</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#C0C0C0</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="false" italic="true" underline="false" strikeout="true" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ПереместитьВГруппу" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить в группу</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить в группу</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КоманднаяПанельПодразделенияПереместитьВГруппу</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ДействиеВключитьВПодразделение" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включить в подразделение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включить в подразделение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВключитьВСтруктурноеПодразделение</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ДействиеИсключитьИзПодразделения" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исключить из подразделения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исключить из подразделения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ИсключитьИзСтруктурногоПодразделения</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ДействиеРедактировать" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КоманднаяПанельПодразделенияДействиеРедактировать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПереместитьПодразделениеОрганизации" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить подразделение организации</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить подразделение организации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КоманднаяПанельПодразделенияОрганизацийПереместитьПодразделениеОрганизации</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УпорядочитьПоКод" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Упорядочить по коду</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Упорядочить по коду</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КоманднаяПанельПодразделенияОрганизацийУпорядочитьПоКод</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УпорядочитьПоНаименование" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Упорядочить по наименованию</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Упорядочить по наименованию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КоманднаяПанельПодразделенияОрганизацийУпорядочитьПоНаименование</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Обновить" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КоманднаяПанельПодразделенияОрганизацийОбновить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СписокОрганизаций" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список организаций</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список организаций</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СписокОрганизаций</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ФормированиеСпискаУправленческихПодразделенийПоРегламентированным" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формирование списка управленческих подразделений по регламентированным</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формирование списка управленческих подразделений по регламентированным</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ФормированиеСпискаУправленческихПодразделенийПоРегламентированным</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

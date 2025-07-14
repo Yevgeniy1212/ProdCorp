@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="3">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="40"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="30">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="41"/>
+			<ChildItems>
+				<InputField name="Родитель" id="5">
+					<DataPath>Объект.Parent</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РодительКонтекстноеМеню" id="6"/>
+					<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="42"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="43"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="НадписьПризнакиУчета" id="32">
+			<DataPath>НадписьПризнакиУчета</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<HorizontalAlign>Center</HorizontalAlign>
+			<TextEdit>false</TextEdit>
+			<TextColor>#004242</TextColor>
+			<BackColor>#B0C4DE</BackColor>
+			<BorderColor>#4682B4</BorderColor>
+			<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="НадписьПризнакиУчетаКонтекстноеМеню" id="33"/>
+			<ExtendedTooltip name="НадписьПризнакиУчетаРасширеннаяПодсказка" id="44"/>
+		</InputField>
+		<UsualGroup name="Группа2" id="31">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="45"/>
+			<ChildItems>
+				<CheckBoxField name="УчетПоСумме" id="9">
+					<DataPath>Объект.УчетПоСумме</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="УчетПоСуммеКонтекстноеМеню" id="10"/>
+					<ExtendedTooltip name="УчетПоСуммеРасширеннаяПодсказка" id="46"/>
+					<Events>
+						<Event name="OnChange">УчетПоСуммеПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="УчетПоКоличеству" id="7">
+					<DataPath>Объект.УчетПоКоличеству</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="УчетПоКоличествуКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="УчетПоКоличествуРасширеннаяПодсказка" id="47"/>
+					<Events>
+						<Event name="OnChange">УчетПоСуммеПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРазрезыУчета" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрезы учета</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРазрезыУчетаРасширеннаяПодсказка" id="48"/>
+			<ChildItems>
+				<Table name="РазрезыУчета" id="21">
+					<Representation>List</Representation>
+					<HeightInTableRows>4</HeightInTableRows>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Объект.РазрезыУчета</DataPath>
+					<TextColor>web:MidnightBlue</TextColor>
+					<BorderColor>#B0C4DE</BorderColor>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="РазрезыУчетаКонтекстноеМеню" id="22"/>
+					<AutoCommandBar name="РазрезыУчетаКоманднаяПанель" id="23"/>
+					<ExtendedTooltip name="РазрезыУчетаРасширеннаяПодсказка" id="49"/>
+					<SearchStringAddition name="РазрезыУчетаСтрокаПоиска" id="50">
+						<AdditionSource>
+							<Item>РазрезыУчета</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="РазрезыУчетаСтрокаПоискаКонтекстноеМеню" id="51"/>
+						<ExtendedTooltip name="РазрезыУчетаСтрокаПоискаРасширеннаяПодсказка" id="52"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="РазрезыУчетаСостояниеПросмотра" id="53">
+						<AdditionSource>
+							<Item>РазрезыУчета</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="РазрезыУчетаСостояниеПросмотраКонтекстноеМеню" id="54"/>
+						<ExtendedTooltip name="РазрезыУчетаСостояниеПросмотраРасширеннаяПодсказка" id="55"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="РазрезыУчетаУправлениеПоиском" id="56">
+						<AdditionSource>
+							<Item>РазрезыУчета</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="РазрезыУчетаУправлениеПоискомКонтекстноеМеню" id="57"/>
+						<ExtendedTooltip name="РазрезыУчетаУправлениеПоискомРасширеннаяПодсказка" id="58"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="OnEditEnd">РазрезыУчетаПриОкончанииРедактирования</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="РазрезыУчетаНомерСтроки" id="24">
+							<DataPath>Объект.РазрезыУчета.LineNumber</DataPath>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>#B0C4DE</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РазрезыУчетаНомерСтрокиКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="РазрезыУчетаНомерСтрокиРасширеннаяПодсказка" id="59"/>
+						</LabelField>
+						<InputField name="РазрезыУчетаИзмерение" id="26">
+							<DataPath>Объект.РазрезыУчета.Измерение</DataPath>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>#B0C4DE</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РазрезыУчетаИзмерениеКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="РазрезыУчетаИзмерениеРасширеннаяПодсказка" id="60"/>
+							<Events>
+								<Event name="OnChange">РазрезыУчетаИзмерениеПриИзменении</Event>
+								<Event name="StartChoice">РазрезыУчетаИзмерениеНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<InputField name="РазрезыУчетаРазрез" id="28">
+							<DataPath>Объект.РазрезыУчета.Разрез</DataPath>
+							<Visible>false</Visible>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РазрезыУчетаРазрезКонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="РазрезыУчетаРазрезРасширеннаяПодсказка" id="61"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ИспользуемыйНоменклатурныйПеречень" id="79">
+			<DataPath>Объект.ИспользуемыйНоменклатурныйПеречень</DataPath>
+			<ContextMenu name="ИспользуемыйНоменклатурныйПереченьКонтекстноеМеню" id="80"/>
+			<ExtendedTooltip name="ИспользуемыйНоменклатурныйПереченьРасширеннаяПодсказка" id="81"/>
+		</InputField>
+		<InputField name="НадписьВходящиеПоказатели" id="34">
+			<DataPath>НадписьВходящиеПоказатели</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<HorizontalAlign>Center</HorizontalAlign>
+			<TextEdit>false</TextEdit>
+			<TextColor>#004242</TextColor>
+			<BackColor>#B0C4DE</BackColor>
+			<BorderColor>#4682B4</BorderColor>
+			<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="НадписьВходящиеПоказателиКонтекстноеМеню" id="35"/>
+			<ExtendedTooltip name="НадписьВходящиеПоказателиРасширеннаяПодсказка" id="62"/>
+		</InputField>
+		<UsualGroup name="ГруппаСостав" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состав</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаСоставРасширеннаяПодсказка" id="63"/>
+			<ChildItems>
+				<Table name="Состав" id="13">
+					<Representation>List</Representation>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Объект.Состав</DataPath>
+					<TextColor>web:MidnightBlue</TextColor>
+					<BorderColor>#B0C4DE</BorderColor>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="СоставКонтекстноеМеню" id="14"/>
+					<AutoCommandBar name="СоставКоманднаяПанель" id="15">
+						<ChildItems>
+							<Button name="СоставПодбор" id="36">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.Подбор</CommandName>
+								<ExtendedTooltip name="СоставПодборРасширеннаяПодсказка" id="64"/>
+							</Button>
+							<Button name="СоставОчистить" id="39">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.Очистить</CommandName>
+								<ExtendedTooltip name="СоставОчиститьРасширеннаяПодсказка" id="65"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="СоставРасширеннаяПодсказка" id="66"/>
+					<SearchStringAddition name="СоставСтрокаПоиска" id="67">
+						<AdditionSource>
+							<Item>Состав</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СоставСтрокаПоискаКонтекстноеМеню" id="68"/>
+						<ExtendedTooltip name="СоставСтрокаПоискаРасширеннаяПодсказка" id="69"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="СоставСостояниеПросмотра" id="70">
+						<AdditionSource>
+							<Item>Состав</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СоставСостояниеПросмотраКонтекстноеМеню" id="71"/>
+						<ExtendedTooltip name="СоставСостояниеПросмотраРасширеннаяПодсказка" id="72"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="СоставУправлениеПоиском" id="73">
+						<AdditionSource>
+							<Item>Состав</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="СоставУправлениеПоискомКонтекстноеМеню" id="74"/>
+						<ExtendedTooltip name="СоставУправлениеПоискомРасширеннаяПодсказка" id="75"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="ChoiceProcessing">СоставОбработкаВыбора</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="СоставНомерСтроки" id="16">
+							<DataPath>Объект.Состав.LineNumber</DataPath>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>#B0C4DE</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СоставНомерСтрокиКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="СоставНомерСтрокиРасширеннаяПодсказка" id="76"/>
+						</LabelField>
+						<InputField name="СоставФинансовыйПоказатель" id="18">
+							<DataPath>Объект.Состав.ФинансовыйПоказатель</DataPath>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>#B0C4DE</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СоставФинансовыйПоказательКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="СоставФинансовыйПоказательРасширеннаяПодсказка" id="77"/>
+							<Events>
+								<Event name="OnChange">СоставФинансовыйПоказательПриИзменении</Event>
+								<Event name="StartChoice">СоставФинансовыйПоказательНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<InputField name="СоставКод" id="37">
+							<DataPath>Объект.Состав.ФинансовыйПоказатель.Code</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Код показателя</v8:content>
+								</v8:item>
+							</Title>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>#B0C4DE</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СоставКодКонтекстноеМеню" id="38"/>
+							<ExtendedTooltip name="СоставКодРасширеннаяПодсказка" id="78"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.фин_АгрегатыФинансовыхПоказателей</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="НадписьПризнакиУчета" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись группы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьВходящиеПоказатели" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись группы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокВыбораРазрезыУчета" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список выбора разрезы учета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Подбор" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Подбор</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Очистить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Очистить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

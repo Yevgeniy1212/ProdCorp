@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОсновная" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основная</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основная</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОсновнаяРасширеннаяПодсказка" id="47"/>
+			<ChildItems>
+				<UsualGroup name="ЛеваяПанель" id="23">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Левая панель</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Левая панель</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ChildItemsWidth>Equal</ChildItemsWidth>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ЛеваяПанельРасширеннаяПодсказка" id="48"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаКодИНаименование" id="16">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа код и наименование</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа код и наименование</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаКодИНаименованиеРасширеннаяПодсказка" id="49"/>
+							<ChildItems>
+								<InputField name="Наименование" id="3">
+									<DataPath>Объект.Description</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+									<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="50"/>
+								</InputField>
+								<InputField name="Код" id="1">
+									<DataPath>Объект.Code</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+									<ExtendedTooltip name="КодРасширеннаяПодсказка" id="51"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="ВидПрофиляДоступа" id="5">
+							<DataPath>Объект.ВидПрофиляДоступа</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ВидПрофиляДоступаКонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="ВидПрофиляДоступаРасширеннаяПодсказка" id="52"/>
+							<Events>
+								<Event name="OnChange">ВидПрофиляДоступаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ВариантОграничения" id="7">
+							<DataPath>Объект.ВариантОграничения</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ВариантОграниченияКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ВариантОграниченияРасширеннаяПодсказка" id="53"/>
+							<Events>
+								<Event name="OnChange">ВариантОграниченияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="НадписьСоставПользователей" id="25">
+							<DataPath>НадписьСоставПользователей</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<HorizontalStretch>true</HorizontalStretch>
+							<TextEdit>false</TextEdit>
+							<TextColor>#004242</TextColor>
+							<BackColor>#B0C4DE</BackColor>
+							<BorderColor>#4682B4</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьСоставПользователейКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="НадписьСоставПользователейРасширеннаяПодсказка" id="54"/>
+						</InputField>
+						<Table name="СоставПользователей" id="17">
+							<Representation>List</Representation>
+							<Header>false</Header>
+							<HorizontalLines>false</HorizontalLines>
+							<VerticalLines>false</VerticalLines>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СоставПользователей</DataPath>
+							<RowPictureDataPath>СоставПользователей.Picture</RowPictureDataPath>
+							<TextColor>web:MidnightBlue</TextColor>
+							<BorderColor>web:LightSteelBlue</BorderColor>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<ContextMenu name="СоставПользователейКонтекстноеМеню" id="18"/>
+							<AutoCommandBar name="СоставПользователейКоманднаяПанель" id="19"/>
+							<ExtendedTooltip name="СоставПользователейРасширеннаяПодсказка" id="55"/>
+							<SearchStringAddition name="СоставПользователейСтрокаПоиска" id="56">
+								<AdditionSource>
+									<Item>СоставПользователей</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СоставПользователейСтрокаПоискаКонтекстноеМеню" id="57"/>
+								<ExtendedTooltip name="СоставПользователейСтрокаПоискаРасширеннаяПодсказка" id="58"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СоставПользователейСостояниеПросмотра" id="59">
+								<AdditionSource>
+									<Item>СоставПользователей</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СоставПользователейСостояниеПросмотраКонтекстноеМеню" id="60"/>
+								<ExtendedTooltip name="СоставПользователейСостояниеПросмотраРасширеннаяПодсказка" id="61"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СоставПользователейУправлениеПоиском" id="62">
+								<AdditionSource>
+									<Item>СоставПользователей</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СоставПользователейУправлениеПоискомКонтекстноеМеню" id="63"/>
+								<ExtendedTooltip name="СоставПользователейУправлениеПоискомРасширеннаяПодсказка" id="64"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="СоставПользователейЗначение" id="20">
+									<DataPath>СоставПользователей.Value</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СоставПользователейЗначениеКонтекстноеМеню" id="21"/>
+									<ExtendedTooltip name="СоставПользователейЗначениеРасширеннаяПодсказка" id="65"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ПраваяПанель" id="24">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Правая панель</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Правая панель</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ПраваяПанельРасширеннаяПодсказка" id="66"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаРоли" id="34">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа роли</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа роли</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаРолиРасширеннаяПодсказка" id="67"/>
+							<ChildItems>
+								<InputField name="НадписьРоли" id="35">
+									<DataPath>НадписьРоли</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<HorizontalAlign>Center</HorizontalAlign>
+									<HorizontalStretch>true</HorizontalStretch>
+									<TextEdit>false</TextEdit>
+									<TextColor>#004242</TextColor>
+									<BackColor>#B0C4DE</BackColor>
+									<BorderColor>#4682B4</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<ContextMenu name="НадписьРолиКонтекстноеМеню" id="36"/>
+									<ExtendedTooltip name="НадписьРолиРасширеннаяПодсказка" id="68"/>
+								</InputField>
+								<Table name="НазначенныеРоли" id="27">
+									<Representation>List</Representation>
+									<ChangeRowSet>false</ChangeRowSet>
+									<ChangeRowOrder>false</ChangeRowOrder>
+									<Header>false</Header>
+									<HorizontalLines>false</HorizontalLines>
+									<VerticalLines>false</VerticalLines>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>НазначенныеРоли</DataPath>
+									<RowPictureDataPath>НазначенныеРоли.Picture</RowPictureDataPath>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<ContextMenu name="НазначенныеРолиКонтекстноеМеню" id="28"/>
+									<AutoCommandBar name="НазначенныеРолиКоманднаяПанель" id="29">
+										<Autofill>false</Autofill>
+									</AutoCommandBar>
+									<ExtendedTooltip name="НазначенныеРолиРасширеннаяПодсказка" id="69"/>
+									<SearchStringAddition name="НазначенныеРолиСтрокаПоиска" id="70">
+										<AdditionSource>
+											<Item>НазначенныеРоли</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="НазначенныеРолиСтрокаПоискаКонтекстноеМеню" id="71"/>
+										<ExtendedTooltip name="НазначенныеРолиСтрокаПоискаРасширеннаяПодсказка" id="72"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="НазначенныеРолиСостояниеПросмотра" id="73">
+										<AdditionSource>
+											<Item>НазначенныеРоли</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="НазначенныеРолиСостояниеПросмотраКонтекстноеМеню" id="74"/>
+										<ExtendedTooltip name="НазначенныеРолиСостояниеПросмотраРасширеннаяПодсказка" id="75"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="НазначенныеРолиУправлениеПоиском" id="76">
+										<AdditionSource>
+											<Item>НазначенныеРоли</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="НазначенныеРолиУправлениеПоискомКонтекстноеМеню" id="77"/>
+										<ExtendedTooltip name="НазначенныеРолиУправлениеПоискомРасширеннаяПодсказка" id="78"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<CheckBoxField name="НазначенныеРолиПометка" id="32">
+											<DataPath>НазначенныеРоли.Check</DataPath>
+											<EditMode>Directly</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="НазначенныеРолиПометкаКонтекстноеМеню" id="33"/>
+											<ExtendedTooltip name="НазначенныеРолиПометкаРасширеннаяПодсказка" id="79"/>
+										</CheckBoxField>
+										<InputField name="НазначенныеРолиЗначение" id="30">
+											<DataPath>НазначенныеРоли.Value</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<TextEdit>false</TextEdit>
+											<ContextMenu name="НазначенныеРолиЗначениеКонтекстноеМеню" id="31"/>
+											<ExtendedTooltip name="НазначенныеРолиЗначениеРасширеннаяПодсказка" id="80"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОбъекты" id="37">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа объекты</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа объекты</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОбъектыРасширеннаяПодсказка" id="81"/>
+							<ChildItems>
+								<InputField name="НадписьОбъектыДоступа" id="43">
+									<DataPath>НадписьОбъектыДоступа</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<HorizontalAlign>Center</HorizontalAlign>
+									<HorizontalStretch>true</HorizontalStretch>
+									<TextEdit>false</TextEdit>
+									<TextColor>#004242</TextColor>
+									<BackColor>#B0C4DE</BackColor>
+									<BorderColor>#4682B4</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<ContextMenu name="НадписьОбъектыДоступаКонтекстноеМеню" id="44"/>
+									<ExtendedTooltip name="НадписьОбъектыДоступаРасширеннаяПодсказка" id="82"/>
+								</InputField>
+								<Table name="ОбъектыДоступа" id="38">
+									<Representation>List</Representation>
+									<HorizontalLines>false</HorizontalLines>
+									<VerticalLines>false</VerticalLines>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>ОбъектыДоступа</DataPath>
+									<RowPictureDataPath>ОбъектыДоступа.Picture</RowPictureDataPath>
+									<TextColor>web:MidnightBlue</TextColor>
+									<BorderColor>web:LightSteelBlue</BorderColor>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<ContextMenu name="ОбъектыДоступаКонтекстноеМеню" id="39"/>
+									<AutoCommandBar name="ОбъектыДоступаКоманднаяПанель" id="40"/>
+									<ExtendedTooltip name="ОбъектыДоступаРасширеннаяПодсказка" id="83"/>
+									<SearchStringAddition name="ОбъектыДоступаСтрокаПоиска" id="84">
+										<AdditionSource>
+											<Item>ОбъектыДоступа</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ОбъектыДоступаСтрокаПоискаКонтекстноеМеню" id="85"/>
+										<ExtendedTooltip name="ОбъектыДоступаСтрокаПоискаРасширеннаяПодсказка" id="86"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ОбъектыДоступаСостояниеПросмотра" id="87">
+										<AdditionSource>
+											<Item>ОбъектыДоступа</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ОбъектыДоступаСостояниеПросмотраКонтекстноеМеню" id="88"/>
+										<ExtendedTooltip name="ОбъектыДоступаСостояниеПросмотраРасширеннаяПодсказка" id="89"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ОбъектыДоступаУправлениеПоиском" id="90">
+										<AdditionSource>
+											<Item>ОбъектыДоступа</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ОбъектыДоступаУправлениеПоискомКонтекстноеМеню" id="91"/>
+										<ExtendedTooltip name="ОбъектыДоступаУправлениеПоискомРасширеннаяПодсказка" id="92"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="OnStartEdit">ОбъектыДоступаПриНачалеРедактирования</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="ОбъектыДоступаЗначение" id="41">
+											<DataPath>ОбъектыДоступа.Value</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Объект</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>#004444</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ОбъектыДоступаЗначениеКонтекстноеМеню" id="42"/>
+											<ExtendedTooltip name="ОбъектыДоступаЗначениеРасширеннаяПодсказка" id="93"/>
+										</InputField>
+										<CheckBoxField name="ОбъектыДоступаПометка" id="45">
+											<DataPath>ОбъектыДоступа.Check</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Запись</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>#004444</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Запись</v8:content>
+												</v8:item>
+											</ToolTip>
+											<EditMode>Directly</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ОбъектыДоступаПометкаКонтекстноеМеню" id="46"/>
+											<ExtendedTooltip name="ОбъектыДоступаПометкаРасширеннаяПодсказка" id="94"/>
+										</CheckBoxField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.общ_ПрофилиДоступа</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СоставПользователей" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состав пользователей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+			</Settings>
+		</Attribute>
+		<Attribute name="НадписьСоставПользователей" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состав пользователей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НазначенныеРоли" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначенные роли</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьРоли" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Роли</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОбъектыДоступа" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объекты доступа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+			</Settings>
+		</Attribute>
+		<Attribute name="НадписьОбъектыДоступа" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объекты доступа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

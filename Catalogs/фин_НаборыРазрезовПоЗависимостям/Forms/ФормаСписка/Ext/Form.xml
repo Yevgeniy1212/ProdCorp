@@ -1,0 +1,573 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="Список" id="1">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="89"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="90">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="91"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="92"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="93">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="94"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="95"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="96">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="97"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="98"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="Наименование" id="4">
+					<DataPath>Список.Description</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="99"/>
+				</LabelField>
+				<LabelField name="Код" id="6">
+					<DataPath>Список.Code</DataPath>
+					<ContextMenu name="КодКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="100"/>
+				</LabelField>
+				<CheckBoxField name="Исходный" id="28">
+					<DataPath>Список.Исходный</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ИсходныйКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ИсходныйРасширеннаяПодсказка" id="101"/>
+				</CheckBoxField>
+				<ColumnGroup name="ГруппаУправленческоеПодразделение" id="38">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Управленческое подразделение</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа управленческое подразделение</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаУправленческоеПодразделениеРасширеннаяПодсказка" id="102"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборУправленческоеПодразделение" id="39">
+							<DataPath>Список.ОтборУправленческоеПодразделение</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборУправленческоеПодразделениеКонтекстноеМеню" id="40"/>
+							<ExtendedTooltip name="ОтборУправленческоеПодразделениеРасширеннаяПодсказка" id="103"/>
+						</CheckBoxField>
+						<LabelField name="УправленческоеПодразделение" id="36">
+							<DataPath>Список.УправленческоеПодразделение</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Значение</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="УправленческоеПодразделениеКонтекстноеМеню" id="37"/>
+							<ExtendedTooltip name="УправленческоеПодразделениеРасширеннаяПодсказка" id="104"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаПроект" id="41">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проект</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа проект</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаПроектРасширеннаяПодсказка" id="105"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборПроект" id="42">
+							<DataPath>Список.ОтборПроект</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборПроектКонтекстноеМеню" id="43"/>
+							<ExtendedTooltip name="ОтборПроектРасширеннаяПодсказка" id="106"/>
+						</CheckBoxField>
+						<LabelField name="Проект" id="34">
+							<DataPath>Список.Проект</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Значение</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПроектКонтекстноеМеню" id="35"/>
+							<ExtendedTooltip name="ПроектРасширеннаяПодсказка" id="107"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаКонтрагент" id="44">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа контрагент</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаКонтрагентРасширеннаяПодсказка" id="108"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборКонтрагент" id="56">
+							<DataPath>Список.ОтборКонтрагент</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборКонтрагентКонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="ОтборКонтрагентРасширеннаяПодсказка" id="109"/>
+						</CheckBoxField>
+						<LabelField name="Контрагент" id="30">
+							<DataPath>Список.Контрагент</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Значение</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="КонтрагентКонтекстноеМеню" id="31"/>
+							<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="110"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаНоменклатура" id="45">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа номенклатура</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаНоменклатураРасширеннаяПодсказка" id="111"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборНоменклатура" id="58">
+							<DataPath>Список.ОтборНоменклатура</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборНоменклатураКонтекстноеМеню" id="59"/>
+							<ExtendedTooltip name="ОтборНоменклатураРасширеннаяПодсказка" id="112"/>
+						</CheckBoxField>
+						<LabelField name="Номенклатура" id="32">
+							<DataPath>Список.Номенклатура</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Значение</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НоменклатураКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="НоменклатураРасширеннаяПодсказка" id="113"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаРазрез1" id="46">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разрез1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа разрез1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаРазрез1РасширеннаяПодсказка" id="114"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборРазрез1" id="69">
+							<DataPath>Список.ОтборРазрез1</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборРазрез1КонтекстноеМеню" id="70"/>
+							<ExtendedTooltip name="ОтборРазрез1РасширеннаяПодсказка" id="115"/>
+						</CheckBoxField>
+						<LabelField name="Разрез1" id="8">
+							<DataPath>Список.Разрез1</DataPath>
+							<ContextMenu name="Разрез1КонтекстноеМеню" id="9"/>
+							<ExtendedTooltip name="Разрез1РасширеннаяПодсказка" id="116"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаРазрез2" id="60">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разрез1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа разрез1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаРазрез2РасширеннаяПодсказка" id="117"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборРазрез2" id="71">
+							<DataPath>Список.ОтборРазрез2</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборРазрез2КонтекстноеМеню" id="72"/>
+							<ExtendedTooltip name="ОтборРазрез2РасширеннаяПодсказка" id="118"/>
+						</CheckBoxField>
+						<LabelField name="Разрез2" id="10">
+							<DataPath>Список.Разрез2</DataPath>
+							<ContextMenu name="Разрез2КонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="Разрез2РасширеннаяПодсказка" id="119"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаРазрез3" id="61">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разрез1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа разрез1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаРазрез3РасширеннаяПодсказка" id="120"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборРазрез3" id="73">
+							<DataPath>Список.ОтборРазрез3</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборРазрез3КонтекстноеМеню" id="74"/>
+							<ExtendedTooltip name="ОтборРазрез3РасширеннаяПодсказка" id="121"/>
+						</CheckBoxField>
+						<LabelField name="Разрез3" id="12">
+							<DataPath>Список.Разрез3</DataPath>
+							<ContextMenu name="Разрез3КонтекстноеМеню" id="13"/>
+							<ExtendedTooltip name="Разрез3РасширеннаяПодсказка" id="122"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаРазрез4" id="62">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разрез1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа разрез1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаРазрез4РасширеннаяПодсказка" id="123"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборРазрез4" id="75">
+							<DataPath>Список.ОтборРазрез4</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборРазрез4КонтекстноеМеню" id="76"/>
+							<ExtendedTooltip name="ОтборРазрез4РасширеннаяПодсказка" id="124"/>
+						</CheckBoxField>
+						<LabelField name="Разрез4" id="14">
+							<DataPath>Список.Разрез4</DataPath>
+							<ContextMenu name="Разрез4КонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="Разрез4РасширеннаяПодсказка" id="125"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаРазрез5" id="63">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разрез1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа разрез1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаРазрез5РасширеннаяПодсказка" id="126"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборРазрез5" id="77">
+							<DataPath>Список.ОтборРазрез5</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборРазрез5КонтекстноеМеню" id="78"/>
+							<ExtendedTooltip name="ОтборРазрез5РасширеннаяПодсказка" id="127"/>
+						</CheckBoxField>
+						<LabelField name="Разрез5" id="16">
+							<DataPath>Список.Разрез5</DataPath>
+							<ContextMenu name="Разрез5КонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="Разрез5РасширеннаяПодсказка" id="128"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаРазрез6" id="64">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разрез1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа разрез1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаРазрез6РасширеннаяПодсказка" id="129"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборРазрез6" id="79">
+							<DataPath>Список.ОтборРазрез6</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборРазрез6КонтекстноеМеню" id="80"/>
+							<ExtendedTooltip name="ОтборРазрез6РасширеннаяПодсказка" id="130"/>
+						</CheckBoxField>
+						<LabelField name="Разрез6" id="18">
+							<DataPath>Список.Разрез6</DataPath>
+							<ContextMenu name="Разрез6КонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="Разрез6РасширеннаяПодсказка" id="131"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаРазрез7" id="65">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разрез1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа разрез1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаРазрез7РасширеннаяПодсказка" id="132"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборРазрез7" id="81">
+							<DataPath>Список.ОтборРазрез7</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборРазрез7КонтекстноеМеню" id="82"/>
+							<ExtendedTooltip name="ОтборРазрез7РасширеннаяПодсказка" id="133"/>
+						</CheckBoxField>
+						<LabelField name="Разрез7" id="20">
+							<DataPath>Список.Разрез7</DataPath>
+							<ContextMenu name="Разрез7КонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="Разрез7РасширеннаяПодсказка" id="134"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаРазрез8" id="66">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разрез1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа разрез1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаРазрез8РасширеннаяПодсказка" id="135"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборРазрез8" id="83">
+							<DataPath>Список.ОтборРазрез8</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборРазрез8КонтекстноеМеню" id="84"/>
+							<ExtendedTooltip name="ОтборРазрез8РасширеннаяПодсказка" id="136"/>
+						</CheckBoxField>
+						<LabelField name="Разрез8" id="22">
+							<DataPath>Список.Разрез8</DataPath>
+							<ContextMenu name="Разрез8КонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="Разрез8РасширеннаяПодсказка" id="137"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаРазрез9" id="67">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разрез1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа разрез1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаРазрез9РасширеннаяПодсказка" id="138"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборРазрез9" id="85">
+							<DataPath>Список.ОтборРазрез9</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборРазрез9КонтекстноеМеню" id="86"/>
+							<ExtendedTooltip name="ОтборРазрез9РасширеннаяПодсказка" id="139"/>
+						</CheckBoxField>
+						<LabelField name="Разрез9" id="24">
+							<DataPath>Список.Разрез9</DataPath>
+							<ContextMenu name="Разрез9КонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="Разрез9РасширеннаяПодсказка" id="140"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаРазрез10" id="68">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разрез1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа разрез1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<ExtendedTooltip name="ГруппаРазрез10РасширеннаяПодсказка" id="141"/>
+					<ChildItems>
+						<CheckBoxField name="ОтборРазрез10" id="87">
+							<DataPath>Список.ОтборРазрез10</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтборРазрез10КонтекстноеМеню" id="88"/>
+							<ExtendedTooltip name="ОтборРазрез10РасширеннаяПодсказка" id="142"/>
+						</CheckBoxField>
+						<LabelField name="Разрез10" id="26">
+							<DataPath>Список.Разрез10</DataPath>
+							<ContextMenu name="Разрез10КонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="Разрез10РасширеннаяПодсказка" id="143"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>Catalog.фин_НаборыРазрезовПоЗависимостям</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+</Form>

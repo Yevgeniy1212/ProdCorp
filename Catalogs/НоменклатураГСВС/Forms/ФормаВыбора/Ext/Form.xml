@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаСправочникНоменклатураГСВСЗагрузитьСправочник" id="52">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Catalog.НоменклатураГСВС.Command.ЗагрузитьСправочник</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.CreateInitialImage</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаСправочникНоменклатураГСВСЗагрузитьСправочникРасширеннаяПодсказка" id="53"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа пользовательских настроек</v8:content>
+				</v8:item>
+			</Title>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
+		</UsualGroup>
+		<Table name="Список" id="3">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<ChoiceMode>true</ChoiceMode>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="8"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="9"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="10">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="11"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="13">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="14"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="Код" id="19">
+					<DataPath>Список.Code</DataPath>
+					<ContextMenu name="КодКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="21"/>
+				</LabelField>
+				<LabelField name="Наименование" id="16">
+					<DataPath>Список.Description</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<Width>25</Width>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="18"/>
+				</LabelField>
+				<LabelField name="ПолноеНаименованиеRu" id="25">
+					<DataPath>Список.ПолноеНаименованиеRu</DataPath>
+					<Width>50</Width>
+					<ContextMenu name="ПолноеНаименованиеRuКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ПолноеНаименованиеRuРасширеннаяПодсказка" id="27"/>
+				</LabelField>
+				<LabelField name="ТипКодаГСВС" id="31">
+					<DataPath>Список.ТипКодаГСВС</DataPath>
+					<ContextMenu name="ТипКодаГСВСКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ТипКодаГСВСРасширеннаяПодсказка" id="33"/>
+				</LabelField>
+				<LabelField name="КодГСВС" id="46">
+					<DataPath>Список.КодГСВС</DataPath>
+					<ContextMenu name="КодГСВСКонтекстноеМеню" id="47"/>
+					<ExtendedTooltip name="КодГСВСРасширеннаяПодсказка" id="48"/>
+				</LabelField>
+				<CheckBoxField name="СодержитДополнительныйУровень" id="65">
+					<DataPath>Список.СодержитДополнительныйУровень</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СодержитДополнительныйУровеньКонтекстноеМеню" id="66"/>
+					<ExtendedTooltip name="СодержитДополнительныйУровеньРасширеннаяПодсказка" id="67"/>
+				</CheckBoxField>
+				<CheckBoxField name="ПризнакУслуги" id="28">
+					<DataPath>Список.ПризнакУслуги</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПризнакУслугиКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ПризнакУслугиРасширеннаяПодсказка" id="30"/>
+				</CheckBoxField>
+				<CheckBoxField name="ПризнакУчетаНаВиртуальномСкладе" id="34">
+					<DataPath>Список.ПризнакУчетаНаВиртуальномСкладе</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПризнакУчетаНаВиртуальномСкладеКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ПризнакУчетаНаВиртуальномСкладеРасширеннаяПодсказка" id="36"/>
+				</CheckBoxField>
+				<CheckBoxField name="ПризнакПеречняИзьятий" id="37">
+					<DataPath>Список.ПризнакПеречняИзьятий</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПризнакПеречняИзьятийКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="ПризнакПеречняИзьятийРасширеннаяПодсказка" id="39"/>
+				</CheckBoxField>
+				<CheckBoxField name="ПризнакТовараДвойногоНазначения" id="40">
+					<DataPath>Список.ПризнакТовараДвойногоНазначения</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПризнакТовараДвойногоНазначенияКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="ПризнакТовараДвойногоНазначенияРасширеннаяПодсказка" id="42"/>
+				</CheckBoxField>
+				<CheckBoxField name="ПризнакУникальногоТовара" id="43">
+					<DataPath>Список.ПризнакУникальногоТовара</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПризнакУникальногоТовараКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ПризнакУникальногоТовараРасширеннаяПодсказка" id="45"/>
+				</CheckBoxField>
+				<CheckBoxField name="ПризнакВозможностиВыбора" id="22">
+					<DataPath>Список.ПризнакВозможностиВыбора</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПризнакВозможностиВыбораКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ПризнакВозможностиВыбораРасширеннаяПодсказка" id="24"/>
+				</CheckBoxField>
+				<LabelField name="Ссылка" id="54">
+					<DataPath>Список.Ref</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="СсылкаКонтекстноеМеню" id="55"/>
+					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="56"/>
+				</LabelField>
+				<LabelField name="Идентификатор" id="49">
+					<DataPath>Список.Идентификатор</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ИдентификаторКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="51"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+		<UsualGroup name="ГруппаСведенияОДатеАктуализации" id="57">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа сведения о дате актуализации</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа сведения о дате актуализации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаСведенияОДатеАктуализацииРасширеннаяПодсказка" id="58"/>
+			<ChildItems>
+				<LabelField name="ДатаАктуализации" id="59">
+					<DataPath>ДатаАктуализации</DataPath>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДП='нет данных'</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="ДатаАктуализацииКонтекстноеМеню" id="60"/>
+					<ExtendedTooltip name="ДатаАктуализацииРасширеннаяПодсказка" id="61"/>
+				</LabelField>
+				<LabelDecoration name="ТехническаяИнформацияОбОбновлении" id="62">
+					<Visible>false</Visible>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Техническая информация о загрузке справочника с сервера  ВС</v8:content>
+						</v8:item>
+					</Title>
+					<Hyperlink>true</Hyperlink>
+					<HorizontalAlign>Right</HorizontalAlign>
+					<ContextMenu name="ТехническаяИнформацияОбОбновленииКонтекстноеМеню" id="63"/>
+					<ExtendedTooltip name="ТехническаяИнформацияОбОбновленииРасширеннаяПодсказка" id="64"/>
+					<Events>
+						<Event name="Click">ТехническаяИнформацияОбОбновленииНажатие</Event>
+					</Events>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.Ref</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СправочникНоменклатураГСВС.Ссылка,
+	СправочникНоменклатураГСВС.ПометкаУдаления,
+	СправочникНоменклатураГСВС.Родитель,
+	СправочникНоменклатураГСВС.Код,
+	СправочникНоменклатураГСВС.Наименование,
+	СправочникНоменклатураГСВС.КодГСВС,
+	СправочникНоменклатураГСВС.Комментарий,
+	СправочникНоменклатураГСВС.ТипЭлемента,
+	СправочникНоменклатураГСВС.ПризнакВозможностиВыбора,
+	СправочникНоменклатураГСВС.ПолноеНаименованиеEn,
+	СправочникНоменклатураГСВС.ПолноеНаименованиеKz,
+	СправочникНоменклатураГСВС.ПолноеНаименованиеRu,
+	СправочникНоменклатураГСВС.ПризнакУслуги,
+	СправочникНоменклатураГСВС.Идентификатор,
+	СправочникНоменклатураГСВС.ТипКодаГСВС,
+	СправочникНоменклатураГСВС.Предопределенный,
+	СправочникНоменклатураГСВС.СодержитДополнительныйУровень,
+	СведенияОНоменклатуреГСВССрезПоследних.ПризнакУчетаНаВиртуальномСкладе,
+	СведенияОНоменклатуреГСВССрезПоследних.ПризнакПеречняИзьятий,
+	СведенияОНоменклатуреГСВССрезПоследних.ПризнакТовараДвойногоНазначения,
+	СведенияОНоменклатуреГСВССрезПоследних.ПризнакУникальногоТовара,
+	СведенияОНоменклатуреГСВССрезПоследних.ПризнакАктивности
+ИЗ
+	Справочник.НоменклатураГСВС КАК СправочникНоменклатураГСВС
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СведенияОНоменклатуреГСВС.СрезПоследних (, ПризнакАктивности И (ДействиеЗаписиКонечнаяДата = ДАТАВРЕМЯ(1, 1, 1) ИЛИ ДействиеЗаписиКонечнаяДата &gt;&amp;ТекущаяДата)) КАК СведенияОНоменклатуреГСВССрезПоследних
+		ПО СведенияОНоменклатуреГСВССрезПоследних.НоменклатураГСВС = СправочникНоменклатураГСВС.Ссылка</QueryText>
+				<MainTable>Catalog.НоменклатураГСВС</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>OrGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:use>false</dcsset:use>
+								<dcsset:left xsi:type="dcscor:Field">КодГСВС</dcsset:left>
+								<dcsset:comparisonType>Contains</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:string"/>
+								<dcsset:userSettingID>0dab2199-5452-492d-a564-545c0fe59639</dcsset:userSettingID>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:use>false</dcsset:use>
+								<dcsset:left xsi:type="dcscor:Field">Родитель.КодГСВС</dcsset:left>
+								<dcsset:comparisonType>Contains</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:string"/>
+								<dcsset:userSettingID>2220312a-1260-4c79-baff-556299031024</dcsset:userSettingID>
+								<dcsset:userSettingPresentation xsi:type="xs:string">Код ГСВС родительского уровня</dcsset:userSettingPresentation>
+							</dcsset:item>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">ПризнакПеречняИзьятий</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+							<dcsset:userSettingID>df41c6d4-bdcd-48ce-9eb9-d99e3f1c90bd</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">ПризнакУчетаНаВиртуальномСкладе</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+							<dcsset:userSettingID>b1c02607-5938-4610-a2ba-6b45fde4d874</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПризнакАктивности</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+							<dcsset:userSettingID>06144613-8be8-419a-a9d4-76e61bc86ae5</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПризнакВозможностиВыбора</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+							<dcsset:userSettingID>dc7560fb-02b8-4c59-9be3-87e1efd8236e</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ПризнакВозможностиВыбора</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:use>false</dcscor:use>
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">#FFFF99</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Шрифт</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ДатаАктуализации" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата актуализации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекущийКодТНВЭД" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущий код ТНВЭД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>10</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

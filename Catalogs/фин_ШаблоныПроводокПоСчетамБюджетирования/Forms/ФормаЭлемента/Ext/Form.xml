@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Код" id="1">
+			<DataPath>Объект.Code</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="43"/>
+		</InputField>
+		<InputField name="Наименование" id="3">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="44"/>
+		</InputField>
+		<InputField name="Родитель" id="5">
+			<DataPath>Объект.Parent</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="РодительКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="45"/>
+		</InputField>
+		<Table name="ШаблоныПроводок" id="7">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.ШаблоныПроводок</DataPath>
+			<TextColor>web:MidnightBlue</TextColor>
+			<BorderColor>web:LightSteelBlue</BorderColor>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ШаблоныПроводокКонтекстноеМеню" id="8"/>
+			<AutoCommandBar name="ШаблоныПроводокКоманднаяПанель" id="9"/>
+			<ExtendedTooltip name="ШаблоныПроводокРасширеннаяПодсказка" id="46"/>
+			<SearchStringAddition name="ШаблоныПроводокСтрокаПоиска" id="47">
+				<AdditionSource>
+					<Item>ШаблоныПроводок</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ШаблоныПроводокСтрокаПоискаКонтекстноеМеню" id="48"/>
+				<ExtendedTooltip name="ШаблоныПроводокСтрокаПоискаРасширеннаяПодсказка" id="49"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ШаблоныПроводокСостояниеПросмотра" id="50">
+				<AdditionSource>
+					<Item>ШаблоныПроводок</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ШаблоныПроводокСостояниеПросмотраКонтекстноеМеню" id="51"/>
+				<ExtendedTooltip name="ШаблоныПроводокСостояниеПросмотраРасширеннаяПодсказка" id="52"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ШаблоныПроводокУправлениеПоиском" id="53">
+				<AdditionSource>
+					<Item>ШаблоныПроводок</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ШаблоныПроводокУправлениеПоискомКонтекстноеМеню" id="54"/>
+				<ExtendedTooltip name="ШаблоныПроводокУправлениеПоискомРасширеннаяПодсказка" id="55"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="BeforeEditEnd">ШаблоныПроводокПередОкончаниемРедактирования</Event>
+				<Event name="OnActivateRow">ШаблоныПроводокПриАктивизацииСтроки</Event>
+				<Event name="OnStartEdit">ШаблоныПроводокПриНачалеРедактирования</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ШаблоныПроводокНомерСтроки" id="10">
+					<DataPath>Объект.ШаблоныПроводок.LineNumber</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ШаблоныПроводокНомерСтрокиКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ШаблоныПроводокНомерСтрокиРасширеннаяПодсказка" id="56"/>
+				</LabelField>
+				<ColumnGroup name="ШаблоныПроводокГруппа3" id="42">
+					<ExtendedTooltip name="ШаблоныПроводокГруппа3РасширеннаяПодсказка" id="57"/>
+					<ChildItems>
+						<InputField name="ШаблоныПроводокКоэффициентДляСуммы" id="16">
+							<DataPath>Объект.ШаблоныПроводок.КоэффициентДляСуммы</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Коэф-т суммы</v8:content>
+								</v8:item>
+							</Title>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>15</Width>
+							<ContextMenu name="ШаблоныПроводокКоэффициентДляСуммыКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ШаблоныПроводокКоэффициентДляСуммыРасширеннаяПодсказка" id="58"/>
+						</InputField>
+						<InputField name="ШаблоныПроводокКоэффициентДляКоличества" id="18">
+							<DataPath>Объект.ШаблоныПроводок.КоэффициентДляКоличества</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Коэф-т количества</v8:content>
+								</v8:item>
+							</Title>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>15</Width>
+							<ContextMenu name="ШаблоныПроводокКоэффициентДляКоличестваКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="ШаблоныПроводокКоэффициентДляКоличестваРасширеннаяПодсказка" id="59"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<InputField name="ШаблоныПроводокСчетДт" id="12">
+					<DataPath>Объект.ШаблоныПроводок.СчетДт</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ШаблоныПроводокСчетДтКонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="ШаблоныПроводокСчетДтРасширеннаяПодсказка" id="60"/>
+					<Events>
+						<Event name="OnChange">ШаблоныПроводокСчетДтПриИзменении</Event>
+					</Events>
+				</InputField>
+				<ColumnGroup name="ШаблоныПроводокГруппа1" id="40">
+					<ExtendedTooltip name="ШаблоныПроводокГруппа1РасширеннаяПодсказка" id="61"/>
+					<ChildItems>
+						<InputField name="ШаблоныПроводокСубконтоДт1" id="20">
+							<DataPath>Объект.ШаблоныПроводок.СубконтоДт1</DataPath>
+							<Visible>false</Visible>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<TypeLink>
+								<xr:DataPath>Items.ШаблоныПроводок.CurrentData.СчетДт</xr:DataPath>
+								<xr:LinkItem>1</xr:LinkItem>
+							</TypeLink>
+							<ContextMenu name="ШаблоныПроводокСубконтоДт1КонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="ШаблоныПроводокСубконтоДт1РасширеннаяПодсказка" id="62"/>
+						</InputField>
+						<InputField name="ШаблоныПроводокСубконтоДт2" id="22">
+							<DataPath>Объект.ШаблоныПроводок.СубконтоДт2</DataPath>
+							<Visible>false</Visible>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<TypeLink>
+								<xr:DataPath>Items.ШаблоныПроводок.CurrentData.СчетДт</xr:DataPath>
+								<xr:LinkItem>2</xr:LinkItem>
+							</TypeLink>
+							<ContextMenu name="ШаблоныПроводокСубконтоДт2КонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="ШаблоныПроводокСубконтоДт2РасширеннаяПодсказка" id="63"/>
+						</InputField>
+						<InputField name="ШаблоныПроводокСубконтоДт3" id="24">
+							<DataPath>Объект.ШаблоныПроводок.СубконтоДт3</DataPath>
+							<Visible>false</Visible>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<TypeLink>
+								<xr:DataPath>Items.ШаблоныПроводок.CurrentData.СчетДт</xr:DataPath>
+								<xr:LinkItem>3</xr:LinkItem>
+							</TypeLink>
+							<ContextMenu name="ШаблоныПроводокСубконтоДт3КонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="ШаблоныПроводокСубконтоДт3РасширеннаяПодсказка" id="64"/>
+						</InputField>
+						<InputField name="ШаблоныПроводокСубконтоДт4" id="26">
+							<DataPath>Объект.ШаблоныПроводок.СубконтоДт4</DataPath>
+							<Visible>false</Visible>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<TypeLink>
+								<xr:DataPath>Items.ШаблоныПроводок.CurrentData.СчетДт</xr:DataPath>
+								<xr:LinkItem>4</xr:LinkItem>
+							</TypeLink>
+							<ContextMenu name="ШаблоныПроводокСубконтоДт4КонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="ШаблоныПроводокСубконтоДт4РасширеннаяПодсказка" id="65"/>
+						</InputField>
+						<InputField name="ШаблоныПроводокСубконтоДт5" id="28">
+							<DataPath>Объект.ШаблоныПроводок.СубконтоДт5</DataPath>
+							<Visible>false</Visible>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<TypeLink>
+								<xr:DataPath>Items.ШаблоныПроводок.CurrentData.СчетДт</xr:DataPath>
+								<xr:LinkItem>5</xr:LinkItem>
+							</TypeLink>
+							<ContextMenu name="ШаблоныПроводокСубконтоДт5КонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="ШаблоныПроводокСубконтоДт5РасширеннаяПодсказка" id="66"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<InputField name="ШаблоныПроводокСчетКт" id="14">
+					<DataPath>Объект.ШаблоныПроводок.СчетКт</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ШаблоныПроводокСчетКтКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ШаблоныПроводокСчетКтРасширеннаяПодсказка" id="67"/>
+					<Events>
+						<Event name="OnChange">ШаблоныПроводокСчетКтПриИзменении</Event>
+					</Events>
+				</InputField>
+				<ColumnGroup name="ШаблоныПроводокГруппа2" id="41">
+					<ExtendedTooltip name="ШаблоныПроводокГруппа2РасширеннаяПодсказка" id="68"/>
+					<ChildItems>
+						<InputField name="ШаблоныПроводокСубконтоКт1" id="30">
+							<DataPath>Объект.ШаблоныПроводок.СубконтоКт1</DataPath>
+							<Visible>false</Visible>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<TypeLink>
+								<xr:DataPath>Items.ШаблоныПроводок.CurrentData.СчетКт</xr:DataPath>
+								<xr:LinkItem>1</xr:LinkItem>
+							</TypeLink>
+							<ContextMenu name="ШаблоныПроводокСубконтоКт1КонтекстноеМеню" id="31"/>
+							<ExtendedTooltip name="ШаблоныПроводокСубконтоКт1РасширеннаяПодсказка" id="69"/>
+						</InputField>
+						<InputField name="ШаблоныПроводокСубконтоКт2" id="32">
+							<DataPath>Объект.ШаблоныПроводок.СубконтоКт2</DataPath>
+							<Visible>false</Visible>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<TypeLink>
+								<xr:DataPath>Items.ШаблоныПроводок.CurrentData.СчетКт</xr:DataPath>
+								<xr:LinkItem>2</xr:LinkItem>
+							</TypeLink>
+							<ContextMenu name="ШаблоныПроводокСубконтоКт2КонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="ШаблоныПроводокСубконтоКт2РасширеннаяПодсказка" id="70"/>
+						</InputField>
+						<InputField name="ШаблоныПроводокСубконтоКт3" id="34">
+							<DataPath>Объект.ШаблоныПроводок.СубконтоКт3</DataPath>
+							<Visible>false</Visible>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<TypeLink>
+								<xr:DataPath>Items.ШаблоныПроводок.CurrentData.СчетКт</xr:DataPath>
+								<xr:LinkItem>3</xr:LinkItem>
+							</TypeLink>
+							<ContextMenu name="ШаблоныПроводокСубконтоКт3КонтекстноеМеню" id="35"/>
+							<ExtendedTooltip name="ШаблоныПроводокСубконтоКт3РасширеннаяПодсказка" id="71"/>
+						</InputField>
+						<InputField name="ШаблоныПроводокСубконтоКт4" id="36">
+							<DataPath>Объект.ШаблоныПроводок.СубконтоКт4</DataPath>
+							<Visible>false</Visible>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<TypeLink>
+								<xr:DataPath>Items.ШаблоныПроводок.CurrentData.СчетКт</xr:DataPath>
+								<xr:LinkItem>4</xr:LinkItem>
+							</TypeLink>
+							<ContextMenu name="ШаблоныПроводокСубконтоКт4КонтекстноеМеню" id="37"/>
+							<ExtendedTooltip name="ШаблоныПроводокСубконтоКт4РасширеннаяПодсказка" id="72"/>
+						</InputField>
+						<InputField name="ШаблоныПроводокСубконтоКт5" id="38">
+							<DataPath>Объект.ШаблоныПроводок.СубконтоКт5</DataPath>
+							<Visible>false</Visible>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<TypeLink>
+								<xr:DataPath>Items.ШаблоныПроводок.CurrentData.СчетКт</xr:DataPath>
+								<xr:LinkItem>5</xr:LinkItem>
+							</TypeLink>
+							<ContextMenu name="ШаблоныПроводокСубконтоКт5КонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="ШаблоныПроводокСубконтоКт5РасширеннаяПодсказка" id="73"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.фин_ШаблоныПроводокПоСчетамБюджетирования</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

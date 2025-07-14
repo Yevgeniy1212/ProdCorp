@@ -1,0 +1,2107 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="3">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="279"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="126">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="280"/>
+			<ChildItems>
+				<InputField name="Родитель" id="5">
+					<DataPath>Объект.Parent</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РодительКонтекстноеМеню" id="6"/>
+					<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="281"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="282"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ИсточникСпецификацийНоменклатуры" id="9">
+			<DataPath>Объект.ИсточникСпецификацийНоменклатуры</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ИсточникСпецификацийНоменклатурыКонтекстноеМеню" id="10"/>
+			<ExtendedTooltip name="ИсточникСпецификацийНоменклатурыРасширеннаяПодсказка" id="283"/>
+			<Events>
+				<Event name="OnChange">ИсточникСпецификацийНоменклатурыПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="ИсточникДанных" id="11">
+			<DataPath>Объект.ИсточникДанных</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ИсточникДанныхКонтекстноеМеню" id="12"/>
+			<ExtendedTooltip name="ИсточникДанныхРасширеннаяПодсказка" id="284"/>
+		</InputField>
+		<Pages name="Страницы" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="285"/>
+			<ChildItems>
+				<Page name="ГруппаОбластьДействияЗависимости" id="26">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Область действия модели</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>CommonPicture.фин_ОсновнаяЗакладка</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+						<xr:TransparentPixel x="26" y="3"/>
+					</Picture>
+					<ExtendedTooltip name="ГруппаОбластьДействияЗависимостиРасширеннаяПодсказка" id="286"/>
+					<ChildItems>
+						<InputField name="НадписьОграниченияОбластиДействияПоНоменклатуре" id="152">
+							<DataPath>НадписьОграниченияОбластиДействияПоНоменклатуре</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<TextEdit>false</TextEdit>
+							<TextColor>#004242</TextColor>
+							<BackColor>#B0C4DE</BackColor>
+							<BorderColor>#4682B4</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьОграниченияОбластиДействияПоНоменклатуреКонтекстноеМеню" id="153"/>
+							<ExtendedTooltip name="НадписьОграниченияОбластиДействияПоНоменклатуреРасширеннаяПодсказка" id="287"/>
+						</InputField>
+						<InputField name="ОграничениеОбластиПримененияПроизводственнойМоделиПоНоменклатуре" id="7">
+							<DataPath>Объект.ОграничениеОбластиПримененияПроизводственнойМоделиПоНоменклатуре</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОграничениеОбластиПримененияПроизводственнойМоделиПоНоменклатуреКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ОграничениеОбластиПримененияПроизводственнойМоделиПоНоменклатуреРасширеннаяПодсказка" id="288"/>
+							<Events>
+								<Event name="OnChange">ОграничениеОбластиПримененияПроизводственнойМоделиПоНоменклатуреПриИзменении</Event>
+							</Events>
+						</InputField>
+						<Table name="СписокНоменклатуры" id="19">
+							<Representation>List</Representation>
+							<HeightInTableRows>4</HeightInTableRows>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.СписокНоменклатуры</DataPath>
+							<TextColor>web:MidnightBlue</TextColor>
+							<BorderColor>web:LightSteelBlue</BorderColor>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СписокНоменклатурыКонтекстноеМеню" id="20"/>
+							<AutoCommandBar name="СписокНоменклатурыКоманднаяПанель" id="21"/>
+							<ExtendedTooltip name="СписокНоменклатурыРасширеннаяПодсказка" id="289"/>
+							<SearchStringAddition name="СписокНоменклатурыСтрокаПоиска" id="290">
+								<AdditionSource>
+									<Item>СписокНоменклатуры</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокНоменклатурыСтрокаПоискаКонтекстноеМеню" id="291"/>
+								<ExtendedTooltip name="СписокНоменклатурыСтрокаПоискаРасширеннаяПодсказка" id="292"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокНоменклатурыСостояниеПросмотра" id="293">
+								<AdditionSource>
+									<Item>СписокНоменклатуры</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокНоменклатурыСостояниеПросмотраКонтекстноеМеню" id="294"/>
+								<ExtendedTooltip name="СписокНоменклатурыСостояниеПросмотраРасширеннаяПодсказка" id="295"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокНоменклатурыУправлениеПоиском" id="296">
+								<AdditionSource>
+									<Item>СписокНоменклатуры</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокНоменклатурыУправлениеПоискомКонтекстноеМеню" id="297"/>
+								<ExtendedTooltip name="СписокНоменклатурыУправлениеПоискомРасширеннаяПодсказка" id="298"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="СписокНоменклатурыНомерСтроки" id="22">
+									<DataPath>Объект.СписокНоменклатуры.LineNumber</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокНоменклатурыНомерСтрокиКонтекстноеМеню" id="23"/>
+									<ExtendedTooltip name="СписокНоменклатурыНомерСтрокиРасширеннаяПодсказка" id="299"/>
+								</LabelField>
+								<InputField name="СписокНоменклатурыНоменклатура" id="24">
+									<DataPath>Объект.СписокНоменклатуры.Номенклатура</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокНоменклатурыНоменклатураКонтекстноеМеню" id="25"/>
+									<ExtendedTooltip name="СписокНоменклатурыНоменклатураРасширеннаяПодсказка" id="300"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<InputField name="НадписьОграниченияОбластиДействияПоПрочимПолям" id="150">
+							<DataPath>НадписьОграниченияОбластиДействияПоПрочимПолям</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<TextEdit>false</TextEdit>
+							<TextColor>#004242</TextColor>
+							<BackColor>#B0C4DE</BackColor>
+							<BorderColor>#4682B4</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьОграниченияОбластиДействияПоПрочимПолямКонтекстноеМеню" id="151"/>
+							<ExtendedTooltip name="НадписьОграниченияОбластиДействияПоПрочимПолямРасширеннаяПодсказка" id="301"/>
+						</InputField>
+						<UsualGroup name="ГруппаОтборы" id="132">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отборы</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отборы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтборыРасширеннаяПодсказка" id="302"/>
+							<ChildItems>
+								<Table name="ОбластьДействияЗависимости" id="27">
+									<Representation>List</Representation>
+									<HeightInTableRows>3</HeightInTableRows>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Объект.ОбластьДействияЗависимости</DataPath>
+									<TextColor>web:MidnightBlue</TextColor>
+									<BorderColor>web:LightSteelBlue</BorderColor>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ОбластьДействияЗависимостиКонтекстноеМеню" id="28"/>
+									<AutoCommandBar name="ОбластьДействияЗависимостиКоманднаяПанель" id="29"/>
+									<ExtendedTooltip name="ОбластьДействияЗависимостиРасширеннаяПодсказка" id="303"/>
+									<SearchStringAddition name="ОбластьДействияЗависимостиСтрокаПоиска" id="304">
+										<AdditionSource>
+											<Item>ОбластьДействияЗависимости</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ОбластьДействияЗависимостиСтрокаПоискаКонтекстноеМеню" id="305"/>
+										<ExtendedTooltip name="ОбластьДействияЗависимостиСтрокаПоискаРасширеннаяПодсказка" id="306"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ОбластьДействияЗависимостиСостояниеПросмотра" id="307">
+										<AdditionSource>
+											<Item>ОбластьДействияЗависимости</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ОбластьДействияЗависимостиСостояниеПросмотраКонтекстноеМеню" id="308"/>
+										<ExtendedTooltip name="ОбластьДействияЗависимостиСостояниеПросмотраРасширеннаяПодсказка" id="309"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ОбластьДействияЗависимостиУправлениеПоиском" id="310">
+										<AdditionSource>
+											<Item>ОбластьДействияЗависимости</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ОбластьДействияЗависимостиУправлениеПоискомКонтекстноеМеню" id="311"/>
+										<ExtendedTooltip name="ОбластьДействияЗависимостиУправлениеПоискомРасширеннаяПодсказка" id="312"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="OnActivateRow">ОбластьДействияЗависимостиПриАктивизацииСтроки</Event>
+										<Event name="OnStartEdit">ОбластьДействияЗависимостиПриНачалеРедактирования</Event>
+									</Events>
+									<ChildItems>
+										<LabelField name="ОбластьДействияЗависимостиНомерСтроки" id="30">
+											<DataPath>Объект.ОбластьДействияЗависимости.LineNumber</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>2</Width>
+											<ContextMenu name="ОбластьДействияЗависимостиНомерСтрокиКонтекстноеМеню" id="31"/>
+											<ExtendedTooltip name="ОбластьДействияЗависимостиНомерСтрокиРасширеннаяПодсказка" id="313"/>
+										</LabelField>
+										<InputField name="ОбластьДействияЗависимостиИзмерение" id="32">
+											<DataPath>Объект.ОбластьДействияЗависимости.Измерение</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОбластьДействияЗависимостиИзмерениеКонтекстноеМеню" id="33"/>
+											<ExtendedTooltip name="ОбластьДействияЗависимостиИзмерениеРасширеннаяПодсказка" id="314"/>
+											<Events>
+												<Event name="OnChange">ОбластьДействияЗависимостиИзмерениеПриИзменении</Event>
+												<Event name="StartChoice">ОбластьДействияЗависимостиИзмерениеНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ОбластьДействияЗависимостиРазрез" id="34">
+											<DataPath>Объект.ОбластьДействияЗависимости.Разрез</DataPath>
+											<Visible>false</Visible>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ОбластьДействияЗависимостиРазрезКонтекстноеМеню" id="35"/>
+											<ExtendedTooltip name="ОбластьДействияЗависимостиРазрезРасширеннаяПодсказка" id="315"/>
+										</InputField>
+										<InputField name="ОбластьДействияЗависимостиВидОграничения" id="40">
+											<DataPath>Объект.ОбластьДействияЗависимости.ВидОграничения</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>7</Width>
+											<ContextMenu name="ОбластьДействияЗависимостиВидОграниченияКонтекстноеМеню" id="41"/>
+											<ExtendedTooltip name="ОбластьДействияЗависимостиВидОграниченияРасширеннаяПодсказка" id="316"/>
+											<Events>
+												<Event name="OnChange">ОбластьДействияЗависимостиВидОграниченияПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="ОбластьДействияЗависимостиУсловиеНаЗначение" id="36">
+											<DataPath>Объект.ОбластьДействияЗависимости.УсловиеНаЗначение</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОбластьДействияЗависимостиУсловиеНаЗначениеКонтекстноеМеню" id="37"/>
+											<ExtendedTooltip name="ОбластьДействияЗависимостиУсловиеНаЗначениеРасширеннаяПодсказка" id="317"/>
+											<Events>
+												<Event name="StartChoice">ОбластьДействияЗависимостиУсловиеНаЗначениеНачалоВыбора</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</Table>
+								<Table name="СписокОтбора" id="127">
+									<Representation>List</Representation>
+									<Header>false</Header>
+									<HorizontalLines>false</HorizontalLines>
+									<VerticalLines>false</VerticalLines>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>СписокОтбора</DataPath>
+									<RowPictureDataPath>СписокОтбора.Picture</RowPictureDataPath>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<ContextMenu name="СписокОтбораКонтекстноеМеню" id="128"/>
+									<AutoCommandBar name="СписокОтбораКоманднаяПанель" id="129"/>
+									<ExtendedTooltip name="СписокОтбораРасширеннаяПодсказка" id="318"/>
+									<SearchStringAddition name="СписокОтбораСтрокаПоиска" id="319">
+										<AdditionSource>
+											<Item>СписокОтбора</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="СписокОтбораСтрокаПоискаКонтекстноеМеню" id="320"/>
+										<ExtendedTooltip name="СписокОтбораСтрокаПоискаРасширеннаяПодсказка" id="321"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="СписокОтбораСостояниеПросмотра" id="322">
+										<AdditionSource>
+											<Item>СписокОтбора</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="СписокОтбораСостояниеПросмотраКонтекстноеМеню" id="323"/>
+										<ExtendedTooltip name="СписокОтбораСостояниеПросмотраРасширеннаяПодсказка" id="324"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="СписокОтбораУправлениеПоиском" id="325">
+										<AdditionSource>
+											<Item>СписокОтбора</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="СписокОтбораУправлениеПоискомКонтекстноеМеню" id="326"/>
+										<ExtendedTooltip name="СписокОтбораУправлениеПоискомРасширеннаяПодсказка" id="327"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="OnEditEnd">СписокОтбораПриОкончанииРедактирования</Event>
+										<Event name="AfterDeleteRow">СписокОтбораПослеУдаления</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="СписокОтбораЗначение" id="130">
+											<DataPath>СписокОтбора.Value</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<BorderColor>web:LightSteelBlue</BorderColor>
+											<ContextMenu name="СписокОтбораЗначениеКонтекстноеМеню" id="131"/>
+											<ExtendedTooltip name="СписокОтбораЗначениеРасширеннаяПодсказка" id="328"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаОтражениеРезультатов" id="52">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отражение результатов</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>CommonPicture.фин_Калькулятор2</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+						<xr:TransparentPixel x="75" y="10"/>
+					</Picture>
+					<ExtendedTooltip name="ГруппаОтражениеРезультатовРасширеннаяПодсказка" id="329"/>
+					<ChildItems>
+						<InputField name="НадписьФормируемыеДанные" id="154">
+							<DataPath>НадписьФормируемыеДанные</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<TextEdit>false</TextEdit>
+							<TextColor>#004242</TextColor>
+							<BackColor>#B0C4DE</BackColor>
+							<BorderColor>#4682B4</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьФормируемыеДанныеКонтекстноеМеню" id="155"/>
+							<ExtendedTooltip name="НадписьФормируемыеДанныеРасширеннаяПодсказка" id="330"/>
+						</InputField>
+						<Table name="ОтражениеРезультатов" id="53">
+							<Representation>List</Representation>
+							<HeightInTableRows>5</HeightInTableRows>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ОтражениеРезультатов</DataPath>
+							<TextColor>web:MidnightBlue</TextColor>
+							<BorderColor>web:LightSteelBlue</BorderColor>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ОтражениеРезультатовКонтекстноеМеню" id="54"/>
+							<AutoCommandBar name="ОтражениеРезультатовКоманднаяПанель" id="55"/>
+							<ExtendedTooltip name="ОтражениеРезультатовРасширеннаяПодсказка" id="331"/>
+							<SearchStringAddition name="ОтражениеРезультатовСтрокаПоиска" id="332">
+								<AdditionSource>
+									<Item>ОтражениеРезультатов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОтражениеРезультатовСтрокаПоискаКонтекстноеМеню" id="333"/>
+								<ExtendedTooltip name="ОтражениеРезультатовСтрокаПоискаРасширеннаяПодсказка" id="334"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ОтражениеРезультатовСостояниеПросмотра" id="335">
+								<AdditionSource>
+									<Item>ОтражениеРезультатов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОтражениеРезультатовСостояниеПросмотраКонтекстноеМеню" id="336"/>
+								<ExtendedTooltip name="ОтражениеРезультатовСостояниеПросмотраРасширеннаяПодсказка" id="337"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ОтражениеРезультатовУправлениеПоиском" id="338">
+								<AdditionSource>
+									<Item>ОтражениеРезультатов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ОтражениеРезультатовУправлениеПоискомКонтекстноеМеню" id="339"/>
+								<ExtendedTooltip name="ОтражениеРезультатовУправлениеПоискомРасширеннаяПодсказка" id="340"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnStartEdit">ОтражениеРезультатовПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="ОтражениеРезультатовНомерСтроки" id="56">
+									<DataPath>Объект.ОтражениеРезультатов.LineNumber</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>2</Width>
+									<ContextMenu name="ОтражениеРезультатовНомерСтрокиКонтекстноеМеню" id="57"/>
+									<ExtendedTooltip name="ОтражениеРезультатовНомерСтрокиРасширеннаяПодсказка" id="341"/>
+								</LabelField>
+								<InputField name="ОтражениеРезультатовВидКомплектующей" id="58">
+									<DataPath>Объект.ОтражениеРезультатов.ВидКомплектующей</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>21</Width>
+									<ContextMenu name="ОтражениеРезультатовВидКомплектующейКонтекстноеМеню" id="59"/>
+									<ExtendedTooltip name="ОтражениеРезультатовВидКомплектующейРасширеннаяПодсказка" id="342"/>
+								</InputField>
+								<ColumnGroup name="ОтражениеРезультатовГруппаФинансовыйПоказатель" id="133">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа финансовый показатель</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа финансовый показатель</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ОтражениеРезультатовГруппаФинансовыйПоказательРасширеннаяПодсказка" id="343"/>
+									<ChildItems>
+										<InputField name="ОтражениеРезультатовФинансовыйПоказатель" id="60">
+											<DataPath>Объект.ОтражениеРезультатов.ФинансовыйПоказатель</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ОтражениеРезультатовФинансовыйПоказательКонтекстноеМеню" id="61"/>
+											<ExtendedTooltip name="ОтражениеРезультатовФинансовыйПоказательРасширеннаяПодсказка" id="344"/>
+										</InputField>
+										<InputField name="ОтражениеРезультатовЗначениеФинансовыйПоказатель" id="124">
+											<DataPath>Объект.ОтражениеРезультатов.ЗначениеФинансовыйПоказатель</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ОтражениеРезультатовЗначениеФинансовыйПоказательКонтекстноеМеню" id="125"/>
+											<ExtendedTooltip name="ОтражениеРезультатовЗначениеФинансовыйПоказательРасширеннаяПодсказка" id="345"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ОтражениеРезультатовГруппаУправленческоеПодразделение" id="134">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа управленческое подразделение</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа управленческое подразделение</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ОтражениеРезультатовГруппаУправленческоеПодразделениеРасширеннаяПодсказка" id="346"/>
+									<ChildItems>
+										<InputField name="ОтражениеРезультатовУправленческоеПодразделение" id="62">
+											<DataPath>Объект.ОтражениеРезультатов.УправленческоеПодразделение</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовУправленческоеПодразделениеКонтекстноеМеню" id="63"/>
+											<ExtendedTooltip name="ОтражениеРезультатовУправленческоеПодразделениеРасширеннаяПодсказка" id="347"/>
+										</InputField>
+										<InputField name="ОтражениеРезультатовЗначениеУправленческоеПодразделение" id="96">
+											<DataPath>Объект.ОтражениеРезультатов.ЗначениеУправленческоеПодразделение</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовЗначениеУправленческоеПодразделениеКонтекстноеМеню" id="97"/>
+											<ExtendedTooltip name="ОтражениеРезультатовЗначениеУправленческоеПодразделениеРасширеннаяПодсказка" id="348"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ОтражениеРезультатовГруппаПроект" id="135">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа проект</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа проект</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ОтражениеРезультатовГруппаПроектРасширеннаяПодсказка" id="349"/>
+									<ChildItems>
+										<InputField name="ОтражениеРезультатовПроект" id="64">
+											<DataPath>Объект.ОтражениеРезультатов.Проект</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовПроектКонтекстноеМеню" id="65"/>
+											<ExtendedTooltip name="ОтражениеРезультатовПроектРасширеннаяПодсказка" id="350"/>
+										</InputField>
+										<InputField name="ОтражениеРезультатовЗначениеПроект" id="98">
+											<DataPath>Объект.ОтражениеРезультатов.ЗначениеПроект</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовЗначениеПроектКонтекстноеМеню" id="99"/>
+											<ExtendedTooltip name="ОтражениеРезультатовЗначениеПроектРасширеннаяПодсказка" id="351"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ОтражениеРезультатовГруппаКонтрагент" id="136">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа контрагент</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа контрагент</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ОтражениеРезультатовГруппаКонтрагентРасширеннаяПодсказка" id="352"/>
+									<ChildItems>
+										<InputField name="ОтражениеРезультатовКонтрагент" id="66">
+											<DataPath>Объект.ОтражениеРезультатов.Контрагент</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовКонтрагентКонтекстноеМеню" id="67"/>
+											<ExtendedTooltip name="ОтражениеРезультатовКонтрагентРасширеннаяПодсказка" id="353"/>
+										</InputField>
+										<InputField name="ОтражениеРезультатовЗначениеКонтрагент" id="100">
+											<DataPath>Объект.ОтражениеРезультатов.ЗначениеКонтрагент</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовЗначениеКонтрагентКонтекстноеМеню" id="101"/>
+											<ExtendedTooltip name="ОтражениеРезультатовЗначениеКонтрагентРасширеннаяПодсказка" id="354"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ОтражениеРезультатовГруппаНоменклатура" id="137">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа номенклатура</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа номенклатура</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ОтражениеРезультатовГруппаНоменклатураРасширеннаяПодсказка" id="355"/>
+									<ChildItems>
+										<InputField name="ОтражениеРезультатовНоменклатура" id="68">
+											<DataPath>Объект.ОтражениеРезультатов.Номенклатура</DataPath>
+											<Visible>false</Visible>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовНоменклатураКонтекстноеМеню" id="69"/>
+											<ExtendedTooltip name="ОтражениеРезультатовНоменклатураРасширеннаяПодсказка" id="356"/>
+										</InputField>
+										<InputField name="ОтражениеРезультатовЗначениеНоменклатура" id="102">
+											<DataPath>Объект.ОтражениеРезультатов.ЗначениеНоменклатура</DataPath>
+											<Visible>false</Visible>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовЗначениеНоменклатураКонтекстноеМеню" id="103"/>
+											<ExtendedTooltip name="ОтражениеРезультатовЗначениеНоменклатураРасширеннаяПодсказка" id="357"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ОтражениеРезультатовГруппаРазрез1" id="138">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ОтражениеРезультатовГруппаРазрез1РасширеннаяПодсказка" id="358"/>
+									<ChildItems>
+										<InputField name="ОтражениеРезультатовРазрез1" id="70">
+											<DataPath>Объект.ОтражениеРезультатов.Разрез1</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовРазрез1КонтекстноеМеню" id="71"/>
+											<ExtendedTooltip name="ОтражениеРезультатовРазрез1РасширеннаяПодсказка" id="359"/>
+										</InputField>
+										<InputField name="ОтражениеРезультатовЗначениеРазрез1" id="104">
+											<DataPath>Объект.ОтражениеРезультатов.ЗначениеРазрез1</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовЗначениеРазрез1КонтекстноеМеню" id="105"/>
+											<ExtendedTooltip name="ОтражениеРезультатовЗначениеРазрез1РасширеннаяПодсказка" id="360"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ОтражениеРезультатовГруппаРазрез2" id="139">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ОтражениеРезультатовГруппаРазрез2РасширеннаяПодсказка" id="361"/>
+									<ChildItems>
+										<InputField name="ОтражениеРезультатовРазрез2" id="72">
+											<DataPath>Объект.ОтражениеРезультатов.Разрез2</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовРазрез2КонтекстноеМеню" id="73"/>
+											<ExtendedTooltip name="ОтражениеРезультатовРазрез2РасширеннаяПодсказка" id="362"/>
+										</InputField>
+										<InputField name="ОтражениеРезультатовЗначениеРазрез2" id="106">
+											<DataPath>Объект.ОтражениеРезультатов.ЗначениеРазрез2</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовЗначениеРазрез2КонтекстноеМеню" id="107"/>
+											<ExtendedTooltip name="ОтражениеРезультатовЗначениеРазрез2РасширеннаяПодсказка" id="363"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ОтражениеРезультатовГруппаРазрез3" id="140">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ОтражениеРезультатовГруппаРазрез3РасширеннаяПодсказка" id="364"/>
+									<ChildItems>
+										<InputField name="ОтражениеРезультатовРазрез3" id="74">
+											<DataPath>Объект.ОтражениеРезультатов.Разрез3</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовРазрез3КонтекстноеМеню" id="75"/>
+											<ExtendedTooltip name="ОтражениеРезультатовРазрез3РасширеннаяПодсказка" id="365"/>
+										</InputField>
+										<InputField name="ОтражениеРезультатовЗначениеРазрез3" id="108">
+											<DataPath>Объект.ОтражениеРезультатов.ЗначениеРазрез3</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовЗначениеРазрез3КонтекстноеМеню" id="109"/>
+											<ExtendedTooltip name="ОтражениеРезультатовЗначениеРазрез3РасширеннаяПодсказка" id="366"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ОтражениеРезультатовГруппаРазрез4" id="141">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ОтражениеРезультатовГруппаРазрез4РасширеннаяПодсказка" id="367"/>
+									<ChildItems>
+										<InputField name="ОтражениеРезультатовРазрез4" id="76">
+											<DataPath>Объект.ОтражениеРезультатов.Разрез4</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовРазрез4КонтекстноеМеню" id="77"/>
+											<ExtendedTooltip name="ОтражениеРезультатовРазрез4РасширеннаяПодсказка" id="368"/>
+										</InputField>
+										<InputField name="ОтражениеРезультатовЗначениеРазрез4" id="110">
+											<DataPath>Объект.ОтражениеРезультатов.ЗначениеРазрез4</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовЗначениеРазрез4КонтекстноеМеню" id="111"/>
+											<ExtendedTooltip name="ОтражениеРезультатовЗначениеРазрез4РасширеннаяПодсказка" id="369"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ОтражениеРезультатовГруппаРазрез5" id="142">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ОтражениеРезультатовГруппаРазрез5РасширеннаяПодсказка" id="370"/>
+									<ChildItems>
+										<InputField name="ОтражениеРезультатовРазрез5" id="78">
+											<DataPath>Объект.ОтражениеРезультатов.Разрез5</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовРазрез5КонтекстноеМеню" id="79"/>
+											<ExtendedTooltip name="ОтражениеРезультатовРазрез5РасширеннаяПодсказка" id="371"/>
+										</InputField>
+										<InputField name="ОтражениеРезультатовЗначениеРазрез5" id="112">
+											<DataPath>Объект.ОтражениеРезультатов.ЗначениеРазрез5</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовЗначениеРазрез5КонтекстноеМеню" id="113"/>
+											<ExtendedTooltip name="ОтражениеРезультатовЗначениеРазрез5РасширеннаяПодсказка" id="372"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ОтражениеРезультатовГруппаРазрез6" id="143">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ОтражениеРезультатовГруппаРазрез6РасширеннаяПодсказка" id="373"/>
+									<ChildItems>
+										<InputField name="ОтражениеРезультатовРазрез6" id="80">
+											<DataPath>Объект.ОтражениеРезультатов.Разрез6</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовРазрез6КонтекстноеМеню" id="81"/>
+											<ExtendedTooltip name="ОтражениеРезультатовРазрез6РасширеннаяПодсказка" id="374"/>
+										</InputField>
+										<InputField name="ОтражениеРезультатовЗначениеРазрез6" id="114">
+											<DataPath>Объект.ОтражениеРезультатов.ЗначениеРазрез6</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовЗначениеРазрез6КонтекстноеМеню" id="115"/>
+											<ExtendedTooltip name="ОтражениеРезультатовЗначениеРазрез6РасширеннаяПодсказка" id="375"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ОтражениеРезультатовГруппаРазрез7" id="144">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ОтражениеРезультатовГруппаРазрез7РасширеннаяПодсказка" id="376"/>
+									<ChildItems>
+										<InputField name="ОтражениеРезультатовРазрез7" id="82">
+											<DataPath>Объект.ОтражениеРезультатов.Разрез7</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовРазрез7КонтекстноеМеню" id="83"/>
+											<ExtendedTooltip name="ОтражениеРезультатовРазрез7РасширеннаяПодсказка" id="377"/>
+										</InputField>
+										<InputField name="ОтражениеРезультатовЗначениеРазрез7" id="116">
+											<DataPath>Объект.ОтражениеРезультатов.ЗначениеРазрез7</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовЗначениеРазрез7КонтекстноеМеню" id="117"/>
+											<ExtendedTooltip name="ОтражениеРезультатовЗначениеРазрез7РасширеннаяПодсказка" id="378"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ОтражениеРезультатовГруппаРазрез8" id="145">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ОтражениеРезультатовГруппаРазрез8РасширеннаяПодсказка" id="379"/>
+									<ChildItems>
+										<InputField name="ОтражениеРезультатовРазрез8" id="84">
+											<DataPath>Объект.ОтражениеРезультатов.Разрез8</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовРазрез8КонтекстноеМеню" id="85"/>
+											<ExtendedTooltip name="ОтражениеРезультатовРазрез8РасширеннаяПодсказка" id="380"/>
+										</InputField>
+										<InputField name="ОтражениеРезультатовЗначениеРазрез8" id="118">
+											<DataPath>Объект.ОтражениеРезультатов.ЗначениеРазрез8</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовЗначениеРазрез8КонтекстноеМеню" id="119"/>
+											<ExtendedTooltip name="ОтражениеРезультатовЗначениеРазрез8РасширеннаяПодсказка" id="381"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ОтражениеРезультатовГруппаРазрез9" id="146">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ОтражениеРезультатовГруппаРазрез9РасширеннаяПодсказка" id="382"/>
+									<ChildItems>
+										<InputField name="ОтражениеРезультатовРазрез9" id="86">
+											<DataPath>Объект.ОтражениеРезультатов.Разрез9</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовРазрез9КонтекстноеМеню" id="87"/>
+											<ExtendedTooltip name="ОтражениеРезультатовРазрез9РасширеннаяПодсказка" id="383"/>
+										</InputField>
+										<InputField name="ОтражениеРезультатовЗначениеРазрез9" id="120">
+											<DataPath>Объект.ОтражениеРезультатов.ЗначениеРазрез9</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовЗначениеРазрез9КонтекстноеМеню" id="121"/>
+											<ExtendedTooltip name="ОтражениеРезультатовЗначениеРазрез9РасширеннаяПодсказка" id="384"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ОтражениеРезультатовГруппаРазрез10" id="147">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отражение результатов группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ОтражениеРезультатовГруппаРазрез10РасширеннаяПодсказка" id="385"/>
+									<ChildItems>
+										<InputField name="ОтражениеРезультатовРазрез10" id="88">
+											<DataPath>Объект.ОтражениеРезультатов.Разрез10</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовРазрез10КонтекстноеМеню" id="89"/>
+											<ExtendedTooltip name="ОтражениеРезультатовРазрез10РасширеннаяПодсказка" id="386"/>
+										</InputField>
+										<InputField name="ОтражениеРезультатовЗначениеРазрез10" id="122">
+											<DataPath>Объект.ОтражениеРезультатов.ЗначениеРазрез10</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтражениеРезультатовЗначениеРазрез10КонтекстноеМеню" id="123"/>
+											<ExtendedTooltip name="ОтражениеРезультатовЗначениеРазрез10РасширеннаяПодсказка" id="387"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ОтражениеРезультатовГруппа1" id="148">
+									<ExtendedTooltip name="ОтражениеРезультатовГруппа1РасширеннаяПодсказка" id="388"/>
+									<ChildItems>
+										<InputField name="ОтражениеРезультатовШаблонПроводок" id="90">
+											<DataPath>Объект.ОтражениеРезультатов.ШаблонПроводок</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ОтражениеРезультатовШаблонПроводокКонтекстноеМеню" id="91"/>
+											<ExtendedTooltip name="ОтражениеРезультатовШаблонПроводокРасширеннаяПодсказка" id="389"/>
+										</InputField>
+										<ColumnGroup name="ОтражениеРезультатовГруппа2" id="149">
+											<Group>Horizontal</Group>
+											<ExtendedTooltip name="ОтражениеРезультатовГруппа2РасширеннаяПодсказка" id="390"/>
+											<ChildItems>
+												<InputField name="ОтражениеРезультатовИсточникАналитикиДт" id="92">
+													<DataPath>Объект.ОтражениеРезультатов.ИсточникАналитикиДт</DataPath>
+													<TitleTextColor>#004242</TitleTextColor>
+													<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+													<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ОтражениеРезультатовИсточникАналитикиДтКонтекстноеМеню" id="93"/>
+													<ExtendedTooltip name="ОтражениеРезультатовИсточникАналитикиДтРасширеннаяПодсказка" id="391"/>
+												</InputField>
+												<InputField name="ОтражениеРезультатовИсточникАналитикиКт" id="94">
+													<DataPath>Объект.ОтражениеРезультатов.ИсточникАналитикиКт</DataPath>
+													<TitleTextColor>#004242</TitleTextColor>
+													<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+													<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ОтражениеРезультатовИсточникАналитикиКтКонтекстноеМеню" id="95"/>
+													<ExtendedTooltip name="ОтражениеРезультатовИсточникАналитикиКтРасширеннаяПодсказка" id="392"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</Table>
+						<CheckBoxField name="ФормироватьПроводки" id="13">
+							<DataPath>Объект.ФормироватьПроводки</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ФормироватьПроводкиКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ФормироватьПроводкиРасширеннаяПодсказка" id="393"/>
+						</CheckBoxField>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаРасчетПрямыхТрудовыхЗатрат" id="254">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расчет прямых трудовых затрат</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа расчет прямых трудовых затрат</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>CommonPicture.фин_ЗатратыТруда</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="ГруппаРасчетПрямыхТрудовыхЗатратРасширеннаяПодсказка" id="394"/>
+					<ChildItems>
+						<CheckBoxField name="РассчитыватьПрямыеТрудовыеЗатраты" id="255">
+							<DataPath>Объект.РассчитыватьПрямыеТрудовыеЗатраты</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РассчитыватьПрямыеТрудовыеЗатратыКонтекстноеМеню" id="256"/>
+							<ExtendedTooltip name="РассчитыватьПрямыеТрудовыеЗатратыРасширеннаяПодсказка" id="395"/>
+							<Events>
+								<Event name="OnChange">РассчитыватьПрямыеТрудовыеЗатратыПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="ТрудовыеЗатратыФинансовыйПоказатель" id="257">
+							<DataPath>Объект.ФинансовыйПоказательДляОтраженияТрудовыхЗатрат</DataPath>
+							<ContextMenu name="ТрудовыеЗатратыФинансовыйПоказательКонтекстноеМеню" id="258"/>
+							<ExtendedTooltip name="ТрудовыеЗатратыФинансовыйПоказательРасширеннаяПодсказка" id="396"/>
+							<Events>
+								<Event name="OnChange">ТрудовыеЗатратыФинансовыйПоказательПриИзменении</Event>
+							</Events>
+						</InputField>
+						<CheckBoxField name="УчитыватьТрудовыеЗатратыВРазрезеПодразделений" id="259">
+							<DataPath>Объект.УчитыватьТрудовыеЗатратыВРазрезеПодразделений</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="УчитыватьТрудовыеЗатратыВРазрезеПодразделенийКонтекстноеМеню" id="260"/>
+							<ExtendedTooltip name="УчитыватьТрудовыеЗатратыВРазрезеПодразделенийРасширеннаяПодсказка" id="397"/>
+						</CheckBoxField>
+						<CheckBoxField name="УчитыватьТрудовыеЗатратыВРазрезеПроектов" id="265">
+							<DataPath>Объект.УчитыватьТрудовыеЗатратыВРазрезеПроектов</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="УчитыватьТрудовыеЗатратыВРазрезеПроектовКонтекстноеМеню" id="266"/>
+							<ExtendedTooltip name="УчитыватьТрудовыеЗатратыВРазрезеПроектовРасширеннаяПодсказка" id="398"/>
+						</CheckBoxField>
+						<CheckBoxField name="УчитыватьТрудовыеЗатратыВРазрезеНоменклатуры" id="261">
+							<DataPath>Объект.УчитыватьТрудовыеЗатратыВРазрезеНоменклатуры</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="УчитыватьТрудовыеЗатратыВРазрезеНоменклатурыКонтекстноеМеню" id="262"/>
+							<ExtendedTooltip name="УчитыватьТрудовыеЗатратыВРазрезеНоменклатурыРасширеннаяПодсказка" id="399"/>
+						</CheckBoxField>
+						<UsualGroup name="Группа2" id="267">
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="400"/>
+							<ChildItems>
+								<CheckBoxField name="УчитыватьТрудовыеЗатратыВРазрезеДолжностей" id="263">
+									<DataPath>Объект.УчитыватьТрудовыеЗатратыВРазрезеДолжностей</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="УчитыватьТрудовыеЗатратыВРазрезеДолжностейКонтекстноеМеню" id="264"/>
+									<ExtendedTooltip name="УчитыватьТрудовыеЗатратыВРазрезеДолжностейРасширеннаяПодсказка" id="401"/>
+									<Events>
+										<Event name="OnChange">УчитыватьТрудовыеЗатратыВРазрезеДолжностейПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<InputField name="РазрезДляХраненияДолжностей" id="268">
+									<DataPath>Объект.РазрезДляХраненияДолжностей</DataPath>
+									<ContextMenu name="РазрезДляХраненияДолжностейКонтекстноеМеню" id="269"/>
+									<ExtendedTooltip name="РазрезДляХраненияДолжностейРасширеннаяПодсказка" id="402"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="НадписьРазрезыРассчитываемыеПоОбщимПравилам" id="270">
+							<DataPath>НадписьРазрезыРассчитываемыеПоОбщимПравилам</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<TextEdit>false</TextEdit>
+							<TextColor>#004242</TextColor>
+							<BackColor>#B0C4DE</BackColor>
+							<BorderColor>#4682B4</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьРазрезыРассчитываемыеПоОбщимПравиламКонтекстноеМеню" id="271"/>
+							<ExtendedTooltip name="НадписьРазрезыРассчитываемыеПоОбщимПравиламРасширеннаяПодсказка" id="403"/>
+						</InputField>
+						<Table name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатрат" id="272">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатрат</DataPath>
+							<TextColor>web:MidnightBlue</TextColor>
+							<BorderColor>web:LightSteelBlue</BorderColor>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратКонтекстноеМеню" id="273"/>
+							<AutoCommandBar name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратКоманднаяПанель" id="274"/>
+							<ExtendedTooltip name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратРасширеннаяПодсказка" id="404"/>
+							<SearchStringAddition name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратСтрокаПоиска" id="405">
+								<AdditionSource>
+									<Item>РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатрат</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратСтрокаПоискаКонтекстноеМеню" id="406"/>
+								<ExtendedTooltip name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратСтрокаПоискаРасширеннаяПодсказка" id="407"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратСостояниеПросмотра" id="408">
+								<AdditionSource>
+									<Item>РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатрат</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратСостояниеПросмотраКонтекстноеМеню" id="409"/>
+								<ExtendedTooltip name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратСостояниеПросмотраРасширеннаяПодсказка" id="410"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратУправлениеПоиском" id="411">
+								<AdditionSource>
+									<Item>РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатрат</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратУправлениеПоискомКонтекстноеМеню" id="412"/>
+								<ExtendedTooltip name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратУправлениеПоискомРасширеннаяПодсказка" id="413"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратНомерСтроки" id="275">
+									<DataPath>Объект.РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатрат.LineNumber</DataPath>
+									<TitleTextColor>#004444</TitleTextColor>
+									<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратНомерСтрокиКонтекстноеМеню" id="276"/>
+									<ExtendedTooltip name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратНомерСтрокиРасширеннаяПодсказка" id="414"/>
+								</LabelField>
+								<InputField name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратИзмерение" id="277">
+									<DataPath>Объект.РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатрат.Измерение</DataPath>
+									<TitleTextColor>#004444</TitleTextColor>
+									<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратИзмерениеКонтекстноеМеню" id="278"/>
+									<ExtendedTooltip name="РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратИзмерениеРасширеннаяПодсказка" id="415"/>
+									<Events>
+										<Event name="StartChoice">РазрезыРассчитываемыеПоОбщимПравиламПриРасчетеТрудовыхЗатратИзмерениеНачалоВыбора</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаДополнительныеЗатраты" id="156">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительные расчеты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа дополнительные затраты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>CommonPicture.фин_Скрепка</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+						<xr:TransparentPixel x="5" y="8"/>
+					</Picture>
+					<ExtendedTooltip name="ГруппаДополнительныеЗатратыРасширеннаяПодсказка" id="416"/>
+					<ChildItems>
+						<InputField name="НадписьДополнительныеРасчеты" id="252">
+							<DataPath>НадписьДополнительныеРасчеты</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<TextEdit>false</TextEdit>
+							<TextColor>#004242</TextColor>
+							<BackColor>#B0C4DE</BackColor>
+							<BorderColor>#4682B4</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьДополнительныеРасчетыКонтекстноеМеню" id="253"/>
+							<ExtendedTooltip name="НадписьДополнительныеРасчетыРасширеннаяПодсказка" id="417"/>
+						</InputField>
+						<Table name="ДополнительныеЗатратыНаВыпуск" id="157">
+							<HeightInTableRows>5</HeightInTableRows>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ДополнительныеЗатратыНаВыпуск</DataPath>
+							<TextColor>web:MidnightBlue</TextColor>
+							<BorderColor>web:LightSteelBlue</BorderColor>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ДополнительныеЗатратыНаВыпускКонтекстноеМеню" id="158"/>
+							<AutoCommandBar name="ДополнительныеЗатратыНаВыпускКоманднаяПанель" id="159"/>
+							<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускРасширеннаяПодсказка" id="418"/>
+							<SearchStringAddition name="ДополнительныеЗатратыНаВыпускСтрокаПоиска" id="419">
+								<AdditionSource>
+									<Item>ДополнительныеЗатратыНаВыпуск</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДополнительныеЗатратыНаВыпускСтрокаПоискаКонтекстноеМеню" id="420"/>
+								<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускСтрокаПоискаРасширеннаяПодсказка" id="421"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ДополнительныеЗатратыНаВыпускСостояниеПросмотра" id="422">
+								<AdditionSource>
+									<Item>ДополнительныеЗатратыНаВыпуск</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДополнительныеЗатратыНаВыпускСостояниеПросмотраКонтекстноеМеню" id="423"/>
+								<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускСостояниеПросмотраРасширеннаяПодсказка" id="424"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ДополнительныеЗатратыНаВыпускУправлениеПоиском" id="425">
+								<AdditionSource>
+									<Item>ДополнительныеЗатратыНаВыпуск</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ДополнительныеЗатратыНаВыпускУправлениеПоискомКонтекстноеМеню" id="426"/>
+								<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускУправлениеПоискомРасширеннаяПодсказка" id="427"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnStartEdit">ДополнительныеЗатратыНаВыпускПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="ДополнительныеЗатратыНаВыпускНомерСтроки" id="160">
+									<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.LineNumber</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>2</Width>
+									<ContextMenu name="ДополнительныеЗатратыНаВыпускНомерСтрокиКонтекстноеМеню" id="161"/>
+									<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускНомерСтрокиРасширеннаяПодсказка" id="428"/>
+								</LabelField>
+								<InputField name="ДополнительныеЗатратыНаВыпускФинансовыйПоказатель" id="162">
+									<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ФинансовыйПоказатель</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>15</Width>
+									<ContextMenu name="ДополнительныеЗатратыНаВыпускФинансовыйПоказательКонтекстноеМеню" id="163"/>
+									<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускФинансовыйПоказательРасширеннаяПодсказка" id="429"/>
+								</InputField>
+								<ColumnGroup name="ГруппаКоличество" id="250">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа количество</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа количество</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ГруппаКоличествоРасширеннаяПодсказка" id="430"/>
+									<ChildItems>
+										<InputField name="ДополнительныеЗатратыНаВыпускРеквизитВлияющейСтатьиДляРасчетаКоличества" id="230">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.РеквизитВлияющейСтатьиДляРасчетаКоличества</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускРеквизитВлияющейСтатьиДляРасчетаКоличестваКонтекстноеМеню" id="231"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускРеквизитВлияющейСтатьиДляРасчетаКоличестваРасширеннаяПодсказка" id="431"/>
+											<Events>
+												<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРеквизитВлияющейСтатьиДляРасчетаКоличестваНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ДополнительныеЗатратыНаВыпускКоэффициентДляРасчетаКоличества" id="226">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.КоэффициентДляРасчетаКоличества</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускКоэффициентДляРасчетаКоличестваКонтекстноеМеню" id="227"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускКоэффициентДляРасчетаКоличестваРасширеннаяПодсказка" id="432"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ГруппаСумма" id="251">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа сумма</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа сумма</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ГруппаСуммаРасширеннаяПодсказка" id="433"/>
+									<ChildItems>
+										<InputField name="ДополнительныеЗатратыНаВыпускРеквизитВлияющейСтатьиДляРасчетаСуммы" id="232">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.РеквизитВлияющейСтатьиДляРасчетаСуммы</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускРеквизитВлияющейСтатьиДляРасчетаСуммыКонтекстноеМеню" id="233"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускРеквизитВлияющейСтатьиДляРасчетаСуммыРасширеннаяПодсказка" id="434"/>
+											<Events>
+												<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРеквизитВлияющейСтатьиДляРасчетаСуммыНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ДополнительныеЗатратыНаВыпускКоэффициентДляРасчетаСуммы" id="228">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.КоэффициентДляРасчетаСуммы</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускКоэффициентДляРасчетаСуммыКонтекстноеМеню" id="229"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускКоэффициентДляРасчетаСуммыРасширеннаяПодсказка" id="435"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ДополнительныеЗатратыНаВыпускГруппаУправленческоеПодразделение" id="234">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа управленческое подразделение</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа управленческое подразделение</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускГруппаУправленческоеПодразделениеРасширеннаяПодсказка" id="436"/>
+									<ChildItems>
+										<InputField name="ДополнительныеЗатратыНаВыпускУправленческоеПодразделение" id="164">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.УправленческоеПодразделение</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускУправленческоеПодразделениеКонтекстноеМеню" id="165"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускУправленческоеПодразделениеРасширеннаяПодсказка" id="437"/>
+											<Events>
+												<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРазрезНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ДополнительныеЗатратыНаВыпускЗначениеУправленческоеПодразделение" id="198">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ЗначениеУправленческоеПодразделение</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускЗначениеУправленческоеПодразделениеКонтекстноеМеню" id="199"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускЗначениеУправленческоеПодразделениеРасширеннаяПодсказка" id="438"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ДополнительныеЗатратыНаВыпускГруппаПроект" id="235">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа проект</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа проект</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускГруппаПроектРасширеннаяПодсказка" id="439"/>
+									<ChildItems>
+										<InputField name="ДополнительныеЗатратыНаВыпускПроект" id="166">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.Проект</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускПроектКонтекстноеМеню" id="167"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускПроектРасширеннаяПодсказка" id="440"/>
+											<Events>
+												<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРазрезНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ДополнительныеЗатратыНаВыпускЗначениеПроект" id="200">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ЗначениеПроект</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускЗначениеПроектКонтекстноеМеню" id="201"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускЗначениеПроектРасширеннаяПодсказка" id="441"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ДополнительныеЗатратыНаВыпускГруппаКонтрагент" id="236">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа контрагент</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа контрагент</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускГруппаКонтрагентРасширеннаяПодсказка" id="442"/>
+									<ChildItems>
+										<InputField name="ДополнительныеЗатратыНаВыпускКонтрагент" id="168">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.Контрагент</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускКонтрагентКонтекстноеМеню" id="169"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускКонтрагентРасширеннаяПодсказка" id="443"/>
+											<Events>
+												<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРазрезНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ДополнительныеЗатратыНаВыпускЗначениеКонтрагент" id="202">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ЗначениеКонтрагент</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускЗначениеКонтрагентКонтекстноеМеню" id="203"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускЗначениеКонтрагентРасширеннаяПодсказка" id="444"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ДополнительныеЗатратыНаВыпускГруппаНоменклатура" id="237">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа номенклатура</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа номенклатура</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускГруппаНоменклатураРасширеннаяПодсказка" id="445"/>
+									<ChildItems>
+										<InputField name="ДополнительныеЗатратыНаВыпускНоменклатура" id="170">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.Номенклатура</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускНоменклатураКонтекстноеМеню" id="171"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускНоменклатураРасширеннаяПодсказка" id="446"/>
+											<Events>
+												<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРазрезНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ДополнительныеЗатратыНаВыпускЗначениеНоменклатура" id="204">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ЗначениеНоменклатура</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускЗначениеНоменклатураКонтекстноеМеню" id="205"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускЗначениеНоменклатураРасширеннаяПодсказка" id="447"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ДополнительныеЗатратыНаВыпускГруппаРазрез1" id="238">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускГруппаРазрез1РасширеннаяПодсказка" id="448"/>
+									<ChildItems>
+										<InputField name="ДополнительныеЗатратыНаВыпускРазрез1" id="172">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.Разрез1</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускРазрез1КонтекстноеМеню" id="173"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускРазрез1РасширеннаяПодсказка" id="449"/>
+											<Events>
+												<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРазрезНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ДополнительныеЗатратыНаВыпускЗначениеРазрез1" id="206">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ЗначениеРазрез1</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускЗначениеРазрез1КонтекстноеМеню" id="207"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускЗначениеРазрез1РасширеннаяПодсказка" id="450"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ДополнительныеЗатратыНаВыпускГруппаРазрез2" id="239">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускГруппаРазрез2РасширеннаяПодсказка" id="451"/>
+									<ChildItems>
+										<InputField name="ДополнительныеЗатратыНаВыпускРазрез2" id="174">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.Разрез2</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускРазрез2КонтекстноеМеню" id="175"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускРазрез2РасширеннаяПодсказка" id="452"/>
+											<Events>
+												<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРазрезНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ДополнительныеЗатратыНаВыпускЗначениеРазрез2" id="208">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ЗначениеРазрез2</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускЗначениеРазрез2КонтекстноеМеню" id="209"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускЗначениеРазрез2РасширеннаяПодсказка" id="453"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ДополнительныеЗатратыНаВыпускГруппаРазрез3" id="240">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускГруппаРазрез3РасширеннаяПодсказка" id="454"/>
+									<ChildItems>
+										<InputField name="ДополнительныеЗатратыНаВыпускРазрез3" id="176">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.Разрез3</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускРазрез3КонтекстноеМеню" id="177"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускРазрез3РасширеннаяПодсказка" id="455"/>
+											<Events>
+												<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРазрезНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ДополнительныеЗатратыНаВыпускЗначениеРазрез3" id="210">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ЗначениеРазрез3</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускЗначениеРазрез3КонтекстноеМеню" id="211"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускЗначениеРазрез3РасширеннаяПодсказка" id="456"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ДополнительныеЗатратыНаВыпускГруппаРазрез4" id="241">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускГруппаРазрез4РасширеннаяПодсказка" id="457"/>
+									<ChildItems>
+										<InputField name="ДополнительныеЗатратыНаВыпускРазрез4" id="178">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.Разрез4</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускРазрез4КонтекстноеМеню" id="179"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускРазрез4РасширеннаяПодсказка" id="458"/>
+											<Events>
+												<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРазрезНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ДополнительныеЗатратыНаВыпускЗначениеРазрез4" id="212">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ЗначениеРазрез4</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускЗначениеРазрез4КонтекстноеМеню" id="213"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускЗначениеРазрез4РасширеннаяПодсказка" id="459"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ДополнительныеЗатратыНаВыпускГруппаРазрез5" id="242">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускГруппаРазрез5РасширеннаяПодсказка" id="460"/>
+									<ChildItems>
+										<InputField name="ДополнительныеЗатратыНаВыпускРазрез5" id="180">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.Разрез5</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускРазрез5КонтекстноеМеню" id="181"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускРазрез5РасширеннаяПодсказка" id="461"/>
+											<Events>
+												<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРазрезНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ДополнительныеЗатратыНаВыпускЗначениеРазрез5" id="214">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ЗначениеРазрез5</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускЗначениеРазрез5КонтекстноеМеню" id="215"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускЗначениеРазрез5РасширеннаяПодсказка" id="462"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ДополнительныеЗатратыНаВыпускГруппаРазрез6" id="243">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускГруппаРазрез6РасширеннаяПодсказка" id="463"/>
+									<ChildItems>
+										<InputField name="ДополнительныеЗатратыНаВыпускРазрез6" id="182">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.Разрез6</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускРазрез6КонтекстноеМеню" id="183"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускРазрез6РасширеннаяПодсказка" id="464"/>
+											<Events>
+												<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРазрезНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ДополнительныеЗатратыНаВыпускЗначениеРазрез6" id="216">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ЗначениеРазрез6</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускЗначениеРазрез6КонтекстноеМеню" id="217"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускЗначениеРазрез6РасширеннаяПодсказка" id="465"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ДополнительныеЗатратыНаВыпускГруппаРазрез7" id="244">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускГруппаРазрез7РасширеннаяПодсказка" id="466"/>
+									<ChildItems>
+										<InputField name="ДополнительныеЗатратыНаВыпускРазрез7" id="184">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.Разрез7</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускРазрез7КонтекстноеМеню" id="185"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускРазрез7РасширеннаяПодсказка" id="467"/>
+											<Events>
+												<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРазрезНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ДополнительныеЗатратыНаВыпускЗначениеРазрез7" id="218">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ЗначениеРазрез7</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускЗначениеРазрез7КонтекстноеМеню" id="219"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускЗначениеРазрез7РасширеннаяПодсказка" id="468"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ДополнительныеЗатратыНаВыпускГруппаРазрез8" id="245">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускГруппаРазрез8РасширеннаяПодсказка" id="469"/>
+									<ChildItems>
+										<InputField name="ДополнительныеЗатратыНаВыпускРазрез8" id="186">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.Разрез8</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускРазрез8КонтекстноеМеню" id="187"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускРазрез8РасширеннаяПодсказка" id="470"/>
+											<Events>
+												<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРазрезНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ДополнительныеЗатратыНаВыпускЗначениеРазрез8" id="220">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ЗначениеРазрез8</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускЗначениеРазрез8КонтекстноеМеню" id="221"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускЗначениеРазрез8РасширеннаяПодсказка" id="471"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ДополнительныеЗатратыНаВыпускГруппаРазрез9" id="246">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускГруппаРазрез9РасширеннаяПодсказка" id="472"/>
+									<ChildItems>
+										<InputField name="ДополнительныеЗатратыНаВыпускРазрез9" id="188">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.Разрез9</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускРазрез9КонтекстноеМеню" id="189"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускРазрез9РасширеннаяПодсказка" id="473"/>
+											<Events>
+												<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРазрезНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ДополнительныеЗатратыНаВыпускЗначениеРазрез9" id="222">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ЗначениеРазрез9</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускЗначениеРазрез9КонтекстноеМеню" id="223"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускЗначениеРазрез9РасширеннаяПодсказка" id="474"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ДополнительныеЗатратыНаВыпускГруппаРазрез10" id="247">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительные затраты на выпуск группа разрез1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускГруппаРазрез10РасширеннаяПодсказка" id="475"/>
+									<ChildItems>
+										<InputField name="ДополнительныеЗатратыНаВыпускРазрез10" id="190">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.Разрез10</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускРазрез10КонтекстноеМеню" id="191"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускРазрез10РасширеннаяПодсказка" id="476"/>
+											<Events>
+												<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРазрезНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ДополнительныеЗатратыНаВыпускЗначениеРазрез10" id="224">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ЗначениеРазрез10</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускЗначениеРазрез10КонтекстноеМеню" id="225"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускЗначениеРазрез10РасширеннаяПодсказка" id="477"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ДополнительныеЗатратыНаВыпускГруппа1" id="248">
+									<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускГруппа1РасширеннаяПодсказка" id="478"/>
+									<ChildItems>
+										<InputField name="ДополнительныеЗатратыНаВыпускШаблонПроводок" id="192">
+											<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ШаблонПроводок</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДополнительныеЗатратыНаВыпускШаблонПроводокКонтекстноеМеню" id="193"/>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускШаблонПроводокРасширеннаяПодсказка" id="479"/>
+										</InputField>
+										<ColumnGroup name="ДополнительныеЗатратыНаВыпускГруппа2" id="249">
+											<Group>Horizontal</Group>
+											<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускГруппа2РасширеннаяПодсказка" id="480"/>
+											<ChildItems>
+												<InputField name="ДополнительныеЗатратыНаВыпускИсточникАналитикиДт" id="194">
+													<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ИсточникАналитикиДт</DataPath>
+													<TitleTextColor>#004242</TitleTextColor>
+													<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+													<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ДополнительныеЗатратыНаВыпускИсточникАналитикиДтКонтекстноеМеню" id="195"/>
+													<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускИсточникАналитикиДтРасширеннаяПодсказка" id="481"/>
+													<Events>
+														<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРазрезНачалоВыбора</Event>
+													</Events>
+												</InputField>
+												<InputField name="ДополнительныеЗатратыНаВыпускИсточникАналитикиКт" id="196">
+													<DataPath>Объект.ДополнительныеЗатратыНаВыпуск.ИсточникАналитикиКт</DataPath>
+													<TitleTextColor>#004242</TitleTextColor>
+													<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+													<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ДополнительныеЗатратыНаВыпускИсточникАналитикиКтКонтекстноеМеню" id="197"/>
+													<ExtendedTooltip name="ДополнительныеЗатратыНаВыпускИсточникАналитикиКтРасширеннаяПодсказка" id="482"/>
+													<Events>
+														<Event name="StartChoice">ДополнительныеЗатратыНаВыпускРазрезНачалоВыбора</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<InputField name="Комментарий" id="15">
+			<DataPath>Объект.Комментарий</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="16"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="483"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.фин_ПроизводственныеМодели</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СписокОтбора" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список отбора</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьОграниченияОбластиДействияПоПрочимПолям" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ограничения области действия по прочим полям</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьОграниченияОбластиДействияПоНоменклатуре" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ограничения области действия по прочим полям</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьФормируемыеДанные" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ограничения области действия по прочим полям</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокВыбораРазрезыУчета" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список выбора разрезы учета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьДополнительныеРасчеты" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ограничения области действия по прочим полям</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокВсеРазрезы" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список все разрезы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьРазрезыРассчитываемыеПоОбщимПравилам" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрезы, рассчитываемые по общим правилам автоматического расчета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

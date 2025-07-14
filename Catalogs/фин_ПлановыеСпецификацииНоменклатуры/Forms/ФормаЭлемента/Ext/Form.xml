@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗаполнитьПоБухгалтерскойСпецификации" id="23">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ЗаполнитьПоБухгалтерскойСпецификации</CommandName>
+				<ExtendedTooltip name="ФормаЗаполнитьПоБухгалтерскойСпецификацииРасширеннаяПодсказка" id="26"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="3">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="27"/>
+		</InputField>
+		<UsualGroup name="Группа2" id="21">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="28"/>
+			<ChildItems>
+				<UsualGroup name="Группа3" id="22">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="29"/>
+					<ChildItems>
+						<InputField name="Владелец" id="5">
+							<DataPath>Объект.Owner</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ВладелецКонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="ВладелецРасширеннаяПодсказка" id="30"/>
+						</InputField>
+						<InputField name="Родитель" id="7">
+							<DataPath>Объект.Parent</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РодительКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="31"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа1" id="20">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="32"/>
+					<ChildItems>
+						<InputField name="Количество" id="9">
+							<DataPath>Объект.Количество</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<SpinButton>true</SpinButton>
+							<ContextMenu name="КоличествоКонтекстноеМеню" id="10"/>
+							<ExtendedTooltip name="КоличествоРасширеннаяПодсказка" id="33"/>
+						</InputField>
+						<InputField name="Код" id="1">
+							<DataPath>Объект.Code</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="КодРасширеннаяПодсказка" id="34"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ИсходныеКомплектующие" id="11">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.ИсходныеКомплектующие</DataPath>
+			<TextColor>web:MidnightBlue</TextColor>
+			<BorderColor>web:LightSteelBlue</BorderColor>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ИсходныеКомплектующиеКонтекстноеМеню" id="12"/>
+			<AutoCommandBar name="ИсходныеКомплектующиеКоманднаяПанель" id="13">
+				<ChildItems>
+					<Button name="ИсходныеКомплектующиеПодборТоварыПлановая" id="24">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПодборТоварыПлановая</CommandName>
+						<ExtendedTooltip name="ИсходныеКомплектующиеПодборТоварыПлановаяРасширеннаяПодсказка" id="35"/>
+					</Button>
+					<Button name="ИсходныеКомплектующиеПодборТовары" id="25">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПодборТовары</CommandName>
+						<ExtendedTooltip name="ИсходныеКомплектующиеПодборТоварыРасширеннаяПодсказка" id="36"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ИсходныеКомплектующиеРасширеннаяПодсказка" id="37"/>
+			<SearchStringAddition name="ИсходныеКомплектующиеСтрокаПоиска" id="38">
+				<AdditionSource>
+					<Item>ИсходныеКомплектующие</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ИсходныеКомплектующиеСтрокаПоискаКонтекстноеМеню" id="39"/>
+				<ExtendedTooltip name="ИсходныеКомплектующиеСтрокаПоискаРасширеннаяПодсказка" id="40"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ИсходныеКомплектующиеСостояниеПросмотра" id="41">
+				<AdditionSource>
+					<Item>ИсходныеКомплектующие</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ИсходныеКомплектующиеСостояниеПросмотраКонтекстноеМеню" id="42"/>
+				<ExtendedTooltip name="ИсходныеКомплектующиеСостояниеПросмотраРасширеннаяПодсказка" id="43"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ИсходныеКомплектующиеУправлениеПоиском" id="44">
+				<AdditionSource>
+					<Item>ИсходныеКомплектующие</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ИсходныеКомплектующиеУправлениеПоискомКонтекстноеМеню" id="45"/>
+				<ExtendedTooltip name="ИсходныеКомплектующиеУправлениеПоискомРасширеннаяПодсказка" id="46"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="ChoiceProcessing">ИсходныеКомплектующиеОбработкаВыбора</Event>
+				<Event name="OnStartEdit">ИсходныеКомплектующиеПриНачалеРедактирования</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ИсходныеКомплектующиеНомерСтроки" id="14">
+					<DataPath>Объект.ИсходныеКомплектующие.LineNumber</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ИсходныеКомплектующиеНомерСтрокиКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ИсходныеКомплектующиеНомерСтрокиРасширеннаяПодсказка" id="47"/>
+				</LabelField>
+				<InputField name="ИсходныеКомплектующиеНоменклатура" id="16">
+					<DataPath>Объект.ИсходныеКомплектующие.Номенклатура</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ИсходныеКомплектующиеНоменклатураКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ИсходныеКомплектующиеНоменклатураРасширеннаяПодсказка" id="48"/>
+				</InputField>
+				<InputField name="ИсходныеКомплектующиеКоличество" id="18">
+					<DataPath>Объект.ИсходныеКомплектующие.Количество</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ИсходныеКомплектующиеКоличествоКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="ИсходныеКомплектующиеКоличествоРасширеннаяПодсказка" id="49"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.фин_ПлановыеСпецификацииНоменклатуры</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьПоБухгалтерскойСпецификации" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по бухгалтерской спецификации</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по бухгалтерской спецификации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьПоБухгалтерскойСпецификации</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.фин_ИспользуютсяСвойстваИКатегории</Item>
+			</FunctionalOptions>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПодборТоварыПлановая" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор (плановая номенклатура)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор (плановая номенклатура)</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.общ_ПодборТоваров</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ПодборТоварыПлановая</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПодборТовары" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор (регл. номенклатура)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор (регламентированная номенклатура)</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.общ_ПодборТоваров</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ПодборТовары</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

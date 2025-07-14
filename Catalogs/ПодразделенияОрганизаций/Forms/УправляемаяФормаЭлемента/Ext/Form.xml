@@ -1,0 +1,1137 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Родитель" id="7">
+			<DataPath>Объект.Parent</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа</v8:content>
+				</v8:item>
+			</Title>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="РодительКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="123"/>
+			<Events>
+				<Event name="StartChoice">РодительНачалоВыбора</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="Группа1" id="29">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="124"/>
+			<ChildItems>
+				<InputField name="Наименование" id="3">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="125"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="126"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<CheckBoxField name="ЯвляетсяСтруктурнымПодразделением" id="27">
+			<DataPath>Объект.ЯвляетсяСтруктурнымПодразделением</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ЯвляетсяСтруктурнымПодразделениемКонтекстноеМеню" id="28"/>
+			<ExtendedTooltip name="ЯвляетсяСтруктурнымПодразделениемРасширеннаяПодсказка" id="127"/>
+			<Events>
+				<Event name="OnChange">ЯвляетсяСтруктурнымПодразделениемПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
+		<Pages name="ОсновнаяПанель" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основная панель</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основная панель</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ОсновнаяПанельРасширеннаяПодсказка" id="128"/>
+			<ChildItems>
+				<Page name="Основные" id="31">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основные</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основные</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ОсновныеРасширеннаяПодсказка" id="129"/>
+					<ChildItems>
+						<CheckBoxField name="УказыватьРеквизитыГоловнойОрганизации" id="25">
+							<DataPath>Объект.УказыватьРеквизитыГоловнойОрганизации</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="УказыватьРеквизитыГоловнойОрганизацииКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="УказыватьРеквизитыГоловнойОрганизацииРасширеннаяПодсказка" id="130"/>
+							<Events>
+								<Event name="OnChange">УказыватьРеквизитыГоловнойОрганизацииПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="оф_РеквизитыПодразделенияЗаголовок" id="99">
+							<DataPath>оф_РеквизитыПодразделенияЗаголовок</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<Width>24</Width>
+							<HorizontalStretch>true</HorizontalStretch>
+							<TextEdit>false</TextEdit>
+							<TextColor>#004242</TextColor>
+							<BackColor>#B0C4DE</BackColor>
+							<BorderColor>#4682B4</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="оф_РеквизитыПодразделенияЗаголовокКонтекстноеМеню" id="100"/>
+							<ExtendedTooltip name="оф_РеквизитыПодразделенияЗаголовокРасширеннаяПодсказка" id="131"/>
+						</InputField>
+						<InputField name="НаименованиеПолное" id="13">
+							<DataPath>Объект.НаименованиеПолное</DataPath>
+							<TitleLocation>Left</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<Height>2</Height>
+							<MultiLine>true</MultiLine>
+							<ContextMenu name="НаименованиеПолноеКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="НаименованиеПолноеРасширеннаяПодсказка" id="132"/>
+						</InputField>
+						<InputField name="РНН" id="23">
+							<DataPath>Объект.РНН</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="РННКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="РННРасширеннаяПодсказка" id="133"/>
+						</InputField>
+						<UsualGroup name="Группа3" id="108">
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="134"/>
+							<ChildItems>
+								<InputField name="ИдентификационныйНомер" id="9">
+									<DataPath>Объект.ИдентификационныйНомер</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ИдентификационныйНомерКонтекстноеМеню" id="10"/>
+									<ExtendedTooltip name="ИдентификационныйНомерРасширеннаяПодсказка" id="135"/>
+								</InputField>
+								<Button name="ПроверитьБИНИИН" id="109">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.ПроверитьБИНИИН</CommandName>
+									<ExtendedTooltip name="ПроверитьБИНИИНРасширеннаяПодсказка" id="136"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="оф_НалоговыйКомитетЗаголовок" id="101">
+							<DataPath>оф_РеквизитыПодразделенияЗаголовок</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<Width>24</Width>
+							<HorizontalStretch>true</HorizontalStretch>
+							<TextEdit>false</TextEdit>
+							<TextColor>#004242</TextColor>
+							<BackColor>#B0C4DE</BackColor>
+							<BorderColor>#4682B4</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="оф_НалоговыйКомитетЗаголовокКонтекстноеМеню" id="102"/>
+							<ExtendedTooltip name="оф_НалоговыйКомитетЗаголовокРасширеннаяПодсказка" id="137"/>
+						</InputField>
+						<InputField name="НалоговыйКомитет" id="15">
+							<DataPath>Объект.НалоговыйКомитет</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="НалоговыйКомитетКонтекстноеМеню" id="16"/>
+							<ExtendedTooltip name="НалоговыйКомитетРасширеннаяПодсказка" id="138"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="КонтактнаяИнформация1" id="32">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контактная информация</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контактная информация1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="КонтактнаяИнформация1РасширеннаяПодсказка" id="139"/>
+					<ChildItems>
+						<Table name="КонтактнаяИнформация" id="34">
+							<Height>8</Height>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>НаборКонтактнойИнформации</DataPath>
+							<TextColor>#191970</TextColor>
+							<BorderColor>#B0C4DE</BorderColor>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="КонтактнаяИнформацияКонтекстноеМеню" id="35"/>
+							<AutoCommandBar name="КонтактнаяИнформацияКоманднаяПанель" id="36">
+								<ChildItems>
+									<Button name="РедактироватьКИВДиалоге" id="110">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.РедактироватьКИВДиалоге</CommandName>
+										<Picture>
+											<xr:Ref>StdPicture.EditInDialog</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<ExtendedTooltip name="РедактироватьКИВДиалогеРасширеннаяПодсказка" id="140"/>
+									</Button>
+									<Button name="НаборКонтактнойИнформацииКИОсновная" id="67">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КИОсновная</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Основная</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="НаборКонтактнойИнформацииКИОсновнаяРасширеннаяПодсказка" id="141"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="КонтактнаяИнформацияРасширеннаяПодсказка" id="142"/>
+							<SearchStringAddition name="КонтактнаяИнформацияСтрокаПоиска" id="143">
+								<AdditionSource>
+									<Item>КонтактнаяИнформация</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="КонтактнаяИнформацияСтрокаПоискаКонтекстноеМеню" id="144"/>
+								<ExtendedTooltip name="КонтактнаяИнформацияСтрокаПоискаРасширеннаяПодсказка" id="145"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="КонтактнаяИнформацияСостояниеПросмотра" id="146">
+								<AdditionSource>
+									<Item>КонтактнаяИнформация</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="КонтактнаяИнформацияСостояниеПросмотраКонтекстноеМеню" id="147"/>
+								<ExtendedTooltip name="КонтактнаяИнформацияСостояниеПросмотраРасширеннаяПодсказка" id="148"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="КонтактнаяИнформацияУправлениеПоиском" id="149">
+								<AdditionSource>
+									<Item>КонтактнаяИнформация</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="КонтактнаяИнформацияУправлениеПоискомКонтекстноеМеню" id="150"/>
+								<ExtendedTooltip name="КонтактнаяИнформацияУправлениеПоискомРасширеннаяПодсказка" id="151"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">НаборКонтактнойИнформацииПередНачаломДобавления</Event>
+								<Event name="OnActivateRow">НаборКонтактнойИнформацииПриАктивизацииСтроки</Event>
+								<Event name="ChoiceProcessing">НаборКонтактнойИнформацииОбработкаВыбора</Event>
+								<Event name="BeforeRowChange">НаборКонтактнойИнформацииПередНачаломИзменения</Event>
+								<Event name="OnStartEdit">НаборКонтактнойИнформацииПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="НаборКонтактнойИнформацииТип" id="39">
+									<DataPath>НаборКонтактнойИнформации.Тип</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НаборКонтактнойИнформацииТипКонтекстноеМеню" id="40"/>
+									<ExtendedTooltip name="НаборКонтактнойИнформацииТипРасширеннаяПодсказка" id="152"/>
+								</InputField>
+								<InputField name="НаборКонтактнойИнформацииВид" id="41">
+									<DataPath>НаборКонтактнойИнформации.Вид</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НаборКонтактнойИнформацииВидКонтекстноеМеню" id="42"/>
+									<ExtendedTooltip name="НаборКонтактнойИнформацииВидРасширеннаяПодсказка" id="153"/>
+								</InputField>
+								<InputField name="НаборКонтактнойИнформацииПредставление" id="43">
+									<DataPath>НаборКонтактнойИнформации.Представление</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НаборКонтактнойИнформацииПредставлениеКонтекстноеМеню" id="44"/>
+									<ExtendedTooltip name="НаборКонтактнойИнформацииПредставлениеРасширеннаяПодсказка" id="154"/>
+								</InputField>
+								<InputField name="НаборКонтактнойИнформацииКомментарий" id="65">
+									<DataPath>НаборКонтактнойИнформации.Комментарий</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НаборКонтактнойИнформацииКомментарийКонтекстноеМеню" id="66"/>
+									<ExtendedTooltip name="НаборКонтактнойИнформацииКомментарийРасширеннаяПодсказка" id="155"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Счета" id="68">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Счета</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Счета</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СчетаРасширеннаяПодсказка" id="156"/>
+					<ChildItems>
+						<Table name="БанковскиеСчета" id="69">
+							<Height>8</Height>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>БанковскиеСчета</DataPath>
+							<RowPictureDataPath>БанковскиеСчета.DefaultPicture</RowPictureDataPath>
+							<TextColor>#191970</TextColor>
+							<BorderColor>#B0C4DE</BorderColor>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="БанковскиеСчетаКонтекстноеМеню" id="70"/>
+							<AutoCommandBar name="БанковскиеСчетаКоманднаяПанель" id="71">
+								<ChildItems>
+									<Button name="БанковскиеСчетаБСУстановитьОсновным" id="80">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.БСУстановитьОсновным</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Установить основным</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="БанковскиеСчетаБСУстановитьОсновнымРасширеннаяПодсказка" id="157"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="БанковскиеСчетаРасширеннаяПодсказка" id="158"/>
+							<SearchStringAddition name="БанковскиеСчетаСтрокаПоиска" id="159">
+								<AdditionSource>
+									<Item>БанковскиеСчета</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="БанковскиеСчетаСтрокаПоискаКонтекстноеМеню" id="160"/>
+								<ExtendedTooltip name="БанковскиеСчетаСтрокаПоискаРасширеннаяПодсказка" id="161"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="БанковскиеСчетаСостояниеПросмотра" id="162">
+								<AdditionSource>
+									<Item>БанковскиеСчета</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="БанковскиеСчетаСостояниеПросмотраКонтекстноеМеню" id="163"/>
+								<ExtendedTooltip name="БанковскиеСчетаСостояниеПросмотраРасширеннаяПодсказка" id="164"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="БанковскиеСчетаУправлениеПоиском" id="165">
+								<AdditionSource>
+									<Item>БанковскиеСчета</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="БанковскиеСчетаУправлениеПоискомКонтекстноеМеню" id="166"/>
+								<ExtendedTooltip name="БанковскиеСчетаУправлениеПоискомРасширеннаяПодсказка" id="167"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">БанковскиеСчетаПередНачаломДобавления</Event>
+								<Event name="OnActivateRow">БанковскиеСчетаПриАктивизацииСтроки</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="БанковскиеСчетаКод" id="72">
+									<DataPath>БанковскиеСчета.Code</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<ContextMenu name="БанковскиеСчетаКодКонтекстноеМеню" id="73"/>
+									<ExtendedTooltip name="БанковскиеСчетаКодРасширеннаяПодсказка" id="168"/>
+								</LabelField>
+								<LabelField name="БанковскиеСчетаНаименование" id="78">
+									<DataPath>БанковскиеСчета.Description</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<ContextMenu name="БанковскиеСчетаНаименованиеКонтекстноеМеню" id="79"/>
+									<ExtendedTooltip name="БанковскиеСчетаНаименованиеРасширеннаяПодсказка" id="169"/>
+								</LabelField>
+								<LabelField name="БанковскиеСчетаСсылка" id="111">
+									<DataPath>БанковскиеСчета.Ref</DataPath>
+									<Visible>false</Visible>
+									<ContextMenu name="БанковскиеСчетаСсылкаКонтекстноеМеню" id="112"/>
+									<ExtendedTooltip name="БанковскиеСчетаСсылкаРасширеннаяПодсказка" id="170"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Кассы1" id="81">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Кассы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Кассы1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="Кассы1РасширеннаяПодсказка" id="171"/>
+					<ChildItems>
+						<Table name="Кассы" id="82">
+							<Height>8</Height>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Кассы</DataPath>
+							<RowPictureDataPath>Кассы.DefaultPicture</RowPictureDataPath>
+							<TextColor>#191970</TextColor>
+							<BorderColor>#B0C4DE</BorderColor>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="КассыКонтекстноеМеню" id="83"/>
+							<AutoCommandBar name="КассыКоманднаяПанель" id="84">
+								<ChildItems>
+									<Button name="КассыКУстановитьОсновным" id="93">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.КУстановитьОсновным</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Установить основным</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="КассыКУстановитьОсновнымРасширеннаяПодсказка" id="172"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="КассыРасширеннаяПодсказка" id="173"/>
+							<SearchStringAddition name="КассыСтрокаПоиска" id="174">
+								<AdditionSource>
+									<Item>Кассы</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="КассыСтрокаПоискаКонтекстноеМеню" id="175"/>
+								<ExtendedTooltip name="КассыСтрокаПоискаРасширеннаяПодсказка" id="176"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="КассыСостояниеПросмотра" id="177">
+								<AdditionSource>
+									<Item>Кассы</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="КассыСостояниеПросмотраКонтекстноеМеню" id="178"/>
+								<ExtendedTooltip name="КассыСостояниеПросмотраРасширеннаяПодсказка" id="179"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="КассыУправлениеПоиском" id="180">
+								<AdditionSource>
+									<Item>Кассы</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="КассыУправлениеПоискомКонтекстноеМеню" id="181"/>
+								<ExtendedTooltip name="КассыУправлениеПоискомРасширеннаяПодсказка" id="182"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">КассыПередНачаломДобавления</Event>
+								<Event name="OnActivateRow">КассыПриАктивизацииСтроки</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="КассыКод" id="85">
+									<DataPath>Кассы.Code</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<ContextMenu name="КассыКодКонтекстноеМеню" id="86"/>
+									<ExtendedTooltip name="КассыКодРасширеннаяПодсказка" id="183"/>
+								</LabelField>
+								<LabelField name="КассыНаименование" id="91">
+									<DataPath>Кассы.Description</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<ContextMenu name="КассыНаименованиеКонтекстноеМеню" id="92"/>
+									<ExtendedTooltip name="КассыНаименованиеРасширеннаяПодсказка" id="184"/>
+								</LabelField>
+								<LabelField name="КассыСсылка" id="121">
+									<DataPath>Кассы.Ref</DataPath>
+									<Visible>false</Visible>
+									<ContextMenu name="КассыСсылкаКонтекстноеМеню" id="122"/>
+									<ExtendedTooltip name="КассыСсылкаРасширеннаяПодсказка" id="185"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Коды" id="33">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Коды</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Коды</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="КодыРасширеннаяПодсказка" id="186"/>
+					<ChildItems>
+						<InputField name="оф_КодПоОКПОЗаголовок" id="113">
+							<DataPath>оф_КодПоОКПОЗаголовок</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<Width>24</Width>
+							<HorizontalStretch>true</HorizontalStretch>
+							<TextEdit>false</TextEdit>
+							<TextColor>#004242</TextColor>
+							<BackColor>#B0C4DE</BackColor>
+							<BorderColor>#4682B4</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="оф_КодПоОКПОЗаголовокКонтекстноеМеню" id="114"/>
+							<ExtendedTooltip name="оф_КодПоОКПОЗаголовокРасширеннаяПодсказка" id="187"/>
+						</InputField>
+						<InputField name="КодПоОКПО" id="11">
+							<DataPath>Объект.КодПоОКПО</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="КодПоОКПОКонтекстноеМеню" id="12"/>
+							<ExtendedTooltip name="КодПоОКПОРасширеннаяПодсказка" id="188"/>
+						</InputField>
+						<InputField name="оф_ОсновнойВидДеятельностиПоОКЭДЗаголовок" id="115">
+							<DataPath>оф_ОсновнойВидДеятельностиПоОКЭДЗаголовок</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<Width>24</Width>
+							<HorizontalStretch>true</HorizontalStretch>
+							<TextEdit>false</TextEdit>
+							<TextColor>#004242</TextColor>
+							<BackColor>#B0C4DE</BackColor>
+							<BorderColor>#4682B4</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="оф_ОсновнойВидДеятельностиПоОКЭДЗаголовокКонтекстноеМеню" id="116"/>
+							<ExtendedTooltip name="оф_ОсновнойВидДеятельностиПоОКЭДЗаголовокРасширеннаяПодсказка" id="189"/>
+						</InputField>
+						<InputField name="ОсновнойВидДеятельности" id="21">
+							<DataPath>Объект.ОсновнойВидДеятельности</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОсновнойВидДеятельностиКонтекстноеМеню" id="22"/>
+							<ExtendedTooltip name="ОсновнойВидДеятельностиРасширеннаяПодсказка" id="190"/>
+							<Events>
+								<Event name="OnChange">ОсновнойВидДеятельностиПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelField name="ПредставлениеОКЭД" id="117">
+							<DataPath>ПредставлениеОКЭД</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Код ОКЭД</v8:content>
+								</v8:item>
+							</Title>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<ContextMenu name="ПредставлениеОКЭДКонтекстноеМеню" id="118"/>
+							<ExtendedTooltip name="ПредставлениеОКЭДРасширеннаяПодсказка" id="191"/>
+						</LabelField>
+						<LabelField name="ПредставлениеВидаДеятельности" id="119">
+							<DataPath>ПредставлениеВидаДеятельности</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Наименование</v8:content>
+								</v8:item>
+							</Title>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<ContextMenu name="ПредставлениеВидаДеятельностиКонтекстноеМеню" id="120"/>
+							<ExtendedTooltip name="ПредставлениеВидаДеятельностиРасширеннаяПодсказка" id="192"/>
+						</LabelField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<UsualGroup name="ОтражениеЗарплатыВУчете" id="94">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отражение зарплаты в учете</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отражение зарплаты в учете</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ОтражениеЗарплатыВУчетеРасширеннаяПодсказка" id="193"/>
+			<ChildItems>
+				<InputField name="оф_ОтражениеЗарплатыВУчетеЗаголовок" id="103">
+					<DataPath>оф_РеквизитыПодразделенияЗаголовок</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HorizontalAlign>Center</HorizontalAlign>
+					<Width>24</Width>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextEdit>false</TextEdit>
+					<TextColor>#004242</TextColor>
+					<BackColor>#B0C4DE</BackColor>
+					<BorderColor>#4682B4</BorderColor>
+					<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<ContextMenu name="оф_ОтражениеЗарплатыВУчетеЗаголовокКонтекстноеМеню" id="104"/>
+					<ExtendedTooltip name="оф_ОтражениеЗарплатыВУчетеЗаголовокРасширеннаяПодсказка" id="194"/>
+				</InputField>
+				<UsualGroup name="Группа2" id="105">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="195"/>
+					<ChildItems>
+						<InputField name="ДатаДействияОтраженияВУчете" id="95">
+							<DataPath>ДатаДействияОтраженияВУчете</DataPath>
+							<ContextMenu name="ДатаДействияОтраженияВУчетеКонтекстноеМеню" id="96"/>
+							<ExtendedTooltip name="ДатаДействияОтраженияВУчетеРасширеннаяПодсказка" id="196"/>
+							<Events>
+								<Event name="OnChange">ДатаДействияОтраженияВУчетеПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="ИсторияОтраженияВУчете" id="106">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Показать историю</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<ContextMenu name="ИсторияОтраженияВУчетеКонтекстноеМеню" id="107"/>
+							<ExtendedTooltip name="ИсторияОтраженияВУчетеРасширеннаяПодсказка" id="197"/>
+							<Events>
+								<Event name="Click">ИсторияОтраженияВУчетеНажатие</Event>
+							</Events>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="СпособОтраженияВБухучете" id="97">
+					<DataPath>СпособОтраженияВБухучете</DataPath>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="СпособОтраженияВБухучетеКонтекстноеМеню" id="98"/>
+					<ExtendedTooltip name="СпособОтраженияВБухучетеРасширеннаяПодсказка" id="198"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ПодразделенияОрганизаций</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="БанковскиеСчета" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Банковские счета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СправочникБанковскиеСчета.Ссылка,
+	СправочникБанковскиеСчета.ВерсияДанных,
+	СправочникБанковскиеСчета.ПометкаУдаления,
+	СправочникБанковскиеСчета.Предопределенный,
+	СправочникБанковскиеСчета.Владелец,
+	СправочникБанковскиеСчета.Код,
+	СправочникБанковскиеСчета.Наименование,
+	СправочникБанковскиеСчета.Банк,
+	СправочникБанковскиеСчета.БанкДляРасчетов,
+	СправочникБанковскиеСчета.ВалютаДенежныхСредств,
+	СправочникБанковскиеСчета.ВидСчета,
+	СправочникБанковскиеСчета.ДатаЗакрытия,
+	СправочникБанковскиеСчета.ДатаОткрытия,
+	СправочникБанковскиеСчета.МесяцПрописью,
+	СправочникБанковскиеСчета.НомерСчета,
+	СправочникБанковскиеСчета.Префикс,
+	СправочникБанковскиеСчета.СуммаБезДробнойЧасти,
+	СправочникБанковскиеСчета.ТекстКорреспондента,
+	СправочникБанковскиеСчета.ТекстНазначения,
+	СправочникБанковскиеСчета.ДоговорКонтрагента,
+	СправочникБанковскиеСчета.СтатьяДвиженияДенежныхСредств,
+	СправочникБанковскиеСчета.ПроцентКомиссии,
+	СправочникБанковскиеСчета.УчитыватьНДС,
+	СправочникБанковскиеСчета.СтавкаНДС,
+	СправочникБанковскиеСчета.СчетЗатратБУ,
+	СправочникБанковскиеСчета.СчетЗатратНУ,
+	СправочникБанковскиеСчета.СубконтоЗатратБУ1,
+	СправочникБанковскиеСчета.СубконтоЗатратБУ2,
+	СправочникБанковскиеСчета.СубконтоЗатратБУ3,
+	СправочникБанковскиеСчета.СубконтоЗатратНУ1,
+	СправочникБанковскиеСчета.СубконтоЗатратНУ2,
+	СправочникБанковскиеСчета.СубконтоЗатратНУ3,
+	СправочникБанковскиеСчета.НДСВидПоступления,
+	СправочникБанковскиеСчета.НДСВидОборота,
+	СправочникБанковскиеСчета.СчетУчетаНДС
+	,
+	&amp;ОсновнойСчет КАК Основной	
+	//ВЫБОР КОГДА СправочникБанковскиеСчета.Ссылка=&amp;ОсновнойСчет ТОГДА ИСТИНА ИНАЧЕ ЛОЖЬ КОНЕЦ КАК Основной
+ИЗ
+	Справочник.БанковскиеСчета КАК СправочникБанковскиеСчета
+ГДЕ
+	СправочникБанковскиеСчета.Владелец.Ссылка = &amp;Владелец</QueryText>
+				<MainTable>Catalog.БанковскиеСчета</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Код</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Наименование</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Основной</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:Field">Ссылка</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Шрифт</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ДатаДействияОтраженияВУчете" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата действия отражения в учете</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Кассы" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кассы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СправочникКассы.Ссылка,
+	СправочникКассы.ВерсияДанных,
+	СправочникКассы.ПометкаУдаления,
+	СправочникКассы.Предопределенный,
+	СправочникКассы.Владелец,
+	СправочникКассы.Код,
+	СправочникКассы.Наименование,
+	СправочникКассы.ВалютаДенежныхСредств,
+	СправочникКассы.Префикс,
+	&amp;Основной КАК Основной
+ИЗ
+	Справочник.Кассы КАК СправочникКассы
+ГДЕ
+	СправочникКассы.Владелец = &amp;Владелец</QueryText>
+				<MainTable>Catalog.Кассы</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Код</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Наименование</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Основной</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:Field">Ссылка</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Шрифт</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="НаборКонтактнойИнформации" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Набор контактной информации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordSet.КонтактнаяИнформация</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПредставлениеВидаДеятельности" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление вида деятельности</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ПредставлениеОКЭД" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление ОКЭД</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="СпособОтраженияВБухучете" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способ отражения в бухучете</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СпособыОтраженияЗарплатыВРеглУчете</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="оф_РеквизитыПодразделенияЗаголовок" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оф реквизиты подразделения заголовок</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="оф_ОсновнойВидДеятельностиПоОКЭДЗаголовок" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оф основной вид деятельности по ОКЭДЗаголовок</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="оф_КодПоОКПОЗаголовок" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оф код по ОКПОЗаголовок</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РедактироватьКИВДиалоге" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать КИВДиалоге</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>НаборКонтактнойИнформацииТип</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>НаборКонтактнойИнформацииВид</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>НаборКонтактнойИнформацииПредставление</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">НаборКонтактнойИнформации.ЗначениеПоУмолчанию</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>НаборКонтактнойИнформацииТип</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>НаборКонтактнойИнформацииВид</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>НаборКонтактнойИнформацииПредставление</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">НаборКонтактнойИнформации.Представление</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#999999</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="КИОсновная" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>КИОсновная</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>КИОсновная</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КИОсновная</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="БСУстановитьОсновным" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>БСУстановить основным</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>БСУстановить основным</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>БСУстановитьОсновным</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КУстановитьОсновным" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>К установить основным</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>К установить основным</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КУстановитьОсновным</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПроверитьБИНИИН" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить БИН/ИИН</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить БИНИИН</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПроверитьБИНИИН</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РедактироватьКИВДиалоге" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать КИВДиалоге</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактировать КИВДиалоге</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РедактироватьКИВДиалоге</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>3:c4cdf1e0-3ba4-44ed-a69b-e548eedca4dd</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:58c9e918-9e14-4dbf-825e-bd811a766b89</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>4:e3c0ddad-cab7-4082-8723-0e9ab0623268</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+			<Item>
+				<Command>3:f1cf1ad2-ac9c-40f6-9e88-1c9a26dd0079</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

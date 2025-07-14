@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="4">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<UsualGroup name="ГруппаРодительКод" id="47">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа родитель код</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа родитель код</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРодительКодРасширеннаяПодсказка" id="48"/>
+			<ChildItems>
+				<InputField name="Родитель" id="7">
+					<DataPath>Объект.Parent</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РодительКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="9"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ПериодСмещения" id="10">
+			<DataPath>Объект.ПериодСмещения</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>определяет шаг, на который должны смещаться бюджетные показатели при расчете от исходного периода. Как правило, должен соответствовать периодичности сценария планирования, в рамках которого будет применяться плановый расчет. К примеру, если бюджет ведется помесячно, то и периодом смещения будет месяц</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПериодСмещенияКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ПериодСмещенияРасширеннаяПодсказка" id="12">
+				<Height>5</Height>
+			</ExtendedTooltip>
+		</InputField>
+		<InputField name="ВидПрофиля" id="13">
+			<DataPath>Объект.ВидПрофиля</DataPath>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>определяет способ сдвига периода:
+линейный - результирующий период всегда будет отсчитываться от исходного, например, предшествующий, следующий и т.д.; 
+циклический - результирующий период после его расчета будет приводиться к концу определенной периодичности, например, если налоги исчисляются помесячно, а оплату необходимо производить в конце календарного квартала, тогда при периоде смещения в месяц и виде профиля "Циклический" нужно определить период цикла длиною в квартал</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>Button</ToolTipRepresentation>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ВидПрофиляКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ВидПрофиляРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<InputField name="ПериодЦикла" id="16">
+			<DataPath>Объект.ПериодЦикла</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПериодЦиклаКонтекстноеМеню" id="17"/>
+			<ExtendedTooltip name="ПериодЦиклаРасширеннаяПодсказка" id="18"/>
+		</InputField>
+		<UsualGroup name="ГруппаПрофильИзменения" id="49">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Профиль изменения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа профиль изменения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ГруппаПрофильИзмененияРасширеннаяПодсказка" id="50"/>
+			<ChildItems>
+				<Table name="ПрофильИзменения" id="19">
+					<Representation>List</Representation>
+					<HeightInTableRows>4</HeightInTableRows>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Объект.ПрофильИзменения</DataPath>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>количество строк в профиле определяет количество периодов, на которые будет распределено расчетное значение. Колонка "Номер периода" определяет количество периодов, отсчитываемых от исходного, например "-1" - предыдущий период, "0" - соответствует исходному, "1" - следующий период и т.д. Колонка "Коэффициент" определяет пропорцию распределения расчетного значения на периоды</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ПрофильИзмененияКонтекстноеМеню" id="20"/>
+					<AutoCommandBar name="ПрофильИзмененияКоманднаяПанель" id="21">
+						<ChildItems>
+							<Button name="ПрофильИзмененияАвтозаполнение" id="51">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.Автозаполнение</CommandName>
+								<ExtendedTooltip name="ПрофильИзмененияАвтозаполнениеРасширеннаяПодсказка" id="52"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ПрофильИзмененияРасширеннаяПодсказка" id="22"/>
+					<SearchStringAddition name="ПрофильИзмененияСтрокаПоиска" id="23">
+						<AdditionSource>
+							<Item>ПрофильИзменения</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПрофильИзмененияСтрокаПоискаКонтекстноеМеню" id="26"/>
+						<ExtendedTooltip name="ПрофильИзмененияСтрокаПоискаРасширеннаяПодсказка" id="27"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ПрофильИзмененияСостояниеПросмотра" id="28">
+						<AdditionSource>
+							<Item>ПрофильИзменения</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПрофильИзмененияСостояниеПросмотраКонтекстноеМеню" id="31"/>
+						<ExtendedTooltip name="ПрофильИзмененияСостояниеПросмотраРасширеннаяПодсказка" id="32"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ПрофильИзмененияУправлениеПоиском" id="33">
+						<AdditionSource>
+							<Item>ПрофильИзменения</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ПрофильИзмененияУправлениеПоискомКонтекстноеМеню" id="36"/>
+						<ExtendedTooltip name="ПрофильИзмененияУправлениеПоискомРасширеннаяПодсказка" id="37"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="ChoiceProcessing">ПрофильИзмененияОбработкаВыбора</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="ПрофильИзмененияНомерСтроки" id="38">
+							<DataPath>Объект.ПрофильИзменения.LineNumber</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПрофильИзмененияНомерСтрокиКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="ПрофильИзмененияНомерСтрокиРасширеннаяПодсказка" id="40"/>
+						</LabelField>
+						<InputField name="ПрофильИзмененияНомерПериода" id="41">
+							<DataPath>Объект.ПрофильИзменения.НомерПериода</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ПрофильИзмененияНомерПериодаКонтекстноеМеню" id="42"/>
+							<ExtendedTooltip name="ПрофильИзмененияНомерПериодаРасширеннаяПодсказка" id="43"/>
+						</InputField>
+						<InputField name="ПрофильИзмененияКоэффициент" id="44">
+							<DataPath>Объект.ПрофильИзменения.Коэффициент</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>20</Width>
+							<ContextMenu name="ПрофильИзмененияКоэффициентКонтекстноеМеню" id="45"/>
+							<ExtendedTooltip name="ПрофильИзмененияКоэффициентРасширеннаяПодсказка" id="46"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.фин_ПрофилиИзмененияПлановПоПериодам</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Автозаполнение" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автозаполнение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автозаполнение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Автозаполнение</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

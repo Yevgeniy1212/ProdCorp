@@ -1,0 +1,1033 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНаименованиеКод" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование и код</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование код</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеКодРасширеннаяПодсказка" id="121"/>
+			<ChildItems>
+				<InputField name="Наименование" id="3">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="122"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="123"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Назначение" id="118">
+			<DataPath>Объект.Назначение</DataPath>
+			<OpenButton>true</OpenButton>
+			<ContextMenu name="НазначениеКонтекстноеМеню" id="119"/>
+			<ExtendedTooltip name="НазначениеРасширеннаяПодсказка" id="163"/>
+		</InputField>
+		<UsualGroup name="ГруппаГрафикПлатежей" id="164">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>График платежей</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа график платежей</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ГруппаГрафикПлатежейРасширеннаяПодсказка" id="165"/>
+			<ChildItems>
+				<Table name="ГрафикПлатежей" id="11">
+					<Representation>List</Representation>
+					<HeightInTableRows>4</HeightInTableRows>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Объект.ГрафикПлатежей</DataPath>
+					<TextColor>web:MidnightBlue</TextColor>
+					<BorderColor>#B0C4DE</BorderColor>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ГрафикПлатежейКонтекстноеМеню" id="12"/>
+					<AutoCommandBar name="ГрафикПлатежейКоманднаяПанель" id="13">
+						<ChildItems>
+							<Popup name="ГрафикПлатежейГруппа4" id="114">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Заполнить</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ГрафикПлатежейГруппа4РасширеннаяПодсказка" id="124"/>
+								<ChildItems>
+									<Button name="ГрафикПлатежейЗаполнить" id="29">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Заполнить</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Заполнить заново</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ГрафикПлатежейЗаполнитьРасширеннаяПодсказка" id="125"/>
+									</Button>
+									<Button name="ГрафикПлатежейДобавитьПлатежиВГрафик" id="115">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ДобавитьПлатежиВГрафик</CommandName>
+										<ExtendedTooltip name="ГрафикПлатежейДобавитьПлатежиВГрафикРасширеннаяПодсказка" id="126"/>
+									</Button>
+									<Button name="ГрафикПлатежейДобавитьИзДругогоГрафика" id="116">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ДобавитьИзДругогоГрафика</CommandName>
+										<ExtendedTooltip name="ГрафикПлатежейДобавитьИзДругогоГрафикаРасширеннаяПодсказка" id="127"/>
+									</Button>
+									<Button name="ГрафикПлатежейЗаполнитьЭтапыОплаты" id="120">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ЗаполнитьЭтапыОплаты</CommandName>
+										<ExtendedTooltip name="ГрафикПлатежейЗаполнитьЭтапыОплатыРасширеннаяПодсказка" id="128"/>
+									</Button>
+								</ChildItems>
+							</Popup>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ГрафикПлатежейРасширеннаяПодсказка" id="129"/>
+					<SearchStringAddition name="ГрафикПлатежейСтрокаПоиска" id="130">
+						<AdditionSource>
+							<Item>ГрафикПлатежей</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ГрафикПлатежейСтрокаПоискаКонтекстноеМеню" id="131"/>
+						<ExtendedTooltip name="ГрафикПлатежейСтрокаПоискаРасширеннаяПодсказка" id="132"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ГрафикПлатежейСостояниеПросмотра" id="133">
+						<AdditionSource>
+							<Item>ГрафикПлатежей</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ГрафикПлатежейСостояниеПросмотраКонтекстноеМеню" id="134"/>
+						<ExtendedTooltip name="ГрафикПлатежейСостояниеПросмотраРасширеннаяПодсказка" id="135"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ГрафикПлатежейУправлениеПоиском" id="136">
+						<AdditionSource>
+							<Item>ГрафикПлатежей</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ГрафикПлатежейУправлениеПоискомКонтекстноеМеню" id="137"/>
+						<ExtendedTooltip name="ГрафикПлатежейУправлениеПоискомРасширеннаяПодсказка" id="138"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="OnStartEdit">ГрафикПлатежейПриНачалеРедактирования</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="ГрафикПлатежейНомерСтроки" id="14">
+							<DataPath>Объект.ГрафикПлатежей.LineNumber</DataPath>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>#B0C4DE</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>2</Width>
+							<ContextMenu name="ГрафикПлатежейНомерСтрокиКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="ГрафикПлатежейНомерСтрокиРасширеннаяПодсказка" id="139"/>
+						</LabelField>
+						<ColumnGroup name="ДатаПлатежа" id="98">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата платежа</v8:content>
+								</v8:item>
+							</Title>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата платежа</v8:content>
+								</v8:item>
+							</ToolTip>
+							<TitleBackColor>#B0C4DE</TitleBackColor>
+							<ShowInHeader>true</ShowInHeader>
+							<ExtendedTooltip name="ДатаПлатежаРасширеннаяПодсказка" id="140"/>
+							<ChildItems>
+								<InputField name="ГрафикПлатежейПорядокРасчетаДатыПлатежа" id="84">
+									<DataPath>Объект.ГрафикПлатежей.ПорядокРасчетаДатыПлатежа</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Порядок расчета</v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>20</Width>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="ГрафикПлатежейПорядокРасчетаДатыПлатежаКонтекстноеМеню" id="85"/>
+									<ExtendedTooltip name="ГрафикПлатежейПорядокРасчетаДатыПлатежаРасширеннаяПодсказка" id="141"/>
+									<Events>
+										<Event name="OnChange">ГрафикПлатежейПорядокРасчетаДатыПлатежаПриИзменении</Event>
+									</Events>
+								</InputField>
+								<ColumnGroup name="ДатаСобытие" id="99">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата событие</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата событие</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ExtendedTooltip name="ДатаСобытиеРасширеннаяПодсказка" id="142"/>
+									<ChildItems>
+										<InputField name="ГрафикПлатежейДатаОплаты" id="16">
+											<DataPath>Объект.ГрафикПлатежей.ДатаОплаты</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Дата /Событие</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<ChooseType>false</ChooseType>
+											<ContextMenu name="ГрафикПлатежейДатаОплатыКонтекстноеМеню" id="17"/>
+											<ExtendedTooltip name="ГрафикПлатежейДатаОплатыРасширеннаяПодсказка" id="143"/>
+										</InputField>
+										<InputField name="ГрафикПлатежейСдвиг" id="92">
+											<DataPath>Объект.ГрафикПлатежей.Сдвиг</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Отсрочка, дней</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>6</Width>
+											<ContextMenu name="ГрафикПлатежейСдвигКонтекстноеМеню" id="93"/>
+											<ExtendedTooltip name="ГрафикПлатежейСдвигРасширеннаяПодсказка" id="144"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</ColumnGroup>
+						<InputField name="ГрафикПлатежейЭтапОплаты" id="112">
+							<DataPath>Объект.ГрафикПлатежей.ЭтапОплаты</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Этап оплаты</v8:content>
+								</v8:item>
+							</Title>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>#B0C4DE</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<ContextMenu name="ГрафикПлатежейЭтапОплатыКонтекстноеМеню" id="113"/>
+							<ExtendedTooltip name="ГрафикПлатежейЭтапОплатыРасширеннаяПодсказка" id="145"/>
+							<Events>
+								<Event name="StartChoice">ГрафикПлатежейЭтапОплатыНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<ColumnGroup name="СуммаПлатежаКол" id="100">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сумма платежа </v8:content>
+								</v8:item>
+							</Title>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сумма платежа кол</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<TitleBackColor>#B0C4DE</TitleBackColor>
+							<ShowInHeader>true</ShowInHeader>
+							<ExtendedTooltip name="СуммаПлатежаКолРасширеннаяПодсказка" id="146"/>
+							<ChildItems>
+								<ColumnGroup name="ГрафикПлатежейГруппа1" id="101">
+									<Group>Horizontal</Group>
+									<ExtendedTooltip name="ГрафикПлатежейГруппа1РасширеннаяПодсказка" id="147"/>
+									<ChildItems>
+										<ColumnGroup name="ГрафикПлатежейГруппа3" id="111">
+											<ExtendedTooltip name="ГрафикПлатежейГруппа3РасширеннаяПодсказка" id="148"/>
+											<ChildItems>
+												<InputField name="ГрафикПлатежейСпособРасчетаСуммыПлатежа1" id="50">
+													<DataPath>Объект.ГрафикПлатежей.СпособРасчетаСуммыПлатежа</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Способ расчета</v8:content>
+														</v8:item>
+													</Title>
+													<TitleTextColor>#004242</TitleTextColor>
+													<TitleBackColor>#B0C4DE</TitleBackColor>
+													<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>10</Width>
+													<AutoMarkIncomplete>true</AutoMarkIncomplete>
+													<ContextMenu name="ГрафикПлатежейСпособРасчетаСуммыПлатежа1КонтекстноеМеню" id="51"/>
+													<ExtendedTooltip name="ГрафикПлатежейСпособРасчетаСуммыПлатежа1РасширеннаяПодсказка" id="149"/>
+													<Events>
+														<Event name="OnChange">ГрафикПлатежейСпособРасчетаСуммыПлатежа1ПриИзменении</Event>
+														<Event name="StartChoice">ГрафикПлатежейСпособРасчетаСуммыПлатежа1НачалоВыбора</Event>
+													</Events>
+												</InputField>
+												<ColumnGroup name="ГрафикПлатежейГруппа5" id="117">
+													<Group>Horizontal</Group>
+													<ExtendedTooltip name="ГрафикПлатежейГруппа5РасширеннаяПодсказка" id="150"/>
+													<ChildItems>
+														<InputField name="ГрафикПлатежейСумма" id="18">
+															<DataPath>Объект.ГрафикПлатежей.Сумма</DataPath>
+															<TitleTextColor>#004242</TitleTextColor>
+															<TitleBackColor>#B0C4DE</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>10</Width>
+															<ContextMenu name="ГрафикПлатежейСуммаКонтекстноеМеню" id="19"/>
+															<ExtendedTooltip name="ГрафикПлатежейСуммаРасширеннаяПодсказка" id="151"/>
+														</InputField>
+														<InputField name="ГрафикПлатежейПроцентОтСуммы" id="86">
+															<DataPath>Объект.ГрафикПлатежей.ПроцентОтСуммы</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>%</v8:content>
+																</v8:item>
+															</Title>
+															<TitleTextColor>#004242</TitleTextColor>
+															<TitleBackColor>#B0C4DE</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>5</Width>
+															<ContextMenu name="ГрафикПлатежейПроцентОтСуммыКонтекстноеМеню" id="87"/>
+															<ExtendedTooltip name="ГрафикПлатежейПроцентОтСуммыРасширеннаяПодсказка" id="152"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+											</ChildItems>
+										</ColumnGroup>
+										<ColumnGroup name="ПоЗадолженности" id="102">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>По задолженности</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>По задолженности</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ExtendedTooltip name="ПоЗадолженностиРасширеннаяПодсказка" id="153"/>
+											<ChildItems>
+												<InputField name="ГрафикПлатежейПериодичность" id="109">
+													<DataPath>Объект.ГрафикПлатежей.Периодичность</DataPath>
+													<TitleTextColor>#004242</TitleTextColor>
+													<TitleBackColor>#B0C4DE</TitleBackColor>
+													<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>10</Width>
+													<ChoiceButton>true</ChoiceButton>
+													<ChooseType>false</ChooseType>
+													<ContextMenu name="ГрафикПлатежейПериодичностьКонтекстноеМеню" id="110"/>
+													<ExtendedTooltip name="ГрафикПлатежейПериодичностьРасширеннаяПодсказка" id="154"/>
+												</InputField>
+												<InputField name="ГрафикПлатежейМинимальнаяСуммаПлатежа" id="88">
+													<DataPath>Объект.ГрафикПлатежей.МинимальнаяСуммаПлатежа</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Мин. платеж</v8:content>
+														</v8:item>
+													</Title>
+													<TitleTextColor>#004242</TitleTextColor>
+													<TitleBackColor>#B0C4DE</TitleBackColor>
+													<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>10</Width>
+													<ContextMenu name="ГрафикПлатежейМинимальнаяСуммаПлатежаКонтекстноеМеню" id="89"/>
+													<ExtendedTooltip name="ГрафикПлатежейМинимальнаяСуммаПлатежаРасширеннаяПодсказка" id="155"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="РасчетОтПлановойСуммы" id="103">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Расчет от плановой суммы</v8:content>
+								</v8:item>
+							</Title>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Расчет от плановой суммы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<TitleBackColor>#B0C4DE</TitleBackColor>
+							<ShowInHeader>true</ShowInHeader>
+							<ExtendedTooltip name="РасчетОтПлановойСуммыРасширеннаяПодсказка" id="156"/>
+							<ChildItems>
+								<InputField name="ГрафикПлатежейФинансовыйПоказательСценария" id="90">
+									<DataPath>Объект.ГрафикПлатежей.ФинансовыйПоказательСценария</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Финансовый показатель для расчета</v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ГрафикПлатежейФинансовыйПоказательСценарияКонтекстноеМеню" id="91"/>
+									<ExtendedTooltip name="ГрафикПлатежейФинансовыйПоказательСценарияРасширеннаяПодсказка" id="157"/>
+								</InputField>
+								<ColumnGroup name="ГрафикПлатежейГруппа2" id="104">
+									<Group>Horizontal</Group>
+									<ExtendedTooltip name="ГрафикПлатежейГруппа2РасширеннаяПодсказка" id="158"/>
+									<ChildItems>
+										<InputField name="ГрафикПлатежейСценарий" id="54">
+											<DataPath>Объект.ГрафикПлатежей.Сценарий</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ГрафикПлатежейСценарийКонтекстноеМеню" id="55"/>
+											<ExtendedTooltip name="ГрафикПлатежейСценарийРасширеннаяПодсказка" id="159"/>
+											<Events>
+												<Event name="OnChange">ГрафикПлатежейСценарийПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="ГрафикПлатежейДатаСценария" id="96">
+											<DataPath>Объект.ГрафикПлатежей.ДатаСценария</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Период планирования</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ГрафикПлатежейДатаСценарияКонтекстноеМеню" id="97"/>
+											<ExtendedTooltip name="ГрафикПлатежейДатаСценарияРасширеннаяПодсказка" id="160"/>
+											<Events>
+												<Event name="OnChange">ГрафикПлатежейДатаСценарияПриИзменении</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="ОтражениеВБюджетах" id="105">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отражение в бюджетах</v8:content>
+								</v8:item>
+							</Title>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отражение в бюджетах</v8:content>
+								</v8:item>
+							</ToolTip>
+							<TitleBackColor>#B0C4DE</TitleBackColor>
+							<ShowInHeader>true</ShowInHeader>
+							<ExtendedTooltip name="ОтражениеВБюджетахРасширеннаяПодсказка" id="161"/>
+							<ChildItems>
+								<InputField name="ГрафикПлатежейФинансовыйПоказатель" id="52">
+									<DataPath>Объект.ГрафикПлатежей.ФинансовыйПоказатель</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ГрафикПлатежейФинансовыйПоказательКонтекстноеМеню" id="53"/>
+									<ExtendedTooltip name="ГрафикПлатежейФинансовыйПоказательРасширеннаяПодсказка" id="162"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.дог_ГрафикиОплатыПоДоговорам</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Период" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:StandardPeriod</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РасчетПлатежаПлановойСуммой" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расчет платежа плановой суммой</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейСценарий</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейФинансовыйПоказательСценария</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейМинимальнаяСуммаПлатежа</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейПроцентОтСуммы</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейДатаСценария</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ГрафикПлатежей.СпособРасчетаСуммыПлатежа</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СпособыРасчетаСуммыПлатежей.ФиксированнойСуммой</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#BDD2EE</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейСценарий</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейФинансовыйПоказательСценария</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейСумма</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейДатаСценария</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ГрафикПлатежей.СпособРасчетаСуммыПлатежа</dcsset:left>
+						<dcsset:comparisonType>InList</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СпособыРасчетаСуммыПлатежей.ПоЗадолженностиНаНачалоПериода</dcsset:right>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СпособыРасчетаСуммыПлатежей.ЗадолженностьНаДатуПлатежа</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#BDD2EE</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Отображать</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейСумма</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ГрафикПлатежей.СпособРасчетаСуммыПлатежа</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СпособыРасчетаСуммыПлатежей.ПлановаяСумма</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#BDD2EE</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Отображать</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейСценарий</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейФинансовыйПоказательСценария</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейМинимальнаяСуммаПлатежа</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейПроцентОтСуммы</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейСумма</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейДатаСценария</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ГрафикПлатежей.СпособРасчетаСуммыПлатежа</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#BDD2EE</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейСдвиг</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.ГрафикПлатежей.ПорядокРасчетаДатыПлатежа</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ПорядкиРасчетаДатыПлатежа.ПустаяСсылка</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.ГрафикПлатежей.ПорядокРасчетаДатыПлатежа</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ПорядкиРасчетаДатыПлатежа.ФиксированнаяДата</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#BDD2EE</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейПериодичность</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейМинимальнаяСуммаПлатежа</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейСумма</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейФинансовыйПоказательСценария</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейСценарий</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейДатаСценария</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ГрафикПлатежей.СпособРасчетаСуммыПлатежа</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СпособыРасчетаСуммыПлатежей.ПоСуммеДоговора</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#BDD2EE</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейДатаОплаты</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ГрафикПлатежей.ПорядокРасчетаДатыПлатежа</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейДатаСценария</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ГрафикПлатежей.Сценарий</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейПериодичность</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ГрафикПлатежей.СпособРасчетаСуммыПлатежа</dcsset:left>
+						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.дог_СпособыРасчетаСуммыПлатежей.ПоЗадолженностиНаНачалоПериода</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейСумма</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейПериодичность</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейФинансовыйПоказательСценария</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейСценарий</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГрафикПлатежейДатаСценария</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.ГрафикПлатежей.СпособРасчетаСуммыПлатежа</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.дог_СпособыРасчетаСуммыПлатежей.ПоСуммеДоговора</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.ГрафикПлатежей.СпособРасчетаСуммыПлатежа</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.дог_СпособыРасчетаСуммыПлатежей.НаОснованииСобытия</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#BDD2EE</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="Заполнить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Заполнить</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ДобавитьПлатежиВГрафик" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить платежи в график</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить платежи в график</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДобавитьПлатежиВГрафик</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ДобавитьИзДругогоГрафика" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить из другого графика</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить из другого графика</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДобавитьИзДругогоГрафика</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗаполнитьЭтапыОплаты" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить этапы оплаты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить этапы оплаты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьЭтапыОплаты</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>3</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>4</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

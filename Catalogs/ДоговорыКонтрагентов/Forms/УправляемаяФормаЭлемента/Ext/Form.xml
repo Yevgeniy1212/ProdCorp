@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Организация" id="15">
+			<DataPath>Объект.Организация</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="16"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="72"/>
+		</InputField>
+		<InputField name="Контрагент" id="5">
+			<DataPath>Объект.Owner</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</Title>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КонтрагентКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="73"/>
+		</InputField>
+		<InputField name="ГруппаДоговоров" id="7">
+			<DataPath>Объект.Parent</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа договоров</v8:content>
+				</v8:item>
+			</Title>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ГруппаДоговоровКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ГруппаДоговоровРасширеннаяПодсказка" id="74"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="46">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="75"/>
+			<ChildItems>
+				<InputField name="Наименование" id="3">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="76"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="77"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ВидДоговора" id="19">
+			<DataPath>Объект.ВидДоговора</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<QuickChoice>true</QuickChoice>
+			<ContextMenu name="ВидДоговораКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="ВидДоговораРасширеннаяПодсказка" id="78"/>
+			<Events>
+				<Event name="StartListChoice">ВидДоговораНачалоВыбораИзСписка</Event>
+			</Events>
+		</InputField>
+		<CheckBoxField name="ДоговорСовместнойДеятельности" id="35">
+			<DataPath>Объект.ДоговорСовместнойДеятельности</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ДоговорСовместнойДеятельностиКонтекстноеМеню" id="36"/>
+			<ExtendedTooltip name="ДоговорСовместнойДеятельностиРасширеннаяПодсказка" id="79"/>
+			<Events>
+				<Event name="OnChange">ДоговорСовместнойДеятельностиПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
+		<Pages name="ВзаиморасчетыРеквизиты" id="47">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Взаиморасчеты реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Взаиморасчеты реквизиты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ВзаиморасчетыРеквизитыРасширеннаяПодсказка" id="80"/>
+			<ChildItems>
+				<Page name="Взаиморасчеты" id="48">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Взаиморасчеты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Взаиморасчеты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ВзаиморасчетыРасширеннаяПодсказка" id="81"/>
+					<ChildItems>
+						<UsualGroup name="Группа3" id="49">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Ведение взаиморасчетов</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="82"/>
+							<ChildItems>
+								<InputField name="оф_ВедениеВзаиморасчетовЗаголовок" id="59">
+									<DataPath>оф_ВедениеВзаиморасчетовЗаголовок</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<HorizontalAlign>Center</HorizontalAlign>
+									<Width>24</Width>
+									<HorizontalStretch>true</HorizontalStretch>
+									<TextEdit>false</TextEdit>
+									<TextColor>#004242</TextColor>
+									<BackColor>#B0C4DE</BackColor>
+									<BorderColor>#4682B4</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<ContextMenu name="оф_ВедениеВзаиморасчетовЗаголовокКонтекстноеМеню" id="60"/>
+									<ExtendedTooltip name="оф_ВедениеВзаиморасчетовЗаголовокРасширеннаяПодсказка" id="83"/>
+								</InputField>
+								<UsualGroup name="Группа2" id="61">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="84"/>
+									<ChildItems>
+										<InputField name="ВедениеВзаиморасчетов" id="11">
+											<DataPath>Объект.ВедениеВзаиморасчетов</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ВедениеВзаиморасчетовКонтекстноеМеню" id="12"/>
+											<ExtendedTooltip name="ВедениеВзаиморасчетовРасширеннаяПодсказка" id="85"/>
+										</InputField>
+										<InputField name="ВалютаВзаиморасчетов" id="9">
+											<DataPath>Объект.ВалютаВзаиморасчетов</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ВалютаВзаиморасчетовКонтекстноеМеню" id="10"/>
+											<ExtendedTooltip name="ВалютаВзаиморасчетовРасширеннаяПодсказка" id="86"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="Группа4" id="50">
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="87"/>
+							<ChildItems>
+								<CheckBoxField name="УстановленСрокОплаты" id="31">
+									<DataPath>Объект.УстановленСрокОплаты</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="УстановленСрокОплатыКонтекстноеМеню" id="32"/>
+									<ExtendedTooltip name="УстановленСрокОплатыРасширеннаяПодсказка" id="88"/>
+									<Events>
+										<Event name="OnChange">УстановленСрокОплатыПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<InputField name="СрокОплаты" id="33">
+									<DataPath>Объект.СрокОплаты</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СрокОплатыКонтекстноеМеню" id="34"/>
+									<ExtendedTooltip name="СрокОплатыРасширеннаяПодсказка" id="89"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="Группа5" id="51">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Цены</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="90"/>
+							<ChildItems>
+								<InputField name="оф_ЦеныЗаголовок" id="62">
+									<DataPath>оф_ЦеныЗаголовок</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<HorizontalAlign>Center</HorizontalAlign>
+									<Width>24</Width>
+									<HorizontalStretch>true</HorizontalStretch>
+									<TextEdit>false</TextEdit>
+									<TextColor>#004242</TextColor>
+									<BackColor>#B0C4DE</BackColor>
+									<BorderColor>#4682B4</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<ContextMenu name="оф_ЦеныЗаголовокКонтекстноеМеню" id="63"/>
+									<ExtendedTooltip name="оф_ЦеныЗаголовокРасширеннаяПодсказка" id="91"/>
+								</InputField>
+								<InputField name="ТипЦен" id="17">
+									<DataPath>Объект.ТипЦен</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТипЦенКонтекстноеМеню" id="18"/>
+									<ExtendedTooltip name="ТипЦенРасширеннаяПодсказка" id="92"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="Реквизиты" id="52">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реквизиты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реквизиты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="РеквизитыРасширеннаяПодсказка" id="93"/>
+					<ChildItems>
+						<UsualGroup name="РегистрацияДоговора" id="53">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Регистрация договора</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Регистрация договора</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="РегистрацияДоговораРасширеннаяПодсказка" id="94"/>
+							<ChildItems>
+								<InputField name="оф_РегистрацияДоговораЗаголовок" id="66">
+									<DataPath>оф_РегистрацияДоговораЗаголовок</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<HorizontalAlign>Center</HorizontalAlign>
+									<Width>24</Width>
+									<HorizontalStretch>true</HorizontalStretch>
+									<TextEdit>false</TextEdit>
+									<TextColor>#004242</TextColor>
+									<BackColor>#B0C4DE</BackColor>
+									<BorderColor>#4682B4</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<ContextMenu name="оф_РегистрацияДоговораЗаголовокКонтекстноеМеню" id="67"/>
+									<ExtendedTooltip name="оф_РегистрацияДоговораЗаголовокРасширеннаяПодсказка" id="95"/>
+								</InputField>
+								<UsualGroup name="Группа6" id="68">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="96"/>
+									<ChildItems>
+										<InputField name="НомерДоговора" id="23">
+											<DataPath>Объект.НомерДоговора</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="НомерДоговораКонтекстноеМеню" id="24"/>
+											<ExtendedTooltip name="НомерДоговораРасширеннаяПодсказка" id="97"/>
+										</InputField>
+										<InputField name="ДатаДоговора" id="25">
+											<DataPath>Объект.ДатаДоговора</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДатаДоговораКонтекстноеМеню" id="26"/>
+											<ExtendedTooltip name="ДатаДоговораРасширеннаяПодсказка" id="98"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="СрокДействияДоговора" id="54">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Срок действия договора</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Срок действия договора</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="СрокДействияДоговораРасширеннаяПодсказка" id="99"/>
+							<ChildItems>
+								<InputField name="оф_СрокДействияДоговораЗаголовок" id="69">
+									<DataPath>оф_СрокДействияДоговораЗаголовок</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<HorizontalAlign>Center</HorizontalAlign>
+									<Width>24</Width>
+									<HorizontalStretch>true</HorizontalStretch>
+									<TextEdit>false</TextEdit>
+									<TextColor>#004242</TextColor>
+									<BackColor>#B0C4DE</BackColor>
+									<BorderColor>#4682B4</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<ContextMenu name="оф_СрокДействияДоговораЗаголовокКонтекстноеМеню" id="70"/>
+									<ExtendedTooltip name="оф_СрокДействияДоговораЗаголовокРасширеннаяПодсказка" id="100"/>
+								</InputField>
+								<UsualGroup name="Группа7" id="71">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="101"/>
+									<ChildItems>
+										<InputField name="ДатаНачалаДействияДоговора" id="27">
+											<DataPath>Объект.ДатаНачалаДействияДоговора</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДатаНачалаДействияДоговораКонтекстноеМеню" id="28"/>
+											<ExtendedTooltip name="ДатаНачалаДействияДоговораРасширеннаяПодсказка" id="102"/>
+										</InputField>
+										<InputField name="ДатаОкончанияДействияДоговора" id="29">
+											<DataPath>Объект.ДатаОкончанияДействияДоговора</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДатаОкончанияДействияДоговораКонтекстноеМеню" id="30"/>
+											<ExtendedTooltip name="ДатаОкончанияДействияДоговораРасширеннаяПодсказка" id="103"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаУсловияОплаты" id="120">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа условия оплаты</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа условия оплаты</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаУсловияОплатыРасширеннаяПодсказка" id="121"/>
+							<ChildItems>
+								<InputField name="оф_УсловияОплатыЗаголовок" id="125">
+									<DataPath>оф_УсловияОплатыЗаголовок</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<HorizontalAlign>Center</HorizontalAlign>
+									<Width>24</Width>
+									<HorizontalStretch>true</HorizontalStretch>
+									<TextEdit>false</TextEdit>
+									<TextColor>#004242</TextColor>
+									<BackColor>#B0C4DE</BackColor>
+									<BorderColor>#4682B4</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<ContextMenu name="оф_УсловияОплатыЗаголовокКонтекстноеМеню" id="126"/>
+									<ExtendedTooltip name="оф_УсловияОплатыЗаголовокРасширеннаяПодсказка" id="127"/>
+								</InputField>
+								<InputField name="УсловияОплаты" id="122">
+									<DataPath>Объект.УсловияОплаты</DataPath>
+									<ContextMenu name="УсловияОплатыКонтекстноеМеню" id="123"/>
+									<ExtendedTooltip name="УсловияОплатыРасширеннаяПодсказка" id="124"/>
+								</InputField>
+								<UsualGroup name="Группа8" id="128">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа8РасширеннаяПодсказка" id="129"/>
+									<ChildItems>
+										<InputField name="УсловияПоставки" id="130">
+											<DataPath>Объект.УсловияПоставки</DataPath>
+											<ChoiceButton>true</ChoiceButton>
+											<ContextMenu name="УсловияПоставкиКонтекстноеМеню" id="131"/>
+											<ExtendedTooltip name="УсловияПоставкиРасширеннаяПодсказка" id="132"/>
+											<Events>
+												<Event name="OnChange">УсловияПоставкиПриИзменении</Event>
+												<Event name="StartChoice">УсловияПоставкиНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<LabelField name="РасшифровкаУсловияПоставки" id="133">
+											<DataPath>РасшифровкаУсловияПоставки</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<TextColor>web:CornFlowerBlue</TextColor>
+											<ContextMenu name="РасшифровкаУсловияПоставкиКонтекстноеМеню" id="134"/>
+											<ExtendedTooltip name="РасшифровкаУсловияПоставкиРасширеннаяПодсказка" id="135"/>
+										</LabelField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="УчастникиСовместнойДеятельности1" id="55">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Участники совместной деятельности</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Участники совместной деятельности1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="УчастникиСовместнойДеятельности1РасширеннаяПодсказка" id="104"/>
+					<ChildItems>
+						<Table name="УчастникиСовместнойДеятельности" id="37">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.УчастникиСовместнойДеятельности</DataPath>
+							<TextColor>#191970</TextColor>
+							<BorderColor>#B0C4DE</BorderColor>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="УчастникиСовместнойДеятельностиКонтекстноеМеню" id="38"/>
+							<AutoCommandBar name="УчастникиСовместнойДеятельностиКоманднаяПанель" id="39"/>
+							<ExtendedTooltip name="УчастникиСовместнойДеятельностиРасширеннаяПодсказка" id="105"/>
+							<SearchStringAddition name="УчастникиСовместнойДеятельностиСтрокаПоиска" id="106">
+								<AdditionSource>
+									<Item>УчастникиСовместнойДеятельности</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="УчастникиСовместнойДеятельностиСтрокаПоискаКонтекстноеМеню" id="107"/>
+								<ExtendedTooltip name="УчастникиСовместнойДеятельностиСтрокаПоискаРасширеннаяПодсказка" id="108"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="УчастникиСовместнойДеятельностиСостояниеПросмотра" id="109">
+								<AdditionSource>
+									<Item>УчастникиСовместнойДеятельности</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="УчастникиСовместнойДеятельностиСостояниеПросмотраКонтекстноеМеню" id="110"/>
+								<ExtendedTooltip name="УчастникиСовместнойДеятельностиСостояниеПросмотраРасширеннаяПодсказка" id="111"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="УчастникиСовместнойДеятельностиУправлениеПоиском" id="112">
+								<AdditionSource>
+									<Item>УчастникиСовместнойДеятельности</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="УчастникиСовместнойДеятельностиУправлениеПоискомКонтекстноеМеню" id="113"/>
+								<ExtendedTooltip name="УчастникиСовместнойДеятельностиУправлениеПоискомРасширеннаяПодсказка" id="114"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="УчастникиСовместнойДеятельностиНомерСтроки" id="40">
+									<DataPath>Объект.УчастникиСовместнойДеятельности.LineNumber</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УчастникиСовместнойДеятельностиНомерСтрокиКонтекстноеМеню" id="41"/>
+									<ExtendedTooltip name="УчастникиСовместнойДеятельностиНомерСтрокиРасширеннаяПодсказка" id="115"/>
+								</LabelField>
+								<InputField name="УчастникиСовместнойДеятельностиУчастникСовместнойДеятельности" id="42">
+									<DataPath>Объект.УчастникиСовместнойДеятельности.УчастникСовместнойДеятельности</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УчастникиСовместнойДеятельностиУчастникСовместнойДеятельностиКонтекстноеМеню" id="43"/>
+									<ExtendedTooltip name="УчастникиСовместнойДеятельностиУчастникСовместнойДеятельностиРасширеннаяПодсказка" id="116"/>
+								</InputField>
+								<InputField name="УчастникиСовместнойДеятельностиДоляУчастия" id="44">
+									<DataPath>Объект.УчастникиСовместнойДеятельности.ДоляУчастия</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УчастникиСовместнойДеятельностиДоляУчастияКонтекстноеМеню" id="45"/>
+									<ExtendedTooltip name="УчастникиСовместнойДеятельностиДоляУчастияРасширеннаяПодсказка" id="117"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Свойства" id="56">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Свойства</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Свойства</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СвойстваРасширеннаяПодсказка" id="118"/>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<InputField name="Комментарий" id="13">
+			<DataPath>Объект.Комментарий</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="119"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ДоговорыКонтрагентов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="оф_ВедениеВзаиморасчетовЗаголовок" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оф ведение взаиморасчетов заголовок</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="оф_ЦеныЗаголовок" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оф цены заголовок</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="оф_РегистрацияДоговораЗаголовок" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оф регистрация договора заголовок</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="оф_СрокДействияДоговораЗаголовок" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оф срок действия договора заголовок</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="оф_УсловияОплатыЗаголовок" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оф цены заголовок</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РасшифровкаУсловияПоставки" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расшифровка условия поставки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>3:c4cdf1e0-3ba4-44ed-a69b-e548eedca4dd</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>FilterCriterion.ДокументыПоДоговоруКонтрагента.StandardCommand.OpenByValue</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+			<Item>
+				<Command>3:58c9e918-9e14-4dbf-825e-bd811a766b89</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>4:e3c0ddad-cab7-4082-8723-0e9ab0623268</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

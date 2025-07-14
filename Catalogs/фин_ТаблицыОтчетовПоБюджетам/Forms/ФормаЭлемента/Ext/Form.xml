@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Код" id="1">
+			<DataPath>Объект.Code</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Наименование" id="4">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Владелец" id="7">
+			<DataPath>Объект.Owner</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ВладелецКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ВладелецРасширеннаяПодсказка" id="9"/>
+			<Events>
+				<Event name="OnChange">ВладелецПриИзменении</Event>
+			</Events>
+		</InputField>
+		<LabelDecoration name="ДекорацияОбщаяНастройка" id="30">
+			<TextColor>web:DarkRed</TextColor>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Редактируемая настройка является общей для всех отчетов</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ДекорацияОбщаяНастройкаКонтекстноеМеню" id="31"/>
+			<ExtendedTooltip name="ДекорацияОбщаяНастройкаРасширеннаяПодсказка" id="32"/>
+		</LabelDecoration>
+		<Pages name="Страницы" id="60">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="61"/>
+			<ChildItems>
+				<Page name="ГруппаВидИОтображение" id="62">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид и отображение</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид и отображение</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаВидИОтображениеРасширеннаяПодсказка" id="63"/>
+					<ChildItems>
+						<InputField name="ВидТаблицы" id="10">
+							<DataPath>Объект.ВидТаблицы</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ВидТаблицыКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ВидТаблицыРасширеннаяПодсказка" id="12"/>
+						</InputField>
+						<InputField name="ТипДиаграммыОтчета" id="16">
+							<DataPath>ТипДиаграммыОтчета</DataPath>
+							<ChoiceButton>true</ChoiceButton>
+							<ContextMenu name="ТипДиаграммыОтчетаКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ТипДиаграммыОтчетаРасширеннаяПодсказка" id="18"/>
+							<Events>
+								<Event name="OnChange">ТипДиаграммыОтчетаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<CheckBoxField name="ОтображатьЗаголовок" id="13">
+							<DataPath>Объект.ОтображатьЗаголовок</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтображатьЗаголовокКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ОтображатьЗаголовокРасширеннаяПодсказка" id="15"/>
+						</CheckBoxField>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаИндивидуальнаяНастройкаИтогов" id="28">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индивидуальная настройка итогов</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Индивидуальная настройка итогов</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаИндивидуальнаяНастройкаИтоговРасширеннаяПодсказка" id="29"/>
+					<ChildItems>
+						<CheckBoxField name="НастройкаИтогов" id="19">
+							<DataPath>Объект.НастройкаИтогов</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="НастройкаИтоговКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="НастройкаИтоговРасширеннаяПодсказка" id="21"/>
+						</CheckBoxField>
+						<InputField name="ВертикальноеРасположениеОбщихИтогов" id="22">
+							<DataPath>Объект.ВертикальноеРасположениеОбщихИтогов</DataPath>
+							<ContextMenu name="ВертикальноеРасположениеОбщихИтоговКонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="ВертикальноеРасположениеОбщихИтоговРасширеннаяПодсказка" id="24"/>
+						</InputField>
+						<InputField name="ГоризонтальноеРасположениеОбщихИтогов" id="25">
+							<DataPath>Объект.ГоризонтальноеРасположениеОбщихИтогов</DataPath>
+							<ContextMenu name="ГоризонтальноеРасположениеОбщихИтоговКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="ГоризонтальноеРасположениеОбщихИтоговРасширеннаяПодсказка" id="27"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаИспользованиеТаблицыВШаблонах" id="33">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Использование таблицы в шаблонах</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа использование таблицы в шаблонах</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>HorizontalIfPossible</Group>
+					<ExtendedTooltip name="ГруппаИспользованиеТаблицыВШаблонахРасширеннаяПодсказка" id="34"/>
+					<ChildItems>
+						<Table name="ИспользованиеТаблицыВШаблонахОтчетов" id="35">
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<HeightInTableRows>3</HeightInTableRows>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ИспользованиеТаблицыВШаблонахОтчетов</DataPath>
+							<RowPictureDataPath>ИспользованиеТаблицыВШаблонахОтчетов.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="ИспользованиеТаблицыВШаблонахОтчетовКонтекстноеМеню" id="36"/>
+							<AutoCommandBar name="ИспользованиеТаблицыВШаблонахОтчетовКоманднаяПанель" id="37">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ИспользованиеТаблицыВШаблонахОтчетовРасширеннаяПодсказка" id="38"/>
+							<SearchStringAddition name="ИспользованиеТаблицыВШаблонахОтчетовСтрокаПоиска" id="39">
+								<AdditionSource>
+									<Item>ИспользованиеТаблицыВШаблонахОтчетов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИспользованиеТаблицыВШаблонахОтчетовСтрокаПоискаКонтекстноеМеню" id="40"/>
+								<ExtendedTooltip name="ИспользованиеТаблицыВШаблонахОтчетовСтрокаПоискаРасширеннаяПодсказка" id="41"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ИспользованиеТаблицыВШаблонахОтчетовСостояниеПросмотра" id="42">
+								<AdditionSource>
+									<Item>ИспользованиеТаблицыВШаблонахОтчетов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИспользованиеТаблицыВШаблонахОтчетовСостояниеПросмотраКонтекстноеМеню" id="43"/>
+								<ExtendedTooltip name="ИспользованиеТаблицыВШаблонахОтчетовСостояниеПросмотраРасширеннаяПодсказка" id="44"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ИспользованиеТаблицыВШаблонахОтчетовУправлениеПоиском" id="45">
+								<AdditionSource>
+									<Item>ИспользованиеТаблицыВШаблонахОтчетов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ИспользованиеТаблицыВШаблонахОтчетовУправлениеПоискомКонтекстноеМеню" id="46"/>
+								<ExtendedTooltip name="ИспользованиеТаблицыВШаблонахОтчетовУправлениеПоискомРасширеннаяПодсказка" id="47"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ИспользованиеТаблицыВШаблонахОтчетовНаименование" id="48">
+									<DataPath>ИспользованиеТаблицыВШаблонахОтчетов.Description</DataPath>
+									<ContextMenu name="ИспользованиеТаблицыВШаблонахОтчетовНаименованиеКонтекстноеМеню" id="49"/>
+									<ExtendedTooltip name="ИспользованиеТаблицыВШаблонахОтчетовНаименованиеРасширеннаяПодсказка" id="50"/>
+								</LabelField>
+								<LabelField name="ИспользованиеТаблицыВШаблонахОтчетовВладелец" id="51">
+									<DataPath>ИспользованиеТаблицыВШаблонахОтчетов.Owner</DataPath>
+									<ContextMenu name="ИспользованиеТаблицыВШаблонахОтчетовВладелецКонтекстноеМеню" id="52"/>
+									<ExtendedTooltip name="ИспользованиеТаблицыВШаблонахОтчетовВладелецРасширеннаяПодсказка" id="53"/>
+								</LabelField>
+								<LabelField name="ИспользованиеТаблицыВШаблонахОтчетовСсылка" id="54">
+									<DataPath>ИспользованиеТаблицыВШаблонахОтчетов.Ref</DataPath>
+									<ContextMenu name="ИспользованиеТаблицыВШаблонахОтчетовСсылкаКонтекстноеМеню" id="55"/>
+									<ExtendedTooltip name="ИспользованиеТаблицыВШаблонахОтчетовСсылкаРасширеннаяПодсказка" id="56"/>
+								</LabelField>
+								<LabelField name="ИспользованиеТаблицыВШаблонахОтчетовСтандартнаяКартинка" id="57">
+									<DataPath>ИспользованиеТаблицыВШаблонахОтчетов.DefaultPicture</DataPath>
+									<ContextMenu name="ИспользованиеТаблицыВШаблонахОтчетовСтандартнаяКартинкаКонтекстноеМеню" id="58"/>
+									<ExtendedTooltip name="ИспользованиеТаблицыВШаблонахОтчетовСтандартнаяКартинкаРасширеннаяПодсказка" id="59"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.фин_ТаблицыОтчетовПоБюджетам</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ТипДиаграммыОтчета" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип диаграммы отчета</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ИспользованиеТаблицыВШаблонахОтчетов" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использование таблицы в шаблонах отчетов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	фин_НастройкиОтчетовПоБюджетам.Ссылка,
+	фин_НастройкиОтчетовПоБюджетам.Наименование,
+	фин_НастройкиОтчетовПоБюджетам.Владелец
+ИЗ
+	Справочник.фин_НастройкиОтчетовПоБюджетам КАК фин_НастройкиОтчетовПоБюджетам
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.фин_НастройкиОтчетовПоБюджетам.ТаблицыОтчета КАК фин_НастройкиОтчетовПоБюджетамТаблицыОтчета
+		ПО фин_НастройкиОтчетовПоБюджетам.Ссылка = фин_НастройкиОтчетовПоБюджетамТаблицыОтчета.Ссылка
+ГДЕ
+	фин_НастройкиОтчетовПоБюджетамТаблицыОтчета.Таблица = &amp;Таблица</QueryText>
+				<MainTable>Catalog.фин_НастройкиОтчетовПоБюджетам</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+</Form>

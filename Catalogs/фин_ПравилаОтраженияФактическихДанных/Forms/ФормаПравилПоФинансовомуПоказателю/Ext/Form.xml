@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаОК" id="29">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ОК</CommandName>
+				<ExtendedTooltip name="ФормаОКРасширеннаяПодсказка" id="30"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ФинансовыйПоказатель" id="1">
+			<DataPath>ФинансовыйПоказатель</DataPath>
+			<ContextMenu name="ФинансовыйПоказательКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ФинансовыйПоказательРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<Table name="Правила" id="4">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Правила</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ПравилаКонтекстноеМеню" id="5"/>
+			<AutoCommandBar name="ПравилаКоманднаяПанель" id="6"/>
+			<ExtendedTooltip name="ПравилаРасширеннаяПодсказка" id="7"/>
+			<SearchStringAddition name="ПравилаСтрокаПоиска" id="8">
+				<AdditionSource>
+					<Item>Правила</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПравилаСтрокаПоискаКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="ПравилаСтрокаПоискаРасширеннаяПодсказка" id="10"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ПравилаСостояниеПросмотра" id="11">
+				<AdditionSource>
+					<Item>Правила</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПравилаСостояниеПросмотраКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ПравилаСостояниеПросмотраРасширеннаяПодсказка" id="13"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ПравилаУправлениеПоиском" id="14">
+				<AdditionSource>
+					<Item>Правила</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ПравилаУправлениеПоискомКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="ПравилаУправлениеПоискомРасширеннаяПодсказка" id="16"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<InputField name="ПравилаОбъектИнформационнойБазы" id="17">
+					<DataPath>Правила.ОбъектИнформационнойБазы</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПравилаОбъектИнформационнойБазыКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ПравилаОбъектИнформационнойБазыРасширеннаяПодсказка" id="19"/>
+				</InputField>
+				<InputField name="ПравилаПравило" id="20">
+					<DataPath>Правила.Правило</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ChoiceParameterLinks>
+						<xr:Link>
+							<xr:Name>Отбор.ФинансовыйПоказательИсточник</xr:Name>
+							<xr:DataPath xsi:type="xs:string">ФинансовыйПоказатель</xr:DataPath>
+							<xr:ValueChange>Clear</xr:ValueChange>
+						</xr:Link>
+						<xr:Link>
+							<xr:Name>Отбор.Владелец</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Items.Правила.CurrentData.ОбъектИнформационнойБазы</xr:DataPath>
+							<xr:ValueChange>Clear</xr:ValueChange>
+						</xr:Link>
+					</ChoiceParameterLinks>
+					<ChoiceParameters>
+						<app:item name="Отбор.ПоФинансовомуПоказателю">
+							<app:value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation/>
+								<Value xsi:type="xs:boolean">true</Value>
+							</app:value>
+						</app:item>
+						<app:item name="Отбор.ФинансовыйПоказательТипИсточника">
+							<app:value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation/>
+								<Value xsi:type="xr:DesignTimeRef">Enum.фин_ТипыИсточниковОтраженияПервичныхДвижений.EnumValue.ФиксированноеЗначение</Value>
+							</app:value>
+						</app:item>
+					</ChoiceParameters>
+					<ContextMenu name="ПравилаПравилоКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ПравилаПравилоРасширеннаяПодсказка" id="22"/>
+				</InputField>
+				<InputField name="ПравилаДатаНачала" id="23">
+					<DataPath>Правила.ДатаНачала</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПравилаДатаНачалаКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ПравилаДатаНачалаРасширеннаяПодсказка" id="25"/>
+				</InputField>
+				<InputField name="ПравилаДатаОкончания" id="26">
+					<DataPath>Правила.ДатаОкончания</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПравилаДатаОкончанияКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ПравилаДатаОкончанияРасширеннаяПодсказка" id="28"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ФинансовыйПоказатель" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Финансовый показатель</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.фин_ФинансовыеПоказатели</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Правила" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Правила</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ОбъектИнформационнойБазы" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объект информационной базы</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.фин_КлассификаторРегистров</v8:Type>
+						<v8:Type>cfg:CatalogRef.фин_ВидыДокументов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Правило" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Правило</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.фин_ПравилаОтраженияФактическихДанных</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДатаНачала" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата начала</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаОкончания" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата окончания</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОК" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОК</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

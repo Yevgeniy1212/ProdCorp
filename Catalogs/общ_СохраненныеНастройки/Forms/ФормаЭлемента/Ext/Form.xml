@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="3">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="23"/>
+		</InputField>
+		<InputField name="Описание" id="11">
+			<DataPath>Объект.Описание</DataPath>
+			<TitleLocation>Left</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<MultiLine>true</MultiLine>
+			<ContextMenu name="ОписаниеКонтекстноеМеню" id="12"/>
+			<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="24"/>
+		</InputField>
+		<CheckBoxField name="ИспользоватьПриОткрытии" id="7">
+			<DataPath>Объект.ИспользоватьПриОткрытии</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ИспользоватьПриОткрытииКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ИспользоватьПриОткрытииРасширеннаяПодсказка" id="25"/>
+		</CheckBoxField>
+		<CheckBoxField name="СохранятьАвтоматически" id="5">
+			<DataPath>Объект.СохранятьАвтоматически</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="СохранятьАвтоматическиКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="СохранятьАвтоматическиРасширеннаяПодсказка" id="26"/>
+		</CheckBoxField>
+		<UsualGroup name="ГруппаПользователи" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пользователи</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа пользователи</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ГруппаПользователиРасширеннаяПодсказка" id="27"/>
+			<ChildItems>
+				<Table name="Пользователи" id="13">
+					<Representation>List</Representation>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Объект.Пользователи</DataPath>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ПользователиКонтекстноеМеню" id="14"/>
+					<AutoCommandBar name="ПользователиКоманднаяПанель" id="15"/>
+					<ExtendedTooltip name="ПользователиРасширеннаяПодсказка" id="28"/>
+					<SearchStringAddition name="ПользователиСтрокаПоиска" id="29">
+						<AdditionSource>
+							<Item>Пользователи</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПользователиСтрокаПоискаКонтекстноеМеню" id="30"/>
+						<ExtendedTooltip name="ПользователиСтрокаПоискаРасширеннаяПодсказка" id="31"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ПользователиСостояниеПросмотра" id="32">
+						<AdditionSource>
+							<Item>Пользователи</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПользователиСостояниеПросмотраКонтекстноеМеню" id="33"/>
+						<ExtendedTooltip name="ПользователиСостояниеПросмотраРасширеннаяПодсказка" id="34"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ПользователиУправлениеПоиском" id="35">
+						<AdditionSource>
+							<Item>Пользователи</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ПользователиУправлениеПоискомКонтекстноеМеню" id="36"/>
+						<ExtendedTooltip name="ПользователиУправлениеПоискомРасширеннаяПодсказка" id="37"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<LabelField name="ПользователиНомерСтроки" id="16">
+							<DataPath>Объект.Пользователи.LineNumber</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПользователиНомерСтрокиКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ПользователиНомерСтрокиРасширеннаяПодсказка" id="38"/>
+						</LabelField>
+						<InputField name="ПользователиПользователь" id="18">
+							<DataPath>Объект.Пользователи.Пользователь</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПользователиПользовательКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="ПользователиПользовательРасширеннаяПодсказка" id="39"/>
+						</InputField>
+						<CheckBoxField name="ПользователиПравоИзменения" id="20">
+							<DataPath>Объект.Пользователи.ПравоИзменения</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПользователиПравоИзмененияКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="ПользователиПравоИзмененияРасширеннаяПодсказка" id="40"/>
+						</CheckBoxField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.общ_СохраненныеНастройки</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

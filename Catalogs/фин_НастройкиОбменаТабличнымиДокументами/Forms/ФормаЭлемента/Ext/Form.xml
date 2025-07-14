@@ -1,0 +1,638 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОсновная" id="103">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основная</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основная</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОсновнаяРасширеннаяПодсказка" id="104"/>
+		</UsualGroup>
+		<Pages name="Страницы" id="138">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="139"/>
+			<ChildItems>
+				<Page name="ГруппаПанельЛевая" id="105">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основное</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаПанельЛеваяРасширеннаяПодсказка" id="106"/>
+					<ChildItems>
+						<InputField name="Наименование" id="4">
+							<DataPath>Объект.Description</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+						</InputField>
+						<UsualGroup name="Группа1" id="87">
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="88"/>
+							<ChildItems>
+								<InputField name="Родитель" id="7">
+									<DataPath>Объект.Parent</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РодительКонтекстноеМеню" id="8"/>
+									<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="9"/>
+								</InputField>
+								<InputField name="Код" id="1">
+									<DataPath>Объект.Code</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+									<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<CheckBoxField name="ДляЗагрузкиФактическихИПрогнозныхДанных" id="10">
+							<DataPath>Объект.ДляЗагрузкиФактическихИПрогнозныхДанных</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ДляЗагрузкиФактическихИПрогнозныхДанныхКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ДляЗагрузкиФактическихИПрогнозныхДанныхРасширеннаяПодсказка" id="12"/>
+							<Events>
+								<Event name="OnChange">ДляЗагрузкиФактическихИПрогнозныхДанныхПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="Бюджет" id="13">
+							<DataPath>Объект.Бюджет</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="БюджетКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="БюджетРасширеннаяПодсказка" id="15"/>
+							<Events>
+								<Event name="OnChange">БюджетПриИзменении</Event>
+							</Events>
+						</InputField>
+						<UsualGroup name="ГруппаИспользоватьПоУмолчанию" id="124">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Использовать по-умолчанию</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Использовать по-умолчанию</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="ГруппаИспользоватьПоУмолчаниюРасширеннаяПодсказка" id="125"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользоватьПоУмолчаниюДляВыгрузки" id="126">
+									<DataPath>Объект.ИспользоватьПоУмолчаниюДляВыгрузки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Для выгрузки</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИспользоватьПоУмолчаниюДляВыгрузкиКонтекстноеМеню" id="127"/>
+									<ExtendedTooltip name="ИспользоватьПоУмолчаниюДляВыгрузкиРасширеннаяПодсказка" id="128"/>
+								</CheckBoxField>
+								<CheckBoxField name="ИспользоватьПоУмолчаниюДляЗагрузки" id="129">
+									<DataPath>Объект.ИспользоватьПоУмолчаниюДляЗагрузки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Для загрузки</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИспользоватьПоУмолчаниюДляЗагрузкиКонтекстноеМеню" id="130"/>
+									<ExtendedTooltip name="ИспользоватьПоУмолчаниюДляЗагрузкиРасширеннаяПодсказка" id="131"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="Группа4" id="95">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Размещение данных в документе</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Group>Vertical</Group>
+							<Representation>StrongSeparation</Representation>
+							<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="96"/>
+							<ChildItems>
+								<InputField name="НачальнаяСтрока" id="28">
+									<DataPath>Объект.НачальнаяСтрока</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>7</Width>
+									<ChoiceButton>true</ChoiceButton>
+									<SpinButton>true</SpinButton>
+									<ContextMenu name="НачальнаяСтрокаКонтекстноеМеню" id="29"/>
+									<ExtendedTooltip name="НачальнаяСтрокаРасширеннаяПодсказка" id="30"/>
+								</InputField>
+								<InputField name="СтрокаЗаголовкаФормы" id="97">
+									<DataPath>Объект.СтрокаЗаголовкаФормы</DataPath>
+									<Width>7</Width>
+									<ChoiceButton>true</ChoiceButton>
+									<SpinButton>true</SpinButton>
+									<ContextMenu name="СтрокаЗаголовкаФормыКонтекстноеМеню" id="98"/>
+									<ExtendedTooltip name="СтрокаЗаголовкаФормыРасширеннаяПодсказка" id="99"/>
+								</InputField>
+								<InputField name="СтрокаШапкиТаблицы" id="100">
+									<DataPath>Объект.СтрокаШапкиТаблицы</DataPath>
+									<Width>7</Width>
+									<ChoiceButton>true</ChoiceButton>
+									<SpinButton>true</SpinButton>
+									<ContextMenu name="СтрокаШапкиТаблицыКонтекстноеМеню" id="101"/>
+									<ExtendedTooltip name="СтрокаШапкиТаблицыРасширеннаяПодсказка" id="102"/>
+								</InputField>
+								<CheckBoxField name="РисоватьСеткуТаблицы" id="112">
+									<DataPath>Объект.РисоватьСеткуТаблицы</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РисоватьСеткуТаблицыКонтекстноеМеню" id="113"/>
+									<ExtendedTooltip name="РисоватьСеткуТаблицыРасширеннаяПодсказка" id="114"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаПанельПравая" id="107">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поля данных</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа панель правая</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаПанельПраваяРасширеннаяПодсказка" id="108"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаТрансляцияРазрезов" id="33">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Трансляция разрезов</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаТрансляцияРазрезовРасширеннаяПодсказка" id="34"/>
+							<ChildItems>
+								<Table name="ТрансляцияРазрезов" id="35">
+									<Representation>List</Representation>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Объект.ТрансляцияРазрезов</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ТрансляцияРазрезовКонтекстноеМеню" id="36"/>
+									<AutoCommandBar name="ТрансляцияРазрезовКоманднаяПанель" id="37"/>
+									<ExtendedTooltip name="ТрансляцияРазрезовРасширеннаяПодсказка" id="38"/>
+									<SearchStringAddition name="ТрансляцияРазрезовСтрокаПоиска" id="39">
+										<AdditionSource>
+											<Item>ТрансляцияРазрезов</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ТрансляцияРазрезовСтрокаПоискаКонтекстноеМеню" id="40"/>
+										<ExtendedTooltip name="ТрансляцияРазрезовСтрокаПоискаРасширеннаяПодсказка" id="41"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ТрансляцияРазрезовСостояниеПросмотра" id="42">
+										<AdditionSource>
+											<Item>ТрансляцияРазрезов</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ТрансляцияРазрезовСостояниеПросмотраКонтекстноеМеню" id="43"/>
+										<ExtendedTooltip name="ТрансляцияРазрезовСостояниеПросмотраРасширеннаяПодсказка" id="44"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ТрансляцияРазрезовУправлениеПоиском" id="45">
+										<AdditionSource>
+											<Item>ТрансляцияРазрезов</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ТрансляцияРазрезовУправлениеПоискомКонтекстноеМеню" id="46"/>
+										<ExtendedTooltip name="ТрансляцияРазрезовУправлениеПоискомРасширеннаяПодсказка" id="47"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<LabelField name="ТрансляцияРазрезовНомерСтроки" id="48">
+											<DataPath>Объект.ТрансляцияРазрезов.LineNumber</DataPath>
+											<Visible>false</Visible>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТрансляцияРазрезовНомерСтрокиКонтекстноеМеню" id="49"/>
+											<ExtendedTooltip name="ТрансляцияРазрезовНомерСтрокиРасширеннаяПодсказка" id="50"/>
+										</LabelField>
+										<InputField name="ТрансляцияРазрезовРазрез" id="51">
+											<DataPath>Объект.ТрансляцияРазрезов.Разрез</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТрансляцияРазрезовРазрезКонтекстноеМеню" id="52"/>
+											<ExtendedTooltip name="ТрансляцияРазрезовРазрезРасширеннаяПодсказка" id="53"/>
+											<Events>
+												<Event name="OnChange">ТрансляцияРазрезовРазрезПриИзменении</Event>
+												<Event name="StartChoice">ТрансляцияРазрезовРазрезНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<CheckBoxField name="ТрансляцияРазрезовИспользовать" id="54">
+											<DataPath>Объект.ТрансляцияРазрезов.Использовать</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Исп.</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Использовать</v8:content>
+												</v8:item>
+											</ToolTip>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ТрансляцияРазрезовИспользоватьКонтекстноеМеню" id="55"/>
+											<ExtendedTooltip name="ТрансляцияРазрезовИспользоватьРасширеннаяПодсказка" id="56"/>
+										</CheckBoxField>
+										<CheckBoxField name="ТрансляцияРазрезовОбязательный" id="57">
+											<DataPath>Объект.ТрансляцияРазрезов.Обязательный</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Обяз.</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Обязательный</v8:content>
+												</v8:item>
+											</ToolTip>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ТрансляцияРазрезовОбязательныйКонтекстноеМеню" id="58"/>
+											<ExtendedTooltip name="ТрансляцияРазрезовОбязательныйРасширеннаяПодсказка" id="59"/>
+										</CheckBoxField>
+										<InputField name="ТрансляцияРазрезовКолонка" id="60">
+											<DataPath>Объект.ТрансляцияРазрезов.Колонка</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Кол.</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Колонка в табличном документе</v8:content>
+												</v8:item>
+											</ToolTip>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>5</Width>
+											<ContextMenu name="ТрансляцияРазрезовКолонкаКонтекстноеМеню" id="61"/>
+											<ExtendedTooltip name="ТрансляцияРазрезовКолонкаРасширеннаяПодсказка" id="62"/>
+										</InputField>
+										<CheckBoxField name="ТрансляцияРазрезовИтоги" id="121">
+											<DataPath>Объект.ТрансляцияРазрезов.Итоги</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ТрансляцияРазрезовИтогиКонтекстноеМеню" id="122"/>
+											<ExtendedTooltip name="ТрансляцияРазрезовИтогиРасширеннаяПодсказка" id="123"/>
+											<Events>
+												<Event name="OnChange">ТрансляцияРазрезовИтогиПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<CheckBoxField name="ТрансляцияРазрезовТолькоВИтогах" id="63">
+											<DataPath>Объект.ТрансляцияРазрезов.ТолькоВИтогах</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Только в итогах</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Только в итогах</v8:content>
+												</v8:item>
+											</ToolTip>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ТрансляцияРазрезовТолькоВИтогахКонтекстноеМеню" id="64"/>
+											<ExtendedTooltip name="ТрансляцияРазрезовТолькоВИтогахРасширеннаяПодсказка" id="65"/>
+										</CheckBoxField>
+										<InputField name="ТрансляцияРазрезовДанные" id="109">
+											<DataPath>Объект.ТрансляцияРазрезов.Данные</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТрансляцияРазрезовДанныеКонтекстноеМеню" id="110"/>
+											<ExtendedTooltip name="ТрансляцияРазрезовДанныеРасширеннаяПодсказка" id="111"/>
+										</InputField>
+										<InputField name="ТрансляцияРазрезовШиринаПоУмолчанию" id="115">
+											<DataPath>Объект.ТрансляцияРазрезов.ШиринаПоУмолчанию</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Шир.</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТрансляцияРазрезовШиринаПоУмолчаниюКонтекстноеМеню" id="116"/>
+											<ExtendedTooltip name="ТрансляцияРазрезовШиринаПоУмолчаниюРасширеннаяПодсказка" id="117"/>
+										</InputField>
+										<InputField name="ТрансляцияРазрезовЗаголовок" id="132">
+											<DataPath>Объект.ТрансляцияРазрезов.Заголовок</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТрансляцияРазрезовЗаголовокКонтекстноеМеню" id="133"/>
+											<ExtendedTooltip name="ТрансляцияРазрезовЗаголовокРасширеннаяПодсказка" id="134"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаРазрезВКолонках" id="93">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разрез в колонках</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разрез в колонках</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>HorizontalIfPossible</Group>
+					<ExtendedTooltip name="ГруппаРазрезВКолонкахРасширеннаяПодсказка" id="94"/>
+					<ChildItems>
+						<CheckBoxField name="ИмеетсяРазрезВКолонке" id="19">
+							<DataPath>Объект.ИмеетсяРазрезВКолонке</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИмеетсяРазрезВКолонкеКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="ИмеетсяРазрезВКолонкеРасширеннаяПодсказка" id="21"/>
+							<Events>
+								<Event name="OnChange">ИмеетсяРазрезВКолонкеПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="Группа3" id="91">
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="92"/>
+							<ChildItems>
+								<InputField name="Колонка" id="16">
+									<DataPath>Объект.Колонка</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="КолонкаКонтекстноеМеню" id="17"/>
+									<ExtendedTooltip name="КолонкаРасширеннаяПодсказка" id="18"/>
+									<Events>
+										<Event name="StartChoice">ТрансляцияРазрезовРазрезНачалоВыбора</Event>
+									</Events>
+								</InputField>
+								<InputField name="Ряд" id="22">
+									<DataPath>Объект.Ряд</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>7</Width>
+									<ChoiceButton>true</ChoiceButton>
+									<SpinButton>true</SpinButton>
+									<ContextMenu name="РядКонтекстноеМеню" id="23"/>
+									<ExtendedTooltip name="РядРасширеннаяПодсказка" id="24"/>
+								</InputField>
+								<InputField name="НачальнаяКолонка" id="25">
+									<DataPath>Объект.НачальнаяКолонка</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>7</Width>
+									<ChoiceButton>true</ChoiceButton>
+									<SpinButton>true</SpinButton>
+									<ContextMenu name="НачальнаяКолонкаКонтекстноеМеню" id="26"/>
+									<ExtendedTooltip name="НачальнаяКолонкаРасширеннаяПодсказка" id="27"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаПоказателиВКолонках" id="66">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Показатели колонки</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаПоказателиВКолонкахРасширеннаяПодсказка" id="67"/>
+							<ChildItems>
+								<Table name="ПоказателиВКолонках" id="68">
+									<Representation>List</Representation>
+									<HeightInTableRows>3</HeightInTableRows>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Объект.ПоказателиВКолонках</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ПоказателиВКолонкахКонтекстноеМеню" id="69"/>
+									<AutoCommandBar name="ПоказателиВКолонкахКоманднаяПанель" id="70"/>
+									<ExtendedTooltip name="ПоказателиВКолонкахРасширеннаяПодсказка" id="71"/>
+									<SearchStringAddition name="ПоказателиВКолонкахСтрокаПоиска" id="72">
+										<AdditionSource>
+											<Item>ПоказателиВКолонках</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПоказателиВКолонкахСтрокаПоискаКонтекстноеМеню" id="73"/>
+										<ExtendedTooltip name="ПоказателиВКолонкахСтрокаПоискаРасширеннаяПодсказка" id="74"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ПоказателиВКолонкахСостояниеПросмотра" id="75">
+										<AdditionSource>
+											<Item>ПоказателиВКолонках</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ПоказателиВКолонкахСостояниеПросмотраКонтекстноеМеню" id="76"/>
+										<ExtendedTooltip name="ПоказателиВКолонкахСостояниеПросмотраРасширеннаяПодсказка" id="77"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ПоказателиВКолонкахУправлениеПоиском" id="78">
+										<AdditionSource>
+											<Item>ПоказателиВКолонках</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ПоказателиВКолонкахУправлениеПоискомКонтекстноеМеню" id="79"/>
+										<ExtendedTooltip name="ПоказателиВКолонкахУправлениеПоискомРасширеннаяПодсказка" id="80"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="OnStartEdit">ПоказателиВКолонкахПриНачалеРедактирования</Event>
+									</Events>
+									<ChildItems>
+										<LabelField name="ПоказателиВКолонкахНомерСтроки" id="81">
+											<DataPath>Объект.ПоказателиВКолонках.LineNumber</DataPath>
+											<Visible>false</Visible>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПоказателиВКолонкахНомерСтрокиКонтекстноеМеню" id="82"/>
+											<ExtendedTooltip name="ПоказателиВКолонкахНомерСтрокиРасширеннаяПодсказка" id="83"/>
+										</LabelField>
+										<InputField name="ПоказателиВКолонкахРазрез" id="84">
+											<DataPath>Объект.ПоказателиВКолонках.Разрез</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПоказателиВКолонкахРазрезКонтекстноеМеню" id="85"/>
+											<ExtendedTooltip name="ПоказателиВКолонкахРазрезРасширеннаяПодсказка" id="86"/>
+											<Events>
+												<Event name="OnChange">ПоказателиВКолонкахРазрезПриИзменении</Event>
+												<Event name="StartChoice">ПоказателиВКолонкахРазрезНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ПоказателиВКолонкахШиринаПоУмолчанию" id="118">
+											<DataPath>Объект.ПоказателиВКолонках.ШиринаПоУмолчанию</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Ш.</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПоказателиВКолонкахШиринаПоУмолчаниюКонтекстноеМеню" id="119"/>
+											<ExtendedTooltip name="ПоказателиВКолонкахШиринаПоУмолчаниюРасширеннаяПодсказка" id="120"/>
+										</InputField>
+										<InputField name="ПоказателиВКолонкахЗаголовок" id="135">
+											<DataPath>Объект.ПоказателиВКолонках.Заголовок</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПоказателиВКолонкахЗаголовокКонтекстноеМеню" id="136"/>
+											<ExtendedTooltip name="ПоказателиВКолонкахЗаголовокРасширеннаяПодсказка" id="137"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.фин_НастройкиОбменаТабличнымиДокументами</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СписокРазрезов" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список разрезов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокПоказателей" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список показателей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТрансляцияРазрезов</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ТрансляцияРазрезов.Использовать</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Gainsboro</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТрансляцияРазрезовДанные</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ТрансляцияРазрезов.Данные</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>По значению</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТрансляцияРазрезовТолькоВИтогах</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ТрансляцияРазрезов.Итоги</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+</Form>

@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОсновная" id="35">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основная</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОсновнаяРасширеннаяПодсказка" id="36"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаШапкаЛево" id="39">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шапка(левая колонка)</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка лево</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаШапкаЛевоРасширеннаяПодсказка" id="40"/>
+					<ChildItems>
+						<InputField name="Наименование" id="43">
+							<DataPath>Объект.Description</DataPath>
+							<SkipOnInput>true</SkipOnInput>
+							<DropListButton>true</DropListButton>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="45"/>
+						</InputField>
+						<InputField name="Код" id="1">
+							<DataPath>Объект.Code</DataPath>
+							<DefaultItem>true</DefaultItem>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+							<Events>
+								<Event name="OnChange">КодПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="СтранаПроисхождения" id="7">
+							<DataPath>Объект.СтранаПроисхожденияТовара</DataPath>
+							<ContextMenu name="СтранаПроисхожденияКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="СтранаПроисхожденияРасширеннаяПодсказка" id="9"/>
+							<Events>
+								<Event name="OnChange">СтранаПроисхожденияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="РегистрационныйНомерЭСФ" id="25">
+							<DataPath>Объект.РегистрационныйНомерЭСФ</DataPath>
+							<ContextMenu name="РегистрационныйНомерЭСФКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="РегистрационныйНомерЭСФРасширеннаяПодсказка" id="27"/>
+						</InputField>
+						<InputField name="НомерСертификатаПроисхожденияТовара" id="16">
+							<ContextMenu name="НомерСертификатаПроисхожденияТовараКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="НомерСертификатаПроисхожденияТовараРасширеннаяПодсказка" id="18"/>
+							<Events>
+								<Event name="OnChange">НомерСертификатаПроисхожденияТовараПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаШапкаПраво" id="41">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шапка(правая колонка)</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаШапкаПравоРасширеннаяПодсказка" id="42"/>
+					<ChildItems>
+						<InputField name="СпособПроисхожденияТовара" id="13">
+							<DataPath>Объект.СпособПроисхожденияТовара</DataPath>
+							<ContextMenu name="СпособПроисхожденияТовараКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="СпособПроисхожденияТовараРасширеннаяПодсказка" id="15"/>
+							<Events>
+								<Event name="OnChange">СпособПроисхожденияТовараПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПризнакПроисхождения" id="48">
+							<DataPath>Объект.ПризнакПроисхождения</DataPath>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ChoiceListButton>true</ChoiceListButton>
+							<ContextMenu name="ПризнакПроисхожденияКонтекстноеМеню" id="49"/>
+							<ExtendedTooltip name="ПризнакПроисхожденияРасширеннаяПодсказка" id="50"/>
+							<Events>
+								<Event name="OnChange">ПризнакПроисхожденияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="НомерСтрокиГТД" id="22">
+							<DataPath>Объект.НомерСтрокиГТД</DataPath>
+							<ContextMenu name="НомерСтрокиГТДКонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="НомерСтрокиГТДРасширеннаяПодсказка" id="24"/>
+							<Events>
+								<Event name="OnChange">НомерСтрокиГТДПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="КодТНВЭД" id="10">
+							<DataPath>Объект.КодТНВЭД</DataPath>
+							<ChoiceButton>true</ChoiceButton>
+							<ContextMenu name="КодТНВЭДКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="КодТНВЭДРасширеннаяПодсказка" id="12"/>
+							<Events>
+								<Event name="OnChange">КодТНВЭДПриИзменении</Event>
+								<Event name="StartChoice">КодТНВЭДНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<InputField name="ГСВС" id="51">
+							<DataPath>Объект.ГСВС</DataPath>
+							<ContextMenu name="ГСВСКонтекстноеМеню" id="52"/>
+							<ExtendedTooltip name="ГСВСРасширеннаяПодсказка" id="53"/>
+							<Events>
+								<Event name="OnChange">ГСВСПриИзменении</Event>
+								<Event name="StartChoice">ГСВСНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<InputField name="ДатаСертификатаПроисхожденияТовара" id="19">
+							<DataPath>Объект.ДатаСертификатаПроисхожденияТовара</DataPath>
+							<ContextMenu name="ДатаСертификатаПроисхожденияТовараКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="ДатаСертификатаПроисхожденияТовараРасширеннаяПодсказка" id="21"/>
+							<Events>
+								<Event name="OnChange">ДатаСертификатаПроисхожденияТовараПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаЭСФ" id="46">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЭСФ</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаЭСФРасширеннаяПодсказка" id="47"/>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="НаименованиеТовара" id="28">
+			<DataPath>Объект.НаименованиеТовара</DataPath>
+			<ContextMenu name="НаименованиеТовараКонтекстноеМеню" id="29"/>
+			<ExtendedTooltip name="НаименованиеТовараРасширеннаяПодсказка" id="30"/>
+		</InputField>
+		<InputField name="Комментарий" id="4">
+			<DataPath>Объект.Комментарий</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<Height>1</Height>
+			<VerticalStretch>false</VerticalStretch>
+			<MultiLine>true</MultiLine>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="6"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.НомераГТД</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>3:b02ca02a-fc83-447c-a094-588d0f025f63</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:e3952322-a526-4e18-84e2-681b0f114a6b</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:c4cdf1e0-3ba4-44ed-a69b-e548eedca4dd</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>3:58c9e918-9e14-4dbf-825e-bd811a766b89</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>4:e3c0ddad-cab7-4082-8723-0e9ab0623268</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>4:20d655a7-788c-48bc-83ae-25003106bedb</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

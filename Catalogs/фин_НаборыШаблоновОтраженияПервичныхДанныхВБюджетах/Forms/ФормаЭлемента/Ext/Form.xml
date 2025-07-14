@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНаименованиеКод" id="44">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование код</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование код</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеКодРасширеннаяПодсказка" id="45"/>
+			<ChildItems>
+				<InputField name="Наименование" id="4">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Владелец" id="7">
+			<DataPath>Объект.Owner</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ВладелецКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ВладелецРасширеннаяПодсказка" id="9"/>
+			<Events>
+				<Event name="OnChange">ВладелецПриИзменении</Event>
+				<Event name="StartChoice">ВладелецНачалоВыбора</Event>
+			</Events>
+		</InputField>
+		<InputField name="Родитель" id="10">
+			<DataPath>Объект.Parent</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="РодительКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<UsualGroup name="ГруппаСоставШаблоновНабора" id="46">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состав шаблонов набора</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа состав шаблонов набора</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ГруппаСоставШаблоновНабораРасширеннаяПодсказка" id="47"/>
+			<ChildItems>
+				<Table name="НаборШаблонов" id="13">
+					<Representation>List</Representation>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Объект.НаборШаблонов</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="НаборШаблоновКонтекстноеМеню" id="14"/>
+					<AutoCommandBar name="НаборШаблоновКоманднаяПанель" id="15"/>
+					<ExtendedTooltip name="НаборШаблоновРасширеннаяПодсказка" id="16"/>
+					<SearchStringAddition name="НаборШаблоновСтрокаПоиска" id="17">
+						<AdditionSource>
+							<Item>НаборШаблонов</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="НаборШаблоновСтрокаПоискаКонтекстноеМеню" id="20"/>
+						<ExtendedTooltip name="НаборШаблоновСтрокаПоискаРасширеннаяПодсказка" id="21"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="НаборШаблоновСостояниеПросмотра" id="22">
+						<AdditionSource>
+							<Item>НаборШаблонов</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="НаборШаблоновСостояниеПросмотраКонтекстноеМеню" id="25"/>
+						<ExtendedTooltip name="НаборШаблоновСостояниеПросмотраРасширеннаяПодсказка" id="26"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="НаборШаблоновУправлениеПоиском" id="27">
+						<AdditionSource>
+							<Item>НаборШаблонов</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="НаборШаблоновУправлениеПоискомКонтекстноеМеню" id="30"/>
+						<ExtendedTooltip name="НаборШаблоновУправлениеПоискомРасширеннаяПодсказка" id="31"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="BeforeAddRow">НаборШаблоновПередНачаломДобавления</Event>
+						<Event name="OnStartEdit">НаборШаблоновПриНачалеРедактирования</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="НаборШаблоновНомерСтроки" id="32">
+							<DataPath>Объект.НаборШаблонов.LineNumber</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>3</Width>
+							<ContextMenu name="НаборШаблоновНомерСтрокиКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="НаборШаблоновНомерСтрокиРасширеннаяПодсказка" id="34"/>
+						</LabelField>
+						<ColumnGroup name="НаборШаблоновГруппаСпособИУсловие" id="48">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Набор шаблонов группа способ и условие</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Набор шаблонов группа способ и условие</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="НаборШаблоновГруппаСпособИУсловиеРасширеннаяПодсказка" id="49"/>
+							<ChildItems>
+								<InputField name="НаборШаблоновСпособИспользования" id="38">
+									<DataPath>Объект.НаборШаблонов.СпособИспользования</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>15</Width>
+									<ContextMenu name="НаборШаблоновСпособИспользованияКонтекстноеМеню" id="39"/>
+									<ExtendedTooltip name="НаборШаблоновСпособИспользованияРасширеннаяПодсказка" id="40"/>
+									<Events>
+										<Event name="OnChange">НаборШаблоновСпособИспользованияПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="НаборШаблоновУсловиеПримененияШаблона" id="35">
+									<DataPath>Объект.НаборШаблонов.УсловиеПримененияШаблона</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>15</Width>
+									<ContextMenu name="НаборШаблоновУсловиеПримененияШаблонаКонтекстноеМеню" id="36"/>
+									<ExtendedTooltip name="НаборШаблоновУсловиеПримененияШаблонаРасширеннаяПодсказка" id="37"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+						<InputField name="НаборШаблоновШаблон" id="41">
+							<DataPath>Объект.НаборШаблонов.Схема</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="НаборШаблоновШаблонКонтекстноеМеню" id="42"/>
+							<ExtendedTooltip name="НаборШаблоновШаблонРасширеннаяПодсказка" id="43"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.фин_НаборыШаблоновОтраженияПервичныхДанныхВБюджетах</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="мВид" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>М вид</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.фин_ВидыДокументов</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>НаборШаблоновУсловиеПримененияШаблона</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.НаборШаблонов.СпособИспользования</dcsset:left>
+						<dcsset:comparisonType>InList</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.фин_СпособИспользованияШаблонаОтраженияВБюджетировании.Всегда</dcsset:right>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.фин_СпособИспользованияШаблонаОтраженияВБюджетировании.ЕслиНеНайденУдовлетворяющийУсловиюШаблон</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+</Form>

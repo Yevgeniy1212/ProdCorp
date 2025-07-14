@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="4">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<UsualGroup name="ГруппаРодительКод" id="74">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа родитель код</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа родитель код</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРодительКодРасширеннаяПодсказка" id="75"/>
+			<ChildItems>
+				<InputField name="Родитель" id="7">
+					<DataPath>Объект.Parent</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РодительКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="9"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаСтруктураБюджетногоПериода" id="76">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура бюджетного периода</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура бюджетного периода</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаСтруктураБюджетногоПериодаРасширеннаяПодсказка" id="77"/>
+			<ChildItems>
+				<InputField name="Периодичность" id="10">
+					<DataPath>Объект.Периодичность</DataPath>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>определяет длительность одного планового периода, входящего в состав бюджетного периода</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<ChooseType>false</ChooseType>
+					<ContextMenu name="ПериодичностьКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ПериодичностьРасширеннаяПодсказка" id="12">
+						<Width>40</Width>
+						<Height>2</Height>
+					</ExtendedTooltip>
+					<Events>
+						<Event name="OnChange">ПериодичностьПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ПродолжительностьЦикла" id="19">
+					<DataPath>Объект.ПродолжительностьЦикла</DataPath>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>определяет количество плановых периодов, входящих в один бюджетный период</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<ClearButton>true</ClearButton>
+					<SpinButton>true</SpinButton>
+					<ContextMenu name="ПродолжительностьЦиклаКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ПродолжительностьЦиклаРасширеннаяПодсказка" id="21">
+						<Width>40</Width>
+						<Height>2</Height>
+					</ExtendedTooltip>
+					<Events>
+						<Event name="OnChange">ПродолжительностьЦиклаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<CheckBoxField name="ИспользоватьТочкиПланирования" id="34">
+					<DataPath>Объект.ИспользоватьТочкиПланирования</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>позволяет настроить жесткую привязку бюджетных периодов к календарным датам</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ИспользоватьТочкиПланированияКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ИспользоватьТочкиПланированияРасширеннаяПодсказка" id="36"/>
+					<Events>
+						<Event name="OnChange">ИспользоватьТочкиПланированияПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<UsualGroup name="ГруппаТочкиПланирования" id="84">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Точки планирования</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа точки планирования</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Behavior>Collapsible</Behavior>
+					<Collapsed>true</Collapsed>
+					<ControlRepresentation>Picture</ControlRepresentation>
+					<ExtendedTooltip name="ГруппаТочкиПланированияРасширеннаяПодсказка" id="85"/>
+					<ChildItems>
+						<Table name="ТочкиПланирования" id="49">
+							<Representation>List</Representation>
+							<HeightInTableRows>4</HeightInTableRows>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ТочкиПланирования</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТочкиПланированияКонтекстноеМеню" id="50"/>
+							<AutoCommandBar name="ТочкиПланированияКоманднаяПанель" id="51"/>
+							<ExtendedTooltip name="ТочкиПланированияРасширеннаяПодсказка" id="52"/>
+							<SearchStringAddition name="ТочкиПланированияСтрокаПоиска" id="53">
+								<AdditionSource>
+									<Item>ТочкиПланирования</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТочкиПланированияСтрокаПоискаКонтекстноеМеню" id="56"/>
+								<ExtendedTooltip name="ТочкиПланированияСтрокаПоискаРасширеннаяПодсказка" id="57"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТочкиПланированияСостояниеПросмотра" id="58">
+								<AdditionSource>
+									<Item>ТочкиПланирования</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТочкиПланированияСостояниеПросмотраКонтекстноеМеню" id="61"/>
+								<ExtendedTooltip name="ТочкиПланированияСостояниеПросмотраРасширеннаяПодсказка" id="62"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТочкиПланированияУправлениеПоиском" id="63">
+								<AdditionSource>
+									<Item>ТочкиПланирования</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ТочкиПланированияУправлениеПоискомКонтекстноеМеню" id="66"/>
+								<ExtendedTooltip name="ТочкиПланированияУправлениеПоискомРасширеннаяПодсказка" id="67"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnStartEdit">ТочкиПланированияПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="ТочкиПланированияНомерСтроки" id="68">
+									<DataPath>Объект.ТочкиПланирования.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТочкиПланированияНомерСтрокиКонтекстноеМеню" id="69"/>
+									<ExtendedTooltip name="ТочкиПланированияНомерСтрокиРасширеннаяПодсказка" id="70"/>
+								</LabelField>
+								<InputField name="ТочкиПланированияПериодПланирования" id="71">
+									<DataPath>Объект.ТочкиПланирования.ПериодПланирования</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<SpinButton>true</SpinButton>
+									<ContextMenu name="ТочкиПланированияПериодПланированияКонтекстноеМеню" id="72"/>
+									<ExtendedTooltip name="ТочкиПланированияПериодПланированияРасширеннаяПодсказка" id="73"/>
+									<Events>
+										<Event name="OnChange">ТочкиПланированияПериодПланированияПриИзменении</Event>
+										<Event name="Tuning">ТочкиПланированияПериодПланированияРегулирование</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаВалютаИКурсы" id="78">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта и курсы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта и курсы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Collapsible</Behavior>
+			<Collapsed>true</Collapsed>
+			<ControlRepresentation>Picture</ControlRepresentation>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаВалютаИКурсыРасширеннаяПодсказка" id="79"/>
+			<ChildItems>
+				<InputField name="Валюта" id="16">
+					<DataPath>Объект.Валюта</DataPath>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>валюта, в которую будут пересчитываться все плановые данные по сценарию, параллельно с валютами, в которых вводятся первичные данные</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВалютаКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ВалютаРасширеннаяПодсказка" id="18">
+						<Width>40</Width>
+						<Height>3</Height>
+					</ExtendedTooltip>
+				</InputField>
+				<CheckBoxField name="ИспользоватьКурсыСценария" id="31">
+					<DataPath>Объект.ИспользоватьКурсыСценария</DataPath>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>признак использования отдельной линейки курсов валют для сценария</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ИспользоватьКурсыСценарияКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ИспользоватьКурсыСценарияРасширеннаяПодсказка" id="33"/>
+					<Events>
+						<Event name="OnChange">ИспользоватьКурсыСценарияПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаЦенообразованиеПриПланировании" id="80">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ценообразование при планировании</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ценообразование при планировании</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Collapsible</Behavior>
+			<Collapsed>true</Collapsed>
+			<ControlRepresentation>Picture</ControlRepresentation>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаЦенообразованиеПриПланированииРасширеннаяПодсказка" id="81"/>
+			<ChildItems>
+				<CheckBoxField name="ЕдинаяЦенаВБюджетномПериоде" id="37">
+					<DataPath>Объект.ЕдинаяЦенаВБюджетномПериоде</DataPath>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>если признак установлен, тогда при вводе плановых данных цена для всех периодов в рамках бюджета будет одинакова, в противном случае можно будет указывать различные цены для каждого периода бюджета</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЕдинаяЦенаВБюджетномПериодеКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="ЕдинаяЦенаВБюджетномПериодеРасширеннаяПодсказка" id="39">
+						<Height>3</Height>
+					</ExtendedTooltip>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПрочее" id="82">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочее</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Collapsible</Behavior>
+			<Collapsed>true</Collapsed>
+			<ControlRepresentation>Picture</ControlRepresentation>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаПрочееРасширеннаяПодсказка" id="83"/>
+			<ChildItems>
+				<InputField name="ДетализацияПланирования" id="13">
+					<DataPath>Объект.ДетализацияПланирования</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДетализацияПланированияКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ДетализацияПланированияРасширеннаяПодсказка" id="15"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.СценарииПланирования</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="мПериодичность" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>М периодичность</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.фин_Периодичность</v8:Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>
