@@ -1,0 +1,593 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаПредупреждение" id="72">
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПредупреждениеExtendedTooltip" id="73"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаПредупрежденияОперации" id="74">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПредупрежденияОперацииРасширеннаяПодсказка" id="75"/>
+					<ChildItems>
+						<PictureDecoration name="КартинкаПредупреждение" id="76">
+							<Width>1</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>1</Height>
+							<AutoMaxHeight>false</AutoMaxHeight>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Картинка предупреждение</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Ref>CommonPicture.Информация</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КартинкаПредупреждениеКонтекстноеМеню" id="77"/>
+							<ExtendedTooltip name="КартинкаПредупреждениеExtendedTooltip" id="78"/>
+						</PictureDecoration>
+						<LabelDecoration name="ДекорацияПредупреждение" id="79">
+							<Width>70</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Font bold="true" underline="true" kind="AutoFont"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Операция актуализации кодов ТН ВЭД в справочнике "Номенклатура"!
+</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияПредупреждениеКонтекстноеМеню" id="80"/>
+							<ExtendedTooltip name="ДекорацияПредупреждениеРасширеннаяПодсказка" id="81"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<LabelDecoration name="ДекорацияПредупреждение2" id="82">
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Существующие коды ТН ВЭД в элементах справочника "Номенклатура" будут заменены на актуальные без возможности восстановления</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияПредупреждение2КонтекстноеМеню" id="83"/>
+					<ExtendedTooltip name="ДекорацияПредупреждение2ExtendedTooltip" id="84"/>
+				</LabelDecoration>
+				<LabelDecoration name="ДекорацияПредупреждение3" id="85">
+					<Width>80</Width>
+					<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Важно! Перед выполнением операции рекомендуется создать резервную копию информационной базы.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияПредупреждение3КонтекстноеМеню" id="86"/>
+					<ExtendedTooltip name="ДекорацияПредупреждение3ExtendedTooltip" id="87"/>
+				</LabelDecoration>
+				<UsualGroup name="ГруппаДействий" id="88">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа действий</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа действий</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДействийРасширеннаяПодсказка" id="89"/>
+					<ChildItems>
+						<LabelDecoration name="ДекорацияРезервнаяКопия" id="90">
+							<Visible>false</Visible>
+							<Enabled>false</Enabled>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<Height>2</Height>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Создать резервную копию информационной базы</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<VerticalAlign>Center</VerticalAlign>
+							<ContextMenu name="ДекорацияРезервнаяКопияКонтекстноеМеню" id="91"/>
+							<ExtendedTooltip name="ДекорацияРезервнаяКопияExtendedTooltip" id="92"/>
+							<Events>
+								<Event name="Click">ДекорацияРезервнаяКопияНажатие</Event>
+							</Events>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ДеревоИТаблица" id="43">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дерево и таблица</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ДеревоИТаблицаРасширеннаяПодсказка" id="44"/>
+			<ChildItems>
+				<Table name="Дерево" id="45">
+					<Representation>Tree</Representation>
+					<ReadOnly>true</ReadOnly>
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Дерево</DataPath>
+					<RowPictureDataPath>Дерево.DefaultPicture</RowPictureDataPath>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period>
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+					<ContextMenu name="ДеревоКонтекстноеМеню" id="46"/>
+					<AutoCommandBar name="ДеревоКоманднаяПанель" id="47">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ДеревоРасширеннаяПодсказка" id="48"/>
+					<SearchStringAddition name="ДеревоСтрокаПоиска" id="49">
+						<AdditionSource>
+							<Item>Дерево</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ДеревоСтрокаПоискаКонтекстноеМеню" id="50"/>
+						<ExtendedTooltip name="ДеревоСтрокаПоискаРасширеннаяПодсказка" id="51"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ДеревоСостояниеПросмотра" id="52">
+						<AdditionSource>
+							<Item>Дерево</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ДеревоСостояниеПросмотраКонтекстноеМеню" id="53"/>
+						<ExtendedTooltip name="ДеревоСостояниеПросмотраРасширеннаяПодсказка" id="54"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ДеревоУправлениеПоиском" id="55">
+						<AdditionSource>
+							<Item>Дерево</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ДеревоУправлениеПоискомКонтекстноеМеню" id="56"/>
+						<ExtendedTooltip name="ДеревоУправлениеПоискомРасширеннаяПодсказка" id="57"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="OnActivateRow">ДеревоПриАктивизацииСтроки</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="ДеревоСсылка" id="93">
+							<DataPath>Дерево.Ref</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группы номенклатуры</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДеревоСсылкаКонтекстноеМеню" id="94"/>
+							<ExtendedTooltip name="ДеревоСсылкаРасширеннаяПодсказка" id="95"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+				<Table name="ТаблицаАктуализации" id="5">
+					<Representation>List</Representation>
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ТаблицаАктуализации</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ТаблицаАктуализацииКонтекстноеМеню" id="6"/>
+					<AutoCommandBar name="ТаблицаАктуализацииКоманднаяПанель" id="7">
+						<ChildItems>
+							<Button name="ТаблицаАктуализацииОбновитьТаблицу" id="41">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ОбновитьТаблицу</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Заполнить по данным ГСВС</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ТаблицаАктуализацииОбновитьТаблицуРасширеннаяПодсказка" id="42"/>
+							</Button>
+							<Button name="ФормаУстановитьПометки" id="35">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.УстановитьПометки</CommandName>
+								<ExtendedTooltip name="ФормаУстановитьПометкиРасширеннаяПодсказка" id="36"/>
+							</Button>
+							<Button name="ТаблицаАктуализацииСнятьПометки" id="37">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СнятьПометки</CommandName>
+								<ExtendedTooltip name="ТаблицаАктуализацииСнятьПометкиРасширеннаяПодсказка" id="38"/>
+							</Button>
+							<Button name="ТаблицаАктуализацииИнвертироватьПометки" id="39">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ИнвертироватьПометки</CommandName>
+								<ExtendedTooltip name="ТаблицаАктуализацииИнвертироватьПометкиРасширеннаяПодсказка" id="40"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ТаблицаАктуализацииРасширеннаяПодсказка" id="8"/>
+					<SearchStringAddition name="ТаблицаАктуализацииСтрокаПоиска" id="9">
+						<AdditionSource>
+							<Item>ТаблицаАктуализации</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ТаблицаАктуализацииСтрокаПоискаКонтекстноеМеню" id="10"/>
+						<ExtendedTooltip name="ТаблицаАктуализацииСтрокаПоискаРасширеннаяПодсказка" id="11"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ТаблицаАктуализацииСостояниеПросмотра" id="12">
+						<AdditionSource>
+							<Item>ТаблицаАктуализации</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ТаблицаАктуализацииСостояниеПросмотраКонтекстноеМеню" id="13"/>
+						<ExtendedTooltip name="ТаблицаАктуализацииСостояниеПросмотраРасширеннаяПодсказка" id="14"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ТаблицаАктуализацииУправлениеПоиском" id="15">
+						<AdditionSource>
+							<Item>ТаблицаАктуализации</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ТаблицаАктуализацииУправлениеПоискомКонтекстноеМеню" id="16"/>
+						<ExtendedTooltip name="ТаблицаАктуализацииУправлениеПоискомРасширеннаяПодсказка" id="17"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<CheckBoxField name="ТаблицаАктуализацииПометка" id="29">
+							<DataPath>ТаблицаАктуализации.Пометка</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ТаблицаАктуализацииПометкаКонтекстноеМеню" id="30"/>
+							<ExtendedTooltip name="ТаблицаАктуализацииПометкаРасширеннаяПодсказка" id="31"/>
+						</CheckBoxField>
+						<InputField name="ТаблицаАктуализацииНоменклатура" id="18">
+							<DataPath>ТаблицаАктуализации.Номенклатура</DataPath>
+							<WarningOnEditRepresentation>DontShow</WarningOnEditRepresentation>
+							<EditMode>Directly</EditMode>
+							<DropListButton>false</DropListButton>
+							<ChoiceButton>false</ChoiceButton>
+							<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+							<ClearButton>false</ClearButton>
+							<SpinButton>false</SpinButton>
+							<OpenButton>true</OpenButton>
+							<CreateButton>false</CreateButton>
+							<QuickChoice>false</QuickChoice>
+							<ChooseType>false</ChooseType>
+							<TextEdit>false</TextEdit>
+							<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+							<ContextMenu name="ТаблицаАктуализацииНоменклатураКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="ТаблицаАктуализацииНоменклатураРасширеннаяПодсказка" id="20"/>
+							<Events>
+								<Event name="StartChoice">ТаблицаАктуализацииНоменклатураНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<InputField name="ТаблицаАктуализацииТекущийКодТНВЭД" id="21">
+							<DataPath>ТаблицаАктуализации.ТекущийКодТНВЭД</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТаблицаАктуализацииТекущийКодТНВЭДКонтекстноеМеню" id="22"/>
+							<ExtendedTooltip name="ТаблицаАктуализацииТекущийКодТНВЭДРасширеннаяПодсказка" id="23"/>
+						</InputField>
+						<InputField name="ТаблицаАктуализацииНовыйКодТНВЭД" id="24">
+							<DataPath>ТаблицаАктуализации.НовыйКодТНВЭД</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТаблицаАктуализацииНовыйКодТНВЭДКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="ТаблицаАктуализацииНовыйКодТНВЭДРасширеннаяПодсказка" id="26"/>
+						</InputField>
+						<InputField name="ТаблицаАктуализацииНоменклатураГСВС" id="32">
+							<DataPath>ТаблицаАктуализации.НоменклатураГСВС</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ГСВС</v8:content>
+								</v8:item>
+							</Title>
+							<WarningOnEditRepresentation>DontShow</WarningOnEditRepresentation>
+							<EditMode>Directly</EditMode>
+							<DropListButton>false</DropListButton>
+							<ChoiceButton>false</ChoiceButton>
+							<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+							<ClearButton>false</ClearButton>
+							<SpinButton>false</SpinButton>
+							<OpenButton>true</OpenButton>
+							<CreateButton>false</CreateButton>
+							<QuickChoice>false</QuickChoice>
+							<ChooseType>false</ChooseType>
+							<TextEdit>false</TextEdit>
+							<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+							<ContextMenu name="ТаблицаАктуализацииНоменклатураГСВСКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="ТаблицаАктуализацииНоменклатураГСВСРасширеннаяПодсказка" id="34"/>
+							<Events>
+								<Event name="StartChoice">ТаблицаАктуализацииНоменклатураГСВСНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<InputField name="ТаблицаАктуализацииРодитель" id="69">
+							<DataPath>ТаблицаАктуализации.Родитель</DataPath>
+							<Visible>false</Visible>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТаблицаАктуализацииРодительКонтекстноеМеню" id="70"/>
+							<ExtendedTooltip name="ТаблицаАктуализацииРодительРасширеннаяПодсказка" id="71"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<CommandBar name="КоманднаяПанельНижняя" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель нижняя</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель нижняя</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="КоманднаяПанельНижняяРасширеннаяПодсказка" id="28"/>
+			<ChildItems>
+				<Button name="ФормаАктуализировать" id="1">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.Актуализировать</CommandName>
+					<ExtendedTooltip name="ФормаАктуализироватьРасширеннаяПодсказка" id="2"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ТаблицаАктуализации" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица актуализации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Номенклатура" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.НематериальныеАктивы</v8:Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+						<v8:Type>cfg:CatalogRef.ОсновныеСредства</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТекущийКодТНВЭД" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текущий код ТН ВЭД</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>10</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="НовыйКодТНВЭД" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Новый код ТН ВЭД</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>10</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="НоменклатураГСВС" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура ГСВС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.НоменклатураГСВС</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Пометка" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Родитель" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Родитель</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.НематериальныеАктивы</v8:Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+						<v8:Type>cfg:CatalogRef.ОсновныеСредства</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Дерево" id="2">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>Catalog.Номенклатура</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ЭтоГруппа</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Актуализировать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Актуализировать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Актуализировать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Актуализировать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УстановитьПометки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить пометки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить пометки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьПометки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СнятьПометки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять пометки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять пометки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьПометки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ИнвертироватьПометки" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Инвертировать пометки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Инвертировать пометки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ИнвертироватьПометки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОбновитьТаблицу" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить таблицу</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить таблицу</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОбновитьТаблицу</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

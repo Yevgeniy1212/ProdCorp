@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="РазрезБюджета" id="7">
+			<DataPath>РазрезБюджета</DataPath>
+			<ContextMenu name="РазрезБюджетаКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="РазрезБюджетаРасширеннаяПодсказка" id="9"/>
+			<Events>
+				<Event name="StartChoice">РазрезБюджетаНачалоВыбора</Event>
+				<Event name="ChoiceProcessing">РазрезБюджетаОбработкаВыбора</Event>
+			</Events>
+		</InputField>
+		<InputField name="СправочникПредставление" id="10">
+			<DataPath>СправочникПредставление</DataPath>
+			<ChoiceButton>true</ChoiceButton>
+			<TextEdit>false</TextEdit>
+			<ContextMenu name="СправочникПредставлениеКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="СправочникПредставлениеРасширеннаяПодсказка" id="12"/>
+			<Events>
+				<Event name="StartChoice">СправочникПредставлениеНачалоВыбора</Event>
+				<Event name="ChoiceProcessing">СправочникПредставлениеОбработкаВыбора</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="ГруппаСоответствияЭлементамСправочника" id="46">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Соответствия элементам справочника</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа соответствия элементам справочника</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаСоответствияЭлементамСправочникаРасширеннаяПодсказка" id="47"/>
+			<ChildItems>
+				<InputField name="Дата" id="41">
+					<DataPath>Дата</DataPath>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="43"/>
+				</InputField>
+				<Table name="ДеревоСоответствий" id="13">
+					<Representation>Tree</Representation>
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ДеревоСоответствий</DataPath>
+					<ContextMenu name="ДеревоСоответствийКонтекстноеМеню" id="14"/>
+					<AutoCommandBar name="ДеревоСоответствийКоманднаяПанель" id="15">
+						<ChildItems>
+							<Button name="ДеревоСоответствийОбновить" id="48">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.Обновить</CommandName>
+								<ExtendedTooltip name="ДеревоСоответствийОбновитьРасширеннаяПодсказка" id="49"/>
+							</Button>
+							<Button name="ДеревоСоответствийУстановитьФлажки" id="52">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.УстановитьФлажки</CommandName>
+								<ExtendedTooltip name="ДеревоСоответствийУстановитьФлажкиРасширеннаяПодсказка" id="53"/>
+							</Button>
+							<Button name="ДеревоСоответствийСнятьФлажки" id="54">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СнятьФлажки</CommandName>
+								<ExtendedTooltip name="ДеревоСоответствийСнятьФлажкиРасширеннаяПодсказка" id="55"/>
+							</Button>
+							<Button name="ДеревоСоответствийСоздатьСоответствия" id="50">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьСоответствия</CommandName>
+								<ExtendedTooltip name="ДеревоСоответствийСоздатьСоответствияРасширеннаяПодсказка" id="51"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ДеревоСоответствийРасширеннаяПодсказка" id="16"/>
+					<SearchStringAddition name="ДеревоСоответствийСтрокаПоиска" id="17">
+						<AdditionSource>
+							<Item>ДеревоСоответствий</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ДеревоСоответствийСтрокаПоискаКонтекстноеМеню" id="20"/>
+						<ExtendedTooltip name="ДеревоСоответствийСтрокаПоискаРасширеннаяПодсказка" id="21"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ДеревоСоответствийСостояниеПросмотра" id="22">
+						<AdditionSource>
+							<Item>ДеревоСоответствий</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ДеревоСоответствийСостояниеПросмотраКонтекстноеМеню" id="25"/>
+						<ExtendedTooltip name="ДеревоСоответствийСостояниеПросмотраРасширеннаяПодсказка" id="26"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ДеревоСоответствийУправлениеПоиском" id="27">
+						<AdditionSource>
+							<Item>ДеревоСоответствий</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ДеревоСоответствийУправлениеПоискомКонтекстноеМеню" id="30"/>
+						<ExtendedTooltip name="ДеревоСоответствийУправлениеПоискомРасширеннаяПодсказка" id="31"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<ColumnGroup name="ДеревоСоответствийГруппа1" id="44">
+							<Group>InCell</Group>
+							<ExtendedTooltip name="ДеревоСоответствийГруппа1РасширеннаяПодсказка" id="45"/>
+							<ChildItems>
+								<CheckBoxField name="ДеревоСоответствийФлаг" id="38">
+									<DataPath>ДеревоСоответствий.Флаг</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>Directly</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ДеревоСоответствийФлагКонтекстноеМеню" id="39"/>
+									<ExtendedTooltip name="ДеревоСоответствийФлагРасширеннаяПодсказка" id="40"/>
+									<Events>
+										<Event name="OnChange">ДеревоСоответствийФлагПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<InputField name="ДеревоСоответствийИсходноеЗначение" id="32">
+									<DataPath>ДеревоСоответствий.ИсходноеЗначение</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДеревоСоответствийИсходноеЗначениеКонтекстноеМеню" id="33"/>
+									<ExtendedTooltip name="ДеревоСоответствийИсходноеЗначениеРасширеннаяПодсказка" id="34"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+						<InputField name="ДеревоСоответствийСоответствие" id="35">
+							<DataPath>ДеревоСоответствий.Соответствие</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДеревоСоответствийСоответствиеКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="ДеревоСоответствийСоответствиеРасширеннаяПодсказка" id="37"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+				<UsualGroup name="ГруппаНастройкаСозданияФинансовыхПоказателей" id="56">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройка создания финансовых показателей</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройка создания финансовых показателей</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ExtendedTooltip name="ГруппаНастройкаСозданияФинансовыхПоказателейРасширеннаяПодсказка" id="57"/>
+					<ChildItems>
+						<CheckBoxField name="УчетПоСумме" id="58">
+							<DataPath>УчетПоСумме</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="УчетПоСуммеКонтекстноеМеню" id="59"/>
+							<ExtendedTooltip name="УчетПоСуммеРасширеннаяПодсказка" id="60"/>
+						</CheckBoxField>
+						<CheckBoxField name="УчетПоКоличеству" id="61">
+							<DataPath>УчетПоКоличеству</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="УчетПоКоличествуКонтекстноеМеню" id="62"/>
+							<ExtendedTooltip name="УчетПоКоличествуРасширеннаяПодсказка" id="63"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.фин_РегламентноеНазначениеСоответствийБюджетирования</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="РазрезБюджета" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрез бюджета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:ChartOfCharacteristicTypesRef.фин_ВидыСубконтоБюджетирования</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СправочникПредставление" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Справочник</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Дата" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период действия создаваемых соответствий</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДеревоСоответствий" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дерево соответствий</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ИсходноеЗначение" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исходное значение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:CatalogRef</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="Соответствие" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Соответствие</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:CatalogRef</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="Флаг" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Флаг</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="СписокРазрезов" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список разрезов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокСправочников" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список справочников</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="УчетПоСумме" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учет по сумме</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="УчетПоКоличеству" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учет по количеству</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Обновить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Обновить</Action>
+		</Command>
+		<Command name="СоздатьСоответствия" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать соответствия</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать соответствия</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.фин_ПрименитьВсе</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СоздатьСоответствия</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="УстановитьФлажки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьФлажки</Action>
+		</Command>
+		<Command name="СнятьФлажки" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять флажки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять флажки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьФлажки</Action>
+		</Command>
+	</Commands>
+</Form>

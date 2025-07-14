@@ -1,0 +1,1657 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<ScalingMode>Compact</ScalingMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="164">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шапка</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="165"/>
+			<ChildItems>
+				<InputField name="Период" id="1">
+					<DataPath>Период</DataPath>
+					<ContextMenu name="ПериодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="90"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="НадписьОтбор" id="63">
+			<DataPath>НадписьОтбор</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<HorizontalAlign>Center</HorizontalAlign>
+			<TextEdit>false</TextEdit>
+			<TextColor>#004242</TextColor>
+			<BackColor>#B0C4DE</BackColor>
+			<BorderColor>#4682B4</BorderColor>
+			<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="НадписьОтборКонтекстноеМеню" id="64"/>
+			<ExtendedTooltip name="НадписьОтборРасширеннаяПодсказка" id="91"/>
+		</InputField>
+		<UsualGroup name="ГруппаОтбор" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОтборРасширеннаяПодсказка" id="92"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаОтборЛевая" id="86">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отбор (левая колонка)</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ChildItemsWidth>Equal</ChildItemsWidth>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОтборЛеваяРасширеннаяПодсказка" id="93"/>
+					<ChildItems>
+						<InputField name="СтруктурноеПодразделениеОрганизация" id="161">
+							<DataPath>СтруктурноеПодразделениеОрганизация</DataPath>
+							<ContextMenu name="СтруктурноеПодразделениеОрганизацияКонтекстноеМеню" id="162"/>
+							<ExtendedTooltip name="СтруктурноеПодразделениеОрганизацияРасширеннаяПодсказка" id="163"/>
+							<Events>
+								<Event name="OnChange">СтруктурноеПодразделениеОрганизацияПриИзменении</Event>
+								<Event name="StartChoice">СтруктурноеПодразделениеОрганизацияНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<InputField name="Контрагент" id="5">
+							<DataPath>Объект.Контрагент</DataPath>
+							<ContextMenu name="КонтрагентКонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="99"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаОтборПравая" id="87">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отбор (правая колонка)</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОтборПраваяРасширеннаяПодсказка" id="100"/>
+					<ChildItems>
+						<InputField name="РежимОтбораЗаявок" id="88">
+							<DataPath>Объект.РежимОтбораЗаявок</DataPath>
+							<ContextMenu name="РежимОтбораЗаявокКонтекстноеМеню" id="89"/>
+							<ExtendedTooltip name="РежимОтбораЗаявокРасширеннаяПодсказка" id="101"/>
+						</InputField>
+						<CheckBoxField name="ТолькоНовые" id="48">
+							<DataPath>ТолькоНовые</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Только новые заявки</v8:content>
+								</v8:item>
+							</Title>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ТолькоНовыеКонтекстноеМеню" id="49"/>
+							<ExtendedTooltip name="ТолькоНовыеРасширеннаяПодсказка" id="102"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="НадписьЗаявки" id="65">
+			<DataPath>НадписьЗаявки</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<HorizontalAlign>Center</HorizontalAlign>
+			<TextEdit>false</TextEdit>
+			<TextColor>#004242</TextColor>
+			<BackColor>#B0C4DE</BackColor>
+			<BorderColor>#4682B4</BorderColor>
+			<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="НадписьЗаявкиКонтекстноеМеню" id="66"/>
+			<ExtendedTooltip name="НадписьЗаявкиРасширеннаяПодсказка" id="103"/>
+		</InputField>
+		<Table name="ДеревоПлатежей" id="8">
+			<Representation>Tree</Representation>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<HeaderHeight>2</HeaderHeight>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>ДеревоПлатежей</DataPath>
+			<TextColor>web:MidnightBlue</TextColor>
+			<BorderColor>#B0C4DE</BorderColor>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<ContextMenu name="ДеревоПлатежейКонтекстноеМеню" id="9"/>
+			<AutoCommandBar name="ДеревоПлатежейКоманднаяПанель" id="10">
+				<ChildItems>
+					<Button name="ДеревоПлатежейУстановитьФлажки" id="44">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.УстановитьФлажки</CommandName>
+						<ExtendedTooltip name="ДеревоПлатежейУстановитьФлажкиРасширеннаяПодсказка" id="104"/>
+					</Button>
+					<Button name="ДеревоПлатежейСнятьФлажки" id="43">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СнятьФлажки</CommandName>
+						<ExtendedTooltip name="ДеревоПлатежейСнятьФлажкиРасширеннаяПодсказка" id="105"/>
+					</Button>
+					<Button name="ДеревоПлатежейЗаполнить" id="29">
+						<Type>CommandBarButton</Type>
+						<Representation>PictureAndText</Representation>
+						<CommandName>Form.Command.Заполнить</CommandName>
+						<Picture>
+							<xr:Ref>CommonPicture.фин_Заполнить</xr:Ref>
+							<xr:LoadTransparent>false</xr:LoadTransparent>
+						</Picture>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Автозаполнение</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ДеревоПлатежейЗаполнитьРасширеннаяПодсказка" id="106"/>
+					</Button>
+					<Button name="ДеревоПлатежейСформироватьПланПлатежей" id="30">
+						<Type>CommandBarButton</Type>
+						<Representation>PictureAndText</Representation>
+						<CommandName>Form.Command.СформироватьПланПлатежей</CommandName>
+						<Picture>
+							<xr:Ref>CommonPicture.фин_ДиаграммаИОтчет</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+							<xr:TransparentPixel x="29" y="2"/>
+						</Picture>
+						<ExtendedTooltip name="ДеревоПлатежейСформироватьПланПлатежейРасширеннаяПодсказка" id="107"/>
+					</Button>
+					<Button name="ДеревоПлатежейПровести" id="47">
+						<Type>CommandBarButton</Type>
+						<Visible>false</Visible>
+						<Representation>PictureAndText</Representation>
+						<CommandName>Form.Command.Провести</CommandName>
+						<ExtendedTooltip name="ДеревоПлатежейПровестиРасширеннаяПодсказка" id="108"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ДеревоПлатежейРасширеннаяПодсказка" id="109"/>
+			<SearchStringAddition name="ДеревоПлатежейСтрокаПоиска" id="110">
+				<AdditionSource>
+					<Item>ДеревоПлатежей</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДеревоПлатежейСтрокаПоискаКонтекстноеМеню" id="111"/>
+				<ExtendedTooltip name="ДеревоПлатежейСтрокаПоискаРасширеннаяПодсказка" id="112"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДеревоПлатежейСостояниеПросмотра" id="113">
+				<AdditionSource>
+					<Item>ДеревоПлатежей</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДеревоПлатежейСостояниеПросмотраКонтекстноеМеню" id="114"/>
+				<ExtendedTooltip name="ДеревоПлатежейСостояниеПросмотраРасширеннаяПодсказка" id="115"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДеревоПлатежейУправлениеПоиском" id="116">
+				<AdditionSource>
+					<Item>ДеревоПлатежей</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ДеревоПлатежейУправлениеПоискомКонтекстноеМеню" id="117"/>
+				<ExtendedTooltip name="ДеревоПлатежейУправлениеПоискомРасширеннаяПодсказка" id="118"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="BeforeEditEnd">ДеревоПлатежейПередОкончаниемРедактирования</Event>
+			</Events>
+			<ChildItems>
+				<CheckBoxField name="ДеревоПлатежейПрименить" id="23">
+					<DataPath>ДеревоПлатежей.Применить</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<FixingInTable>Left</FixingInTable>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ДеревоПлатежейПрименитьКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ДеревоПлатежейПрименитьРасширеннаяПодсказка" id="119"/>
+				</CheckBoxField>
+				<InputField name="ДеревоПлатежейОргКонтр" id="11">
+					<DataPath>ДеревоПлатежей.ОргКонтр</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент/ 
+Договор/ Заявка на расходование</v8:content>
+						</v8:item>
+					</Title>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>Directly</EditMode>
+					<FixingInTable>Left</FixingInTable>
+					<DropListButton>false</DropListButton>
+					<ChoiceButton>false</ChoiceButton>
+					<ClearButton>false</ClearButton>
+					<OpenButton>true</OpenButton>
+					<TextEdit>false</TextEdit>
+					<ChoiceListButton>false</ChoiceListButton>
+					<ContextMenu name="ДеревоПлатежейОргКонтрКонтекстноеМеню" id="12"/>
+					<ExtendedTooltip name="ДеревоПлатежейОргКонтрРасширеннаяПодсказка" id="120"/>
+					<Events>
+						<Event name="StartChoice">ДеревоПлатежейОргКонтрНачалоВыбора</Event>
+						<Event name="Clearing">ДеревоПлатежейОргКонтрОчистка</Event>
+					</Events>
+				</InputField>
+				<InputField name="ДеревоПлатежейВалюта" id="13">
+					<DataPath>ДеревоПлатежей.Валюта</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДеревоПлатежейВалютаКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ДеревоПлатежейВалютаРасширеннаяПодсказка" id="121"/>
+				</InputField>
+				<InputField name="ДеревоПлатежейСчетКасса" id="19">
+					<DataPath>ДеревоПлатежей.СчетКасса</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДеревоПлатежейСчетКассаКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ДеревоПлатежейСчетКассаРасширеннаяПодсказка" id="122"/>
+				</InputField>
+				<InputField name="ДеревоПлатежейВидОплаты" id="21">
+					<DataPath>ДеревоПлатежей.ВидОплаты</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДеревоПлатежейВидОплатыКонтекстноеМеню" id="22"/>
+					<ExtendedTooltip name="ДеревоПлатежейВидОплатыРасширеннаяПодсказка" id="123"/>
+				</InputField>
+				<InputField name="ДеревоПлатежейДатаПлатежаПоЗаявке" id="25">
+					<DataPath>ДеревоПлатежей.ДатаПлатежаПоЗаявке</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДеревоПлатежейДатаПлатежаПоЗаявкеКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ДеревоПлатежейДатаПлатежаПоЗаявкеРасширеннаяПодсказка" id="124"/>
+				</InputField>
+				<InputField name="ДеревоПлатежейДатаПлатежа" id="27">
+					<DataPath>ДеревоПлатежей.ДатаПлатежа</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<SpinButton>false</SpinButton>
+					<ContextMenu name="ДеревоПлатежейДатаПлатежаКонтекстноеМеню" id="28"/>
+					<ExtendedTooltip name="ДеревоПлатежейДатаПлатежаРасширеннаяПодсказка" id="125"/>
+					<Events>
+						<Event name="Tuning">ДеревоПлатежейДатаПлатежаРегулирование</Event>
+					</Events>
+				</InputField>
+				<InputField name="ДеревоПлатежейСуммаПоЗаявке" id="17">
+					<DataPath>ДеревоПлатежей.СуммаПоЗаявке</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДеревоПлатежейСуммаПоЗаявкеКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ДеревоПлатежейСуммаПоЗаявкеРасширеннаяПодсказка" id="126"/>
+				</InputField>
+				<InputField name="ДеревоПлатежейСумма" id="15">
+					<DataPath>ДеревоПлатежей.Сумма</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДеревоПлатежейСуммаКонтекстноеМеню" id="16"/>
+					<ExtendedTooltip name="ДеревоПлатежейСуммаРасширеннаяПодсказка" id="127"/>
+				</InputField>
+				<InputField name="ДеревоПлатежейПланПлатежей" id="45">
+					<DataPath>ДеревоПлатежей.ПланПлатежей</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<DropListButton>false</DropListButton>
+					<ChoiceButton>false</ChoiceButton>
+					<ClearButton>false</ClearButton>
+					<OpenButton>true</OpenButton>
+					<TextEdit>false</TextEdit>
+					<ChoiceListButton>false</ChoiceListButton>
+					<ContextMenu name="ДеревоПлатежейПланПлатежейКонтекстноеМеню" id="46"/>
+					<ExtendedTooltip name="ДеревоПлатежейПланПлатежейРасширеннаяПодсказка" id="128"/>
+					<Events>
+						<Event name="StartChoice">ДеревоПлатежейПланПлатежейНачалоВыбора</Event>
+						<Event name="Clearing">ДеревоПлатежейПланПлатежейОчистка</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<UsualGroup name="ГруппаПараметры" id="55">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПараметрыРасширеннаяПодсказка" id="129"/>
+			<ChildItems>
+				<CheckBoxField name="НеУчитыватьГрафикПлатежныхДней" id="50">
+					<DataPath>НеУчитыватьГрафикПлатежныхДней</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="НеУчитыватьГрафикПлатежныхДнейКонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="НеУчитыватьГрафикПлатежныхДнейРасширеннаяПодсказка" id="130"/>
+					<Events>
+						<Event name="OnChange">НеУчитыватьГрафикПлатежныхДнейПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="СпособПриведенияКДатеПлатежа" id="52">
+					<DataPath>СпособПриведенияКДатеПлатежа</DataPath>
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Способ приведения к дате платежа</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="СпособПриведенияКДатеПлатежаКонтекстноеМеню" id="53"/>
+					<ExtendedTooltip name="СпособПриведенияКДатеПлатежаРасширеннаяПодсказка" id="131"/>
+				</InputField>
+				<Button name="ПривестиДаты" id="54">
+					<Type>UsualButton</Type>
+					<Visible>false</Visible>
+					<CommandName>Form.Command.ПривестиДаты</CommandName>
+					<ExtendedTooltip name="ПривестиДатыРасширеннаяПодсказка" id="132"/>
+				</Button>
+				<CheckBoxField name="УчитыватьПлановыеПоступления" id="69">
+					<DataPath>УчитыватьПлановыеПоступления</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="УчитыватьПлановыеПоступленияКонтекстноеМеню" id="70"/>
+					<ExtendedTooltip name="УчитыватьПлановыеПоступленияРасширеннаяПодсказка" id="133"/>
+					<Events>
+						<Event name="OnChange">УчитыватьПлановыеПоступленияПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="ПоказыватьОстаткиТолькоПоЗадействованнымСчетамКассам" id="81">
+					<DataPath>ПоказыватьОстаткиТолькоПоЗадействованнымСчетамКассам</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПоказыватьОстаткиТолькоПоЗадействованнымСчетамКассамКонтекстноеМеню" id="82"/>
+					<ExtendedTooltip name="ПоказыватьОстаткиТолькоПоЗадействованнымСчетамКассамРасширеннаяПодсказка" id="134"/>
+					<Events>
+						<Event name="OnChange">ПоказыватьОстаткиТолькоПоЗадействованнымСчетамКассамПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ДеревоОстатковОстатокНаНачало" id="36">
+			<DataPath>Items.ДеревоОстатков.CurrentData.ОстатокНаНачало</DataPath>
+			<TitleTextColor>#004242</TitleTextColor>
+			<TitleBackColor>#B0C4DE</TitleBackColor>
+			<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ДеревоОстатковОстатокНаНачалоКонтекстноеМеню" id="37"/>
+			<ExtendedTooltip name="ДеревоОстатковОстатокНаНачалоРасширеннаяПодсказка" id="154"/>
+		</InputField>
+		<InputField name="НадписьСостояниеДенежныхСредств" id="67">
+			<DataPath>НадписьСостояниеДенежныхСредств</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<HorizontalAlign>Center</HorizontalAlign>
+			<TextEdit>false</TextEdit>
+			<TextColor>#004242</TextColor>
+			<BackColor>#B0C4DE</BackColor>
+			<BorderColor>#4682B4</BorderColor>
+			<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="НадписьСостояниеДенежныхСредствКонтекстноеМеню" id="68"/>
+			<ExtendedTooltip name="НадписьСостояниеДенежныхСредствРасширеннаяПодсказка" id="135"/>
+		</InputField>
+		<UsualGroup name="ГруппаСостояниеДС" id="42">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояние денежных средств</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаСостояниеДСРасширеннаяПодсказка" id="136"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаКомандыРаботыСОстатками" id="83">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Команды работы с остатками</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа команды работы с остатками</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаКомандыРаботыСОстаткамиРасширеннаяПодсказка" id="137"/>
+					<ChildItems>
+						<Button name="ДеревоОстатковДетализацияПоДням" id="71">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<CommandName>Form.Command.ДетализацияПоДням</CommandName>
+							<ExtendedTooltip name="ДеревоОстатковДетализацияПоДнямРасширеннаяПодсказка" id="138"/>
+						</Button>
+						<Button name="ОбъявлениеНаВзносНаличными" id="84">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.ОбъявлениеНаВзносНаличными</CommandName>
+							<ExtendedTooltip name="ОбъявлениеНаВзносНаличнымиРасширеннаяПодсказка" id="139"/>
+						</Button>
+						<Button name="ДенежныйЧек" id="85">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.ДенежныйЧек</CommandName>
+							<ExtendedTooltip name="ДенежныйЧекРасширеннаяПодсказка" id="140"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаОстатки" id="77">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Остатки</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОстаткиРасширеннаяПодсказка" id="141"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаДеревоОстатков" id="76">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дерево остатков</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаДеревоОстатковРасширеннаяПодсказка" id="142"/>
+							<ChildItems>
+								<Table name="ДеревоОстатков" id="31">
+									<Representation>Tree</Representation>
+									<ReadOnly>true</ReadOnly>
+									<ChangeRowSet>false</ChangeRowSet>
+									<HeaderHeight>2</HeaderHeight>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<InitialTreeView>ExpandAllLevels</InitialTreeView>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>ДеревоОстатков</DataPath>
+									<TextColor>web:MidnightBlue</TextColor>
+									<BorderColor>#B0C4DE</BorderColor>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<ContextMenu name="ДеревоОстатковКонтекстноеМеню" id="32"/>
+									<AutoCommandBar name="ДеревоОстатковКоманднаяПанель" id="33">
+										<Autofill>false</Autofill>
+									</AutoCommandBar>
+									<ExtendedTooltip name="ДеревоОстатковРасширеннаяПодсказка" id="143"/>
+									<SearchStringAddition name="ДеревоОстатковСтрокаПоиска" id="144">
+										<AdditionSource>
+											<Item>ДеревоОстатков</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ДеревоОстатковСтрокаПоискаКонтекстноеМеню" id="145"/>
+										<ExtendedTooltip name="ДеревоОстатковСтрокаПоискаРасширеннаяПодсказка" id="146"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ДеревоОстатковСостояниеПросмотра" id="147">
+										<AdditionSource>
+											<Item>ДеревоОстатков</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ДеревоОстатковСостояниеПросмотраКонтекстноеМеню" id="148"/>
+										<ExtendedTooltip name="ДеревоОстатковСостояниеПросмотраРасширеннаяПодсказка" id="149"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ДеревоОстатковУправлениеПоиском" id="150">
+										<AdditionSource>
+											<Item>ДеревоОстатков</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ДеревоОстатковУправлениеПоискомКонтекстноеМеню" id="151"/>
+										<ExtendedTooltip name="ДеревоОстатковУправлениеПоискомРасширеннаяПодсказка" id="152"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<InputField name="ДеревоОстатковВидДСКасса" id="34">
+											<DataPath>ДеревоОстатков.ВидДСКасса</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Вид ДС / СчетКасса</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<FixingInTable>Left</FixingInTable>
+											<Width>15</Width>
+											<ContextMenu name="ДеревоОстатковВидДСКассаКонтекстноеМеню" id="35"/>
+											<ExtendedTooltip name="ДеревоОстатковВидДСКассаРасширеннаяПодсказка" id="153"/>
+										</InputField>
+										<InputField name="ДеревоОстатковПоступления" id="72">
+											<DataPath>ДеревоОстатков.Поступления</DataPath>
+											<Visible>false</Visible>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДеревоОстатковПоступленияКонтекстноеМеню" id="73"/>
+											<ExtendedTooltip name="ДеревоОстатковПоступленияРасширеннаяПодсказка" id="155"/>
+										</InputField>
+										<InputField name="ДеревоОстатковПлатеж" id="38">
+											<DataPath>ДеревоОстатков.Платеж</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДеревоОстатковПлатежКонтекстноеМеню" id="39"/>
+											<ExtendedTooltip name="ДеревоОстатковПлатежРасширеннаяПодсказка" id="156"/>
+										</InputField>
+										<InputField name="ДеревоОстатковПоПрочимПланамПлатежей" id="74">
+											<DataPath>ДеревоОстатков.ПоПрочимПланамПлатежей</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДеревоОстатковПоПрочимПланамПлатежейКонтекстноеМеню" id="75"/>
+											<ExtendedTooltip name="ДеревоОстатковПоПрочимПланамПлатежейРасширеннаяПодсказка" id="157"/>
+										</InputField>
+										<InputField name="ДеревоОстатковОстатокНаКонец" id="40">
+											<DataPath>ДеревоОстатков.ОстатокНаКонец</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДеревоОстатковОстатокНаКонецКонтекстноеМеню" id="41"/>
+											<ExtendedTooltip name="ДеревоОстатковОстатокНаКонецРасширеннаяПодсказка" id="158"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаПоДням" id="78">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>По дням</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПоДнямРасширеннаяПодсказка" id="159"/>
+							<ChildItems>
+								<SpreadSheetDocumentField name="Отчет" id="79">
+									<DataPath>Отчет</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<VerticalScrollBar>true</VerticalScrollBar>
+									<HorizontalScrollBar>true</HorizontalScrollBar>
+									<BorderColor>#B0C4DE</BorderColor>
+									<ContextMenu name="ОтчетКонтекстноеМеню" id="80"/>
+									<ExtendedTooltip name="ОтчетРасширеннаяПодсказка" id="160"/>
+								</SpreadSheetDocumentField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ден_ФормированиеПланаПлатежей</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Период" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:StandardPeriod</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДеревоПлатежей" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дерево платежей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ОргКонтр" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Орг контр</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+						<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+						<v8:Type>cfg:DocumentRef.ден_ЗаявкаНаРасходованиеСредств</v8:Type>
+						<v8:Type>cfg:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Валюта" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Валюта</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Сумма" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="СуммаПоЗаявке" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма по заявке</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="СчетКасса" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Счет касса</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.БанковскиеСчета</v8:Type>
+						<v8:Type>cfg:CatalogRef.Кассы</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВидОплаты" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид оплаты</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ден_ВидыДенежныхСредств</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Применить" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Применить</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДатаПлатежаПоЗаявке" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата платежа по заявке</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаПлатежа" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата платежа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="Организация" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПланПлатежей" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>План платежей</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.ден_ПланПлатежей</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ДеревоОстатков" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дерево остатков</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ВидДСКасса" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид денежных средств / Счет Касса</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.БанковскиеСчета</v8:Type>
+						<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+						<v8:Type>cfg:CatalogRef.Кассы</v8:Type>
+						<v8:Type>cfg:EnumRef.ден_ВидыДенежныхСредств</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ОстатокНаНачало" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Остаток на начало</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Платеж" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Платежи</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ОстатокНаКонец" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Остаток на конец</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Поступления" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поступления</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПоПрочимПланамПлатежей" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>По прочим планам платежей</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ТолькоНовые" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Только новые</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НеУчитыватьГрафикПлатежныхДней" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Не учитывать график платежных дней</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СпособПриведенияКДатеПлатежа" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способ приведения к дате платежа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ден_СпособыПриведенияКДатеПлатежа</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СтруктурноеПодразделениеОрганизация" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структурная единица</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ПодразделенияОрганизаций</v8:Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьОтбор" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор (заголовок)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьЗаявки" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявки (заголовок)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьСостояниеДенежныхСредств" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояние денежных средств (заголовок)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="УчитыватьПлановыеПоступления" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учитывать плановые поступления</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Отчет" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отчет</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Остатки" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остатки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="КассаСчет" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Касса счет</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.БанковскиеСчета</v8:Type>
+						<v8:Type>cfg:CatalogRef.Кассы</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Сумма" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Движения" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остатки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="КассаСчет" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Касса счет</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.БанковскиеСчета</v8:Type>
+						<v8:Type>cfg:CatalogRef.Кассы</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Поступление" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поступление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Платеж" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Платеж</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Дата" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ДвиженияРасчетные" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остатки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="КассаСчет" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Касса счет</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.БанковскиеСчета</v8:Type>
+						<v8:Type>cfg:CatalogRef.Кассы</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Платеж" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Платеж</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Дата" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ПоказыватьОстаткиТолькоПоЗадействованнымСчетамКассам" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать остатки только по задействованным счетам/кассам</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Годы" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Годы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Settings>
+		</Attribute>
+		<Attribute name="ТаблицаПлатежей" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица платежей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Организация" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СчетКасса" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Счет касса</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.БанковскиеСчета</v8:Type>
+						<v8:Type>cfg:CatalogRef.Кассы</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Сумма" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ТаблицаПланаПлатежей" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица плана платежей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Организация" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СчетКасса" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Счет касса</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.БанковскиеСчета</v8:Type>
+						<v8:Type>cfg:CatalogRef.Кассы</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Валюта" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Валюта</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Сумма" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЗРС" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЗРС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.ден_ЗаявкаНаРасходованиеСредств</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВидОплаты" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид оплаты</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ден_ВидыДенежныхСредств</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СуммаПоЗаявке" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма по заявке</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаПлатежа" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата платежа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПланПлатежей" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>План платежей</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.ден_ПланПлатежей</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ОтборПоСогласованию" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор по согласованию</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоддержкаРаботыСоСтруктурнымиПодразделениями" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поддержка работы со структурными подразделениями</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДеревоПлатежейДатаПлатежа</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДеревоПлатежейСумма</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДеревоПлатежейПланПлатежей</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДеревоПлатежей.Валюта</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДеревоОстатковПлатеж</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДеревоОстатковОстатокНаКонец</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДеревоОстатковОстатокНаНачало</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДеревоОстатковВидДСКасса</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДеревоОстатков.ОстатокНаКонец</dcsset:left>
+						<dcsset:comparisonType>Less</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:NegativeTextColor</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="Заполнить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Заполнить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СформироватьПланПлатежей" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать план платежей</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать план платежей</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СформироватьПланПлатежей</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СнятьФлажки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять флажки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять флажки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьФлажки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УстановитьФлажки" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьФлажки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Провести" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Провести</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Провести</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Post</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Провести</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПривестиДаты" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Привести даты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Привести даты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПривестиДаты</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ДетализацияПоДням" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Детализация по дням</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Детализация по дням</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.усд_Часы</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+				<xr:TransparentPixel x="32" y="7"/>
+			</Picture>
+			<Action>ДетализацияПоДням</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОбъявлениеНаВзносНаличными" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объявление на взнос наличными</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объявление на взнос наличными</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ден__Деньги32</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ОбъявлениеНаВзносНаличными</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ДенежныйЧек" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Денежный чек</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Денежный чек</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.фин_ИсточникПоступления</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ДенежныйЧек</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

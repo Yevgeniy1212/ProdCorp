@@ -1,0 +1,745 @@
+﻿<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <ns2:queryInvoiceXsdResponse xmlns:ns2="namespace.esf">
+         <xsdList>
+            <xsd><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="namespace.v1" xmlns:tns="namespace.v1" xmlns:v1="namespace.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="namespace.abstractInvoice">
+
+  <xs:import namespace="namespace.abstractInvoice"/>
+
+  <xs:element name="invoice" type="tns:InvoiceV1"/>
+
+  <xs:complexType name="InvoiceV1">
+    <xs:annotation>
+      <xs:documentation>&#1069;&#1057;&#1060;</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ns1:AbstractInvoice">
+        <xs:sequence>
+          <xs:element name="addInf" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>&#1044;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1072;&#1103; &#1080;&#1085;&#1092;&#1086;&#1088;&#1084;&#1072;&#1094;&#1080;&#1103; (I)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="consignee" type="tns:Consignee" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>&#1056;&#1077;&#1082;&#1074;&#1080;&#1079;&#1080;&#1090;&#1099; &#1075;&#1088;&#1091;&#1079;&#1086;&#1087;&#1086;&#1083;&#1091;&#1095;&#1072;&#1090;&#1077;&#1083;&#1103; (D 24)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="consignor" type="tns:Consignor" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>&#1056;&#1077;&#1082;&#1074;&#1080;&#1079;&#1080;&#1090;&#1099; &#1075;&#1088;&#1091;&#1079;&#1086;&#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103; (D 23)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="customerParticipants" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="participant" type="tns:Participant" maxOccurs="unbounded">
+                  <xs:annotation>
+                    <xs:documentation>&#1055;&#1086;&#1083;&#1091;&#1095;&#1072;&#1090;&#1077;&#1083;&#1100; (&#1059;&#1057;&#1044;) (H)</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="customers">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="customer" type="tns:Customer" maxOccurs="unbounded">
+                  <xs:annotation>
+                    <xs:documentation>&#1055;&#1086;&#1083;&#1091;&#1095;&#1072;&#1090;&#1077;&#1083;&#1100; (C)</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="deliveryTerm" type="tns:DeliveryTerm" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>&#1059;&#1089;&#1083;&#1086;&#1074;&#1080;&#1103; &#1087;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1080; (E)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="productSet" type="tns:ProductSet">
+            <xs:annotation>
+              <xs:documentation>&#1058;&#1086;&#1074;&#1072;&#1088;&#1099; (&#1088;&#1072;&#1073;&#1086;&#1090;&#1099;, &#1091;&#1089;&#1083;&#1091;&#1075;&#1080;) (G)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="publicOffice" type="tns:PublicOffice" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>&#1056;&#1077;&#1082;&#1074;&#1080;&#1079;&#1080;&#1090;&#1099; &#1075;&#1086;&#1089;&#1091;&#1076;&#1072;&#1088;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1091;&#1095;&#1088;&#1077;&#1078;&#1076;&#1077;&#1085;&#1080;&#1103; (F)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="sellerParticipants" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="participant" type="tns:Participant" maxOccurs="unbounded">
+                  <xs:annotation>
+                    <xs:documentation>&#1055;&#1086;&#1089;&#1090;&#1072;&#1074;&#1097;&#1080;&#1082; (&#1059;&#1057;&#1044;) (H)</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="sellers">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="seller" type="tns:Seller" maxOccurs="unbounded">
+                  <xs:annotation>
+                    <xs:documentation>&#1055;&#1086;&#1089;&#1090;&#1072;&#1074;&#1097;&#1080;&#1082; (B)</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="turnoverDate" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>&#1044;&#1072;&#1090;&#1072; &#1089;&#1086;&#1074;&#1077;&#1088;&#1096;&#1077;&#1085;&#1080;&#1103; &#1086;&#1073;&#1086;&#1088;&#1086;&#1090;&#1072; (A 3)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Consignee">
+    <xs:annotation>
+      <xs:documentation>&#1056;&#1077;&#1082;&#1074;&#1080;&#1079;&#1080;&#1090;&#1099; &#1075;&#1088;&#1091;&#1079;&#1086;&#1087;&#1086;&#1083;&#1091;&#1095;&#1072;&#1090;&#1077;&#1083;&#1103; (D 24)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="address" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1040;&#1076;&#1088;&#1077;&#1089; (D 24.3)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="name" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1053;&#1072;&#1080;&#1084;&#1077;&#1085;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077; (D 24.2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tin" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1048;&#1048;&#1053;/&#1041;&#1048;&#1053; (24.1)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Consignor">
+    <xs:annotation>
+      <xs:documentation>&#1056;&#1077;&#1082;&#1074;&#1080;&#1079;&#1080;&#1090;&#1099; &#1075;&#1088;&#1091;&#1079;&#1086;&#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103; (D 23)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="address" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1040;&#1076;&#1088;&#1077;&#1089; (D 24.3)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="name" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1053;&#1072;&#1080;&#1084;&#1077;&#1085;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077; (D 24.2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tin" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1048;&#1048;&#1053;/&#1041;&#1048;&#1053; (D 23.1)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Participant">
+    <xs:annotation>
+      <xs:documentation>&#1059;&#1057;&#1044; (H)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="productShares">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="share" type="tns:ProductShare" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>&#1048;&#1085;&#1092;&#1086;&#1088;&#1084;&#1072;&#1094;&#1080;&#1103; &#1087;&#1086; &#1090;&#1086;&#1074;&#1072;&#1088;&#1072;&#1084; (&#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1084;, &#1091;&#1089;&#1083;&#1091;&#1075;&#1072;&#1084;)</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="rnn" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1056;&#1053;&#1053; &#1088;&#1077;&#1086;&#1088;&#1075;&#1072;&#1085;&#1080;&#1079;&#1086;&#1074;&#1072;&#1085;&#1085;&#1086;&#1075;&#1086; &#1083;&#1080;&#1094;&#1072;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tin" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&#1048;&#1048;&#1053;/&#1041;&#1048;&#1053; &#1091;&#1095;&#1072;&#1089;&#1090;&#1085;&#1080;&#1082;&#1072; &#1089;&#1086;&#1074;&#1084;&#1077;&#1089;&#1090;&#1085;&#1086;&#1081; &#1076;&#1077;&#1103;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1089;&#1090;&#1080; (H 18)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ProductShare">
+    <xs:annotation>
+      <xs:documentation>&#1048;&#1085;&#1092;&#1086;&#1088;&#1084;&#1072;&#1094;&#1080;&#1103; &#1087;&#1086; &#1090;&#1086;&#1074;&#1072;&#1088;&#1072;&#1084; (&#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1084;, &#1091;&#1089;&#1083;&#1091;&#1075;&#1072;&#1084;)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="additional" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1044;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1077; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077; (H 15)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="exciseAmount" type="xs:decimal" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1040;&#1082;&#1094;&#1080;&#1079;-&#1057;&#1091;&#1084;&#1084;&#1072; (H 9)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ndsAmount" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>&#1053;&#1044;&#1057;-&#1057;&#1091;&#1084;&#1084;&#1072; (H 12)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="priceWithTax" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>&#1057;&#1090;&#1086;&#1080;&#1084;&#1086;&#1089;&#1090;&#1100; &#1058;&#1056;&#1059; &#1089; &#1091;&#1095;&#1077;&#1090;&#1086;&#1084; &#1053;&#1044;&#1057; (H 13)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="priceWithoutTax" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>&#1057;&#1090;&#1086;&#1080;&#1084;&#1086;&#1089;&#1090;&#1100; &#1058;&#1056;&#1059; &#1073;&#1077;&#1079; &#1091;&#1095;&#1077;&#1090;&#1072; &#1053;&#1044;&#1057; (H 7)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="productNumber" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>&#1053;&#1086;&#1084;&#1077;&#1088; &#1087;&#1088;&#1086;&#1076;&#1091;&#1082;&#1090;&#1072; (&#1090;&#1086;&#1074;&#1072;&#1088;&#1072;, &#1091;&#1089;&#1083;&#1091;&#1075;&#1080;) (G 1)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="quantity" type="xs:decimal" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1050;&#1086;&#1083;-&#1074;&#1086; (&#1086;&#1073;&#1098;&#1077;&#1084;) (H 5)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="turnoverSize" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>&#1056;&#1072;&#1079;&#1084;&#1077;&#1088; &#1086;&#1073;&#1086;&#1088;&#1086;&#1090;&#1072; &#1087;&#1086; &#1088;&#1077;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1080; (H 10)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Customer">
+    <xs:annotation>
+      <xs:documentation>&#1055;&#1086;&#1083;&#1091;&#1095;&#1072;&#1090;&#1077;&#1083;&#1100; (C)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="address" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1040;&#1076;&#1088;&#1077;&#1089; (C 19)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="name" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1053;&#1072;&#1080;&#1084;&#1077;&#1085;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077; &#1087;&#1086;&#1083;&#1091;&#1095;&#1072;&#1090;&#1077;&#1083;&#1103; (C 18)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="rnn" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1056;&#1053;&#1053; &#1088;&#1077;&#1086;&#1088;&#1075;&#1072;&#1085;&#1080;&#1079;&#1086;&#1074;&#1072;&#1085;&#1085;&#1086;&#1075;&#1086; &#1083;&#1080;&#1094;&#1072;. &#1052;&#1086;&#1078;&#1077;&#1090; &#1086;&#1090;&#1089;&#1091;&#1090;&#1089;&#1090;&#1074;&#1086;&#1074;&#1072;&#1090;&#1100;. (C 17.1)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="statuses" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="tns:CustomerType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>&#1058;&#1080;&#1087; &#1087;&#1086;&#1083;&#1091;&#1095;&#1072;&#1090;&#1077;&#1083;&#1103;</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="tin" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1048;&#1048;&#1053;/&#1041;&#1048;&#1053;. &#1052;&#1086;&#1078;&#1077;&#1090; &#1086;&#1090;&#1089;&#1091;&#1090;&#1089;&#1090;&#1074;&#1086;&#1074;&#1072;&#1090;&#1100; &#1077;&#1089;&#1083;&#1080; &#1091;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1083;&#1077;&#1085; &#1089;&#1090;&#1072;&#1090;&#1091;&#1089; CustomerType.NONRESIDENT. (C 17)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="trailer" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1044;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1077; &#1089;&#1074;&#1077;&#1076;&#1077;&#1085;&#1080;&#1103; (C 21)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DeliveryTerm">
+    <xs:annotation>
+      <xs:documentation>&#1059;&#1089;&#1083;&#1086;&#1074;&#1080;&#1103; &#1087;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1080; (E)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="contractDate" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1044;&#1072;&#1090;&#1072; &#1076;&#1086;&#1075;&#1086;&#1074;&#1086;&#1088;&#1072;(&#1082;&#1086;&#1085;&#1090;&#1088;&#1072;&#1082;&#1090;) &#1085;&#1072; &#1087;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1091; &#1090;&#1086;&#1074;&#1072;&#1088;&#1086;&#1074; (&#1088;&#1072;&#1073;&#1086;&#1090;, &#1091;&#1089;&#1083;&#1091;&#1075;) (E 25.2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="contractNum" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1053;&#1086;&#1084;&#1077;&#1088; &#1076;&#1086;&#1075;&#1086;&#1074;&#1086;&#1088;&#1072;(&#1082;&#1086;&#1085;&#1090;&#1088;&#1072;&#1082;&#1090;) &#1085;&#1072; &#1087;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1091; &#1090;&#1086;&#1074;&#1072;&#1088;&#1086;&#1074; (&#1088;&#1072;&#1073;&#1086;&#1090;, &#1091;&#1089;&#1083;&#1091;&#1075;) (E 25.1)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="destination" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1055;&#1091;&#1085;&#1082;&#1090; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103; &#1087;&#1086;&#1089;&#1090;&#1072;&#1074;&#1083;&#1103;&#1077;&#1084;&#1099;&#1093; &#1090;&#1086;&#1074;&#1072;&#1088;&#1086;&#1074; (&#1088;&#1072;&#1073;&#1086;&#1090;, &#1091;&#1089;&#1083;&#1091;&#1075;) (E 29)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="exerciseWay" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1057;&#1087;&#1086;&#1089;&#1086;&#1073; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103; (E 27)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="term" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1059;&#1089;&#1083;&#1086;&#1074;&#1080;&#1103; &#1086;&#1087;&#1083;&#1072;&#1090;&#1099; &#1087;&#1086; &#1076;&#1086;&#1075;&#1086;&#1074;&#1086;&#1088;&#1091; (E 26)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="warrant" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1053;&#1086;&#1084;&#1077;&#1088; &#1076;&#1086;&#1074;&#1077;&#1088;&#1077;&#1085;&#1085;&#1086;&#1089;&#1090;&#1080; &#1085;&#1072; &#1087;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1091; &#1090;&#1086;&#1074;&#1072;&#1088;&#1086;&#1074; (&#1088;&#1072;&#1073;&#1086;&#1090;, &#1091;&#1089;&#1083;&#1091;&#1075;) (E 28.1)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="warrantDate" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1044;&#1072;&#1090;&#1072; &#1076;&#1086;&#1074;&#1077;&#1088;&#1077;&#1085;&#1085;&#1086;&#1089;&#1090;&#1080; &#1085;&#1072; &#1087;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1091; &#1090;&#1086;&#1074;&#1072;&#1088;&#1086;&#1074; (&#1088;&#1072;&#1073;&#1086;&#1090;, &#1091;&#1089;&#1083;&#1091;&#1075;) (E 28.2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ProductSet">
+    <xs:annotation>
+      <xs:documentation>&#1058;&#1086;&#1074;&#1072;&#1088;&#1099; (&#1088;&#1072;&#1073;&#1086;&#1090;&#1099;, &#1091;&#1089;&#1083;&#1091;&#1075;&#1080;) (G)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="currencyCode" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&#1050;&#1086;&#1076; &#1074;&#1072;&#1083;&#1102;&#1090;&#1099; (G 13)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="currencyRate" type="xs:decimal" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1050;&#1091;&#1088;&#1089; &#1074;&#1072;&#1083;&#1102;&#1090;&#1099;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="product" type="tns:Product" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>&#1044;&#1072;&#1085;&#1085;&#1099;&#1077; &#1087;&#1086; &#1058;&#1056;&#1059;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="totalExciseAmount" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>&#1048;&#1090;&#1086;&#1075;&#1086;&#1074;&#1072;&#1103; &#1040;&#1082;&#1094;&#1080;&#1079;-&#1057;&#1091;&#1084;&#1084;&#1072; (G 9)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="totalNdsAmount" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>&#1048;&#1090;&#1086;&#1075;&#1086;&#1074;&#1072;&#1103; &#1053;&#1044;&#1057;-&#1057;&#1091;&#1084;&#1084;&#1072; (G 12)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="totalPriceWithTax" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>&#1048;&#1090;&#1086;&#1075;&#1086;&#1074;&#1072;&#1103; &#1089;&#1090;&#1086;&#1080;&#1084;&#1086;&#1089;&#1090;&#1100; &#1058;&#1056;&#1059; &#1089; &#1091;&#1095;&#1077;&#1090;&#1086;&#1084; &#1053;&#1044;&#1057; (G 13)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="totalPriceWithoutTax" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>&#1048;&#1090;&#1086;&#1075;&#1086;&#1074;&#1072;&#1103; &#1089;&#1090;&#1086;&#1080;&#1084;&#1086;&#1089;&#1090;&#1100; &#1058;&#1056;&#1059; &#1073;&#1077;&#1079; &#1091;&#1095;&#1077;&#1090;&#1072; &#1053;&#1044;&#1057; (G 7)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="totalTurnoverSize" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>&#1048;&#1090;&#1086;&#1075;&#1086;&#1074;&#1099;&#1081; &#1088;&#1072;&#1079;&#1084;&#1077;&#1088; &#1086;&#1073;&#1086;&#1088;&#1086;&#1090;&#1072; &#1087;&#1086; &#1088;&#1077;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1080; (G 10)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Product">
+    <xs:annotation>
+      <xs:documentation>&#1058;&#1086;&#1074;&#1072;&#1088; (&#1088;&#1072;&#1073;&#1086;&#1090;&#1072;, &#1091;&#1089;&#1083;&#1091;&#1075;&#1072;)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="additional" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1044;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1077; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077; (G 17)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="applicationNumberInCustomsUnion" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1053;&#1086;&#1084;&#1077;&#1088; &#1079;&#1072;&#1103;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103; &#1074; &#1088;&#1072;&#1084;&#1082;&#1072;&#1093; &#1058;&#1057; (G 16)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="description" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&#1053;&#1072;&#1080;&#1084;&#1077;&#1085;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077; &#1058;&#1056;&#1059; (G 2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="exciseAmount" type="xs:decimal" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1040;&#1082;&#1094;&#1080;&#1079;-&#1057;&#1091;&#1084;&#1084;&#1072; (G 9)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="exciseRate" type="xs:decimal" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1040;&#1082;&#1094;&#1080;&#1079;-&#1057;&#1090;&#1072;&#1074;&#1082;&#1072; (G 8)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ndsAmount" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>&#1053;&#1044;&#1057;-&#1057;&#1091;&#1084;&#1084;&#1072; (G 12)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ndsRate" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1053;&#1044;&#1057;-&#1057;&#1090;&#1072;&#1074;&#1082;&#1072; (G 11)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="priceWithTax" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>&#1057;&#1090;&#1086;&#1080;&#1084;&#1086;&#1089;&#1090;&#1100; &#1058;&#1056;&#1059; &#1089; &#1091;&#1095;&#1077;&#1090;&#1086;&#1084; &#1053;&#1044;&#1057; (G 13)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="priceWithoutTax" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>&#1057;&#1090;&#1086;&#1080;&#1084;&#1086;&#1089;&#1090;&#1100; &#1058;&#1056;&#1059; &#1073;&#1077;&#1079; &#1091;&#1095;&#1077;&#1090;&#1072; &#1053;&#1044;&#1057; (G 7)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="quantity" type="xs:decimal" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1050;&#1086;&#1083;-&#1074;&#1086; (&#1086;&#1073;&#1098;&#1077;&#1084;) (G 5)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="turnoverSize" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>&#1056;&#1072;&#1079;&#1084;&#1077;&#1088; &#1086;&#1073;&#1086;&#1088;&#1086;&#1090;&#1072; &#1087;&#1086; &#1088;&#1077;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1080; (G 10)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="unitCode" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1050;&#1086;&#1076; &#1090;&#1086;&#1074;&#1072;&#1088;&#1072; (&#1058;&#1053;&#1042;&#1044;) (G 3)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="unitNomenclature" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1045;&#1076;.&#1080;&#1079;&#1084; (G 4)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="unitPrice" type="xs:decimal" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1062;&#1077;&#1085;&#1072; (&#1090;&#1072;&#1088;&#1080;&#1092;) &#1079;&#1072; &#1077;&#1076;&#1080;&#1085;&#1080;&#1094;&#1091; &#1058;&#1056;&#1059; &#1073;&#1077;&#1079; &#1091;&#1095;&#1077;&#1090;&#1072; &#1053;&#1044;&#1057; (G 6)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PublicOffice">
+    <xs:annotation>
+      <xs:documentation>&#1056;&#1077;&#1082;&#1074;&#1080;&#1079;&#1080;&#1090;&#1099; &#1075;&#1086;&#1089;&#1091;&#1076;&#1072;&#1088;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1091;&#1095;&#1088;&#1077;&#1078;&#1076;&#1077;&#1085;&#1080;&#1103; (F)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="bik" type="xs:string" default="KKMFKZ2A">
+        <xs:annotation>
+          <xs:documentation>&#1041;&#1048;&#1050;. &#1053;&#1077;&#1080;&#1079;&#1084;&#1077;&#1085;&#1103;&#1077;&#1084;&#1086;&#1077; &#1087;&#1086;&#1083;&#1077; (F 33)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="iik" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&#1056;&#1072;&#1089;&#1095;&#1077;&#1090;&#1085;&#1099;&#1081; &#1089;&#1095;&#1077;&#1090; (F 30)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="payPurpose" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&#1053;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077; &#1087;&#1083;&#1072;&#1090;&#1077;&#1078;&#1072; (F 32)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="productCode" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1050;&#1086;&#1076; &#1090;&#1086;&#1074;&#1072;&#1088;&#1086;&#1074; (&#1088;&#1072;&#1073;&#1086;&#1090;, &#1091;&#1089;&#1083;&#1091;&#1075;) (F 31)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Seller">
+    <xs:annotation>
+      <xs:documentation>&#1055;&#1086;&#1089;&#1090;&#1072;&#1074;&#1097;&#1080;&#1082; (B)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="address" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1040;&#1076;&#1088;&#1077;&#1089; (B 8)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="bank" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1041;&#1072;&#1085;&#1082; (B 16)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="bik" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1041;&#1048;&#1050; (B 15)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="certificateNum" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1053;&#1086;&#1084;&#1077;&#1088; c&#1074;&#1080;&#1076;&#1077;&#1090;&#1077;&#1083;&#1100;&#1089;&#1090;&#1074;&#1072; &#1053;&#1044;&#1057; (B 9.2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="certificateSeries" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1057;&#1077;&#1088;&#1080;&#1103; c&#1074;&#1080;&#1076;&#1077;&#1090;&#1077;&#1083;&#1100;&#1089;&#1090;&#1074;&#1072; &#1053;&#1044;&#1057; (B 9.1)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="deliveryDocDate" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1044;&#1072;&#1090;&#1072; &#1076;&#1086;&#1082;&#1091;&#1084;&#1077;&#1085;&#1090;&#1072;, &#1087;&#1086;&#1076;&#1090;&#1074;&#1077;&#1088;&#1078;&#1076;&#1072;&#1102;&#1097;&#1077;&#1075;&#1086; &#1087;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1091; &#1090;&#1086;&#1074;&#1072;&#1088;&#1086;&#1074; (&#1088;&#1072;&#1073;&#1086;&#1090;, &#1091;&#1089;&#1083;&#1091;&#1075;) (B 11.2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="deliveryDocNum" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1053;&#1086;&#1084;&#1077;&#1088; &#1076;&#1086;&#1082;&#1091;&#1084;&#1077;&#1085;&#1090;&#1072;, &#1087;&#1086;&#1076;&#1090;&#1074;&#1077;&#1088;&#1078;&#1076;&#1072;&#1102;&#1097;&#1077;&#1075;&#1086; &#1087;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1091; &#1090;&#1086;&#1074;&#1072;&#1088;&#1086;&#1074; (&#1088;&#1072;&#1073;&#1086;&#1090;, &#1091;&#1089;&#1083;&#1091;&#1075;) (B 11.1)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="iik" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1056;&#1072;&#1089;&#1095;&#1077;&#1090;&#1085;&#1099;&#1081; &#1089;&#1095;&#1077;&#1090; (B 14)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kbe" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1050;&#1041;&#1077; (B 13)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="name" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1053;&#1072;&#1080;&#1084;&#1077;&#1085;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077; &#1087;&#1086;&#1089;&#1090;&#1072;&#1074;&#1097;&#1080;&#1082;&#1072; (B 7)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="rnn" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1056;&#1053;&#1053; &#1088;&#1077;&#1086;&#1088;&#1075;&#1072;&#1085;&#1080;&#1079;&#1086;&#1074;&#1072;&#1085;&#1085;&#1086;&#1075;&#1086; &#1083;&#1080;&#1094;&#1072; (B 6.1)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="statuses" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="tns:SellerType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>&#1058;&#1080;&#1087; &#1087;&#1086;&#1089;&#1090;&#1072;&#1074;&#1097;&#1080;&#1082;&#1072;</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="tin" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&#1048;&#1048;&#1053;/&#1041;&#1048;&#1053; (B 6)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="trailer" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1044;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1077; &#1089;&#1074;&#1077;&#1076;&#1077;&#1085;&#1080;&#1103; (B 12)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="CustomerType">
+    <xs:annotation>
+      <xs:documentation>&#1058;&#1080;&#1087; &#1087;&#1086;&#1083;&#1091;&#1095;&#1072;&#1090;&#1077;&#1083;&#1103; (C 22)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="COMMITTENT">
+        <xs:annotation>
+          <xs:documentation>&#1050;&#1086;&#1084;&#1080;&#1090;&#1077;&#1085;&#1090;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BROKER">
+        <xs:annotation>
+          <xs:documentation>&#1050;&#1086;&#1084;&#1080;&#1089;&#1089;&#1080;&#1086;&#1085;&#1077;&#1088;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LESSEE">
+        <xs:annotation>
+          <xs:documentation>&#1051;&#1080;&#1079;&#1080;&#1085;&#1075;&#1086;&#1087;&#1086;&#1083;&#1091;&#1095;&#1072;&#1090;&#1077;&#1083;&#1100;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="JOINT_ACTIVITY_PARTICIPANT">
+        <xs:annotation>
+          <xs:documentation>&#1059;&#1095;&#1072;&#1089;&#1090;&#1085;&#1080;&#1082; &#1076;&#1086;&#1075;&#1086;&#1074;&#1086;&#1088;&#1072; &#1089;&#1086;&#1074;&#1084;&#1077;&#1089;&#1090;&#1085;&#1086;&#1081; &#1076;&#1077;&#1103;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1089;&#1090;&#1080;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PUBLIC_OFFICE">
+        <xs:annotation>
+          <xs:documentation>&#1043;&#1086;&#1089;&#1091;&#1076;&#1072;&#1088;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1086;&#1077; &#1091;&#1095;&#1088;&#1077;&#1078;&#1076;&#1077;&#1085;&#1080;&#1077;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NONRESIDENT">
+        <xs:annotation>
+          <xs:documentation>&#1053;&#1077;&#1088;&#1077;&#1079;&#1080;&#1076;&#1077;&#1085;&#1090;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="INDIVIDUAL">
+        <xs:annotation>
+          <xs:documentation>&#1060;&#1080;&#1079;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077; &#1083;&#1080;&#1094;&#1086;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SellerType">
+    <xs:annotation>
+      <xs:documentation>&#1058;&#1080;&#1087; &#1087;&#1086;&#1089;&#1090;&#1072;&#1074;&#1097;&#1080;&#1082;&#1072; (B 10)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="COMMITTENT">
+        <xs:annotation>
+          <xs:documentation>&#1050;&#1086;&#1084;&#1080;&#1090;&#1077;&#1085;&#1090;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BROKER">
+        <xs:annotation>
+          <xs:documentation>&#1050;&#1086;&#1084;&#1080;&#1089;&#1089;&#1080;&#1086;&#1085;&#1077;&#1088;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FORWARDER">
+        <xs:annotation>
+          <xs:documentation>&#1069;&#1082;&#1089;&#1087;&#1077;&#1076;&#1080;&#1090;&#1086;&#1088;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LESSOR">
+        <xs:annotation>
+          <xs:documentation>&#1051;&#1080;&#1079;&#1080;&#1085;&#1075;&#1086;&#1076;&#1072;&#1090;&#1077;&#1083;&#1100;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="JOINT_ACTIVITY_PARTICIPANT">
+        <xs:annotation>
+          <xs:documentation>&#1059;&#1095;&#1072;&#1089;&#1090;&#1085;&#1080;&#1082; &#1076;&#1086;&#1075;&#1086;&#1074;&#1086;&#1088;&#1072; &#1089;&#1086;&#1074;&#1084;&#1077;&#1089;&#1090;&#1085;&#1086;&#1081; &#1076;&#1077;&#1103;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1089;&#1090;&#1080;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EXPORTER">
+        <xs:annotation>
+          <xs:documentation>&#1069;&#1082;&#1089;&#1087;&#1086;&#1088;&#1090;&#1105;&#1088;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></xsd>
+            <xsd><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="namespace.abstractInvoice" xmlns:a="namespace.abstractInvoice" xmlns:tns="namespace.abstractInvoice" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="AbstractInvoice" abstract="true">
+    <xs:annotation>
+      <xs:documentation>&#1041;&#1072;&#1079;&#1086;&#1074;&#1072;&#1103; &#1080;&#1085;&#1092;&#1086;&#1088;&#1084;&#1072;&#1094;&#1080;&#1103; &#1086;&#1073; &#1069;&#1057;&#1060; &#1076;&#1083;&#1103; &#1074;&#1089;&#1077;&#1093; &#1074;&#1077;&#1088;&#1089;&#1080;&#1081; &#1069;&#1057;&#1060; &#1074; &#1089;&#1080;&#1089;&#1090;&#1077;&#1084;&#1077;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="date" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&#1044;&#1072;&#1090;&#1072; &#1074;&#1099;&#1087;&#1080;&#1089;&#1082;&#1080; &#1069;&#1057;&#1060; (A 2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="invoiceType" type="tns:InvoiceType">
+        <xs:annotation>
+          <xs:documentation>&#1058;&#1080;&#1087; &#1069;&#1057;&#1060;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="num" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&#1048;&#1089;&#1093;&#1086;&#1076;&#1103;&#1097;&#1080;&#1081; &#1085;&#1086;&#1084;&#1077;&#1088; &#1069;&#1057;&#1060; &#1074; &#1073;&#1091;&#1093;&#1075;&#1072;&#1083;&#1090;&#1077;&#1088;&#1080;&#1080; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103; (A 1)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="operatorFullname" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1060;&#1048;&#1054; &#1086;&#1087;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&#1072; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1074;&#1096;&#1077;&#1075;&#1086; &#1069;&#1057;&#1060; </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="relatedInvoice" type="tns:RelatedInvoice" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1057;&#1083;&#1091;&#1078;&#1080;&#1090; &#1076;&#1083;&#1103; &#1089;&#1074;&#1103;&#1079;&#1082;&#1080; &#1080;&#1089;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086;/&#1076;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1075;&#1086; &#1069;&#1057;&#1060; &#1089; &#1086;&#1089;&#1085;&#1086;&#1074;&#1085;&#1099;&#1084;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="signature" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&#1069;&#1062;&#1055; (J)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="signatureType" type="tns:SignatureType">
+        <xs:annotation>
+          <xs:documentation>&#1058;&#1080;&#1087; &#1069;&#1062;&#1055; (J)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RelatedInvoice">
+    <xs:annotation>
+      <xs:documentation>&#1057;&#1083;&#1091;&#1078;&#1080;&#1090; &#1076;&#1083;&#1103; &#1089;&#1074;&#1103;&#1079;&#1082;&#1080; &#1080;&#1089;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086;/&#1076;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1075;&#1086; &#1069;&#1057;&#1060; &#1089; &#1086;&#1089;&#1085;&#1086;&#1074;&#1085;&#1099;&#1084;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="date" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&#1044;&#1072;&#1090;&#1072; &#1074;&#1099;&#1087;&#1080;&#1089;&#1082;&#1080; &#1069;&#1057;&#1060; (A 4.1, A 5.1)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="num" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>&#1048;&#1089;&#1093;&#1086;&#1076;&#1103;&#1097;&#1080;&#1081; &#1085;&#1086;&#1084;&#1077;&#1088; &#1069;&#1057;&#1060; &#1074; &#1073;&#1091;&#1093;&#1075;&#1072;&#1083;&#1090;&#1077;&#1088;&#1080;&#1080; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103; (A 4.2, A 5.2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="registrationNumber" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>&#1056;&#1077;&#1075;&#1080;&#1089;&#1090;&#1088;&#1072;&#1094;&#1080;&#1086;&#1085;&#1085;&#1099;&#1081; &#1085;&#1086;&#1084;&#1077;&#1088; &#1069;&#1057;&#1060; &#1085;&#1072; &#1082;&#1086;&#1090;&#1086;&#1088;&#1091;&#1102; &#1089;&#1089;&#1099;&#1083;&#1072;&#1077;&#1090;&#1089;&#1103; &#1076;&#1072;&#1085;&#1085;&#1072;&#1103; &#1069;&#1057;&#1060;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="InvoiceType">
+    <xs:annotation>
+      <xs:documentation>&#1058;&#1080;&#1087; &#1069;&#1057;&#1060;</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ORDINARY_INVOICE">
+        <xs:annotation>
+          <xs:documentation>&#1054;&#1073;&#1099;&#1095;&#1085;&#1099;&#1081;</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FIXED_INVOICE">
+        <xs:annotation>
+          <xs:documentation>&#1048;&#1089;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1085;&#1099;&#1081; (A 4)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ADDITIONAL_INVOICE">
+        <xs:annotation>
+          <xs:documentation>&#1044;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1081; (A 5)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SignatureType">
+    <xs:annotation>
+      <xs:documentation>&#1058;&#1080;&#1087; &#1069;&#1062;&#1055; (J)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="COMPANY">
+        <xs:annotation>
+          <xs:documentation>&#1069;&#1062;&#1055; &#1102;&#1088;&#1080;&#1076;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1075;&#1086; &#1083;&#1080;&#1094;&#1072; (J 1)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OPERATOR">
+        <xs:annotation>
+          <xs:documentation>&#1069;&#1062;&#1055; &#1083;&#1080;&#1094;&#1072;, &#1091;&#1087;&#1086;&#1083;&#1085;&#1086;&#1084;&#1086;&#1095;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1087;&#1086;&#1076;&#1087;&#1080;&#1089;&#1099;&#1074;&#1072;&#1090;&#1100; &#1089;&#1095;&#1077;&#1090;&#1072;-&#1092;&#1072;&#1082;&#1090;&#1091;&#1088;&#1099; (J 2)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></xsd>
+         </xsdList>
+      </ns2:queryInvoiceXsdResponse>
+   </soap:Body>
+</soap:Envelope>

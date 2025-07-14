@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаВыполниьАктуализацию" id="19">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ВыполнитьАктуализацию</CommandName>
+				<ExtendedTooltip name="ФормаВыполниьАктуализациюРасширеннаяПодсказка" id="39"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНастройкиОтбора" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки отбора</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа настройки отбора</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ГруппаНастройкиОтбораРасширеннаяПодсказка" id="40"/>
+			<ChildItems>
+				<InputField name="СтруктурноеПодразделениеОрганизация" id="69">
+					<DataPath>СтруктурноеПодразделениеОрганизация</DataPath>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ChooseType>false</ChooseType>
+					<ChoiceParameters>
+						<app:item name="ВыбиратьСтруктурныеЕдиницы">
+							<app:value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation/>
+								<Value xsi:type="xs:boolean">true</Value>
+							</app:value>
+						</app:item>
+					</ChoiceParameters>
+					<ContextMenu name="СтруктурноеПодразделениеОрганизацияКонтекстноеМеню" id="70"/>
+					<ExtendedTooltip name="СтруктурноеПодразделениеОрганизацияРасширеннаяПодсказка" id="71"/>
+					<Events>
+						<Event name="OnChange">СтруктурноеПодразделениеОрганизацияПриИзменении</Event>
+						<Event name="StartChoice">СтруктурноеПодразделениеОрганизацияНачалоВыбора</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПериод" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период обработки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа период</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Horizontal</Group>
+			<ChildItemsWidth>Equal</ChildItemsWidth>
+			<ExtendedTooltip name="ГруппаПериодРасширеннаяПодсказка" id="46"/>
+			<ChildItems>
+				<InputField name="ДатаНачала" id="5">
+					<DataPath>Объект.ДатаНачала</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>От</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаНачалаКонтекстноеМеню" id="6"/>
+					<ExtendedTooltip name="ДатаНачалаРасширеннаяПодсказка" id="47"/>
+				</InputField>
+				<InputField name="ДатаОкончания" id="7">
+					<DataPath>Объект.ДатаОкончания</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>До</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаОкончанияКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ДатаОкончанияРасширеннаяПодсказка" id="48"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаАктуализируемыеДанные" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Актуализируемые договоры</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа актуализируемые данные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ГруппаАктуализируемыеДанныеРасширеннаяПодсказка" id="49"/>
+			<ChildItems>
+				<Table name="АктуализируемыеДанные" id="21">
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Объект.АктуализируемыеДанные</DataPath>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="АктуализируемыеДанныеКонтекстноеМеню" id="22"/>
+					<AutoCommandBar name="АктуализируемыеДанныеКоманднаяПанель" id="23">
+						<ChildItems>
+							<Button name="АктуализируемыеДанныеЗаполнить" id="34">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.Заполнить</CommandName>
+								<ExtendedTooltip name="АктуализируемыеДанныеЗаполнитьРасширеннаяПодсказка" id="50"/>
+							</Button>
+							<Button name="АктуализируемыеДанныеУстановитьОтметку" id="37">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.УстановитьОтметку</CommandName>
+								<ExtendedTooltip name="АктуализируемыеДанныеУстановитьОтметкуРасширеннаяПодсказка" id="51"/>
+							</Button>
+							<Button name="АктуализируемыеДанныеСнятьОтметку" id="38">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СнятьОтметку</CommandName>
+								<ExtendedTooltip name="АктуализируемыеДанныеСнятьОтметкуРасширеннаяПодсказка" id="52"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="АктуализируемыеДанныеРасширеннаяПодсказка" id="53"/>
+					<SearchStringAddition name="АктуализируемыеДанныеСтрокаПоиска" id="54">
+						<AdditionSource>
+							<Item>АктуализируемыеДанные</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="АктуализируемыеДанныеСтрокаПоискаКонтекстноеМеню" id="55"/>
+						<ExtendedTooltip name="АктуализируемыеДанныеСтрокаПоискаРасширеннаяПодсказка" id="56"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="АктуализируемыеДанныеСостояниеПросмотра" id="57">
+						<AdditionSource>
+							<Item>АктуализируемыеДанные</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="АктуализируемыеДанныеСостояниеПросмотраКонтекстноеМеню" id="58"/>
+						<ExtendedTooltip name="АктуализируемыеДанныеСостояниеПросмотраРасширеннаяПодсказка" id="59"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="АктуализируемыеДанныеУправлениеПоиском" id="60">
+						<AdditionSource>
+							<Item>АктуализируемыеДанные</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="АктуализируемыеДанныеУправлениеПоискомКонтекстноеМеню" id="61"/>
+						<ExtendedTooltip name="АктуализируемыеДанныеУправлениеПоискомРасширеннаяПодсказка" id="62"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="OnStartEdit">АктуализируемыеДанныеПриНачалеРедактирования</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="АктуализируемыеДанныеНомерСтроки" id="24">
+							<DataPath>Объект.АктуализируемыеДанные.LineNumber</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>2</Width>
+							<ContextMenu name="АктуализируемыеДанныеНомерСтрокиКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="АктуализируемыеДанныеНомерСтрокиРасширеннаяПодсказка" id="63"/>
+						</LabelField>
+						<InputField name="АктуализируемыеДанныеКонтрагент" id="26">
+							<DataPath>Объект.АктуализируемыеДанные.Контрагент</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="АктуализируемыеДанныеКонтрагентКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="АктуализируемыеДанныеКонтрагентРасширеннаяПодсказка" id="64"/>
+						</InputField>
+						<InputField name="АктуализируемыеДанныеДоговорКонтрагента" id="28">
+							<DataPath>Объект.АктуализируемыеДанные.ДоговорКонтрагента</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="АктуализируемыеДанныеДоговорКонтрагентаКонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="АктуализируемыеДанныеДоговорКонтрагентаРасширеннаяПодсказка" id="65"/>
+						</InputField>
+						<CheckBoxField name="АктуализируемыеДанныеКонтролироватьСрокиПоставки" id="30">
+							<DataPath>Объект.АктуализируемыеДанные.КонтролироватьСрокиПоставки</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="АктуализируемыеДанныеКонтролироватьСрокиПоставкиКонтекстноеМеню" id="31"/>
+							<ExtendedTooltip name="АктуализируемыеДанныеКонтролироватьСрокиПоставкиРасширеннаяПодсказка" id="66"/>
+							<Events>
+								<Event name="OnChange">АктуализируемыеДанныеКонтролироватьСрокиПоставкиПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<CheckBoxField name="АктуализируемыеДанныеПризнакИзменен" id="32">
+							<DataPath>Объект.АктуализируемыеДанные.ПризнакИзменен</DataPath>
+							<Visible>false</Visible>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="АктуализируемыеДанныеПризнакИзмененКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="АктуализируемыеДанныеПризнакИзмененРасширеннаяПодсказка" id="67"/>
+						</CheckBoxField>
+						<CheckBoxField name="АктуализируемыеДанныеПризнакИзменен1" id="35">
+							<DataPath>Объект.АктуализируемыеДанные.ПризнакИзменен</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обрабатывать</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="АктуализируемыеДанныеПризнакИзменен1КонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="АктуализируемыеДанныеПризнакИзменен1РасширеннаяПодсказка" id="68"/>
+						</CheckBoxField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.дог_АктуализацияДанныхПоГрафикамПоставок</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="СтруктурноеПодразделениеОрганизация" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структурная единица</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ПодразделенияОрганизаций</v8:Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПоддержкаРаботыСоСтруктурнымиПодразделениями" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поддержка работы со структурными подразделениями</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ВыполнитьАктуализацию" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить актуализацию</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить актуализацию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыполнитьАктуализацию</Action>
+		</Command>
+		<Command name="Заполнить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Заполнить</Action>
+		</Command>
+		<Command name="УстановитьОтметку" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить отметку</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить отметку</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьОтметку</Action>
+		</Command>
+		<Command name="СнятьОтметку" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять отметку</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять отметку</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьОтметку</Action>
+		</Command>
+	</Commands>
+</Form>

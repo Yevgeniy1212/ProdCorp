@@ -1,0 +1,705 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗаполнить" id="192">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Заполнить</CommandName>
+				<ExtendedTooltip name="ФормаЗаполнитьРасширеннаяПодсказка" id="193"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="203">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="204"/>
+			<ChildItems>
+				<CheckBoxField name="СУчетомАктуальногоРегламента" id="1">
+					<DataPath>Объект.СУчетомАктуальногоРегламента</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СУчетомАктуальногоРегламентаКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="СУчетомАктуальногоРегламентаРасширеннаяПодсказка" id="3"/>
+					<Events>
+						<Event name="OnChange">СУчетомАктуальногоРегламентаПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<LabelField name="АктуальныйРегламент" id="205">
+					<DataPath>АктуальныйРегламент</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<Hiperlink>true</Hiperlink>
+					<ContextMenu name="АктуальныйРегламентКонтекстноеМеню" id="206"/>
+					<ExtendedTooltip name="АктуальныйРегламентРасширеннаяПодсказка" id="207"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Страницы" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="5"/>
+			<ChildItems>
+				<Page name="ГруппаРегламент" id="6">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Регламент</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаРегламентРасширеннаяПодсказка" id="7"/>
+					<ChildItems>
+						<Table name="Регламент" id="8">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.Регламент</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="РегламентКонтекстноеМеню" id="9"/>
+							<AutoCommandBar name="РегламентКоманднаяПанель" id="10"/>
+							<ExtendedTooltip name="РегламентРасширеннаяПодсказка" id="11"/>
+							<SearchStringAddition name="РегламентСтрокаПоиска" id="12">
+								<AdditionSource>
+									<Item>Регламент</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РегламентСтрокаПоискаКонтекстноеМеню" id="15"/>
+								<ExtendedTooltip name="РегламентСтрокаПоискаРасширеннаяПодсказка" id="16"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РегламентСостояниеПросмотра" id="17">
+								<AdditionSource>
+									<Item>Регламент</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РегламентСостояниеПросмотраКонтекстноеМеню" id="20"/>
+								<ExtendedTooltip name="РегламентСостояниеПросмотраРасширеннаяПодсказка" id="21"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РегламентУправлениеПоиском" id="22">
+								<AdditionSource>
+									<Item>Регламент</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РегламентУправлениеПоискомКонтекстноеМеню" id="25"/>
+								<ExtendedTooltip name="РегламентУправлениеПоискомРасширеннаяПодсказка" id="26"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="РегламентНомерСтроки" id="27">
+									<DataPath>Объект.Регламент.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РегламентНомерСтрокиКонтекстноеМеню" id="28"/>
+									<ExtendedTooltip name="РегламентНомерСтрокиРасширеннаяПодсказка" id="29"/>
+								</LabelField>
+								<InputField name="РегламентБюджет" id="30">
+									<DataPath>Объект.Регламент.Бюджет</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РегламентБюджетКонтекстноеМеню" id="31"/>
+									<ExtendedTooltip name="РегламентБюджетРасширеннаяПодсказка" id="32"/>
+								</InputField>
+								<InputField name="РегламентРанг" id="33">
+									<DataPath>Объект.Регламент.Ранг</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РегламентРангКонтекстноеМеню" id="34"/>
+									<ExtendedTooltip name="РегламентРангРасширеннаяПодсказка" id="35"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаБюджетыСОбщимиФинансовымиПоказателями" id="36">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Бюджеты с общими финансовыми показателями</v8:content>
+						</v8:item>
+					</Title>
+					<TitleDataPath>Объект.БюджетыСОбщимиФинансовымиПоказателями.RowsCount</TitleDataPath>
+					<ExtendedTooltip name="ГруппаБюджетыСОбщимиФинансовымиПоказателямиРасширеннаяПодсказка" id="37"/>
+					<ChildItems>
+						<Table name="БюджетыСОбщимиФинансовымиПоказателями" id="38">
+							<Representation>List</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.БюджетыСОбщимиФинансовымиПоказателями</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="БюджетыСОбщимиФинансовымиПоказателямиКонтекстноеМеню" id="39"/>
+							<AutoCommandBar name="БюджетыСОбщимиФинансовымиПоказателямиКоманднаяПанель" id="40">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="БюджетыСОбщимиФинансовымиПоказателямиРасширеннаяПодсказка" id="41"/>
+							<SearchStringAddition name="БюджетыСОбщимиФинансовымиПоказателямиСтрокаПоиска" id="42">
+								<AdditionSource>
+									<Item>БюджетыСОбщимиФинансовымиПоказателями</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="БюджетыСОбщимиФинансовымиПоказателямиСтрокаПоискаКонтекстноеМеню" id="45"/>
+								<ExtendedTooltip name="БюджетыСОбщимиФинансовымиПоказателямиСтрокаПоискаРасширеннаяПодсказка" id="46"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="БюджетыСОбщимиФинансовымиПоказателямиСостояниеПросмотра" id="47">
+								<AdditionSource>
+									<Item>БюджетыСОбщимиФинансовымиПоказателями</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="БюджетыСОбщимиФинансовымиПоказателямиСостояниеПросмотраКонтекстноеМеню" id="50"/>
+								<ExtendedTooltip name="БюджетыСОбщимиФинансовымиПоказателямиСостояниеПросмотраРасширеннаяПодсказка" id="51"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="БюджетыСОбщимиФинансовымиПоказателямиУправлениеПоиском" id="52">
+								<AdditionSource>
+									<Item>БюджетыСОбщимиФинансовымиПоказателями</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="БюджетыСОбщимиФинансовымиПоказателямиУправлениеПоискомКонтекстноеМеню" id="55"/>
+								<ExtendedTooltip name="БюджетыСОбщимиФинансовымиПоказателямиУправлениеПоискомРасширеннаяПодсказка" id="56"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="БюджетыСОбщимиФинансовымиПоказателямиНомерСтроки" id="57">
+									<DataPath>Объект.БюджетыСОбщимиФинансовымиПоказателями.LineNumber</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="БюджетыСОбщимиФинансовымиПоказателямиНомерСтрокиКонтекстноеМеню" id="58"/>
+									<ExtendedTooltip name="БюджетыСОбщимиФинансовымиПоказателямиНомерСтрокиРасширеннаяПодсказка" id="59"/>
+								</LabelField>
+								<InputField name="БюджетыСОбщимиФинансовымиПоказателямиБюджет" id="60">
+									<DataPath>Объект.БюджетыСОбщимиФинансовымиПоказателями.Бюджет</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>20</Width>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="БюджетыСОбщимиФинансовымиПоказателямиБюджетКонтекстноеМеню" id="61"/>
+									<ExtendedTooltip name="БюджетыСОбщимиФинансовымиПоказателямиБюджетРасширеннаяПодсказка" id="62"/>
+								</InputField>
+								<InputField name="БюджетыСОбщимиФинансовымиПоказателямиСтатьяБюджета" id="66">
+									<DataPath>Объект.БюджетыСОбщимиФинансовымиПоказателями.СтатьяБюджета</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="БюджетыСОбщимиФинансовымиПоказателямиСтатьяБюджетаКонтекстноеМеню" id="67"/>
+									<ExtendedTooltip name="БюджетыСОбщимиФинансовымиПоказателямиСтатьяБюджетаРасширеннаяПодсказка" id="68"/>
+								</InputField>
+								<InputField name="БюджетыСОбщимиФинансовымиПоказателямиКонкурирущийБюджет" id="63">
+									<DataPath>Объект.БюджетыСОбщимиФинансовымиПоказателями.КонкурирующийБюджет</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>20</Width>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="БюджетыСОбщимиФинансовымиПоказателямиКонкурирущийБюджетКонтекстноеМеню" id="64"/>
+									<ExtendedTooltip name="БюджетыСОбщимиФинансовымиПоказателямиКонкурирущийБюджетРасширеннаяПодсказка" id="65"/>
+								</InputField>
+								<InputField name="БюджетыСОбщимиФинансовымиПоказателямиСтатьяКонкурирующегоБюджета" id="69">
+									<DataPath>Объект.БюджетыСОбщимиФинансовымиПоказателями.СтатьяКонкурирующегоБюджета</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="БюджетыСОбщимиФинансовымиПоказателямиСтатьяКонкурирующегоБюджетаКонтекстноеМеню" id="70"/>
+									<ExtendedTooltip name="БюджетыСОбщимиФинансовымиПоказателямиСтатьяКонкурирующегоБюджетаРасширеннаяПодсказка" id="71"/>
+								</InputField>
+								<InputField name="БюджетыСОбщимиФинансовымиПоказателямиФинансовыйПоказатель" id="72">
+									<DataPath>Объект.БюджетыСОбщимиФинансовымиПоказателями.ФинансовыйПоказатель</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="БюджетыСОбщимиФинансовымиПоказателямиФинансовыйПоказательКонтекстноеМеню" id="73"/>
+									<ExtendedTooltip name="БюджетыСОбщимиФинансовымиПоказателямиФинансовыйПоказательРасширеннаяПодсказка" id="74"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаОшибкиВНастройкеФормул" id="75">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ошибки в настройке формул</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<TitleDataPath>Объект.ОшибкиВНастройкеФормул.RowsCount</TitleDataPath>
+					<ExtendedTooltip name="ГруппаОшибкиВНастройкеФормулРасширеннаяПодсказка" id="76"/>
+					<ChildItems>
+						<Table name="ОшибкиВНастройкеФормул" id="77">
+							<Representation>List</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ОшибкиВНастройкеФормул</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ОшибкиВНастройкеФормулКонтекстноеМеню" id="78"/>
+							<AutoCommandBar name="ОшибкиВНастройкеФормулКоманднаяПанель" id="79">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ОшибкиВНастройкеФормулРасширеннаяПодсказка" id="80"/>
+							<SearchStringAddition name="ОшибкиВНастройкеФормулСтрокаПоиска" id="81">
+								<AdditionSource>
+									<Item>ОшибкиВНастройкеФормул</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОшибкиВНастройкеФормулСтрокаПоискаКонтекстноеМеню" id="84"/>
+								<ExtendedTooltip name="ОшибкиВНастройкеФормулСтрокаПоискаРасширеннаяПодсказка" id="85"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ОшибкиВНастройкеФормулСостояниеПросмотра" id="86">
+								<AdditionSource>
+									<Item>ОшибкиВНастройкеФормул</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОшибкиВНастройкеФормулСостояниеПросмотраКонтекстноеМеню" id="89"/>
+								<ExtendedTooltip name="ОшибкиВНастройкеФормулСостояниеПросмотраРасширеннаяПодсказка" id="90"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ОшибкиВНастройкеФормулУправлениеПоиском" id="91">
+								<AdditionSource>
+									<Item>ОшибкиВНастройкеФормул</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ОшибкиВНастройкеФормулУправлениеПоискомКонтекстноеМеню" id="94"/>
+								<ExtendedTooltip name="ОшибкиВНастройкеФормулУправлениеПоискомРасширеннаяПодсказка" id="95"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ОшибкиВНастройкеФормулНомерСтроки" id="96">
+									<DataPath>Объект.ОшибкиВНастройкеФормул.LineNumber</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ОшибкиВНастройкеФормулНомерСтрокиКонтекстноеМеню" id="97"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеФормулНомерСтрокиРасширеннаяПодсказка" id="98"/>
+								</LabelField>
+								<InputField name="ОшибкиВНастройкеФормулБюджет" id="99">
+									<DataPath>Объект.ОшибкиВНастройкеФормул.Бюджет</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>15</Width>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ОшибкиВНастройкеФормулБюджетКонтекстноеМеню" id="100"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеФормулБюджетРасширеннаяПодсказка" id="101"/>
+								</InputField>
+								<InputField name="ОшибкиВНастройкеФормулСтатьяБюджета" id="102">
+									<DataPath>Объект.ОшибкиВНастройкеФормул.СтатьяБюджета</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>20</Width>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ОшибкиВНастройкеФормулСтатьяБюджетаКонтекстноеМеню" id="103"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеФормулСтатьяБюджетаРасширеннаяПодсказка" id="104"/>
+								</InputField>
+								<InputField name="ОшибкиВНастройкеФормулФинансовыйПоказатель" id="105">
+									<DataPath>Объект.ОшибкиВНастройкеФормул.ФинансовыйПоказатель</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>15</Width>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ОшибкиВНастройкеФормулФинансовыйПоказательКонтекстноеМеню" id="106"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеФормулФинансовыйПоказательРасширеннаяПодсказка" id="107"/>
+								</InputField>
+								<InputField name="ОшибкиВНастройкеФормулФормула" id="108">
+									<DataPath>Объект.ОшибкиВНастройкеФормул.Формула</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>20</Width>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ОшибкиВНастройкеФормулФормулаКонтекстноеМеню" id="109"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеФормулФормулаРасширеннаяПодсказка" id="110"/>
+								</InputField>
+								<InputField name="ОшибкиВНастройкеФормулОписаниеОшибки" id="111">
+									<DataPath>Объект.ОшибкиВНастройкеФормул.ОписаниеОшибки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ОшибкиВНастройкеФормулОписаниеОшибкиКонтекстноеМеню" id="112"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеФормулОписаниеОшибкиРасширеннаяПодсказка" id="113"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<InputField name="Описание" id="194">
+							<DataPath>Items.ОшибкиВНастройкеФормул.CurrentData.ОписаниеОшибки</DataPath>
+							<MultiLine>true</MultiLine>
+							<ExtendedEdit>true</ExtendedEdit>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="ОписаниеКонтекстноеМеню" id="195"/>
+							<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="196"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаОшибкиВНастройкеЗависимостей" id="114">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ошибки в настройке зависимостей</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<TitleDataPath>Объект.ОшибкиВНастройкеЗависимостей.RowsCount</TitleDataPath>
+					<ExtendedTooltip name="ГруппаОшибкиВНастройкеЗависимостейРасширеннаяПодсказка" id="115"/>
+					<ChildItems>
+						<Table name="ОшибкиВНастройкеЗависимостей" id="116">
+							<Representation>List</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ОшибкиВНастройкеЗависимостей</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ОшибкиВНастройкеЗависимостейКонтекстноеМеню" id="117"/>
+							<AutoCommandBar name="ОшибкиВНастройкеЗависимостейКоманднаяПанель" id="118">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ОшибкиВНастройкеЗависимостейРасширеннаяПодсказка" id="119"/>
+							<SearchStringAddition name="ОшибкиВНастройкеЗависимостейСтрокаПоиска" id="120">
+								<AdditionSource>
+									<Item>ОшибкиВНастройкеЗависимостей</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОшибкиВНастройкеЗависимостейСтрокаПоискаКонтекстноеМеню" id="123"/>
+								<ExtendedTooltip name="ОшибкиВНастройкеЗависимостейСтрокаПоискаРасширеннаяПодсказка" id="124"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ОшибкиВНастройкеЗависимостейСостояниеПросмотра" id="125">
+								<AdditionSource>
+									<Item>ОшибкиВНастройкеЗависимостей</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОшибкиВНастройкеЗависимостейСостояниеПросмотраКонтекстноеМеню" id="128"/>
+								<ExtendedTooltip name="ОшибкиВНастройкеЗависимостейСостояниеПросмотраРасширеннаяПодсказка" id="129"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ОшибкиВНастройкеЗависимостейУправлениеПоиском" id="130">
+								<AdditionSource>
+									<Item>ОшибкиВНастройкеЗависимостей</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ОшибкиВНастройкеЗависимостейУправлениеПоискомКонтекстноеМеню" id="133"/>
+								<ExtendedTooltip name="ОшибкиВНастройкеЗависимостейУправлениеПоискомРасширеннаяПодсказка" id="134"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ОшибкиВНастройкеЗависимостейНомерСтроки" id="135">
+									<DataPath>Объект.ОшибкиВНастройкеЗависимостей.LineNumber</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ОшибкиВНастройкеЗависимостейНомерСтрокиКонтекстноеМеню" id="136"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеЗависимостейНомерСтрокиРасширеннаяПодсказка" id="137"/>
+								</LabelField>
+								<InputField name="ОшибкиВНастройкеЗависимостейБюджет" id="138">
+									<DataPath>Объект.ОшибкиВНастройкеЗависимостей.Бюджет</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>15</Width>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ОшибкиВНастройкеЗависимостейБюджетКонтекстноеМеню" id="139"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеЗависимостейБюджетРасширеннаяПодсказка" id="140"/>
+								</InputField>
+								<InputField name="ОшибкиВНастройкеЗависимостейСтатьяБюджета" id="141">
+									<DataPath>Объект.ОшибкиВНастройкеЗависимостей.СтатьяБюджета</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>20</Width>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ОшибкиВНастройкеЗависимостейСтатьяБюджетаКонтекстноеМеню" id="142"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеЗависимостейСтатьяБюджетаРасширеннаяПодсказка" id="143"/>
+								</InputField>
+								<InputField name="ОшибкиВНастройкеЗависимостейФинансовыйПоказатель" id="144">
+									<DataPath>Объект.ОшибкиВНастройкеЗависимостей.ФинансовыйПоказатель</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>20</Width>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ОшибкиВНастройкеЗависимостейФинансовыйПоказательКонтекстноеМеню" id="145"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеЗависимостейФинансовыйПоказательРасширеннаяПодсказка" id="146"/>
+								</InputField>
+								<InputField name="ОшибкиВНастройкеЗависимостейЗависимость" id="147">
+									<DataPath>Объект.ОшибкиВНастройкеЗависимостей.Зависимость</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>20</Width>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ОшибкиВНастройкеЗависимостейЗависимостьКонтекстноеМеню" id="148"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеЗависимостейЗависимостьРасширеннаяПодсказка" id="149"/>
+								</InputField>
+								<InputField name="ОшибкиВНастройкеЗависимостейОписаниеОшибки" id="150">
+									<DataPath>Объект.ОшибкиВНастройкеЗависимостей.ОписаниеОшибки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ОшибкиВНастройкеЗависимостейОписаниеОшибкиКонтекстноеМеню" id="151"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеЗависимостейОписаниеОшибкиРасширеннаяПодсказка" id="152"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<InputField name="ОписаниеЗависимость" id="197">
+							<DataPath>Items.ОшибкиВНастройкеЗависимостей.CurrentData.ОписаниеОшибки</DataPath>
+							<MultiLine>true</MultiLine>
+							<ExtendedEdit>true</ExtendedEdit>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="ОписаниеЗависимостьКонтекстноеМеню" id="198"/>
+							<ExtendedTooltip name="ОписаниеЗависимостьРасширеннаяПодсказка" id="199"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаОшибкиВНастройкеМоделей" id="153">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ошибки в настройке моделей</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<TitleDataPath>Объект.ОшибкиВНастройкеМоделей.RowsCount</TitleDataPath>
+					<ExtendedTooltip name="ГруппаОшибкиВНастройкеМоделейРасширеннаяПодсказка" id="154"/>
+					<ChildItems>
+						<Table name="ОшибкиВНастройкеМоделей" id="155">
+							<Representation>List</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ОшибкиВНастройкеМоделей</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ОшибкиВНастройкеМоделейКонтекстноеМеню" id="156"/>
+							<AutoCommandBar name="ОшибкиВНастройкеМоделейКоманднаяПанель" id="157">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ОшибкиВНастройкеМоделейРасширеннаяПодсказка" id="158"/>
+							<SearchStringAddition name="ОшибкиВНастройкеМоделейСтрокаПоиска" id="159">
+								<AdditionSource>
+									<Item>ОшибкиВНастройкеМоделей</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОшибкиВНастройкеМоделейСтрокаПоискаКонтекстноеМеню" id="162"/>
+								<ExtendedTooltip name="ОшибкиВНастройкеМоделейСтрокаПоискаРасширеннаяПодсказка" id="163"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ОшибкиВНастройкеМоделейСостояниеПросмотра" id="164">
+								<AdditionSource>
+									<Item>ОшибкиВНастройкеМоделей</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОшибкиВНастройкеМоделейСостояниеПросмотраКонтекстноеМеню" id="167"/>
+								<ExtendedTooltip name="ОшибкиВНастройкеМоделейСостояниеПросмотраРасширеннаяПодсказка" id="168"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ОшибкиВНастройкеМоделейУправлениеПоиском" id="169">
+								<AdditionSource>
+									<Item>ОшибкиВНастройкеМоделей</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ОшибкиВНастройкеМоделейУправлениеПоискомКонтекстноеМеню" id="172"/>
+								<ExtendedTooltip name="ОшибкиВНастройкеМоделейУправлениеПоискомРасширеннаяПодсказка" id="173"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ОшибкиВНастройкеМоделейНомерСтроки" id="174">
+									<DataPath>Объект.ОшибкиВНастройкеМоделей.LineNumber</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ОшибкиВНастройкеМоделейНомерСтрокиКонтекстноеМеню" id="175"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеМоделейНомерСтрокиРасширеннаяПодсказка" id="176"/>
+								</LabelField>
+								<InputField name="ОшибкиВНастройкеМоделейБюджет" id="177">
+									<DataPath>Объект.ОшибкиВНастройкеМоделей.Бюджет</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>15</Width>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ОшибкиВНастройкеМоделейБюджетКонтекстноеМеню" id="178"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеМоделейБюджетРасширеннаяПодсказка" id="179"/>
+								</InputField>
+								<InputField name="ОшибкиВНастройкеМоделейСтатьяБюджета" id="180">
+									<DataPath>Объект.ОшибкиВНастройкеМоделей.СтатьяБюджета</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>20</Width>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ОшибкиВНастройкеМоделейСтатьяБюджетаКонтекстноеМеню" id="181"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеМоделейСтатьяБюджетаРасширеннаяПодсказка" id="182"/>
+								</InputField>
+								<InputField name="ОшибкиВНастройкеМоделейФинансовыйПоказатель" id="183">
+									<DataPath>Объект.ОшибкиВНастройкеМоделей.ФинансовыйПоказатель</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>20</Width>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ОшибкиВНастройкеМоделейФинансовыйПоказательКонтекстноеМеню" id="184"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеМоделейФинансовыйПоказательРасширеннаяПодсказка" id="185"/>
+								</InputField>
+								<InputField name="ОшибкиВНастройкеМоделейМодель" id="186">
+									<DataPath>Объект.ОшибкиВНастройкеМоделей.Модель</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>20</Width>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<CreateButton>false</CreateButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ОшибкиВНастройкеМоделейМодельКонтекстноеМеню" id="187"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеМоделейМодельРасширеннаяПодсказка" id="188"/>
+								</InputField>
+								<InputField name="ОшибкиВНастройкеМоделейОписаниеОшибки" id="189">
+									<DataPath>Объект.ОшибкиВНастройкеМоделей.ОписаниеОшибки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<OpenButton>true</OpenButton>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="ОшибкиВНастройкеМоделейОписаниеОшибкиКонтекстноеМеню" id="190"/>
+									<ExtendedTooltip name="ОшибкиВНастройкеМоделейОписаниеОшибкиРасширеннаяПодсказка" id="191"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<InputField name="ОписаниеМодель" id="200">
+							<DataPath>Items.ОшибкиВНастройкеМоделей.CurrentData.ОписаниеОшибки</DataPath>
+							<MultiLine>true</MultiLine>
+							<ExtendedEdit>true</ExtendedEdit>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="ОписаниеМодельКонтекстноеМеню" id="201"/>
+							<ExtendedTooltip name="ОписаниеМодельРасширеннаяПодсказка" id="202"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.фин_КонтрольКорректностиНастроекБюджетнойСтруктуры</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="АктуальныйРегламент" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Актуальный регламент</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.фин_БюджетныйРегламент</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Заполнить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.фин_ОбновитьДокумент</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Заполнить</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="Адрес">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="Регламент">
+			<Type>
+				<v8:Type>cfg:DocumentRef.фин_БюджетныйРегламент</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+	</Parameters>
+</Form>

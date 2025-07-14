@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<InputField name="НачалоПериода" id="1">
+			<DataPath>Объект.НачалоПериода</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НачалоПериодаКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НачалоПериодаРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="КонецПериода" id="4">
+			<DataPath>Объект.КонецПериода</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КонецПериодаКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="КонецПериодаРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<Table name="СчетаОтбора" id="7">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.СчетаОтбора</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СчетаОтбораКонтекстноеМеню" id="8"/>
+			<AutoCommandBar name="СчетаОтбораКоманднаяПанель" id="9"/>
+			<ExtendedTooltip name="СчетаОтбораРасширеннаяПодсказка" id="10"/>
+			<SearchStringAddition name="СчетаОтбораСтрокаПоиска" id="11">
+				<AdditionSource>
+					<Item>СчетаОтбора</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СчетаОтбораСтрокаПоискаКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СчетаОтбораСтрокаПоискаРасширеннаяПодсказка" id="13"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СчетаОтбораСостояниеПросмотра" id="14">
+				<AdditionSource>
+					<Item>СчетаОтбора</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СчетаОтбораСостояниеПросмотраКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="СчетаОтбораСостояниеПросмотраРасширеннаяПодсказка" id="16"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СчетаОтбораУправлениеПоиском" id="17">
+				<AdditionSource>
+					<Item>СчетаОтбора</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СчетаОтбораУправлениеПоискомКонтекстноеМеню" id="18"/>
+				<ExtendedTooltip name="СчетаОтбораУправлениеПоискомРасширеннаяПодсказка" id="19"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="СчетаОтбораНомерСтроки" id="20">
+					<DataPath>Объект.СчетаОтбора.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СчетаОтбораНомерСтрокиКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="СчетаОтбораНомерСтрокиРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<InputField name="СчетаОтбораСчетУчета" id="23">
+					<DataPath>Объект.СчетаОтбора.СчетУчета</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СчетаОтбораСчетУчетаКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="СчетаОтбораСчетУчетаРасширеннаяПодсказка" id="25"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<Button name="СоздатьДокументыПереоценки" id="26">
+			<Type>UsualButton</Type>
+			<CommandName>Form.Command.СоздатьДокументыПереоценки</CommandName>
+			<ExtendedTooltip name="СоздатьДокументыПереоценкиРасширеннаяПодсказка" id="27"/>
+		</Button>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ОбработкаПоПереоценкеСельскохозяйственнойПродукцииПоСредневзвешеннойЦене</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СоздатьДокументыПереоценки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать документы переоценки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать документы переоценки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьДокументыПереоценки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПерепровестиДокументыЗаВыбранныйПериод" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перепровести документы за выбранный период</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перепровести документы за выбранный период</v8:content>
+				</v8:item>
+			</ToolTip>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

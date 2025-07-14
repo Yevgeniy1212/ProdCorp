@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Просмотр структуры бюджета</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<LabelField name="Бюджет" id="1">
+			<DataPath>Бюджет</DataPath>
+			<ContextMenu name="БюджетКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="БюджетРасширеннаяПодсказка" id="3"/>
+		</LabelField>
+		<Pages name="ГруппаСтраницы" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="5"/>
+			<ChildItems>
+				<Page name="СтруктураСтатей" id="36">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Структура статей</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Структура статей</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтруктураСтатейРасширеннаяПодсказка" id="37"/>
+					<ChildItems>
+						<Table name="ДеревоСтатей" id="38">
+							<Representation>Tree</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ДеревоСтатей</DataPath>
+							<ContextMenu name="ДеревоСтатейКонтекстноеМеню" id="39"/>
+							<AutoCommandBar name="ДеревоСтатейКоманднаяПанель" id="40">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="ДеревоСтатейПравилаРасчетаПоСтатье" id="78">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПравилаРасчетаПоСтатье</CommandName>
+										<ExtendedTooltip name="ДеревоСтатейПравилаРасчетаПоСтатьеРасширеннаяПодсказка" id="79"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ДеревоСтатейРасширеннаяПодсказка" id="41"/>
+							<SearchStringAddition name="ДеревоСтатейСтрокаПоиска" id="42">
+								<AdditionSource>
+									<Item>ДеревоСтатей</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДеревоСтатейСтрокаПоискаКонтекстноеМеню" id="45"/>
+								<ExtendedTooltip name="ДеревоСтатейСтрокаПоискаРасширеннаяПодсказка" id="46"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ДеревоСтатейСостояниеПросмотра" id="47">
+								<AdditionSource>
+									<Item>ДеревоСтатей</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДеревоСтатейСостояниеПросмотраКонтекстноеМеню" id="50"/>
+								<ExtendedTooltip name="ДеревоСтатейСостояниеПросмотраРасширеннаяПодсказка" id="51"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ДеревоСтатейУправлениеПоиском" id="52">
+								<AdditionSource>
+									<Item>ДеревоСтатей</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ДеревоСтатейУправлениеПоискомКонтекстноеМеню" id="55"/>
+								<ExtendedTooltip name="ДеревоСтатейУправлениеПоискомРасширеннаяПодсказка" id="56"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="ДеревоСтатейСтатья" id="57">
+									<DataPath>ДеревоСтатей.Статья</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДеревоСтатейСтатьяКонтекстноеМеню" id="58"/>
+									<ExtendedTooltip name="ДеревоСтатейСтатьяРасширеннаяПодсказка" id="59"/>
+								</InputField>
+								<InputField name="ДеревоСтатейКодСтроки" id="60">
+									<DataPath>ДеревоСтатей.КодСтроки</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>8</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ДеревоСтатейКодСтрокиКонтекстноеМеню" id="61"/>
+									<ExtendedTooltip name="ДеревоСтатейКодСтрокиРасширеннаяПодсказка" id="62"/>
+								</InputField>
+								<InputField name="ДеревоСтатейНаименованиеСтатьи" id="75">
+									<DataPath>ДеревоСтатей.НаименованиеСтатьи</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Статья</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>40</Width>
+									<ContextMenu name="ДеревоСтатейНаименованиеСтатьиКонтекстноеМеню" id="76"/>
+									<ExtendedTooltip name="ДеревоСтатейНаименованиеСтатьиРасширеннаяПодсказка" id="77"/>
+								</InputField>
+								<CheckBoxField name="ДеревоСтатейЭтоГруппа" id="63">
+									<DataPath>ДеревоСтатей.ЭтоГруппа</DataPath>
+									<Visible>false</Visible>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ДеревоСтатейЭтоГруппаКонтекстноеМеню" id="64"/>
+									<ExtendedTooltip name="ДеревоСтатейЭтоГруппаРасширеннаяПодсказка" id="65"/>
+								</CheckBoxField>
+								<CheckBoxField name="ДеревоСтатейУчетПоКоличеству" id="66">
+									<DataPath>ДеревоСтатей.УчетПоКоличеству</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Кол.</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ДеревоСтатейУчетПоКоличествуКонтекстноеМеню" id="67"/>
+									<ExtendedTooltip name="ДеревоСтатейУчетПоКоличествуРасширеннаяПодсказка" id="68"/>
+								</CheckBoxField>
+								<CheckBoxField name="ДеревоСтатейУчетПоСумме" id="69">
+									<DataPath>ДеревоСтатей.УчетПоСумме</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сум.</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ДеревоСтатейУчетПоСуммеКонтекстноеМеню" id="70"/>
+									<ExtendedTooltip name="ДеревоСтатейУчетПоСуммеРасширеннаяПодсказка" id="71"/>
+								</CheckBoxField>
+								<InputField name="ДеревоСтатейСписокРазрезов" id="72">
+									<DataPath>ДеревоСтатей.СписокРазрезов</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДеревоСтатейСписокРазрезовКонтекстноеМеню" id="73"/>
+									<ExtendedTooltip name="ДеревоСтатейСписокРазрезовРасширеннаяПодсказка" id="74"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Основное" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основное</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основное</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ОсновноеРасширеннаяПодсказка" id="7"/>
+					<ChildItems>
+						<CheckBoxField name="УчетПоКоличеству" id="33">
+							<DataPath>УчетПоКоличеству</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="УчетПоКоличествуКонтекстноеМеню" id="34"/>
+							<ExtendedTooltip name="УчетПоКоличествуРасширеннаяПодсказка" id="35"/>
+						</CheckBoxField>
+						<CheckBoxField name="УчетПоСумме" id="30">
+							<DataPath>УчетПоСумме</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="УчетПоСуммеКонтекстноеМеню" id="31"/>
+							<ExtendedTooltip name="УчетПоСуммеРасширеннаяПодсказка" id="32"/>
+						</CheckBoxField>
+						<Table name="РазрезыУчета" id="8">
+							<Representation>List</Representation>
+							<TitleLocation>Top</TitleLocation>
+							<ReadOnly>true</ReadOnly>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<Header>false</Header>
+							<HorizontalLines>false</HorizontalLines>
+							<VerticalLines>false</VerticalLines>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>РазрезыУчета</DataPath>
+							<RowPictureDataPath>РазрезыУчета.Picture</RowPictureDataPath>
+							<ContextMenu name="РазрезыУчетаКонтекстноеМеню" id="9"/>
+							<AutoCommandBar name="РазрезыУчетаКоманднаяПанель" id="10">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="РазрезыУчетаРасширеннаяПодсказка" id="11"/>
+							<SearchStringAddition name="РазрезыУчетаСтрокаПоиска" id="12">
+								<AdditionSource>
+									<Item>РазрезыУчета</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РазрезыУчетаСтрокаПоискаКонтекстноеМеню" id="15"/>
+								<ExtendedTooltip name="РазрезыУчетаСтрокаПоискаРасширеннаяПодсказка" id="16"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РазрезыУчетаСостояниеПросмотра" id="17">
+								<AdditionSource>
+									<Item>РазрезыУчета</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РазрезыУчетаСостояниеПросмотраКонтекстноеМеню" id="20"/>
+								<ExtendedTooltip name="РазрезыУчетаСостояниеПросмотраРасширеннаяПодсказка" id="21"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РазрезыУчетаУправлениеПоиском" id="22">
+								<AdditionSource>
+									<Item>РазрезыУчета</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РазрезыУчетаУправлениеПоискомКонтекстноеМеню" id="25"/>
+								<ExtendedTooltip name="РазрезыУчетаУправлениеПоискомРасширеннаяПодсказка" id="26"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="РазрезыУчетаЗначение" id="27">
+									<DataPath>РазрезыУчета.Value</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РазрезыУчетаЗначениеКонтекстноеМеню" id="28"/>
+									<ExtendedTooltip name="РазрезыУчетаЗначениеРасширеннаяПодсказка" id="29"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.фин_НастройкаКомплектаБюджетов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Бюджет" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Бюджет</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.фин_КлассификаторБюджетов</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РазрезыУчета" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрезы учета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="УчетПоСумме" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учет по сумме</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="УчетПоКоличеству" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учет по количеству</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДеревоСтатей" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дерево статей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Статья" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статья</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.фин_КлассификаторСтатейБюджетов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="КодСтроки" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код строки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>10</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЭтоГруппа" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Это группа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="УчетПоКоличеству" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учет по количеству</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="УчетПоСумме" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учет по сумме</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СписокРазрезов" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Список разрезов</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="НаименованиеСтатьи" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование статьи</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ВыбранныеВариантыКБ" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбранные варианты КБ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресНастроек" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес настроек</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДеревоСтатей</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДеревоСтатей.ЭтоГруппа</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ПравилаРасчетаПоСтатье" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Правила расчета по статье</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Правила расчета по статье</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.фин_Расчеты</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПравилаРасчетаПоСтатье</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

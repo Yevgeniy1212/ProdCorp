@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="СвойстваИЗначения" id="1">
+			<Representation>List</Representation>
+			<ChangeRowSet>false</ChangeRowSet>
+			<Width>60</Width>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.СвойстваИЗначения</DataPath>
+			<TextColor>web:MidnightBlue</TextColor>
+			<BorderColor>web:LightSteelBlue</BorderColor>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СвойстваИЗначенияКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СвойстваИЗначенияКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="СвойстваИЗначенияЗаписатьЗначения" id="10">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ЗаписатьЗначения</CommandName>
+						<ExtendedTooltip name="СвойстваИЗначенияЗаписатьЗначенияРасширеннаяПодсказка" id="19"/>
+					</Button>
+					<Button name="СвойстваИЗначенияПеречитать" id="11">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Перечитать</CommandName>
+						<ExtendedTooltip name="СвойстваИЗначенияПеречитатьРасширеннаяПодсказка" id="20"/>
+					</Button>
+					<ButtonGroup name="СвойстваИЗначенияГруппа1" id="15">
+						<ExtendedTooltip name="СвойстваИЗначенияГруппа1РасширеннаяПодсказка" id="21"/>
+					</ButtonGroup>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СвойстваИЗначенияРасширеннаяПодсказка" id="22"/>
+			<SearchStringAddition name="СвойстваИЗначенияСтрокаПоиска" id="23">
+				<AdditionSource>
+					<Item>СвойстваИЗначения</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СвойстваИЗначенияСтрокаПоискаКонтекстноеМеню" id="24"/>
+				<ExtendedTooltip name="СвойстваИЗначенияСтрокаПоискаРасширеннаяПодсказка" id="25"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СвойстваИЗначенияСостояниеПросмотра" id="26">
+				<AdditionSource>
+					<Item>СвойстваИЗначения</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СвойстваИЗначенияСостояниеПросмотраКонтекстноеМеню" id="27"/>
+				<ExtendedTooltip name="СвойстваИЗначенияСостояниеПросмотраРасширеннаяПодсказка" id="28"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СвойстваИЗначенияУправлениеПоиском" id="29">
+				<AdditionSource>
+					<Item>СвойстваИЗначения</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СвойстваИЗначенияУправлениеПоискомКонтекстноеМеню" id="30"/>
+				<ExtendedTooltip name="СвойстваИЗначенияУправлениеПоискомРасширеннаяПодсказка" id="31"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnStartEdit">СвойстваИЗначенияПриНачалеРедактирования</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="СвойстваИЗначенияНомерСтроки" id="4">
+					<DataPath>Объект.СвойстваИЗначения.LineNumber</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СвойстваИЗначенияНомерСтрокиКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="СвойстваИЗначенияНомерСтрокиРасширеннаяПодсказка" id="32"/>
+				</LabelField>
+				<ColumnGroup name="СвойстваИЗначенияГруппа2" id="18">
+					<Group>InCell</Group>
+					<ExtendedTooltip name="СвойстваИЗначенияГруппа2РасширеннаяПодсказка" id="33"/>
+					<ChildItems>
+						<PictureField name="СвойстваИЗначенияКартинка" id="16">
+							<DataPath>Объект.СвойстваИЗначения.ПометкаУдаления</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.УдаленныйДокумент</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+								<xr:TransparentPixel x="4" y="0"/>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="СвойстваИЗначенияКартинкаКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="СвойстваИЗначенияКартинкаРасширеннаяПодсказка" id="34"/>
+						</PictureField>
+						<InputField name="СвойстваИЗначенияСвойство" id="6">
+							<DataPath>Объект.СвойстваИЗначения.Свойство</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СвойстваИЗначенияСвойствоКонтекстноеМеню" id="7"/>
+							<ExtendedTooltip name="СвойстваИЗначенияСвойствоРасширеннаяПодсказка" id="35"/>
+							<Events>
+								<Event name="OnChange">СвойстваИЗначенияСвойствоПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<InputField name="СвойстваИЗначенияЗначение" id="8">
+					<DataPath>Объект.СвойстваИЗначения.Значение</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СвойстваИЗначенияЗначениеКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="СвойстваИЗначенияЗначениеРасширеннаяПодсказка" id="36"/>
+					<Events>
+						<Event name="OnChange">СвойстваИЗначенияЗначениеПриИзменении</Event>
+						<Event name="Clearing">СвойстваИЗначенияЗначениеОчистка</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ЗначенияСвойствОбъекта</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Перечитать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перечитать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перечитать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Reread</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Перечитать</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="ЗаписатьЗначения" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать значения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Write</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗаписатьЗначения</Action>
+		</Command>
+	</Commands>
+</Form>
