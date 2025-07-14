@@ -1,0 +1,4144 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<CommandBarLocation>None</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<CommandSet>
+		<ExcludedCommand>ChangeVariant</ExcludedCommand>
+		<ExcludedCommand>SaveVariant</ExcludedCommand>
+	</CommandSet>
+	<ReportFormType>Main</ReportFormType>
+	<AutoShowState>Auto</AutoShowState>
+	<ReportResultViewMode>Auto</ReportResultViewMode>
+	<ViewModeApplicationOnSetReportResult>Auto</ViewModeApplicationOnSetReportResult>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="BeforeLoadVariantAtServer">ПередЗагрузкойВариантаНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
+		<Event name="OnLoadUserSettingsAtServer">ПриЗагрузкеПользовательскихНастроекНаСервере</Event>
+		<Event name="OnLoadVariantAtServer">ПриЗагрузкеВариантаНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="ActivationProcessing">ОбработкаАктивизации</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаВарианта" id="1">
+			<Visible>false</Visible>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа варианта</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВариантаРасширеннаяПодсказка" id="218"/>
+			<ChildItems>
+				<InputField name="НаименованиеТекущегоВарианта" id="2">
+					<DataPath>НаименованиеТекущегоВарианта</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleLocation>Left</TitleLocation>
+					<ContextMenu name="НаименованиеТекущегоВариантаКонтекстноеМеню" id="3"/>
+					<ExtendedTooltip name="НаименованиеТекущегоВариантаРасширеннаяПодсказка" id="219"/>
+				</InputField>
+				<Button name="ЗагрузитьВариант" id="4">
+					<Type>UsualButton</Type>
+					<CommandName>Form.StandardCommand.LoadVariant</CommandName>
+					<ExtendedTooltip name="ЗагрузитьВариантРасширеннаяПодсказка" id="220"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа3" id="444">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="445"/>
+			<ChildItems>
+				<CommandBar name="ОсновнаяКоманднаяПанель" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основная командная панель</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ОсновнаяКоманднаяПанельРасширеннаяПодсказка" id="221"/>
+					<ChildItems>
+						<Button name="Сформировать" id="31">
+							<Type>CommandBarButton</Type>
+							<DefaultButton>true</DefaultButton>
+							<CommandName>Form.Command.Сформировать</CommandName>
+							<ExtendedTooltip name="СформироватьРасширеннаяПодсказка" id="222"/>
+						</Button>
+						<Button name="ФормаНастройка" id="30">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.Настройка</CommandName>
+							<ExtendedTooltip name="ФормаНастройкаРасширеннаяПодсказка" id="223"/>
+						</Button>
+						<Button name="ВосстановитьЗначения" id="32">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.ВосстановитьЗначения</CommandName>
+							<ExtendedTooltip name="ВосстановитьЗначенияРасширеннаяПодсказка" id="224"/>
+						</Button>
+						<Button name="СохранитьЗначения" id="33">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.СохранитьЗначения</CommandName>
+							<ExtendedTooltip name="СохранитьЗначенияРасширеннаяПодсказка" id="225"/>
+						</Button>
+						<Button name="СтандартныеНастройки" id="50">
+							<Type>CommandBarButton</Type>
+							<Representation>PictureAndText</Representation>
+							<CommandName>Form.StandardCommand.StandardSettings</CommandName>
+							<Picture>
+								<xr:Ref>StdPicture.Refresh</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="СтандартныеНастройкиРасширеннаяПодсказка" id="226"/>
+						</Button>
+						<Button name="НовоеОкно" id="52">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.StandardCommand.NewWindow</CommandName>
+							<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+							<ExtendedTooltip name="НовоеОкноРасширеннаяПодсказка" id="227"/>
+						</Button>
+						<Button name="Печать" id="188">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.Печать</CommandName>
+							<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="228"/>
+						</Button>
+						<Popup name="ГруппаШаблоны" id="526">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Шаблоны</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа шаблоны</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаШаблоныРасширеннаяПодсказка" id="527"/>
+							<ChildItems>
+								<Button name="ЗагрузитьШаблонОтчета" id="528">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.ЗагрузитьШаблонОтчета</CommandName>
+									<ExtendedTooltip name="ЗагрузитьШаблонОтчетаРасширеннаяПодсказка" id="529"/>
+								</Button>
+								<Button name="СохранитьШаблонОтчета" id="530">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.СохранитьШаблонОтчета</CommandName>
+									<ExtendedTooltip name="СохранитьШаблонОтчетаРасширеннаяПодсказка" id="531"/>
+								</Button>
+							</ChildItems>
+						</Popup>
+					</ChildItems>
+				</CommandBar>
+				<PictureDecoration name="ДекорацияАвтоСумма" id="446">
+					<Enabled>false</Enabled>
+					<Width>3</Width>
+					<Height>1</Height>
+					<Picture>
+						<xr:Ref>CommonPicture.Сумма</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+						<xr:TransparentPixel x="11" y="8"/>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="ДекорацияАвтоСуммаКонтекстноеМеню" id="447"/>
+					<ExtendedTooltip name="ДекорацияАвтоСуммаExtendedTooltip" id="448"/>
+				</PictureDecoration>
+				<InputField name="ПолеСумма" id="449">
+					<DataPath>ПолеСумма</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleLocation>None</TitleLocation>
+					<Width>12</Width>
+					<ContextMenu name="ПолеСуммаКонтекстноеМеню" id="450"/>
+					<ExtendedTooltip name="ПолеСуммаExtendedTooltip" id="451"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Панель" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Панель</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Панель</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ПанельРасширеннаяПодсказка" id="229"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаОсновное" id="21">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа основное</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа основное</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОсновноеРасширеннаяПодсказка" id="230"/>
+					<ChildItems>
+						<Table name="КомпоновщикНастроекПользовательскиеНастройки" id="6">
+							<CommandBarLocation>None</CommandBarLocation>
+							<Autofill>true</Autofill>
+							<Header>false</Header>
+							<VerticalStretch>false</VerticalStretch>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Отчет.SettingsComposer.UserSettings</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Таблица пользовательских настроек</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSet>
+								<ExcludedCommand>HierarchicalList</ExcludedCommand>
+								<ExcludedCommand>List</ExcludedCommand>
+								<ExcludedCommand>Tree</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<ViewMode>QuickAccess</ViewMode>
+							<ContextMenu name="КомпоновщикНастроекПользовательскиеНастройкиКонтекстноеМеню" id="7"/>
+							<AutoCommandBar name="КомпоновщикНастроекПользовательскиеНастройкиКоманднаяПанель" id="8"/>
+							<ExtendedTooltip name="КомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="231"/>
+							<SearchStringAddition name="КомпоновщикНастроекПользовательскиеНастройкиСтрокаПоиска" id="232">
+								<AdditionSource>
+									<Item>КомпоновщикНастроекПользовательскиеНастройки</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="КомпоновщикНастроекПользовательскиеНастройкиСтрокаПоискаКонтекстноеМеню" id="233"/>
+								<ExtendedTooltip name="КомпоновщикНастроекПользовательскиеНастройкиСтрокаПоискаРасширеннаяПодсказка" id="234"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="КомпоновщикНастроекПользовательскиеНастройкиСостояниеПросмотра" id="235">
+								<AdditionSource>
+									<Item>КомпоновщикНастроекПользовательскиеНастройки</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="КомпоновщикНастроекПользовательскиеНастройкиСостояниеПросмотраКонтекстноеМеню" id="236"/>
+								<ExtendedTooltip name="КомпоновщикНастроекПользовательскиеНастройкиСостояниеПросмотраРасширеннаяПодсказка" id="237"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="КомпоновщикНастроекПользовательскиеНастройкиУправлениеПоиском" id="238">
+								<AdditionSource>
+									<Item>КомпоновщикНастроекПользовательскиеНастройки</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="КомпоновщикНастроекПользовательскиеНастройкиУправлениеПоискомКонтекстноеМеню" id="239"/>
+								<ExtendedTooltip name="КомпоновщикНастроекПользовательскиеНастройкиУправлениеПоискомРасширеннаяПодсказка" id="240"/>
+							</SearchControlAddition>
+						</Table>
+						<InputField name="НадписьРезультат" id="12">
+							<DataPath>НадписьРезультат</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<TextEdit>false</TextEdit>
+							<TextColor>#004242</TextColor>
+							<BackColor>#B0C4DE</BackColor>
+							<BorderColor>#4682B4</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьРезультатКонтекстноеМеню" id="13"/>
+							<ExtendedTooltip name="НадписьРезультатРасширеннаяПодсказка" id="241"/>
+						</InputField>
+						<SpreadSheetDocumentField name="Результат" id="9">
+							<DataPath>Результат</DataPath>
+							<DefaultItem>true</DefaultItem>
+							<TitleLocation>None</TitleLocation>
+							<Width>100</Width>
+							<VerticalScrollBar>true</VerticalScrollBar>
+							<HorizontalScrollBar>true</HorizontalScrollBar>
+							<ContextMenu name="РезультатКонтекстноеМеню" id="10"/>
+							<ExtendedTooltip name="РезультатРасширеннаяПодсказка" id="242"/>
+							<Events>
+								<Event name="OnActivate">РезультатПриАктивизацииОбласти</Event>
+								<Event name="DetailProcessing">РезультатОбработкаРасшифровки</Event>
+								<Event name="OnChangeAreaContent">РезультатПриИзмененииСодержимогоОбласти</Event>
+							</Events>
+						</SpreadSheetDocumentField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаНастройки" id="19">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа настройки</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа настройки</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>30</Width>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="243"/>
+					<ChildItems>
+						<Pages name="СтраницыНастроек" id="85">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы настроек</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы настроек</v8:content>
+								</v8:item>
+							</ToolTip>
+							<PagesRepresentation>TabsOnTop</PagesRepresentation>
+							<ExtendedTooltip name="СтраницыНастроекРасширеннаяПодсказка" id="244"/>
+							<ChildItems>
+								<Page name="СтраницаДанныеОтчета" id="87">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Данные</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница данные отчета</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаДанныеОтчетаРасширеннаяПодсказка" id="245"/>
+									<ChildItems>
+										<InputField name="НадписьПараметры" id="14">
+											<DataPath>НадписьПараметры</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<HorizontalAlign>Center</HorizontalAlign>
+											<TextEdit>false</TextEdit>
+											<TextColor>#004242</TextColor>
+											<BackColor>#B0C4DE</BackColor>
+											<BorderColor>#4682B4</BorderColor>
+											<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<ContextMenu name="НадписьПараметрыКонтекстноеМеню" id="15"/>
+											<ExtendedTooltip name="НадписьПараметрыРасширеннаяПодсказка" id="246"/>
+										</InputField>
+										<UsualGroup name="ПараметрыОтчета" id="11">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Параметры отчета</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Параметры отчета</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ПараметрыОтчетаРасширеннаяПодсказка" id="247"/>
+											<ChildItems>
+												<InputField name="Бюджет" id="82">
+													<DataPath>Бюджет</DataPath>
+													<ContextMenu name="БюджетКонтекстноеМеню" id="83"/>
+													<ExtendedTooltip name="БюджетРасширеннаяПодсказка" id="248"/>
+													<Events>
+														<Event name="OnChange">БюджетПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="ВидДанных" id="88">
+													<DataPath>ВидДанных</DataPath>
+													<Visible>false</Visible>
+													<ContextMenu name="ВидДанныхКонтекстноеМеню" id="89"/>
+													<ExtendedTooltip name="ВидДанныхРасширеннаяПодсказка" id="249"/>
+													<Events>
+														<Event name="OnChange">ВидДанныхПриИзменении</Event>
+													</Events>
+												</InputField>
+												<UsualGroup name="ПериодОтчета" id="40">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Период отчета</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Период отчета</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Vertical</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ПериодОтчетаРасширеннаяПодсказка" id="250"/>
+													<ChildItems>
+														<UsualGroup name="Группа2" id="189">
+															<Group>Horizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="251"/>
+															<ChildItems>
+																<InputField name="НастройкаПериодаДатаНачала" id="38">
+																	<DataPath>НастройкаПериода.StartDate</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>С</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ContextMenu name="НастройкаПериодаДатаНачалаКонтекстноеМеню" id="39"/>
+																	<ExtendedTooltip name="НастройкаПериодаДатаНачалаРасширеннаяПодсказка" id="252"/>
+																	<Events>
+																		<Event name="OnChange">НастройкаПериодаДатаНачалаПриИзменении</Event>
+																	</Events>
+																</InputField>
+																<InputField name="НастройкаПериодаДатаОкончания" id="41">
+																	<DataPath>НастройкаПериода.EndDate</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>по</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ContextMenu name="НастройкаПериодаДатаОкончанияКонтекстноеМеню" id="42"/>
+																	<ExtendedTooltip name="НастройкаПериодаДатаОкончанияРасширеннаяПодсказка" id="253"/>
+																	<Events>
+																		<Event name="OnChange">НастройкаПериодаДатаОкончанияПриИзменении</Event>
+																	</Events>
+																</InputField>
+															</ChildItems>
+														</UsualGroup>
+														<InputField name="НастройкаПериодаВариант" id="43">
+															<DataPath>НастройкаПериода.Variant</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Настройка периода</v8:content>
+																</v8:item>
+															</Title>
+															<TitleLocation>None</TitleLocation>
+															<Width>4</Width>
+															<ContextMenu name="НастройкаПериодаВариантКонтекстноеМеню" id="44"/>
+															<ExtendedTooltip name="НастройкаПериодаВариантРасширеннаяПодсказка" id="254"/>
+															<Events>
+																<Event name="OnChange">НастройкаПериодаВариантПриИзменении</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<InputField name="Периодичность" id="97">
+													<DataPath>Периодичность</DataPath>
+													<Visible>false</Visible>
+													<ContextMenu name="ПериодичностьКонтекстноеМеню" id="98"/>
+													<ExtendedTooltip name="ПериодичностьРасширеннаяПодсказка" id="255"/>
+													<Events>
+														<Event name="OnChange">ПериодичностьПриИзменении</Event>
+													</Events>
+												</InputField>
+												<UsualGroup name="ПериодПланирования" id="53">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Период планирования</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Период планирования</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Vertical</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ПериодПланированияРасширеннаяПодсказка" id="256"/>
+													<ChildItems>
+														<InputField name="Сценарий" id="61">
+															<DataPath>Сценарий</DataPath>
+															<ContextMenu name="СценарийКонтекстноеМеню" id="62"/>
+															<ExtendedTooltip name="СценарийРасширеннаяПодсказка" id="257"/>
+															<Events>
+																<Event name="OnChange">СценарийПриИзменении</Event>
+															</Events>
+														</InputField>
+														<UsualGroup name="ГруппаРаботаСПериодом" id="63">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа работа с периодом</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа работа с периодом</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Group>Horizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ГруппаРаботаСПериодомРасширеннаяПодсказка" id="258"/>
+															<ChildItems>
+																<LabelDecoration name="ДекорацияПериодПланирования" id="54">
+																	<Visible>false</Visible>
+																	<Title formatted="false">
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Период планирования:</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ContextMenu name="ДекорацияПериодПланированияКонтекстноеМеню" id="55"/>
+																	<ExtendedTooltip name="ДекорацияПериодПланированияРасширеннаяПодсказка" id="259"/>
+																</LabelDecoration>
+																<InputField name="НадписьПериодПланирования" id="57">
+																	<DataPath>НадписьПериодПланирования</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Период планирования</v8:content>
+																		</v8:item>
+																	</Title>
+																	<TitleTextColor>#004242</TitleTextColor>
+																	<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+																	<TitleLocation>None</TitleLocation>
+																	<ChoiceButton>true</ChoiceButton>
+																	<TextEdit>false</TextEdit>
+																	<TextColor>#004242</TextColor>
+																	<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+																	<ContextMenu name="НадписьПериодПланированияКонтекстноеМеню" id="58"/>
+																	<ExtendedTooltip name="НадписьПериодПланированияРасширеннаяПодсказка" id="261"/>
+																	<Events>
+																		<Event name="StartChoice">НадписьПериодПланированияНачалоВыбора</Event>
+																	</Events>
+																</InputField>
+															</ChildItems>
+														</UsualGroup>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаТаблицаДанныеОтчета" id="141">
+											<Visible>false</Visible>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица данные отчета</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица данные отчета</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаТаблицаДанныеОтчетаРасширеннаяПодсказка" id="264"/>
+											<ChildItems>
+												<InputField name="НадписьДанныеОтчета" id="142">
+													<DataPath>НадписьДанныеОтчета</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<HorizontalAlign>Center</HorizontalAlign>
+													<TextEdit>false</TextEdit>
+													<TextColor>#004242</TextColor>
+													<BackColor>#B0C4DE</BackColor>
+													<BorderColor>#4682B4</BorderColor>
+													<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<ContextMenu name="НадписьДанныеОтчетаКонтекстноеМеню" id="143"/>
+													<ExtendedTooltip name="НадписьДанныеОтчетаРасширеннаяПодсказка" id="265"/>
+												</InputField>
+												<Table name="ДанныеОтчета" id="144">
+													<Representation>List</Representation>
+													<HeightInTableRows>4</HeightInTableRows>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>ДанныеОтчета</DataPath>
+													<TextColor>web:MidnightBlue</TextColor>
+													<BorderColor>#B0C4DE</BorderColor>
+													<SearchStringLocation>None</SearchStringLocation>
+													<ViewStatusLocation>None</ViewStatusLocation>
+													<SearchControlLocation>None</SearchControlLocation>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="ДанныеОтчетаКонтекстноеМеню" id="145"/>
+													<AutoCommandBar name="ДанныеОтчетаКоманднаяПанель" id="146"/>
+													<ExtendedTooltip name="ДанныеОтчетаРасширеннаяПодсказка" id="266"/>
+													<SearchStringAddition name="ДанныеОтчетаСтрокаПоиска" id="267">
+														<AdditionSource>
+															<Item>ДанныеОтчета</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ДанныеОтчетаСтрокаПоискаКонтекстноеМеню" id="268"/>
+														<ExtendedTooltip name="ДанныеОтчетаСтрокаПоискаРасширеннаяПодсказка" id="269"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="ДанныеОтчетаСостояниеПросмотра" id="270">
+														<AdditionSource>
+															<Item>ДанныеОтчета</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ДанныеОтчетаСостояниеПросмотраКонтекстноеМеню" id="271"/>
+														<ExtendedTooltip name="ДанныеОтчетаСостояниеПросмотраРасширеннаяПодсказка" id="272"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="ДанныеОтчетаУправлениеПоиском" id="273">
+														<AdditionSource>
+															<Item>ДанныеОтчета</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="ДанныеОтчетаУправлениеПоискомКонтекстноеМеню" id="274"/>
+														<ExtendedTooltip name="ДанныеОтчетаУправлениеПоискомРасширеннаяПодсказка" id="275"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="OnStartEdit">ДанныеОтчетаПриНачалеРедактирования</Event>
+													</Events>
+													<ChildItems>
+														<CheckBoxField name="ДанныеОтчетаИспользование" id="157">
+															<DataPath>ДанныеОтчета.Использование</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content> </v8:content>
+																</v8:item>
+															</Title>
+															<TitleTextColor>#004242</TitleTextColor>
+															<TitleBackColor>#B0C4DE</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ДанныеОтчетаИспользованиеКонтекстноеМеню" id="158"/>
+															<ExtendedTooltip name="ДанныеОтчетаИспользованиеРасширеннаяПодсказка" id="276"/>
+														</CheckBoxField>
+														<ColumnGroup name="ДанныеОтчетаГруппа3" id="167">
+															<ExtendedTooltip name="ДанныеОтчетаГруппа3РасширеннаяПодсказка" id="277"/>
+															<ChildItems>
+																<InputField name="ДанныеОтчетаЗаголовок" id="153">
+																	<DataPath>ДанныеОтчета.Заголовок</DataPath>
+																	<TitleTextColor>#004242</TitleTextColor>
+																	<TitleBackColor>#B0C4DE</TitleBackColor>
+																	<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+																	<EditMode>EnterOnInput</EditMode>
+																	<Width>10</Width>
+																	<ContextMenu name="ДанныеОтчетаЗаголовокКонтекстноеМеню" id="154"/>
+																	<ExtendedTooltip name="ДанныеОтчетаЗаголовокРасширеннаяПодсказка" id="278"/>
+																</InputField>
+																<InputField name="ДанныеОтчетаИдентификаторПоля" id="155">
+																	<DataPath>ДанныеОтчета.ИдентификаторПоля</DataPath>
+																	<TitleTextColor>#004242</TitleTextColor>
+																	<TitleBackColor>#B0C4DE</TitleBackColor>
+																	<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+																	<EditMode>EnterOnInput</EditMode>
+																	<Width>10</Width>
+																	<ContextMenu name="ДанныеОтчетаИдентификаторПоляКонтекстноеМеню" id="156"/>
+																	<ExtendedTooltip name="ДанныеОтчетаИдентификаторПоляРасширеннаяПодсказка" id="279"/>
+																	<Events>
+																		<Event name="OnChange">ДанныеОтчетаИдентификаторПоляПриИзменении</Event>
+																	</Events>
+																</InputField>
+															</ChildItems>
+														</ColumnGroup>
+														<ColumnGroup name="ДанныеОтчетаГруппа4" id="168">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="ДанныеОтчетаГруппа4РасширеннаяПодсказка" id="280"/>
+															<ChildItems>
+																<CheckBoxField name="ДанныеОтчетаПоФормуле" id="159">
+																	<DataPath>ДанныеОтчета.ПоФормуле</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>По ф-ле</v8:content>
+																		</v8:item>
+																	</Title>
+																	<TitleTextColor>#004242</TitleTextColor>
+																	<TitleBackColor>#B0C4DE</TitleBackColor>
+																	<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>По формуле</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<EditMode>EnterOnInput</EditMode>
+																	<CheckBoxType>Auto</CheckBoxType>
+																	<ContextMenu name="ДанныеОтчетаПоФормулеКонтекстноеМеню" id="160"/>
+																	<ExtendedTooltip name="ДанныеОтчетаПоФормулеРасширеннаяПодсказка" id="281"/>
+																	<Events>
+																		<Event name="OnChange">ДанныеОтчетаПоФормулеПриИзменении</Event>
+																	</Events>
+																</CheckBoxField>
+																<ColumnGroup name="ДанныеОтчетаГруппа5" id="169">
+																	<ExtendedTooltip name="ДанныеОтчетаГруппа5РасширеннаяПодсказка" id="282"/>
+																	<ChildItems>
+																		<InputField name="ДанныеОтчетаФормула" id="161">
+																			<DataPath>ДанныеОтчета.Формула</DataPath>
+																			<TitleTextColor>#004242</TitleTextColor>
+																			<TitleBackColor>#B0C4DE</TitleBackColor>
+																			<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+																			<EditMode>EnterOnInput</EditMode>
+																			<ChoiceButton>true</ChoiceButton>
+																			<TextEdit>false</TextEdit>
+																			<ContextMenu name="ДанныеОтчетаФормулаКонтекстноеМеню" id="162"/>
+																			<ExtendedTooltip name="ДанныеОтчетаФормулаРасширеннаяПодсказка" id="283"/>
+																			<Events>
+																				<Event name="StartChoice">ДанныеОтчетаФормулаНачалоВыбора</Event>
+																			</Events>
+																		</InputField>
+																		<InputField name="ДанныеОтчетаРесурс" id="163">
+																			<DataPath>ДанныеОтчета.Ресурс</DataPath>
+																			<TitleTextColor>#004242</TitleTextColor>
+																			<TitleBackColor>#B0C4DE</TitleBackColor>
+																			<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+																			<EditMode>EnterOnInput</EditMode>
+																			<ContextMenu name="ДанныеОтчетаРесурсКонтекстноеМеню" id="164"/>
+																			<ExtendedTooltip name="ДанныеОтчетаРесурсРасширеннаяПодсказка" id="284"/>
+																		</InputField>
+																	</ChildItems>
+																</ColumnGroup>
+															</ChildItems>
+														</ColumnGroup>
+														<ColumnGroup name="ДанныеОтчетаГруппа1" id="165">
+															<ExtendedTooltip name="ДанныеОтчетаГруппа1РасширеннаяПодсказка" id="285"/>
+															<ChildItems>
+																<InputField name="ДанныеОтчетаДанные" id="147">
+																	<DataPath>ДанныеОтчета.Данные</DataPath>
+																	<TitleTextColor>#004242</TitleTextColor>
+																	<TitleBackColor>#B0C4DE</TitleBackColor>
+																	<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+																	<EditMode>EnterOnInput</EditMode>
+																	<Width>15</Width>
+																	<DropListButton>false</DropListButton>
+																	<ChoiceButton>true</ChoiceButton>
+																	<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+																	<CreateButton>false</CreateButton>
+																	<ChooseType>false</ChooseType>
+																	<ChoiceListButton>true</ChoiceListButton>
+																	<ContextMenu name="ДанныеОтчетаДанныеКонтекстноеМеню" id="148"/>
+																	<ExtendedTooltip name="ДанныеОтчетаДанныеРасширеннаяПодсказка" id="286"/>
+																	<Events>
+																		<Event name="StartChoice">ДанныеОтчетаДанныеНачалоВыбора</Event>
+																		<Event name="StartListChoice">ДанныеОтчетаДанныеНачалоВыбораИзСписка</Event>
+																	</Events>
+																</InputField>
+																<ColumnGroup name="ДанныеОтчетаГруппа2" id="166">
+																	<Group>Horizontal</Group>
+																	<ExtendedTooltip name="ДанныеОтчетаГруппа2РасширеннаяПодсказка" id="287"/>
+																	<ChildItems>
+																		<InputField name="ДанныеОтчетаНачалоПериода" id="149">
+																			<DataPath>ДанныеОтчета.НачалоПериода</DataPath>
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>С</v8:content>
+																				</v8:item>
+																			</Title>
+																			<TitleTextColor>#004242</TitleTextColor>
+																			<TitleBackColor>#B0C4DE</TitleBackColor>
+																			<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+																			<EditMode>EnterOnInput</EditMode>
+																			<Width>8</Width>
+																			<ContextMenu name="ДанныеОтчетаНачалоПериодаКонтекстноеМеню" id="150"/>
+																			<ExtendedTooltip name="ДанныеОтчетаНачалоПериодаРасширеннаяПодсказка" id="288"/>
+																		</InputField>
+																		<InputField name="ДанныеОтчетаОкончаниеПериода" id="151">
+																			<DataPath>ДанныеОтчета.ОкончаниеПериода</DataPath>
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>по</v8:content>
+																				</v8:item>
+																			</Title>
+																			<TitleTextColor>#004242</TitleTextColor>
+																			<TitleBackColor>#B0C4DE</TitleBackColor>
+																			<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+																			<EditMode>EnterOnInput</EditMode>
+																			<Width>8</Width>
+																			<ContextMenu name="ДанныеОтчетаОкончаниеПериодаКонтекстноеМеню" id="152"/>
+																			<ExtendedTooltip name="ДанныеОтчетаОкончаниеПериодаРасширеннаяПодсказка" id="289"/>
+																		</InputField>
+																	</ChildItems>
+																</ColumnGroup>
+															</ChildItems>
+														</ColumnGroup>
+													</ChildItems>
+												</Table>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаТаблицаДанныеДляАнализа" id="118">
+											<Visible>false</Visible>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица данные для анализа</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица данные для анализа</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаТаблицаДанныеДляАнализаРасширеннаяПодсказка" id="290"/>
+											<ChildItems>
+												<InputField name="НадписьДанныеДляАнализа" id="119">
+													<DataPath>НадписьДанныеДляАнализа</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<HorizontalAlign>Center</HorizontalAlign>
+													<TextEdit>false</TextEdit>
+													<TextColor>#004242</TextColor>
+													<BackColor>#B0C4DE</BackColor>
+													<BorderColor>#4682B4</BorderColor>
+													<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<ContextMenu name="НадписьДанныеДляАнализаКонтекстноеМеню" id="120"/>
+													<ExtendedTooltip name="НадписьДанныеДляАнализаРасширеннаяПодсказка" id="291"/>
+												</InputField>
+												<UsualGroup name="Группа1" id="132">
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="292"/>
+													<ChildItems>
+														<Button name="ПериодСтроки" id="130">
+															<Type>UsualButton</Type>
+															<CommandName>Form.Command.ПериодСтроки</CommandName>
+															<ExtendedTooltip name="ПериодСтрокиРасширеннаяПодсказка" id="293"/>
+														</Button>
+														<Button name="ДанныеДляАнализаПериодОтчета" id="131">
+															<Type>UsualButton</Type>
+															<CommandName>Form.Command.ПериодОтчета</CommandName>
+															<ExtendedTooltip name="ДанныеДляАнализаПериодОтчетаРасширеннаяПодсказка" id="294"/>
+														</Button>
+													</ChildItems>
+												</UsualGroup>
+												<Table name="ДанныеДляАнализа" id="121">
+													<Representation>List</Representation>
+													<HeightInTableRows>3</HeightInTableRows>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>ДанныеДляАнализа</DataPath>
+													<TextColor>web:MidnightBlue</TextColor>
+													<BorderColor>web:LightSteelBlue</BorderColor>
+													<SearchStringLocation>None</SearchStringLocation>
+													<ViewStatusLocation>None</ViewStatusLocation>
+													<SearchControlLocation>None</SearchControlLocation>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="ДанныеДляАнализаКонтекстноеМеню" id="122"/>
+													<AutoCommandBar name="ДанныеДляАнализаКоманднаяПанель" id="123"/>
+													<ExtendedTooltip name="ДанныеДляАнализаРасширеннаяПодсказка" id="295"/>
+													<SearchStringAddition name="ДанныеДляАнализаСтрокаПоиска" id="296">
+														<AdditionSource>
+															<Item>ДанныеДляАнализа</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ДанныеДляАнализаСтрокаПоискаКонтекстноеМеню" id="297"/>
+														<ExtendedTooltip name="ДанныеДляАнализаСтрокаПоискаРасширеннаяПодсказка" id="298"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="ДанныеДляАнализаСостояниеПросмотра" id="299">
+														<AdditionSource>
+															<Item>ДанныеДляАнализа</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ДанныеДляАнализаСостояниеПросмотраКонтекстноеМеню" id="300"/>
+														<ExtendedTooltip name="ДанныеДляАнализаСостояниеПросмотраРасширеннаяПодсказка" id="301"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="ДанныеДляАнализаУправлениеПоиском" id="302">
+														<AdditionSource>
+															<Item>ДанныеДляАнализа</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="ДанныеДляАнализаУправлениеПоискомКонтекстноеМеню" id="303"/>
+														<ExtendedTooltip name="ДанныеДляАнализаУправлениеПоискомРасширеннаяПодсказка" id="304"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="OnStartEdit">ДанныеДляАнализаПриНачалеРедактирования</Event>
+													</Events>
+													<ChildItems>
+														<InputField name="ДанныеДляАнализаСтатьяБюджета" id="441">
+															<DataPath>ДанныеДляАнализа.СтатьяБюджета</DataPath>
+															<TitleTextColor>#004444</TitleTextColor>
+															<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>15</Width>
+															<ContextMenu name="ДанныеДляАнализаСтатьяБюджетаКонтекстноеМеню" id="442"/>
+															<ExtendedTooltip name="ДанныеДляАнализаСтатьяБюджетаРасширеннаяПодсказка" id="443"/>
+														</InputField>
+														<InputField name="ДанныеДляАнализаДанныеДляСравнения" id="124">
+															<DataPath>ДанныеДляАнализа.ДанныеДляСравнения</DataPath>
+															<TitleTextColor>#004242</TitleTextColor>
+															<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>10</Width>
+															<DropListButton>false</DropListButton>
+															<ChoiceButton>true</ChoiceButton>
+															<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+															<ChoiceListButton>true</ChoiceListButton>
+															<ContextMenu name="ДанныеДляАнализаДанныеДляСравненияКонтекстноеМеню" id="125"/>
+															<ExtendedTooltip name="ДанныеДляАнализаДанныеДляСравненияРасширеннаяПодсказка" id="305"/>
+															<Events>
+																<Event name="OnChange">ДанныеДляАнализаДанныеДляСравненияПриИзменении</Event>
+																<Event name="StartChoice">ДанныеДляАнализаДанныеДляСравненияНачалоВыбора</Event>
+																<Event name="StartListChoice">ДанныеДляАнализаДанныеДляСравненияНачалоВыбораИзСписка</Event>
+															</Events>
+														</InputField>
+														<InputField name="ДанныеДляАнализаНачалоПериода" id="126">
+															<DataPath>ДанныеДляАнализа.НачалоПериода</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>С</v8:content>
+																</v8:item>
+															</Title>
+															<TitleTextColor>#004242</TitleTextColor>
+															<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>7</Width>
+															<ContextMenu name="ДанныеДляАнализаНачалоПериодаКонтекстноеМеню" id="127"/>
+															<ExtendedTooltip name="ДанныеДляАнализаНачалоПериодаРасширеннаяПодсказка" id="306"/>
+															<Events>
+																<Event name="OnChange">ДанныеДляАнализаНачалоПериодаПриИзменении</Event>
+																<Event name="Tuning">ДанныеДляАнализаНачалоПериодаРегулирование</Event>
+															</Events>
+														</InputField>
+														<InputField name="ДанныеДляАнализаОкончаниеПериода" id="128">
+															<DataPath>ДанныеДляАнализа.ОкончаниеПериода</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>По</v8:content>
+																</v8:item>
+															</Title>
+															<TitleTextColor>#004242</TitleTextColor>
+															<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>7</Width>
+															<ContextMenu name="ДанныеДляАнализаОкончаниеПериодаКонтекстноеМеню" id="129"/>
+															<ExtendedTooltip name="ДанныеДляАнализаОкончаниеПериодаРасширеннаяПодсказка" id="307"/>
+															<Events>
+																<Event name="OnChange">ДанныеДляАнализаОкончаниеПериодаПриИзменении</Event>
+																<Event name="Tuning">ДанныеДляАнализаОкончаниеПериодаРегулирование</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</Table>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаТаблицаДетализацияСчетов" id="190">
+											<Visible>false</Visible>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица детализация счетов</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица детализация счетов</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаТаблицаДетализацияСчетовРасширеннаяПодсказка" id="308"/>
+											<ChildItems>
+												<InputField name="НадписьДетализацияСчетов" id="191">
+													<DataPath>НадписьДетализацияСчетов</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<HorizontalAlign>Center</HorizontalAlign>
+													<TextEdit>false</TextEdit>
+													<TextColor>#004242</TextColor>
+													<BackColor>#B0C4DE</BackColor>
+													<BorderColor>#4682B4</BorderColor>
+													<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<ContextMenu name="НадписьДетализацияСчетовКонтекстноеМеню" id="192"/>
+													<ExtendedTooltip name="НадписьДетализацияСчетовРасширеннаяПодсказка" id="309"/>
+												</InputField>
+												<Table name="ДетализацияСчетов" id="193">
+													<Representation>List</Representation>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>ДетализацияСчетов</DataPath>
+													<TextColor>web:MidnightBlue</TextColor>
+													<BorderColor>#B0C4DE</BorderColor>
+													<SearchStringLocation>None</SearchStringLocation>
+													<ViewStatusLocation>None</ViewStatusLocation>
+													<SearchControlLocation>None</SearchControlLocation>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="ДетализацияСчетовКонтекстноеМеню" id="194"/>
+													<AutoCommandBar name="ДетализацияСчетовКоманднаяПанель" id="195"/>
+													<ExtendedTooltip name="ДетализацияСчетовРасширеннаяПодсказка" id="310"/>
+													<SearchStringAddition name="ДетализацияСчетовСтрокаПоиска" id="311">
+														<AdditionSource>
+															<Item>ДетализацияСчетов</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ДетализацияСчетовСтрокаПоискаКонтекстноеМеню" id="312"/>
+														<ExtendedTooltip name="ДетализацияСчетовСтрокаПоискаРасширеннаяПодсказка" id="313"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="ДетализацияСчетовСостояниеПросмотра" id="314">
+														<AdditionSource>
+															<Item>ДетализацияСчетов</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ДетализацияСчетовСостояниеПросмотраКонтекстноеМеню" id="315"/>
+														<ExtendedTooltip name="ДетализацияСчетовСостояниеПросмотраРасширеннаяПодсказка" id="316"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="ДетализацияСчетовУправлениеПоиском" id="317">
+														<AdditionSource>
+															<Item>ДетализацияСчетов</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="ДетализацияСчетовУправлениеПоискомКонтекстноеМеню" id="318"/>
+														<ExtendedTooltip name="ДетализацияСчетовУправлениеПоискомРасширеннаяПодсказка" id="319"/>
+													</SearchControlAddition>
+													<ChildItems>
+														<InputField name="ДетализацияСчетовСчет" id="196">
+															<DataPath>ДетализацияСчетов.Счет</DataPath>
+															<TitleTextColor>#004444</TitleTextColor>
+															<TitleBackColor>#B0C4DE</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>10</Width>
+															<ContextMenu name="ДетализацияСчетовСчетКонтекстноеМеню" id="197"/>
+															<ExtendedTooltip name="ДетализацияСчетовСчетРасширеннаяПодсказка" id="320"/>
+														</InputField>
+														<CheckBoxField name="ДетализацияСчетовПоСубсчетам" id="198">
+															<DataPath>ДетализацияСчетов.ПоСубсчетам</DataPath>
+															<TitleTextColor>#004444</TitleTextColor>
+															<TitleBackColor>#B0C4DE</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ДетализацияСчетовПоСубсчетамКонтекстноеМеню" id="199"/>
+															<ExtendedTooltip name="ДетализацияСчетовПоСубсчетамРасширеннаяПодсказка" id="321"/>
+														</CheckBoxField>
+														<CheckBoxField name="ДетализацияСчетовПоСубконто" id="200">
+															<DataPath>ДетализацияСчетов.ПоСубконто</DataPath>
+															<TitleTextColor>#004444</TitleTextColor>
+															<TitleBackColor>#B0C4DE</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ДетализацияСчетовПоСубконтоКонтекстноеМеню" id="201"/>
+															<ExtendedTooltip name="ДетализацияСчетовПоСубконтоРасширеннаяПодсказка" id="322"/>
+														</CheckBoxField>
+													</ChildItems>
+												</Table>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаТаблицаПараметрыДанныхОтчета" id="210">
+											<Visible>false</Visible>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица параметры данных отчета</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица параметры данных отчета</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаТаблицаПараметрыДанныхОтчетаРасширеннаяПодсказка" id="323"/>
+											<ChildItems>
+												<Table name="ПараметрыДанныхОтчета" id="211">
+													<Representation>List</Representation>
+													<ChangeRowSet>false</ChangeRowSet>
+													<ChangeRowOrder>false</ChangeRowOrder>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>ПараметрыДанныхОтчета</DataPath>
+													<TextColor>web:MidnightBlue</TextColor>
+													<BorderColor>#B0C4DE</BorderColor>
+													<SearchStringLocation>None</SearchStringLocation>
+													<ViewStatusLocation>None</ViewStatusLocation>
+													<SearchControlLocation>None</SearchControlLocation>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="ПараметрыДанныхОтчетаКонтекстноеМеню" id="212"/>
+													<AutoCommandBar name="ПараметрыДанныхОтчетаКоманднаяПанель" id="213">
+														<Autofill>false</Autofill>
+													</AutoCommandBar>
+													<ExtendedTooltip name="ПараметрыДанныхОтчетаРасширеннаяПодсказка" id="324"/>
+													<SearchStringAddition name="ПараметрыДанныхОтчетаСтрокаПоиска" id="325">
+														<AdditionSource>
+															<Item>ПараметрыДанныхОтчета</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ПараметрыДанныхОтчетаСтрокаПоискаКонтекстноеМеню" id="326"/>
+														<ExtendedTooltip name="ПараметрыДанныхОтчетаСтрокаПоискаРасширеннаяПодсказка" id="327"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="ПараметрыДанныхОтчетаСостояниеПросмотра" id="328">
+														<AdditionSource>
+															<Item>ПараметрыДанныхОтчета</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ПараметрыДанныхОтчетаСостояниеПросмотраКонтекстноеМеню" id="329"/>
+														<ExtendedTooltip name="ПараметрыДанныхОтчетаСостояниеПросмотраРасширеннаяПодсказка" id="330"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="ПараметрыДанныхОтчетаУправлениеПоиском" id="331">
+														<AdditionSource>
+															<Item>ПараметрыДанныхОтчета</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="ПараметрыДанныхОтчетаУправлениеПоискомКонтекстноеМеню" id="332"/>
+														<ExtendedTooltip name="ПараметрыДанныхОтчетаУправлениеПоискомРасширеннаяПодсказка" id="333"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="OnStartEdit">ПараметрыДанныхОтчетаПриНачалеРедактирования</Event>
+													</Events>
+													<ChildItems>
+														<InputField name="ПараметрыДанныхОтчетаПараметр" id="214">
+															<DataPath>ПараметрыДанныхОтчета.Параметр</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<TitleTextColor>#004242</TitleTextColor>
+															<TitleBackColor>#B0C4DE</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>15</Width>
+															<ChoiceButton>false</ChoiceButton>
+															<TextEdit>false</TextEdit>
+															<ContextMenu name="ПараметрыДанныхОтчетаПараметрКонтекстноеМеню" id="215"/>
+															<ExtendedTooltip name="ПараметрыДанныхОтчетаПараметрРасширеннаяПодсказка" id="334"/>
+														</InputField>
+														<InputField name="ПараметрыДанныхОтчетаЗначение" id="216">
+															<DataPath>ПараметрыДанныхОтчета.Значение</DataPath>
+															<TitleTextColor>#004242</TitleTextColor>
+															<TitleBackColor>#B0C4DE</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>15</Width>
+															<ContextMenu name="ПараметрыДанныхОтчетаЗначениеКонтекстноеМеню" id="217"/>
+															<ExtendedTooltip name="ПараметрыДанныхОтчетаЗначениеРасширеннаяПодсказка" id="335"/>
+															<Events>
+																<Event name="StartChoice">ПараметрыДанныхОтчетаЗначениеНачалоВыбора</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</Table>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаТаблицаДанныеОстатковДляАнализа" id="178">
+											<Visible>false</Visible>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица данные остатков для анализа</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица данные остатков для анализа</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаТаблицаДанныеОстатковДляАнализаРасширеннаяПодсказка" id="336"/>
+											<ChildItems>
+												<InputField name="НадписьДанныеДляАнализа1" id="179">
+													<DataPath>НадписьДанныеДляАнализа</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<HorizontalAlign>Center</HorizontalAlign>
+													<TextEdit>false</TextEdit>
+													<TextColor>#004242</TextColor>
+													<BackColor>#B0C4DE</BackColor>
+													<BorderColor>#4682B4</BorderColor>
+													<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<ContextMenu name="НадписьДанныеДляАнализа1КонтекстноеМеню" id="180"/>
+													<ExtendedTooltip name="НадписьДанныеДляАнализа1РасширеннаяПодсказка" id="337"/>
+												</InputField>
+												<Table name="ДанныеОстатковДляАнализа" id="181">
+													<Representation>List</Representation>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>ДанныеОстатковДляАнализа</DataPath>
+													<TextColor>web:MidnightBlue</TextColor>
+													<BorderColor>#B0C4DE</BorderColor>
+													<SearchStringLocation>None</SearchStringLocation>
+													<ViewStatusLocation>None</ViewStatusLocation>
+													<SearchControlLocation>None</SearchControlLocation>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="ДанныеОстатковДляАнализаКонтекстноеМеню" id="182"/>
+													<AutoCommandBar name="ДанныеОстатковДляАнализаКоманднаяПанель" id="183"/>
+													<ExtendedTooltip name="ДанныеОстатковДляАнализаРасширеннаяПодсказка" id="338"/>
+													<SearchStringAddition name="ДанныеОстатковДляАнализаСтрокаПоиска" id="339">
+														<AdditionSource>
+															<Item>ДанныеОстатковДляАнализа</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ДанныеОстатковДляАнализаСтрокаПоискаКонтекстноеМеню" id="340"/>
+														<ExtendedTooltip name="ДанныеОстатковДляАнализаСтрокаПоискаРасширеннаяПодсказка" id="341"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="ДанныеОстатковДляАнализаСостояниеПросмотра" id="342">
+														<AdditionSource>
+															<Item>ДанныеОстатковДляАнализа</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ДанныеОстатковДляАнализаСостояниеПросмотраКонтекстноеМеню" id="343"/>
+														<ExtendedTooltip name="ДанныеОстатковДляАнализаСостояниеПросмотраРасширеннаяПодсказка" id="344"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="ДанныеОстатковДляАнализаУправлениеПоиском" id="345">
+														<AdditionSource>
+															<Item>ДанныеОстатковДляАнализа</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="ДанныеОстатковДляАнализаУправлениеПоискомКонтекстноеМеню" id="346"/>
+														<ExtendedTooltip name="ДанныеОстатковДляАнализаУправлениеПоискомРасширеннаяПодсказка" id="347"/>
+													</SearchControlAddition>
+													<ChildItems>
+														<InputField name="ДанныеОстатковАнализаДанныеДляСравнения" id="184">
+															<DataPath>ДанныеОстатковДляАнализа.ДанныеДляСравнения</DataPath>
+															<TitleTextColor>#004242</TitleTextColor>
+															<TitleBackColor>#B0C4DE</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ДанныеОстатковАнализаДанныеДляСравненияКонтекстноеМеню" id="185"/>
+															<ExtendedTooltip name="ДанныеОстатковАнализаДанныеДляСравненияРасширеннаяПодсказка" id="348"/>
+														</InputField>
+														<InputField name="ДанныеОстатковАнализаДатаОстатков" id="186">
+															<DataPath>ДанныеОстатковДляАнализа.ДатаОстатков</DataPath>
+															<TitleTextColor>#004242</TitleTextColor>
+															<TitleBackColor>#B0C4DE</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ДанныеОстатковАнализаДатаОстатковКонтекстноеМеню" id="187"/>
+															<ExtendedTooltip name="ДанныеОстатковАнализаДатаОстатковРасширеннаяПодсказка" id="349"/>
+														</InputField>
+													</ChildItems>
+												</Table>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="НастройкиОтбора" id="20">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Настройки отбора</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Настройки отбора</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="НастройкиОтбораРасширеннаяПодсказка" id="350"/>
+											<ChildItems>
+												<InputField name="НадписьОтбор" id="23">
+													<DataPath>НадписьОтбор</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<HorizontalAlign>Center</HorizontalAlign>
+													<TextEdit>false</TextEdit>
+													<TextColor>#004242</TextColor>
+													<BackColor>#B0C4DE</BackColor>
+													<BorderColor>#4682B4</BorderColor>
+													<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<ContextMenu name="НадписьОтборКонтекстноеМеню" id="24"/>
+													<ExtendedTooltip name="НадписьОтборРасширеннаяПодсказка" id="351"/>
+												</InputField>
+												<Table name="Отбор" id="99">
+													<Representation>List</Representation>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>Отбор</DataPath>
+													<TextColor>web:MidnightBlue</TextColor>
+													<BorderColor>web:LightSteelBlue</BorderColor>
+													<SearchStringLocation>None</SearchStringLocation>
+													<ViewStatusLocation>None</ViewStatusLocation>
+													<SearchControlLocation>None</SearchControlLocation>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="ОтборКонтекстноеМеню" id="100"/>
+													<AutoCommandBar name="ОтборКоманднаяПанель" id="101"/>
+													<ExtendedTooltip name="ОтборРасширеннаяПодсказка" id="352"/>
+													<SearchStringAddition name="ОтборСтрокаПоиска" id="353">
+														<AdditionSource>
+															<Item>Отбор</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ОтборСтрокаПоискаКонтекстноеМеню" id="354"/>
+														<ExtendedTooltip name="ОтборСтрокаПоискаРасширеннаяПодсказка" id="355"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="ОтборСостояниеПросмотра" id="356">
+														<AdditionSource>
+															<Item>Отбор</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ОтборСостояниеПросмотраКонтекстноеМеню" id="357"/>
+														<ExtendedTooltip name="ОтборСостояниеПросмотраРасширеннаяПодсказка" id="358"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="ОтборУправлениеПоиском" id="359">
+														<AdditionSource>
+															<Item>Отбор</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="ОтборУправлениеПоискомКонтекстноеМеню" id="360"/>
+														<ExtendedTooltip name="ОтборУправлениеПоискомРасширеннаяПодсказка" id="361"/>
+													</SearchControlAddition>
+													<ChildItems>
+														<CheckBoxField name="ОтборИспользование" id="102">
+															<DataPath>Отбор.Использование</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content> </v8:content>
+																</v8:item>
+															</Title>
+															<TitleTextColor>#004242</TitleTextColor>
+															<TitleBackColor>#B0C4DE</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ОтборИспользованиеКонтекстноеМеню" id="103"/>
+															<ExtendedTooltip name="ОтборИспользованиеРасширеннаяПодсказка" id="362"/>
+														</CheckBoxField>
+														<InputField name="ОтборПолеОтбора" id="104">
+															<DataPath>Отбор.ПолеОтбора</DataPath>
+															<TitleTextColor>#004242</TitleTextColor>
+															<TitleBackColor>#B0C4DE</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>5</Width>
+															<ContextMenu name="ОтборПолеОтбораКонтекстноеМеню" id="105"/>
+															<ExtendedTooltip name="ОтборПолеОтбораРасширеннаяПодсказка" id="363"/>
+															<Events>
+																<Event name="OnChange">ОтборПолеОтбораПриИзменении</Event>
+																<Event name="StartChoice">ОтборПолеОтбораНачалоВыбора</Event>
+															</Events>
+														</InputField>
+														<InputField name="ОтборВидСравнения" id="106">
+															<DataPath>Отбор.ВидСравнения</DataPath>
+															<TitleTextColor>#004242</TitleTextColor>
+															<TitleBackColor>#B0C4DE</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>4</Width>
+															<ContextMenu name="ОтборВидСравненияКонтекстноеМеню" id="107"/>
+															<ExtendedTooltip name="ОтборВидСравненияРасширеннаяПодсказка" id="364"/>
+															<Events>
+																<Event name="OnChange">ОтборВидСравненияПриИзменении</Event>
+																<Event name="StartChoice">ОтборВидСравненияНачалоВыбора</Event>
+															</Events>
+														</InputField>
+														<InputField name="ОтборЗначение" id="108">
+															<DataPath>Отбор.Значение</DataPath>
+															<TitleTextColor>#004242</TitleTextColor>
+															<TitleBackColor>#B0C4DE</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>5</Width>
+															<ContextMenu name="ОтборЗначениеКонтекстноеМеню" id="109"/>
+															<ExtendedTooltip name="ОтборЗначениеРасширеннаяПодсказка" id="365"/>
+															<Events>
+																<Event name="StartChoice">ОтборЗначениеНачалоВыбора</Event>
+															</Events>
+														</InputField>
+														<InputField name="ОтборПуть" id="110">
+															<DataPath>Отбор.Путь</DataPath>
+															<Visible>false</Visible>
+															<TitleTextColor>#004242</TitleTextColor>
+															<TitleBackColor>#B0C4DE</TitleBackColor>
+															<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ОтборПутьКонтекстноеМеню" id="111"/>
+															<ExtendedTooltip name="ОтборПутьРасширеннаяПодсказка" id="366"/>
+														</InputField>
+													</ChildItems>
+												</Table>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</Page>
+								<Page name="СтруктураОтчета" id="86">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Структура</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Структура отчета</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтруктураОтчетаРасширеннаяПодсказка" id="367"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаТаблицаТаблицыОтчета" id="466">
+											<Visible>false</Visible>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица таблицы отчета</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица таблицы отчета</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаТаблицаТаблицыОтчетаРасширеннаяПодсказка" id="467"/>
+											<ChildItems>
+												<InputField name="НадписьТаблицыОтчета" id="484">
+													<DataPath>НадписьТаблицыОтчета</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<HorizontalAlign>Center</HorizontalAlign>
+													<TextEdit>false</TextEdit>
+													<TextColor>#004242</TextColor>
+													<BackColor>#B0C4DE</BackColor>
+													<BorderColor>#4682B4</BorderColor>
+													<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<ContextMenu name="НадписьТаблицыОтчетаКонтекстноеМеню" id="485"/>
+													<ExtendedTooltip name="НадписьТаблицыОтчетаРасширеннаяПодсказка" id="486"/>
+												</InputField>
+												<Table name="ТаблицыОтчета" id="468">
+													<Representation>List</Representation>
+													<HeightInTableRows>3</HeightInTableRows>
+													<AutoInsertNewRow>true</AutoInsertNewRow>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>ТаблицыОтчета</DataPath>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="ТаблицыОтчетаКонтекстноеМеню" id="469"/>
+													<AutoCommandBar name="ТаблицыОтчетаКоманднаяПанель" id="470"/>
+													<ExtendedTooltip name="ТаблицыОтчетаРасширеннаяПодсказка" id="471"/>
+													<SearchStringAddition name="ТаблицыОтчетаСтрокаПоиска" id="472">
+														<AdditionSource>
+															<Item>ТаблицыОтчета</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ТаблицыОтчетаСтрокаПоискаКонтекстноеМеню" id="473"/>
+														<ExtendedTooltip name="ТаблицыОтчетаСтрокаПоискаРасширеннаяПодсказка" id="474"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="ТаблицыОтчетаСостояниеПросмотра" id="475">
+														<AdditionSource>
+															<Item>ТаблицыОтчета</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ТаблицыОтчетаСостояниеПросмотраКонтекстноеМеню" id="476"/>
+														<ExtendedTooltip name="ТаблицыОтчетаСостояниеПросмотраРасширеннаяПодсказка" id="477"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="ТаблицыОтчетаУправлениеПоиском" id="478">
+														<AdditionSource>
+															<Item>ТаблицыОтчета</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="ТаблицыОтчетаУправлениеПоискомКонтекстноеМеню" id="479"/>
+														<ExtendedTooltip name="ТаблицыОтчетаУправлениеПоискомРасширеннаяПодсказка" id="480"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="BeforeAddRow">ТаблицыОтчетаПередНачаломДобавления</Event>
+														<Event name="OnActivateRow">ТаблицыОтчетаПриАктивизацииСтроки</Event>
+													</Events>
+													<ChildItems>
+														<InputField name="ТаблицыОтчетаТаблица" id="481">
+															<DataPath>ТаблицыОтчета.Таблица</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТаблицыОтчетаТаблицаКонтекстноеМеню" id="482"/>
+															<ExtendedTooltip name="ТаблицыОтчетаТаблицаРасширеннаяПодсказка" id="483"/>
+															<Events>
+																<Event name="OnChange">ТаблицыОтчетаТаблицаПриИзменении</Event>
+																<Event name="StartChoice">ТаблицыОтчетаТаблицаНачалоВыбора</Event>
+															</Events>
+														</InputField>
+														<InputField name="ТаблицыОтчетаТаблицаВидТаблицы" id="520">
+															<DataPath>ТаблицыОтчета.Таблица.ВидТаблицы</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТаблицыОтчетаТаблицаВидТаблицыКонтекстноеМеню" id="521"/>
+															<ExtendedTooltip name="ТаблицыОтчетаТаблицаВидТаблицыРасширеннаяПодсказка" id="522"/>
+														</InputField>
+														<CheckBoxField name="ТаблицыОтчетаОтключить" id="523">
+															<DataPath>ТаблицыОтчета.Отключить</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Откл.</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Отключить</v8:content>
+																</v8:item>
+															</ToolTip>
+															<EditMode>EnterOnInput</EditMode>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ТаблицыОтчетаОтключитьКонтекстноеМеню" id="524"/>
+															<ExtendedTooltip name="ТаблицыОтчетаОтключитьРасширеннаяПодсказка" id="525"/>
+														</CheckBoxField>
+													</ChildItems>
+												</Table>
+												<UsualGroup name="НастройкиОтбораТаблиц" id="487">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Настройки отбора</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Настройки отбора</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Vertical</Group>
+													<Behavior>Collapsible</Behavior>
+													<Collapsed>true</Collapsed>
+													<ControlRepresentation>Picture</ControlRepresentation>
+													<Representation>StrongSeparation</Representation>
+													<ExtendedTooltip name="НастройкиОтбораТаблицРасширеннаяПодсказка" id="488"/>
+													<ChildItems>
+														<InputField name="НадписьОтборТаблиц" id="489">
+															<DataPath>НадписьОтбор</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<HorizontalAlign>Center</HorizontalAlign>
+															<TextEdit>false</TextEdit>
+															<TextColor>#004242</TextColor>
+															<BackColor>#B0C4DE</BackColor>
+															<BorderColor>#4682B4</BorderColor>
+															<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<ContextMenu name="НадписьОтборТаблицКонтекстноеМеню" id="490"/>
+															<ExtendedTooltip name="НадписьОтборТаблицРасширеннаяПодсказка" id="491"/>
+														</InputField>
+														<Table name="ОтборТаблиц" id="492">
+															<Representation>List</Representation>
+															<HeightInTableRows>3</HeightInTableRows>
+															<EnableStartDrag>true</EnableStartDrag>
+															<EnableDrag>true</EnableDrag>
+															<FileDragMode>AsFile</FileDragMode>
+															<DataPath>Отбор</DataPath>
+															<TextColor>web:MidnightBlue</TextColor>
+															<BorderColor>web:LightSteelBlue</BorderColor>
+															<SearchStringLocation>None</SearchStringLocation>
+															<ViewStatusLocation>None</ViewStatusLocation>
+															<SearchControlLocation>None</SearchControlLocation>
+															<RowFilter xsi:nil="true"/>
+															<ContextMenu name="ОтборТаблицКонтекстноеМеню" id="493"/>
+															<AutoCommandBar name="ОтборТаблицКоманднаяПанель" id="494"/>
+															<ExtendedTooltip name="ОтборТаблицРасширеннаяПодсказка" id="495"/>
+															<SearchStringAddition name="ОтборТаблицСтрокаПоиска" id="496">
+																<AdditionSource>
+																	<Item>ОтборТаблиц</Item>
+																	<Type>SearchStringRepresentation</Type>
+																</AdditionSource>
+																<ContextMenu name="ОтборТаблицСтрокаПоискаКонтекстноеМеню" id="497"/>
+																<ExtendedTooltip name="ОтборТаблицСтрокаПоискаРасширеннаяПодсказка" id="498"/>
+															</SearchStringAddition>
+															<ViewStatusAddition name="ОтборТаблицСостояниеПросмотра" id="499">
+																<AdditionSource>
+																	<Item>ОтборТаблиц</Item>
+																	<Type>ViewStatusRepresentation</Type>
+																</AdditionSource>
+																<ContextMenu name="ОтборТаблицСостояниеПросмотраКонтекстноеМеню" id="500"/>
+																<ExtendedTooltip name="ОтборТаблицСостояниеПросмотраРасширеннаяПодсказка" id="501"/>
+															</ViewStatusAddition>
+															<SearchControlAddition name="ОтборТаблицУправлениеПоиском" id="502">
+																<AdditionSource>
+																	<Item>ОтборТаблиц</Item>
+																	<Type>SearchControl</Type>
+																</AdditionSource>
+																<ContextMenu name="ОтборТаблицУправлениеПоискомКонтекстноеМеню" id="503"/>
+																<ExtendedTooltip name="ОтборТаблицУправлениеПоискомРасширеннаяПодсказка" id="504"/>
+															</SearchControlAddition>
+															<Events>
+																<Event name="OnStartEdit">ОтборТаблицПриНачалеРедактирования</Event>
+															</Events>
+															<ChildItems>
+																<CheckBoxField name="ОтборТаблицИспользование" id="505">
+																	<DataPath>Отбор.Использование</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content> </v8:content>
+																		</v8:item>
+																	</Title>
+																	<TitleTextColor>#004242</TitleTextColor>
+																	<TitleBackColor>#B0C4DE</TitleBackColor>
+																	<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+																	<EditMode>EnterOnInput</EditMode>
+																	<CheckBoxType>Auto</CheckBoxType>
+																	<ContextMenu name="ОтборТаблицИспользованиеКонтекстноеМеню" id="506"/>
+																	<ExtendedTooltip name="ОтборТаблицИспользованиеРасширеннаяПодсказка" id="507"/>
+																</CheckBoxField>
+																<InputField name="ОтборТаблицПолеОтбора" id="508">
+																	<DataPath>Отбор.ПолеОтбора</DataPath>
+																	<TitleTextColor>#004242</TitleTextColor>
+																	<TitleBackColor>#B0C4DE</TitleBackColor>
+																	<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+																	<EditMode>EnterOnInput</EditMode>
+																	<Width>5</Width>
+																	<ContextMenu name="ОтборТаблицПолеОтбораКонтекстноеМеню" id="509"/>
+																	<ExtendedTooltip name="ОтборТаблицПолеОтбораРасширеннаяПодсказка" id="510"/>
+																	<Events>
+																		<Event name="OnChange">ОтборПолеОтбораПриИзменении</Event>
+																		<Event name="StartChoice">ОтборПолеОтбораНачалоВыбора</Event>
+																	</Events>
+																</InputField>
+																<InputField name="ОтборТаблицВидСравнения" id="511">
+																	<DataPath>Отбор.ВидСравнения</DataPath>
+																	<TitleTextColor>#004242</TitleTextColor>
+																	<TitleBackColor>#B0C4DE</TitleBackColor>
+																	<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+																	<EditMode>EnterOnInput</EditMode>
+																	<Width>4</Width>
+																	<ContextMenu name="ОтборТаблицВидСравненияКонтекстноеМеню" id="512"/>
+																	<ExtendedTooltip name="ОтборТаблицВидСравненияРасширеннаяПодсказка" id="513"/>
+																	<Events>
+																		<Event name="OnChange">ОтборВидСравненияПриИзменении</Event>
+																		<Event name="StartChoice">ОтборВидСравненияНачалоВыбора</Event>
+																	</Events>
+																</InputField>
+																<InputField name="ОтборТаблицЗначение" id="514">
+																	<DataPath>Отбор.Значение</DataPath>
+																	<TitleTextColor>#004242</TitleTextColor>
+																	<TitleBackColor>#B0C4DE</TitleBackColor>
+																	<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+																	<EditMode>EnterOnInput</EditMode>
+																	<Width>5</Width>
+																	<ContextMenu name="ОтборТаблицЗначениеКонтекстноеМеню" id="515"/>
+																	<ExtendedTooltip name="ОтборТаблицЗначениеРасширеннаяПодсказка" id="516"/>
+																	<Events>
+																		<Event name="StartChoice">ОтборЗначениеНачалоВыбора</Event>
+																	</Events>
+																</InputField>
+																<InputField name="ОтборТаблицПуть" id="517">
+																	<DataPath>Отбор.Путь</DataPath>
+																	<Visible>false</Visible>
+																	<TitleTextColor>#004242</TitleTextColor>
+																	<TitleBackColor>#B0C4DE</TitleBackColor>
+																	<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="ОтборТаблицПутьКонтекстноеМеню" id="518"/>
+																	<ExtendedTooltip name="ОтборТаблицПутьРасширеннаяПодсказка" id="519"/>
+																</InputField>
+															</ChildItems>
+														</Table>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаТаблицаГруппировки" id="74">
+											<Visible>false</Visible>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица группировки</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица группировки</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаТаблицаГруппировкиРасширеннаяПодсказка" id="368"/>
+											<ChildItems>
+												<InputField name="НадписьГруппировки" id="71">
+													<DataPath>НадписьГруппировки</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<HorizontalAlign>Center</HorizontalAlign>
+													<TextEdit>false</TextEdit>
+													<TextColor>#004242</TextColor>
+													<BackColor>#B0C4DE</BackColor>
+													<BorderColor>#4682B4</BorderColor>
+													<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<ContextMenu name="НадписьГруппировкиКонтекстноеМеню" id="72"/>
+													<ExtendedTooltip name="НадписьГруппировкиРасширеннаяПодсказка" id="369"/>
+												</InputField>
+												<Table name="Группировки" id="75">
+													<Representation>Tree</Representation>
+													<HeightInTableRows>4</HeightInTableRows>
+													<AutoInsertNewRow>true</AutoInsertNewRow>
+													<InitialTreeView>ExpandAllLevels</InitialTreeView>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>ГруппировкиДерево</DataPath>
+													<TextColor>web:MidnightBlue</TextColor>
+													<BorderColor>#B0C4DE</BorderColor>
+													<SearchStringLocation>None</SearchStringLocation>
+													<ViewStatusLocation>None</ViewStatusLocation>
+													<SearchControlLocation>None</SearchControlLocation>
+													<ContextMenu name="ГруппировкиКонтекстноеМеню" id="76"/>
+													<AutoCommandBar name="ГруппировкиКоманднаяПанель" id="77"/>
+													<ExtendedTooltip name="ГруппировкиРасширеннаяПодсказка" id="370"/>
+													<SearchStringAddition name="ГруппировкиСтрокаПоиска" id="371">
+														<AdditionSource>
+															<Item>Группировки</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ГруппировкиСтрокаПоискаКонтекстноеМеню" id="372"/>
+														<ExtendedTooltip name="ГруппировкиСтрокаПоискаРасширеннаяПодсказка" id="373"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="ГруппировкиСостояниеПросмотра" id="374">
+														<AdditionSource>
+															<Item>Группировки</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ГруппировкиСостояниеПросмотраКонтекстноеМеню" id="375"/>
+														<ExtendedTooltip name="ГруппировкиСостояниеПросмотраРасширеннаяПодсказка" id="376"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="ГруппировкиУправлениеПоиском" id="377">
+														<AdditionSource>
+															<Item>Группировки</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="ГруппировкиУправлениеПоискомКонтекстноеМеню" id="378"/>
+														<ExtendedTooltip name="ГруппировкиУправлениеПоискомРасширеннаяПодсказка" id="379"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="BeforeAddRow">ГруппировкиПередНачаломДобавления</Event>
+														<Event name="BeforeDeleteRow">ГруппировкиПередУдалением</Event>
+														<Event name="Drag">ГруппировкиПеретаскивание</Event>
+														<Event name="BeforeRowChange">ГруппировкиПередНачаломИзменения</Event>
+														<Event name="OnStartEdit">ГруппировкиПриНачалеРедактирования</Event>
+														<Event name="AfterDeleteRow">ГруппировкиПослеУдаления</Event>
+													</Events>
+													<ChildItems>
+														<ColumnGroup name="ГруппировкиГруппа1" id="458">
+															<Group>InCell</Group>
+															<ExtendedTooltip name="ГруппировкиГруппа1РасширеннаяПодсказка" id="459"/>
+															<ChildItems>
+																<PictureField name="ГруппировкиЭтоГруппа" id="455">
+																	<DataPath>ГруппировкиДерево.ЭтоГруппа</DataPath>
+																	<TitleLocation>None</TitleLocation>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ValuesPicture>
+																		<xr:Ref>CommonPicture.фин_КоллекцияГруппаИПоля</xr:Ref>
+																		<xr:LoadTransparent>true</xr:LoadTransparent>
+																	</ValuesPicture>
+																	<FileDragMode>AsFile</FileDragMode>
+																	<ContextMenu name="ГруппировкиЭтоГруппаКонтекстноеМеню" id="456"/>
+																	<ExtendedTooltip name="ГруппировкиЭтоГруппаРасширеннаяПодсказка" id="457"/>
+																</PictureField>
+																<InputField name="ГруппировкиПредставление" id="452">
+																	<DataPath>ГруппировкиДерево.Представление</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ChoiceButton>true</ChoiceButton>
+																	<TextEdit>false</TextEdit>
+																	<ContextMenu name="ГруппировкиПредставлениеКонтекстноеМеню" id="453"/>
+																	<ExtendedTooltip name="ГруппировкиПредставлениеРасширеннаяПодсказка" id="454"/>
+																	<Events>
+																		<Event name="StartChoice">ГруппировкиПредставлениеНачалоВыбора</Event>
+																	</Events>
+																</InputField>
+															</ChildItems>
+														</ColumnGroup>
+														<CheckBoxField name="ГруппировкиОтключить" id="460">
+															<DataPath>ГруппировкиДерево.Отключить</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Откл. </v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Отключить</v8:content>
+																</v8:item>
+															</ToolTip>
+															<EditMode>EnterOnInput</EditMode>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ГруппировкиОтключитьКонтекстноеМеню" id="461"/>
+															<ExtendedTooltip name="ГруппировкиОтключитьРасширеннаяПодсказка" id="462"/>
+															<Events>
+																<Event name="OnChange">ГруппировкиОтключитьПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+													</ChildItems>
+												</Table>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаТаблицаПоказатели" id="73">
+											<Visible>false</Visible>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица показатели</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица показатели</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаТаблицаПоказателиРасширеннаяПодсказка" id="389"/>
+											<ChildItems>
+												<InputField name="НадписьПоказатели" id="64">
+													<DataPath>НадписьПоказатели</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<HorizontalAlign>Center</HorizontalAlign>
+													<TextEdit>false</TextEdit>
+													<TextColor>#004242</TextColor>
+													<BackColor>#B0C4DE</BackColor>
+													<BorderColor>#4682B4</BorderColor>
+													<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<ContextMenu name="НадписьПоказателиКонтекстноеМеню" id="65"/>
+													<ExtendedTooltip name="НадписьПоказателиРасширеннаяПодсказка" id="390"/>
+												</InputField>
+												<Table name="Показатели" id="66">
+													<Representation>List</Representation>
+													<HeightInTableRows>3</HeightInTableRows>
+													<Header>false</Header>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>Показатели</DataPath>
+													<TextColor>web:MidnightBlue</TextColor>
+													<BorderColor>web:LightSteelBlue</BorderColor>
+													<SearchStringLocation>None</SearchStringLocation>
+													<ViewStatusLocation>None</ViewStatusLocation>
+													<SearchControlLocation>None</SearchControlLocation>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="ПоказателиКонтекстноеМеню" id="67"/>
+													<AutoCommandBar name="ПоказателиКоманднаяПанель" id="68"/>
+													<ExtendedTooltip name="ПоказателиРасширеннаяПодсказка" id="391"/>
+													<SearchStringAddition name="ПоказателиСтрокаПоиска" id="392">
+														<AdditionSource>
+															<Item>Показатели</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ПоказателиСтрокаПоискаКонтекстноеМеню" id="393"/>
+														<ExtendedTooltip name="ПоказателиСтрокаПоискаРасширеннаяПодсказка" id="394"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="ПоказателиСостояниеПросмотра" id="395">
+														<AdditionSource>
+															<Item>Показатели</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ПоказателиСостояниеПросмотраКонтекстноеМеню" id="396"/>
+														<ExtendedTooltip name="ПоказателиСостояниеПросмотраРасширеннаяПодсказка" id="397"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="ПоказателиУправлениеПоиском" id="398">
+														<AdditionSource>
+															<Item>Показатели</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="ПоказателиУправлениеПоискомКонтекстноеМеню" id="399"/>
+														<ExtendedTooltip name="ПоказателиУправлениеПоискомРасширеннаяПодсказка" id="400"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="OnStartEdit">ПоказателиПриНачалеРедактирования</Event>
+													</Events>
+													<ChildItems>
+														<InputField name="ПоказателиПоказатель" id="69">
+															<DataPath>Показатели.Показатель</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ПоказателиПоказательКонтекстноеМеню" id="70"/>
+															<ExtendedTooltip name="ПоказателиПоказательРасширеннаяПодсказка" id="401"/>
+															<Events>
+																<Event name="StartChoice">ПоказателиПоказательНачалоВыбора</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</Table>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаТаблицаВидыАналитическихДанных" id="133">
+											<Visible>false</Visible>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица виды аналитических данных</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица виды аналитических данных</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаТаблицаВидыАналитическихДанныхРасширеннаяПодсказка" id="402"/>
+											<ChildItems>
+												<InputField name="НадписьВидыАналитическихДанных" id="134">
+													<DataPath>НадписьВидыАналитическихДанных</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<HorizontalAlign>Center</HorizontalAlign>
+													<TextEdit>false</TextEdit>
+													<TextColor>#004242</TextColor>
+													<BackColor>#B0C4DE</BackColor>
+													<BorderColor>#4682B4</BorderColor>
+													<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<ContextMenu name="НадписьВидыАналитическихДанныхКонтекстноеМеню" id="135"/>
+													<ExtendedTooltip name="НадписьВидыАналитическихДанныхРасширеннаяПодсказка" id="403"/>
+												</InputField>
+												<Table name="ВидыАналитическихДанных" id="136">
+													<Representation>List</Representation>
+													<HeightInTableRows>4</HeightInTableRows>
+													<Header>false</Header>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>ВидыАналитическихДанных</DataPath>
+													<TextColor>web:MidnightBlue</TextColor>
+													<BorderColor>web:LightSteelBlue</BorderColor>
+													<SearchStringLocation>None</SearchStringLocation>
+													<ViewStatusLocation>None</ViewStatusLocation>
+													<SearchControlLocation>None</SearchControlLocation>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="ВидыАналитическихДанныхКонтекстноеМеню" id="137"/>
+													<AutoCommandBar name="ВидыАналитическихДанныхКоманднаяПанель" id="138"/>
+													<ExtendedTooltip name="ВидыАналитическихДанныхРасширеннаяПодсказка" id="404"/>
+													<SearchStringAddition name="ВидыАналитическихДанныхСтрокаПоиска" id="405">
+														<AdditionSource>
+															<Item>ВидыАналитическихДанных</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ВидыАналитическихДанныхСтрокаПоискаКонтекстноеМеню" id="406"/>
+														<ExtendedTooltip name="ВидыАналитическихДанныхСтрокаПоискаРасширеннаяПодсказка" id="407"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="ВидыАналитическихДанныхСостояниеПросмотра" id="408">
+														<AdditionSource>
+															<Item>ВидыАналитическихДанных</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ВидыАналитическихДанныхСостояниеПросмотраКонтекстноеМеню" id="409"/>
+														<ExtendedTooltip name="ВидыАналитическихДанныхСостояниеПросмотраРасширеннаяПодсказка" id="410"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="ВидыАналитическихДанныхУправлениеПоиском" id="411">
+														<AdditionSource>
+															<Item>ВидыАналитическихДанных</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="ВидыАналитическихДанныхУправлениеПоискомКонтекстноеМеню" id="412"/>
+														<ExtendedTooltip name="ВидыАналитическихДанныхУправлениеПоискомРасширеннаяПодсказка" id="413"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="OnStartEdit">ПоказателиПриНачалеРедактирования</Event>
+													</Events>
+													<ChildItems>
+														<InputField name="ВидыАналитическихДанныхВидДанных" id="139">
+															<DataPath>ВидыАналитическихДанных.ВидДанных</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ВидыАналитическихДанныхВидДанныхКонтекстноеМеню" id="140"/>
+															<ExtendedTooltip name="ВидыАналитическихДанныхВидДанныхРасширеннаяПодсказка" id="414"/>
+															<Events>
+																<Event name="StartChoice">ВидыАналитическихДанныхВидДанныхНачалоВыбора</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</Table>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаТаблицаАналитическиеПоляСводаКорректировок" id="170">
+											<Visible>false</Visible>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица аналитические поля свода корректировок</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа таблица аналитические поля свода корректировок</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаТаблицаАналитическиеПоляСводаКорректировокРасширеннаяПодсказка" id="415"/>
+											<ChildItems>
+												<InputField name="НадписьПоляАнализаКорректировокИОтклонений" id="176">
+													<DataPath>НадписьПоляАнализаКорректировокИОтклонений</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<HorizontalAlign>Center</HorizontalAlign>
+													<TextEdit>false</TextEdit>
+													<TextColor>#004242</TextColor>
+													<BackColor>#B0C4DE</BackColor>
+													<BorderColor>#4682B4</BorderColor>
+													<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<ContextMenu name="НадписьПоляАнализаКорректировокИОтклоненийКонтекстноеМеню" id="177"/>
+													<ExtendedTooltip name="НадписьПоляАнализаКорректировокИОтклоненийРасширеннаяПодсказка" id="416"/>
+												</InputField>
+												<Table name="АналитическиеПоляСводаКорректировок" id="171">
+													<Representation>List</Representation>
+													<HeightInTableRows>4</HeightInTableRows>
+													<Header>false</Header>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>АналитическиеПоляСводаКорректировок</DataPath>
+													<TextColor>web:MidnightBlue</TextColor>
+													<BorderColor>#B0C4DE</BorderColor>
+													<SearchStringLocation>None</SearchStringLocation>
+													<ViewStatusLocation>None</ViewStatusLocation>
+													<SearchControlLocation>None</SearchControlLocation>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="АналитическиеПоляСводаКорректировокКонтекстноеМеню" id="172"/>
+													<AutoCommandBar name="АналитическиеПоляСводаКорректировокКоманднаяПанель" id="173"/>
+													<ExtendedTooltip name="АналитическиеПоляСводаКорректировокРасширеннаяПодсказка" id="417"/>
+													<SearchStringAddition name="АналитическиеПоляСводаКорректировокСтрокаПоиска" id="418">
+														<AdditionSource>
+															<Item>АналитическиеПоляСводаКорректировок</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="АналитическиеПоляСводаКорректировокСтрокаПоискаКонтекстноеМеню" id="419"/>
+														<ExtendedTooltip name="АналитическиеПоляСводаКорректировокСтрокаПоискаРасширеннаяПодсказка" id="420"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="АналитическиеПоляСводаКорректировокСостояниеПросмотра" id="421">
+														<AdditionSource>
+															<Item>АналитическиеПоляСводаКорректировок</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="АналитическиеПоляСводаКорректировокСостояниеПросмотраКонтекстноеМеню" id="422"/>
+														<ExtendedTooltip name="АналитическиеПоляСводаКорректировокСостояниеПросмотраРасширеннаяПодсказка" id="423"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="АналитическиеПоляСводаКорректировокУправлениеПоиском" id="424">
+														<AdditionSource>
+															<Item>АналитическиеПоляСводаКорректировок</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="АналитическиеПоляСводаКорректировокУправлениеПоискомКонтекстноеМеню" id="425"/>
+														<ExtendedTooltip name="АналитическиеПоляСводаКорректировокУправлениеПоискомРасширеннаяПодсказка" id="426"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="OnStartEdit">ПоказателиПриНачалеРедактирования</Event>
+													</Events>
+													<ChildItems>
+														<InputField name="АналитическиеПоляСводаКорректировокПоле" id="174">
+															<DataPath>АналитическиеПоляСводаКорректировок.Поле</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="АналитическиеПоляСводаКорректировокПолеКонтекстноеМеню" id="175"/>
+															<ExtendedTooltip name="АналитическиеПоляСводаКорректировокПолеРасширеннаяПодсказка" id="427"/>
+														</InputField>
+													</ChildItems>
+												</Table>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</Page>
+								<Page name="ГруппаДополнительно" id="90">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дополнительно</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа дополнительно</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="428"/>
+									<ChildItems>
+										<InputField name="НадписьДополнительныеПараметры" id="91">
+											<DataPath>НадписьДополнительныеПараметры</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<HorizontalAlign>Center</HorizontalAlign>
+											<TextEdit>false</TextEdit>
+											<TextColor>#004242</TextColor>
+											<BackColor>#B0C4DE</BackColor>
+											<BorderColor>#4682B4</BorderColor>
+											<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<ContextMenu name="НадписьДополнительныеПараметрыКонтекстноеМеню" id="92"/>
+											<ExtendedTooltip name="НадписьДополнительныеПараметрыРасширеннаяПодсказка" id="429"/>
+										</InputField>
+										<UsualGroup name="ДополнительныеПараметрыОтчета" id="95">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Дополнительные параметры отчета</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Дополнительные параметры отчета</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ДополнительныеПараметрыОтчетаРасширеннаяПодсказка" id="430"/>
+										</UsualGroup>
+										<InputField name="НадписьОформление" id="93">
+											<DataPath>НадписьОформление</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<HorizontalAlign>Center</HorizontalAlign>
+											<TextEdit>false</TextEdit>
+											<TextColor>#004242</TextColor>
+											<BackColor>#B0C4DE</BackColor>
+											<BorderColor>#4682B4</BorderColor>
+											<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<ContextMenu name="НадписьОформлениеКонтекстноеМеню" id="94"/>
+											<ExtendedTooltip name="НадписьОформлениеРасширеннаяПодсказка" id="431"/>
+										</InputField>
+										<UsualGroup name="ОформлениеОтчета" id="96">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Оформление отчета</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Оформление отчета</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ОформлениеОтчетаРасширеннаяПодсказка" id="432"/>
+										</UsualGroup>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Отчет" id="1">
+			<Type>
+				<v8:Type>cfg:ReportObject</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Отчет.SettingsComposer</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="НаименованиеТекущегоВарианта" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вариант отчета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Результат" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеРасшифровки" id="4">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьОтбор" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьПараметры" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьРезультат" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьСортировка" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="мОрганизацияПользователя" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>М организация пользователя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИмяОтчета" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя отчета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СохраненнаяНастройка" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохраненная настройка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.фин_НастройкиОтчетовПоБюджетам</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПредставлениеСпискаПодразделений" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление списка подразделений</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПредставлениеСпискаОрганизаций" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление списка организаций</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НастройкаПериода" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка периода</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:StandardPeriod</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьНастройкуПериода" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать настройку периода</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользованиеОрганизации" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использование организации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыборПоВладельцу" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбор по владельцу</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьПериодПланирования" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период планирования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НачалоПериодаПланирования" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начало периода планирования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КонецПериодаПланирования" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начало периода планирования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Сценарий" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сценарий</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СценарииПланирования</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьПериодСценария" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать период сценария</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РаботаСОрганизациями" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Работа с организациями</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Показатели" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показатели</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Показатель" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Показатель</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.фин_ДополнительныеРасчетныеПоляОтчетовПоБюджетам</v8:Type>
+						<v8:Type>cfg:EnumRef.фин_ДополнительныеПоказателиОтчетов</v8:Type>
+						<v8:Type>cfg:EnumRef.фин_РесурсыДанныхБюджетирования</v8:Type>
+						<v8:Type>cfg:CatalogRef.фин_ПоляПользовательскихОтчетов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Таблица" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Таблица</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.фин_ТаблицыОтчетовПоБюджетам</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="НадписьПоказатели" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Группировки" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группировки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Измерение" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группировка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.фин_ДополнительныеРазрезыОтчетов</v8:Type>
+						<v8:Type>cfg:EnumRef.фин_ФактическиеПоказателиБюджетирования</v8:Type>
+						<v8:Type>cfg:CatalogRef.фин_ДополнительныеРазрезыОтчетовПоБюджетам</v8:Type>
+						<v8:Type>cfg:CatalogRef.фин_ПоляПользовательскихОтчетов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВидГруппировки" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид группировки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.фин_ВидыГруппировокОтчета</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПрименятьОформление" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Применять оформление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Цвет" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Цвет</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8ui:Color</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Шрифт" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шрифт</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8ui:Font</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СоставноеПоле" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Составное поле</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Состав" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состав</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:ValueListType</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Расположение" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расположение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.фин_РасположениеПолейГруппировокОтчета</v8:Type>
+					</Type>
+				</Column>
+				<Column name="РасположениеРеквизитов" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расположение реквизитов</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.фин_РасположениеРеквизитов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ОтборПоУровнюЗначимости" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отбор по уровню значимости отклонений</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.фин_ВариантыОтбораПоУровнюЗначимости</v8:Type>
+					</Type>
+				</Column>
+				<Column name="УровеньЗначимости" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уровень значимости</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Представление" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группировка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Отключить" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отключить</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Таблица" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Таблица</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.фин_ТаблицыОтчетовПоБюджетам</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Сортировка" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сортировка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:ValueListType</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="НадписьГруппировки" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Периодичность" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Периодичность</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.фин_Периодичность</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Бюджет" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Бюджет</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.фин_Бюджеты</v8:Type>
+				<v8:Type>cfg:ChartOfAccountsRef.фин_Бюджетирование</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДоступныеПоказатели" id="35">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доступные показатели</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДоступныеГруппировки" id="36">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доступные группировки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидДанных" id="37">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид данных</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.фин_ВидыДанныхОтчета</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьДополнительныеПараметры" id="38">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьОформление" id="39">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Отбор" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Использование" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Использование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПолеОтбора" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поле отбора</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.фин_ДополнительныеРазрезыОтчетов</v8:Type>
+						<v8:Type>cfg:EnumRef.фин_ФактическиеПоказателиБюджетирования</v8:Type>
+						<v8:Type>cfg:CatalogRef.фин_ДополнительныеРазрезыОтчетовПоБюджетам</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВидСравнения" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид сравнения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.усд_ВидыСравненияДляУсловий</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Значение" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Значение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:ValueListType</v8:Type>
+						<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="Путь" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Путь</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Таблица" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Таблица</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.фин_ТаблицыОтчетовПоБюджетам</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Адрес" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьДанныеДляАнализа" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись данные для анализа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеДляАнализа" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные для анализа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ДанныеДляСравнения" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Данные для сравнения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.фин_ВидыДанныхОтчета</v8:Type>
+						<v8:Type>cfg:CatalogRef.СценарииПланирования</v8:Type>
+					</Type>
+				</Column>
+				<Column name="НачалоПериода" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>с</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ОкончаниеПериода" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>по</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="СтатьяБюджета" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статья бюджета</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.фин_СтатьиБюджета</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="НадписьВидыАналитическихДанных" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидыАналитическихДанных" id="40">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Виды аналитических данных</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ВидДанных" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид данных</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.фин_ПоказателиОтчетаПоИсполнениюБюджета</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Таблица" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Таблица</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.фин_ТаблицыОтчетовПоБюджетам</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="НадписьДанныеОтчета" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись данные отчета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеОтчета" id="42">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные отчета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Данные" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Данные</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.фин_ВидыДанныхОтчета</v8:Type>
+						<v8:Type>cfg:CatalogRef.СценарииПланирования</v8:Type>
+					</Type>
+				</Column>
+				<Column name="НачалоПериода" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Начало периода</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ОкончаниеПериода" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Окончание периода</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="Заголовок" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заголовок</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИдентификаторПоля" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Идентификатор поля</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>30</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Использование" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Использование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПоФормуле" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>По формуле</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Формула" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Формула</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Ресурс" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ресурс</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.фин_РесурсыДанныхБюджетирования</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="АналитическиеПоляСводаКорректировок" id="43">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аналитические поля свода корректировок</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Поле" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поле</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.фин_ПоляОтчетаПоСводуКорректировокИОтклонений</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Таблица" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Таблица</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.фин_ТаблицыОтчетовПоБюджетам</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="НадписьПоляАнализаКорректировокИОтклонений" id="44">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеОстатковДляАнализа" id="45">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные для анализа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ДанныеДляСравнения" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Данные для сравнения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.СценарииПланирования</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДатаОстатков" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="НачалоПериода" id="46">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начало периода</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КонецПериода" id="47">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Конец периода</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьДетализацияСчетов" id="48">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись детализация счетов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДетализацияСчетов" id="49">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Детализация счетов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Счет" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Счет</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:ChartOfAccountsRef.фин_Бюджетирование</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПоСубсчетам" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>По субсчетам</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПоСубконто" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>По субконто</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ПараметрыДанныхОтчета" id="50">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры данных отчета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Параметр" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметр</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Значение" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Значение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:ValueListType</v8:Type>
+						<v8:Type>xs:boolean</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="Тип" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:TypeDescription</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Список" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Список</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ДокументПечатиБюджета" id="51">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ печати бюджета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.фин_Бюджет</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДокументПечатиБюджета_Бюджет" id="52">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ печати бюджета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.фин_Бюджеты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КэшВыделеннойОбласти" id="53">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кэш выделенной области</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ПолеСумма" id="54">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поле сумма</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>20</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьВидГруппировки" id="55">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать вид группировки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьСоставноеПоле" id="56">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать составное поле</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьРасположение" id="57">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать расположение</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ГруппировкиДерево" id="58">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группировки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Измерение" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группировка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.фин_ДополнительныеРазрезыОтчетов</v8:Type>
+						<v8:Type>cfg:EnumRef.фин_ФактическиеПоказателиБюджетирования</v8:Type>
+						<v8:Type>cfg:CatalogRef.фин_ДополнительныеРазрезыОтчетовПоБюджетам</v8:Type>
+						<v8:Type>cfg:CatalogRef.фин_ПоляПользовательскихОтчетов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВидГруппировки" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид группировки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.фин_ВидыГруппировокОтчета</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПрименятьОформление" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Применять оформление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Цвет" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Цвет</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8ui:Color</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Шрифт" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шрифт</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8ui:Font</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СоставноеПоле" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Составное поле</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Состав" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состав</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:ValueListType</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Расположение" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расположение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.фин_РасположениеПолейГруппировокОтчета</v8:Type>
+					</Type>
+				</Column>
+				<Column name="РасположениеРеквизитов" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расположение реквизитов</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.фин_РасположениеРеквизитов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ОтборПоУровнюЗначимости" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отбор по уровню значимости отклонений</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.фин_ВариантыОтбораПоУровнюЗначимости</v8:Type>
+					</Type>
+				</Column>
+				<Column name="УровеньЗначимости" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уровень значимости</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Представление" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группировка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЭтоГруппа" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Это группа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Отключить" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отключить</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Сортировка" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сортировка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:ValueListType</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ДополнительныеПредставления" id="59">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные представления</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТаблицыОтчета" id="60">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблицы отчета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Таблица" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Таблица</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.фин_ТаблицыОтчетовПоБюджетам</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Отключить" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отключить</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ПоддержкаНесколькихТаблиц" id="61">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поддержка нескольких таблиц</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекущаяТаблица" id="62">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущая таблица</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.фин_ТаблицыОтчетовПоБюджетам</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидОтчетаБюджетирования" id="63">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид отчета бюджетирования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.фин_ВидыОтчетовПоБюджетам</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьТаблицыОтчета" id="64">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьСортировку" id="65">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать сортировку</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоказателиДляСортировки" id="66">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показатели для сортировки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РеквизитыТекущегоОтчета" id="67">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты текущего отчета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДанныеДляАнализаДанныеДляСравнения</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДанныеДляАнализа.ДанныеДляСравнения</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">Фактические данные</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДанныеОтчетаФормула</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДанныеОтчета.ПоФормуле</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДанныеОтчетаРесурс</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДанныеОтчетаДанные</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДанныеОтчетаНачалоПериода</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДанныеОтчетаОкончаниеПериода</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДанныеОтчета.ПоФормуле</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДанныеОстатковАнализаДанныеДляСравнения</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДанныеОстатковДляАнализа.ДанныеДляСравнения</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">Фактические данные</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Группировки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ГруппировкиДерево.ЭтоГруппа</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Группировки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ГруппировкиДерево.Отключить</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Gainsboro</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТаблицыОтчета</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТаблицыОтчета.Отключить</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Gainsboro</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="Настройка" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ReportSettings</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>НастройкаОтчета</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Сформировать" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Сформировать</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ВосстановитьЗначения" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть сохраненную настройку</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть сохраненную настройку</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.RestoreValues</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ДействияФормыДополнительныеВосстановитьЗначения</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СохранитьЗначения" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить значения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить значения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SaveValues</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ДействияФормыДополнительныеСохранитьЗначения</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПериодСтроки" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период строки</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>CommonPicture.общ_ВыбратьПериод</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ПериодСтроки</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПериодОтчета" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период отчета</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>CommonPicture.общ_ВыбратьПериод</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ПериодОтчета</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Печать" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.фин_Печать</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>Печать</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗагрузитьШаблонОтчета" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить шаблон отчета</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить шаблон отчета</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.фин_ШаблонОтчета</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗагрузитьШаблонОтчета</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СохранитьШаблонОтчета" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить шаблон отчета</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить шаблон отчета</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.фин_СохранитьШаблон</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СохранитьШаблонОтчета</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="НеВосстанавливатьНастройки">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+	</Parameters>
+</Form>

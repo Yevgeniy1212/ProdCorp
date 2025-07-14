@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Структурные подразделения</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Организация" id="1">
+			<DataPath>Организация</DataPath>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="14"/>
+			<Events>
+				<Event name="OnChange">ОрганизацияПриИзменении</Event>
+			</Events>
+		</InputField>
+		<Table name="СтруктурныеПодразделения" id="3">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>СтруктурныеПодразделения</DataPath>
+			<RowPictureDataPath>СтруктурныеПодразделения.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СтруктурныеПодразделенияКонтекстноеМеню" id="4"/>
+			<AutoCommandBar name="СтруктурныеПодразделенияКоманднаяПанель" id="5"/>
+			<ExtendedTooltip name="СтруктурныеПодразделенияРасширеннаяПодсказка" id="15"/>
+			<SearchStringAddition name="СтруктурныеПодразделенияСтрокаПоиска" id="16">
+				<AdditionSource>
+					<Item>СтруктурныеПодразделения</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СтруктурныеПодразделенияСтрокаПоискаКонтекстноеМеню" id="17"/>
+				<ExtendedTooltip name="СтруктурныеПодразделенияСтрокаПоискаРасширеннаяПодсказка" id="18"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СтруктурныеПодразделенияСостояниеПросмотра" id="19">
+				<AdditionSource>
+					<Item>СтруктурныеПодразделения</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СтруктурныеПодразделенияСостояниеПросмотраКонтекстноеМеню" id="20"/>
+				<ExtendedTooltip name="СтруктурныеПодразделенияСостояниеПросмотраРасширеннаяПодсказка" id="21"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СтруктурныеПодразделенияУправлениеПоиском" id="22">
+				<AdditionSource>
+					<Item>СтруктурныеПодразделения</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СтруктурныеПодразделенияУправлениеПоискомКонтекстноеМеню" id="23"/>
+				<ExtendedTooltip name="СтруктурныеПодразделенияУправлениеПоискомРасширеннаяПодсказка" id="24"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СтруктурныеПодразделенияВыбор</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="СтруктурныеПодразделенияКод" id="6">
+					<DataPath>СтруктурныеПодразделения.Код</DataPath>
+					<ContextMenu name="СтруктурныеПодразделенияКодКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="СтруктурныеПодразделенияКодРасширеннаяПодсказка" id="25"/>
+				</LabelField>
+				<LabelField name="СтруктурныеПодразделенияНаименование" id="8">
+					<DataPath>СтруктурныеПодразделения.Наименование</DataPath>
+					<ContextMenu name="СтруктурныеПодразделенияНаименованиеКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="СтруктурныеПодразделенияНаименованиеРасширеннаяПодсказка" id="26"/>
+				</LabelField>
+				<LabelField name="СтруктурныеПодразделенияРодитель" id="10">
+					<DataPath>СтруктурныеПодразделения.Родитель</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="СтруктурныеПодразделенияРодительКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="СтруктурныеПодразделенияРодительРасширеннаяПодсказка" id="27"/>
+				</LabelField>
+				<LabelField name="СтруктурныеПодразделенияСсылка" id="12">
+					<DataPath>СтруктурныеПодразделения.Ссылка</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="СтруктурныеПодразделенияСсылкаКонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="СтруктурныеПодразделенияСсылкаРасширеннаяПодсказка" id="28"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Организация" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СтруктурныеПодразделения" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структурные подразделения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ПодразделенияОрганизаций.Ссылка КАК Ссылка,
+	ПодразделенияОрганизаций.Представление КАК Представление,
+	ПодразделенияОрганизаций.Код КАК Код,
+	ПодразделенияОрганизаций.Наименование КАК Наименование,
+	ПодразделенияОрганизаций.Родитель КАК Родитель
+ИЗ
+	Справочник.ПодразделенияОрганизаций КАК ПодразделенияОрганизаций
+ГДЕ
+	ПодразделенияОрганизаций.ЯвляетсяСтруктурнымПодразделением = ИСТИНА
+	И ПодразделенияОрганизаций.Владелец = &amp;Организация
+
+УПОРЯДОЧИТЬ ПО
+	Наименование</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+</Form>
