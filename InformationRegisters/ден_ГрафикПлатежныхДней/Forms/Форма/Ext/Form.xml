@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<AutoTitle>false</AutoTitle>
+	<ScalingMode>Compact</ScalingMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗаписать" id="41">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Записать</CommandName>
+				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="42"/>
+			</Button>
+			<Button name="ФормаПервоначальноеЗаполнение" id="43">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПервоначальноеЗаполнение</CommandName>
+				<ExtendedTooltip name="ФормаПервоначальноеЗаполнениеРасширеннаяПодсказка" id="44"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОрганизацияГод" id="37">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация/год</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа организация год</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОрганизацияГодРасширеннаяПодсказка" id="38"/>
+			<ChildItems>
+				<InputField name="Организация" id="7">
+					<DataPath>Организация</DataPath>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="9"/>
+					<Events>
+						<Event name="OnChange">ОрганизацияПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ГодВФорме" id="4">
+					<DataPath>ГодВФорме</DataPath>
+					<DropListButton>true</DropListButton>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ChooseType>false</ChooseType>
+					<ContextMenu name="ГодВФормеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ГодВФормеРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="OnChange">ГодВФормеПриИзменении</Event>
+						<Event name="AutoComplete">ГодВФормеАвтоПодбор</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПлатежныеДни" id="35">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Платежные дни</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ГруппаПлатежныеДниРасширеннаяПодсказка" id="36"/>
+			<ChildItems>
+				<Table name="ПлатежныеДни" id="10">
+					<Representation>List</Representation>
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<HorizontalLines>false</HorizontalLines>
+					<VerticalLines>false</VerticalLines>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ПлатежныеДни</DataPath>
+					<RowPictureDataPath>ПлатежныеДни.Picture</RowPictureDataPath>
+					<CommandSet>
+						<ExcludedCommand>Pickup</ExcludedCommand>
+					</CommandSet>
+					<ContextMenu name="ПлатежныеДниКонтекстноеМеню" id="11"/>
+					<AutoCommandBar name="ПлатежныеДниКоманднаяПанель" id="12">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ПлатежныеДниРасширеннаяПодсказка" id="13"/>
+					<SearchStringAddition name="ПлатежныеДниСтрокаПоиска" id="14">
+						<AdditionSource>
+							<Item>ПлатежныеДни</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПлатежныеДниСтрокаПоискаКонтекстноеМеню" id="17"/>
+						<ExtendedTooltip name="ПлатежныеДниСтрокаПоискаРасширеннаяПодсказка" id="18"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ПлатежныеДниСостояниеПросмотра" id="19">
+						<AdditionSource>
+							<Item>ПлатежныеДни</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПлатежныеДниСостояниеПросмотраКонтекстноеМеню" id="22"/>
+						<ExtendedTooltip name="ПлатежныеДниСостояниеПросмотраРасширеннаяПодсказка" id="23"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ПлатежныеДниУправлениеПоиском" id="24">
+						<AdditionSource>
+							<Item>ПлатежныеДни</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ПлатежныеДниУправлениеПоискомКонтекстноеМеню" id="27"/>
+						<ExtendedTooltip name="ПлатежныеДниУправлениеПоискомРасширеннаяПодсказка" id="28"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<CheckBoxField name="Платежный" id="32">
+							<DataPath>ПлатежныеДни.Check</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<EditMode>Directly</EditMode>
+							<FixingInTable>Left</FixingInTable>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПлатежныйКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="ПлатежныйРасширеннаяПодсказка" id="34"/>
+						</CheckBoxField>
+						<InputField name="День" id="29">
+							<DataPath>ПлатежныеДни.Value</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>День</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДеньКонтекстноеМеню" id="30"/>
+							<ExtendedTooltip name="ДеньРасширеннаяПодсказка" id="31"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПлатежныйКалендарь" id="39">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Платежный календарь</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ГруппаПлатежныйКалендарьРасширеннаяПодсказка" id="40"/>
+			<ChildItems>
+				<CalendarField name="ПроизводственныйКалендарь" id="1">
+					<DataPath>ПроизводственныйКалендарь</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<Width>63</Width>
+					<Height>21</Height>
+					<ShowMonthsPanel>true</ShowMonthsPanel>
+					<WidthInMonths>4</WidthInMonths>
+					<HeightInMonths>2</HeightInMonths>
+					<ContextMenu name="ПроизводственныйКалендарьКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ПроизводственныйКалендарьРасширеннаяПодсказка" id="3"/>
+					<Events>
+						<Event name="OnPeriodOutput">ПроизводственныйКалендарьПриВыводеПериода</Event>
+						<Event name="Selection">ПроизводственныйКалендарьВыбор</Event>
+					</Events>
+				</CalendarField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>InformationRegister.ден_ГрафикПлатежныхДней</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ПроизводственныйКалендарь" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Производственный календарь</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ГодВФорме" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Год</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>4</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Организация" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПлатежныеДни" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Платежные дни</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>cfg:EnumRef.фин_ДниНедели</v8:Type>
+			</Settings>
+		</Attribute>
+		<Attribute name="СписокВидовДней" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список видов дней</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидыДней" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Виды дней</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ЦветаВидовДней" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвета видов дней</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ШрифтВыделения" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шрифт выделения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Font</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЭталонныеВидыДней" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Эталонные виды дней</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ТекущаяОрганизация" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ПервоначальноеЗаполнение" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Первоначальное заполнение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Первоначальное заполнение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПервоначальноеЗаполнение</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Записать" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Записать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

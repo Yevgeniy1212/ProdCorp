@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Организация" id="1">
+			<DataPath>Запись.Организация</DataPath>
+			<HorizontalStretch>true</HorizontalStretch>
+			<ClearButton>true</ClearButton>
+			<SpinButton>false</SpinButton>
+			<OpenButton>false</OpenButton>
+			<ChoiceListButton>false</ChoiceListButton>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="24"/>
+			<Events>
+				<Event name="OnChange">ОрганизацияПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="Контрагент" id="3">
+			<DataPath>Запись.Контрагент</DataPath>
+			<HorizontalStretch>true</HorizontalStretch>
+			<ClearButton>true</ClearButton>
+			<SpinButton>false</SpinButton>
+			<OpenButton>false</OpenButton>
+			<ChoiceListButton>false</ChoiceListButton>
+			<ContextMenu name="КонтрагентКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="25"/>
+			<Events>
+				<Event name="OnChange">КонтрагентПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="Договор" id="5">
+			<DataPath>Запись.Договор</DataPath>
+			<HorizontalStretch>true</HorizontalStretch>
+			<ClearButton>true</ClearButton>
+			<SpinButton>false</SpinButton>
+			<OpenButton>false</OpenButton>
+			<ChoiceListButton>false</ChoiceListButton>
+			<ContextMenu name="ДоговорКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="ДоговорРасширеннаяПодсказка" id="26"/>
+			<Events>
+				<Event name="StartChoice">ДоговорНачалоВыбора</Event>
+			</Events>
+		</InputField>
+		<InputField name="ВидРасчетовПоДоговору" id="7">
+			<DataPath>Запись.ВидРасчетовПоДоговору</DataPath>
+			<HorizontalStretch>true</HorizontalStretch>
+			<ClearButton>true</ClearButton>
+			<SpinButton>false</SpinButton>
+			<OpenButton>false</OpenButton>
+			<ChoiceListButton>false</ChoiceListButton>
+			<ContextMenu name="ВидРасчетовПоДоговоруКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ВидРасчетовПоДоговоруРасширеннаяПодсказка" id="27"/>
+		</InputField>
+		<UsualGroup name="ГруппаСчета" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа счета</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа счета</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаСчетаРасширеннаяПодсказка" id="28"/>
+			<ChildItems>
+				<UsualGroup name="Группа1" id="21">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="29"/>
+					<ChildItems>
+						<InputField name="СчетУчетаРасчетовСПоставщиком" id="9">
+							<DataPath>Запись.СчетУчетаРасчетовСПоставщиком</DataPath>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="СчетУчетаРасчетовСПоставщикомКонтекстноеМеню" id="10"/>
+							<ExtendedTooltip name="СчетУчетаРасчетовСПоставщикомРасширеннаяПодсказка" id="30"/>
+							<Events>
+								<Event name="StartChoice">СчетУчетаРасчетовНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<InputField name="СчетУчетаРасчетовСПокупателем" id="13">
+							<DataPath>Запись.СчетУчетаРасчетовСПокупателем</DataPath>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="СчетУчетаРасчетовСПокупателемКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="СчетУчетаРасчетовСПокупателемРасширеннаяПодсказка" id="31"/>
+							<Events>
+								<Event name="StartChoice">СчетУчетаРасчетовНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа2" id="22">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="32"/>
+					<ChildItems>
+						<InputField name="СчетУчетаАвансовВыданных" id="11">
+							<DataPath>Запись.СчетУчетаАвансовВыданных</DataPath>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="СчетУчетаАвансовВыданныхКонтекстноеМеню" id="12"/>
+							<ExtendedTooltip name="СчетУчетаАвансовВыданныхРасширеннаяПодсказка" id="33"/>
+							<Events>
+								<Event name="StartChoice">СчетУчетаРасчетовНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<InputField name="СчетУчетаАвансовПолученных" id="15">
+							<DataPath>Запись.СчетУчетаАвансовПолученных</DataPath>
+							<Width>10</Width>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="СчетУчетаАвансовПолученныхКонтекстноеМеню" id="16"/>
+							<ExtendedTooltip name="СчетУчетаАвансовПолученныхРасширеннаяПодсказка" id="34"/>
+							<Events>
+								<Event name="StartChoice">СчетУчетаРасчетовНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="СчетУчетаРасчетовСПоставщикомПоВозвратам" id="17">
+			<DataPath>Запись.СчетУчетаРасчетовСПоставщикомПоВозвратам</DataPath>
+			<Width>10</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<ContextMenu name="СчетУчетаРасчетовСПоставщикомПоВозвратамКонтекстноеМеню" id="18"/>
+			<ExtendedTooltip name="СчетУчетаРасчетовСПоставщикомПоВозвратамРасширеннаяПодсказка" id="35"/>
+			<Events>
+				<Event name="StartChoice">СчетУчетаРасчетовНачалоВыбора</Event>
+			</Events>
+		</InputField>
+		<InputField name="СчетРасчетовСПокупателемПоВозвратам" id="19">
+			<DataPath>Запись.СчетРасчетовСПокупателемПоВозвратам</DataPath>
+			<Width>10</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<ContextMenu name="СчетРасчетовСПокупателемПоВозвратамКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="СчетРасчетовСПокупателемПоВозвратамРасширеннаяПодсказка" id="36"/>
+			<Events>
+				<Event name="StartChoice">СчетУчетаРасчетовНачалоВыбора</Event>
+			</Events>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.СчетаУчетаРасчетовСКонтрагентами</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

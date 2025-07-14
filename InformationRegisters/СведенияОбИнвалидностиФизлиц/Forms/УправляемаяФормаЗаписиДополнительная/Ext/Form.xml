@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="СерияСправки" id="1">
+			<DataPath>РегистрСведенийМенеджерЗаписи.СерияСправки</DataPath>
+			<ContextMenu name="СерияСправкиКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="СерияСправкиРасширеннаяПодсказка" id="17"/>
+		</InputField>
+		<InputField name="НомерСправки" id="3">
+			<DataPath>РегистрСведенийМенеджерЗаписи.НомерСправки</DataPath>
+			<ContextMenu name="НомерСправкиКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="НомерСправкиРасширеннаяПодсказка" id="18"/>
+		</InputField>
+		<InputField name="ДатаВыдачи" id="5">
+			<DataPath>РегистрСведенийМенеджерЗаписи.ДатаВыдачи</DataPath>
+			<ContextMenu name="ДатаВыдачиКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="ДатаВыдачиРасширеннаяПодсказка" id="19"/>
+		</InputField>
+		<InputField name="ГруппаИнвалидности" id="7">
+			<DataPath>РегистрСведенийМенеджерЗаписи.ГруппаИнвалидности</DataPath>
+			<ContextMenu name="ГруппаИнвалидностиКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ГруппаИнвалидностиРасширеннаяПодсказка" id="20"/>
+		</InputField>
+		<InputField name="СрокДействияСправки" id="9">
+			<DataPath>РегистрСведенийМенеджерЗаписи.СрокДействияСправки</DataPath>
+			<ContextMenu name="СрокДействияСправкиКонтекстноеМеню" id="10"/>
+			<ExtendedTooltip name="СрокДействияСправкиРасширеннаяПодсказка" id="21"/>
+		</InputField>
+		<InputField name="ОтношениеКИнвалидности" id="15">
+			<DataPath>РегистрСведенийМенеджерЗаписи.ОтношениеКИнвалидности</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Инвалидность</v8:content>
+				</v8:item>
+			</Title>
+			<ChoiceButton>true</ChoiceButton>
+			<ClearButton>true</ClearButton>
+			<ContextMenu name="ОтношениеКИнвалидностиКонтекстноеМеню" id="16"/>
+			<ExtendedTooltip name="ОтношениеКИнвалидностиРасширеннаяПодсказка" id="22"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="13">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="23"/>
+			<ChildItems>
+				<InputField name="Период" id="11">
+					<DataPath>РегистрСведенийМенеджерЗаписи.Period</DataPath>
+					<ContextMenu name="ПериодКонтекстноеМеню" id="12"/>
+					<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="24"/>
+				</InputField>
+				<Button name="История" id="14">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.История</CommandName>
+					<ExtendedTooltip name="ИсторияРасширеннаяПодсказка" id="25"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ГруппаИнвалидностиПриОткрытии" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа инвалидности при открытии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаВыдачиПриОткрытии" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата выдачи при открытии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НомерСправкиПриОткрытии" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер справки при открытии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтношениеКИнвалидностиПриОткрытии" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отношение к инвалидности при открытии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ОтношениеКИнвалидности</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПериодПриОткрытии" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период при открытии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РегистрСведенийМенеджерЗаписи" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регистр сведений менеджер записи</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.СведенияОбИнвалидностиФизлиц</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="СерияСправкиПриОткрытии" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Серия справки при открытии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СрокДействияСправкиПриОткрытии" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Срок действия справки при открытии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ФизЛицоПриОткрытии" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Физ лицо при открытии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ФизическиеЛица</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="История" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КнопкаИсторияНажатие</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

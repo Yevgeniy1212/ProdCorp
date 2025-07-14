@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОсновная" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основная</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основная</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОсновнаяРасширеннаяПодсказка" id="13"/>
+			<ChildItems>
+				<InputField name="РегламентированнаяНоменклатура" id="3">
+					<DataPath>Запись.РегламентированнаяНоменклатура</DataPath>
+					<ContextMenu name="РегламентированнаяНоменклатураКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="РегламентированнаяНоменклатураРасширеннаяПодсказка" id="14"/>
+					<Events>
+						<Event name="OnChange">РегламентированнаяНоменклатураПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Период" id="1">
+					<DataPath>Запись.Period</DataPath>
+					<ContextMenu name="ПериодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="15"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="НадписьСоответствиеПлановойНоменклатуре" id="11">
+			<DataPath>НадписьСоответствиеПлановойНоменклатуре</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<HorizontalAlign>Center</HorizontalAlign>
+			<TextEdit>false</TextEdit>
+			<TextColor>#004242</TextColor>
+			<BackColor>#B0C4DE</BackColor>
+			<BorderColor>#4682B4</BorderColor>
+			<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="НадписьСоответствиеПлановойНоменклатуреКонтекстноеМеню" id="12"/>
+			<ExtendedTooltip name="НадписьСоответствиеПлановойНоменклатуреРасширеннаяПодсказка" id="16"/>
+		</InputField>
+		<UsualGroup name="Соответствие" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Соответствие</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Соответствие</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="СоответствиеРасширеннаяПодсказка" id="17"/>
+			<ChildItems>
+				<InputField name="ПлановаяНоменклатура" id="5">
+					<DataPath>Запись.ПлановаяНоменклатура</DataPath>
+					<ContextMenu name="ПлановаяНоменклатураКонтекстноеМеню" id="6"/>
+					<ExtendedTooltip name="ПлановаяНоменклатураРасширеннаяПодсказка" id="18"/>
+					<Events>
+						<Event name="StartChoice">ПлановаяНоменклатураНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<InputField name="ХарактеристикаПлановойНоменклатуры" id="7">
+					<DataPath>Запись.ХарактеристикаПлановойНоменклатуры</DataPath>
+					<ContextMenu name="ХарактеристикаПлановойНоменклатурыКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ХарактеристикаПлановойНоменклатурыРасширеннаяПодсказка" id="19"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.узп_СоответствиеПлановойИРегламентированнойНоменклатуры</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="НадписьСоответствиеПлановойНоменклатуре" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рекомендуемый предел</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

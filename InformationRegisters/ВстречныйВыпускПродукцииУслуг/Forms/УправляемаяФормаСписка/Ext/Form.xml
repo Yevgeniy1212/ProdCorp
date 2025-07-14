@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<Table name="Список" id="1">
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<TextColor>#191970</TextColor>
+			<BorderColor>#B0C4DE</BorderColor>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="18"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="19">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="20"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="21"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="22">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="23"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="24"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="25">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="26"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="27"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<InputField name="Период" id="4">
+					<DataPath>Список.Period</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПериодКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="28"/>
+				</InputField>
+				<InputField name="Продукция" id="6">
+					<DataPath>Список.Продукция</DataPath>
+					<TitleTextColor>#004242</TitleTextColor>
+					<TitleBackColor>#B0C4DE</TitleBackColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПродукцияКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="ПродукцияРасширеннаяПодсказка" id="29"/>
+				</InputField>
+				<ColumnGroup name="Группа1" id="16">
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="30"/>
+					<ChildItems>
+						<InputField name="Подразделение" id="8">
+							<DataPath>Список.Подразделение</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Подразделение выпускающее</v8:content>
+								</v8:item>
+							</Title>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>#B0C4DE</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПодразделениеКонтекстноеМеню" id="9"/>
+							<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="31"/>
+							<Events>
+								<Event name="OnChange">ПодразделениеПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="НоменклатурнаяГруппа" id="10">
+							<DataPath>Список.НоменклатурнаяГруппа</DataPath>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>#B0C4DE</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="НоменклатурнаяГруппаКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="НоменклатурнаяГруппаРасширеннаяПодсказка" id="32"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="Группа2" id="17">
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="33"/>
+					<ChildItems>
+						<InputField name="ПодразделениеПересчета" id="12">
+							<DataPath>Список.ПодразделениеПересчета</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Подразделение встречного выпуска</v8:content>
+								</v8:item>
+							</Title>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>#B0C4DE</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПодразделениеПересчетаКонтекстноеМеню" id="13"/>
+							<ExtendedTooltip name="ПодразделениеПересчетаРасширеннаяПодсказка" id="34"/>
+							<Events>
+								<Event name="OnChange">ПодразделениеПересчетаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="НоменклатурнаяГруппаПересчета" id="14">
+							<DataPath>Список.НоменклатурнаяГруппаПересчета</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номенклатурная группа</v8:content>
+								</v8:item>
+							</Title>
+							<TitleTextColor>#004242</TitleTextColor>
+							<TitleBackColor>#B0C4DE</TitleBackColor>
+							<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="НоменклатурнаяГруппаПересчетаКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="НоменклатурнаяГруппаПересчетаРасширеннаяПодсказка" id="35"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordSet.ВстречныйВыпускПродукцииУслуг</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+	</Attributes>
+</Form>
