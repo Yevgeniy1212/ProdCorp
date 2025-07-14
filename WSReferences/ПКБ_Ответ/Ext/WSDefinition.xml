@@ -1,0 +1,3342 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/"
+		xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:tns="http://report.chdb.scb.kz"
+		xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+		xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:xsd1="http://report.chdb.scb.kz"
+		name="CreditReportService"
+		targetNamespace="http://report.chdb.scb.kz">
+	<types>
+		<xs:schema xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+				xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				attributeFormDefault="unqualified"
+				elementFormDefault="unqualified"
+				targetNamespace="http://report.chdb.scb.kz">
+			<xs:element name="actualGeneralSubjectAddressDto"
+					type="xsd1:actualGeneralSubjectAddressDto"/>
+			<xs:element name="actualSubjectTypeAddresses"
+					type="xsd1:actualSubjectTypeAddresses"/>
+			<xs:element name="additionalCreditInformationDto"
+					type="xsd1:additionalCreditInformationDto"/>
+			<xs:element name="addressDto"
+					type="xsd1:addressDto"/>
+			<xs:element name="amountsDto"
+					type="xsd1:amountsDto"/>
+			<xs:element name="baseReportDto"
+					type="xsd1:baseReportDto"/>
+			<xs:element name="batchProvidedDto"
+					type="xsd1:batchProvidedDto"/>
+			<xs:element name="commonContractDetails"
+					type="xsd1:commonContractDetails"/>
+			<xs:element name="companyDirectorDocuments"
+					type="xsd1:companyDirectorDocuments"/>
+			<xs:element name="companyInformationJuridical"
+					type="xsd1:companyInformationJuridical"/>
+			<xs:element name="contractDetailsAmountDto"
+					type="xsd1:contractDetailsAmountDto"/>
+			<xs:element name="contractDetailsAvailableLimitDto"
+					type="xsd1:contractDetailsAvailableLimitDto"/>
+			<xs:element name="contractDetailsByCreditDiscriminator"
+					type="xsd1:contractDetailsByCreditDiscriminator"/>
+			<xs:element name="contractDetailsCreditLimitDto"
+					type="xsd1:contractDetailsCreditLimitDto"/>
+			<xs:element name="contractDetailsDebtPastDueValueDto"
+					type="xsd1:contractDetailsDebtPastDueValueDto"/>
+			<xs:element name="contractDetailsDebtValueDto"
+					type="xsd1:contractDetailsDebtValueDto"/>
+			<xs:element name="contractDetailsDto"
+					type="xsd1:contractDetailsDto"/>
+			<xs:element name="contractDetailsFineDto"
+					type="xsd1:contractDetailsFineDto"/>
+			<xs:element name="contractDetailsInstalmentAmountDto"
+					type="xsd1:contractDetailsInstalmentAmountDto"/>
+			<xs:element name="contractDetailsMonthlyInstalmentAmountDto"
+					type="xsd1:contractDetailsMonthlyInstalmentAmountDto"/>
+			<xs:element name="contractDetailsPenaltyDto"
+					type="xsd1:contractDetailsPenaltyDto"/>
+			<xs:element name="contractDetailsProvisionDto"
+					type="xsd1:contractDetailsProvisionDto"/>
+			<xs:element name="contractDetailsResidualAmountDto"
+					type="xsd1:contractDetailsResidualAmountDto"/>
+			<xs:element name="contractDetailsUsedAmountDto"
+					type="xsd1:contractDetailsUsedAmountDto"/>
+			<xs:element name="creditHistoryQuery"
+					type="xsd1:creditHistoryQuery"/>
+			<xs:element name="creditHistoryQueryInformation"
+					type="xsd1:creditHistoryQueryInformation"/>
+			<xs:element name="creditHistoryQueryQuantity"
+					type="xsd1:creditHistoryQueryQuantity"/>
+			<xs:element name="dataSourceDto"
+					type="xsd1:dataSourceDto"/>
+			<xs:element name="dateDeadlinesDto"
+					type="xsd1:dateDeadlinesDto"/>
+			<xs:element name="debtorRelatedDocumentsDto"
+					type="xsd1:debtorRelatedDocumentsDto"/>
+			<xs:element name="detailsDto"
+					type="xsd1:detailsDto"/>
+			<xs:element name="getCreditReportTypes"
+					type="xsd1:getCreditReportTypes"/>
+			<xs:element name="getCreditReportTypesResponse"
+					type="xsd1:getCreditReportTypesResponse"/>
+			<xs:element name="historicalGeneralSubjectAddressDto"
+					type="xsd1:historicalGeneralSubjectAddressDto"/>
+			<xs:element name="historicalSubjectTypeAddresses"
+					type="xsd1:historicalSubjectTypeAddresses"/>
+			<xs:element name="initialReportDto"
+					type="xsd1:initialReportDto"/>
+			<xs:element name="negativeInformationDto"
+					type="xsd1:negativeInformationDto"/>
+			<xs:element name="organizationExtendedReportDto"
+					type="xsd1:organizationExtendedReportDto"/>
+			<xs:element name="organizationHeaderReportDto"
+					type="xsd1:organizationHeaderReportDto"/>
+			<xs:element name="organizationIdentificationReport"
+					type="xsd1:organizationIdentificationReport"/>
+			<xs:element name="organizationInitialReportDto"
+					type="xsd1:organizationInitialReportDto"/>
+			<xs:element name="organizationNegativeReport"
+					type="xsd1:organizationNegativeReport"/>
+			<xs:element name="organizationPropertyInformation"
+					type="xsd1:organizationPropertyInformation"/>
+			<xs:element name="organizationStandardReportDto"
+					type="xsd1:organizationStandardReportDto"/>
+			<xs:element name="otherOptionsDto"
+					type="xsd1:otherOptionsDto"/>
+			<xs:element name="overdueQuantityDetailsDto"
+					type="xsd1:overdueQuantityDetailsDto"/>
+			<xs:element name="overdueQuantityDto"
+					type="xsd1:overdueQuantityDto"/>
+			<xs:element name="personExtendedReportDto"
+					type="xsd1:personExtendedReportDto"/>
+			<xs:element name="personHeaderReportDto"
+					type="xsd1:personHeaderReportDto"/>
+			<xs:element name="personIdentificationReport"
+					type="xsd1:personIdentificationReport"/>
+			<xs:element name="personInformation"
+					type="xsd1:personAddrsAndDocsInfo"/>
+			<xs:element name="personInitialReportDto"
+					type="xsd1:personInitialReportDto"/>
+			<xs:element name="personNegativeReport"
+					type="xsd1:personNegativeReport"/>
+			<xs:element name="personPropertyInformation"
+					type="xsd1:personPropertyInformation"/>
+			<xs:element name="personStandardReportDto"
+					type="xsd1:personStandardReportDto"/>
+			<xs:element name="personWantedInformation"
+					type="xsd1:personWantedInformation"/>
+			<xs:element name="pledgeValueInfoDto"
+					type="xsd1:pledgeValueInfoDto"/>
+			<xs:element name="pledgesDetailsDto"
+					type="xsd1:pledgesDetailsDto"/>
+			<xs:element name="prolongationDatesDto"
+					type="xsd1:prolongationDatesDto"/>
+			<xs:element name="prolongationInformationDto"
+					type="xsd1:prolongationInformationDto"/>
+			<xs:element name="propertyInformation"
+					type="xsd1:propertyInformation"/>
+			<xs:element name="relatedSubjectsDto"
+					type="xsd1:relatedSubjectsDto"/>
+			<xs:element name="reportContext"
+					type="xsd1:reportContext"/>
+			<xs:element name="reportRequest"
+					type="xsd1:reportRequest"/>
+			<xs:element name="reportResponse"
+					nillable="true"
+					type="xs:anyType"/>
+			<xs:element name="requestCreditReport"
+					type="xsd1:requestCreditReport"/>
+			<xs:element name="requestCreditReportResponse"
+					type="xsd1:requestCreditReportResponse"/>
+			<xs:element name="requestCreditReports"
+					type="xsd1:requestCreditReports"/>
+			<xs:element name="requestCreditReportsResponse"
+					type="xsd1:requestCreditReportsResponse"/>
+			<xs:element name="requestXmlCreditReport"
+					type="xsd1:requestXmlCreditReport"/>
+			<xs:element name="requestXmlCreditReportResponse"
+					type="xsd1:requestXmlCreditReportResponse"/>
+			<xs:element name="requestXmlCreditReports"
+					type="xsd1:requestXmlCreditReports"/>
+			<xs:element name="requestXmlCreditReportsResponse"
+					type="xsd1:requestXmlCreditReportsResponse"/>
+			<xs:element name="rollbackProposal"
+					type="xsd1:rollbackProposal"/>
+			<xs:element name="saveResult"
+					type="xsd1:saveResult"/>
+			<xs:element name="scbServiceFaultInfo"
+					type="xsd1:scbServiceFaultInfo"/>
+			<xs:element name="socialStatus"
+					type="xsd1:socialStatus"/>
+			<xs:element name="subjectGeneralReportDiscriminatorsGuaranteeInfoDto"
+					type="xsd1:subjectGeneralReportDiscriminatorsGuaranteeInfoDto"/>
+			<xs:element name="subjectGeneralReportGuaranteeInfoDto"
+					type="xsd1:subjectGeneralReportGuaranteeInfoDto"/>
+			<xs:element name="subjectReportGuaranteeInfoDto"
+					type="xsd1:subjectReportGuaranteeInfoDto"/>
+			<xs:element name="unsecuredLoanInfoDto"
+					type="xsd1:unsecuredLoanInfoDto"/>
+			<xs:element name="versionedDto"
+					type="xsd1:versionedDto"/>
+			<xs:element name="wantedInformation"
+					type="xsd1:wantedInformation"/>
+			<xs:complexType name="requestCreditReports">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="reportGenerationParams"
+							type="xsd1:reportGenerationParams"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="reportRequests"
+							type="xsd1:reportRequest"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="reportGenerationParams">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="language"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="onlySnmReport"
+							type="xs:boolean"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="outputFormats"
+							nillable="true"
+							type="xsd1:reportOutputFormat"/>
+					<xs:element minOccurs="0"
+							name="reportType"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="reportRequest">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="generationParams"
+							type="xsd1:reportGenerationParams"/>
+					<xs:element minOccurs="0"
+							name="reportParams"
+							type="xsd1:reportParams"/>
+					<xs:element minOccurs="0"
+							name="applicationNumber"
+							type="xs:long"/>
+					<xs:element minOccurs="0"
+							name="isXmlBillable"
+							type="xs:boolean"/>
+					<xs:element minOccurs="0"
+							name="requestType"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType abstract="true"
+					name="reportParams">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="fromChdbUi"
+							type="xs:boolean"/>
+					<xs:element minOccurs="0"
+							name="new"
+							type="xs:boolean"/>
+					<xs:element minOccurs="0"
+							name="recipientDetails"
+							type="xsd1:recipientDetails"/>
+					<xs:element minOccurs="0"
+							name="reportNumber"
+							type="xs:long"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="recipientDetails">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="iinNumber"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="recipientDocument"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="recipientName"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="recipientType"
+							type="xsd1:creditReportRecipientTypeLookup"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="contractReportParams">
+				<xs:complexContent>
+					<xs:extension base="xsd1:reportParams">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="agreementDateGuarantee"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="agreementGuaranteeNumber"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="amount"
+									type="xs:decimal"/>
+							<xs:element minOccurs="0"
+									name="amountCurrency"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="contractId"
+									type="xs:long"/>
+							<xs:element minOccurs="0"
+									name="creditorId"
+									type="xs:long"/>
+							<xs:element minOccurs="0"
+									name="docNumber"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="docType"
+									type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType abstract="true"
+					name="creditReportParams">
+				<xs:complexContent>
+					<xs:extension base="xsd1:reportParams">
+						<xs:sequence>
+							<xs:element name="consentConfirmed"
+									type="xs:boolean"/>
+							<xs:element minOccurs="0"
+									name="document"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="documentType"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="reportDate"
+									type="xs:dateTime"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="personCreditReportParams">
+				<xs:complexContent>
+					<xs:extension base="xsd1:creditReportParams">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="bin"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="birthDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="firstName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="iin"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="lastName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="middleName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="personId"
+									type="xs:long"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="organizationCreditReportParams">
+				<xs:complexContent>
+					<xs:extension base="xsd1:creditReportParams">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="bin"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="name"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="organizationId"
+									type="xs:long"/>
+							<xs:element minOccurs="0"
+									name="registrationDate"
+									type="xs:dateTime"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="financialSupervisionReportParams">
+				<xs:complexContent>
+					<xs:extension base="xsd1:reportParams">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="reportDate"
+									type="xs:dateTime"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="requestCreditReportsResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="content"
+							type="xsd1:reportResponseWithErrors"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="reportResponseWithErrors">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="creditReports"
+							type="xs:base64Binary"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="creditReportsExceptions"
+							nillable="true"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ValidationFaultBean">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="constraintViolations"
+							nillable="true"
+							type="xsd1:constraintViolation"/>
+					<xs:element minOccurs="0"
+							name="dto"
+							type="xsd1:batchProvidedDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="constraintViolation">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="code"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="description"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="placeholder"
+							type="xs:string"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="placeholders"
+							nillable="true"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType abstract="true"
+					name="batchProvidedDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:dataSourceDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="batchId"
+									type="xs:long"/>
+							<xs:element minOccurs="0"
+									name="batchRecordId"
+									type="xs:long"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType abstract="true"
+					name="dataSourceDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:versionedDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="dataSource"
+									type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType abstract="true"
+					name="versionedDto">
+				<xs:sequence>
+					<xs:element name="optimisticLockVersion"
+							type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="saveResult">
+				<xs:complexContent>
+					<xs:extension base="xsd1:versionedDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="id"
+									type="xs:long"/>
+							<xs:element minOccurs="0"
+									name="finId"
+									type="xs:long"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="scbServiceFaultInfo">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="faultCode"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="faultDescription"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="faultId"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="faultTimestamp"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="faultType"
+							type="xs:string"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="placeholders"
+							nillable="true"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="requestXmlCreditReport">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="reportRequest"
+							type="xsd1:reportRequest"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="requestXmlCreditReportResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="reportResponse"
+							type="xsd1:reportResponseXml"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="reportResponseXml">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="reportId"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="reportRecipient"
+							type="xs:anyType"/>
+					<xs:element minOccurs="0"
+							name="creditReportContent"
+							type="xs:anyType"/>
+					<xs:element minOccurs="0"
+							name="reportRequest"
+							type="xsd1:reportRequest"/>
+					<xs:element minOccurs="0"
+							name="billingStartDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="billingFinishDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="requestType"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="organizationExtendedReportDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:organizationStandardReportDto">
+						<xs:sequence/>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="organizationStandardReportDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:organizationInitialReportDto">
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded"
+									minOccurs="0"
+									name="detailsDto"
+									nillable="true"
+									type="xsd1:commonContractDetails"/>
+							<xs:element minOccurs="0"
+									name="propertyInformation"
+									type="xsd1:organizationPropertyInformation"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="organizationInitialReportDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:organizationIdentificationReport">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="initialReportBaseInfo"
+									type="xsd1:initialReportDto"/>
+							<xs:element minOccurs="0"
+									name="snmReportDto"
+									type="xsd1:snmOrganizationReportDto"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="organizationIdentificationReport">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="header"
+							type="xsd1:organizationHeaderReportDto"/>
+					<xs:element minOccurs="0"
+							name="companyInformation"
+							type="xsd1:companyInformationJuridical"/>
+					<xs:element minOccurs="0"
+							name="organizationInformation"
+							type="xsd1:organizationAddrsAndDocsInfo"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="commonContractDetails">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="creditPhaseCode"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="creditPhase"
+							type="xs:string"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="contractDetails"
+							nillable="true"
+							type="xsd1:contractDetailsByCreditDiscriminator"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="contractDetailsByCreditDiscriminator">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="creditDiscriminatorCode"
+							type="xs:string"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="contractDetails"
+							nillable="true"
+							type="xsd1:contractDetailsDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="contractDetailsDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="additionalCreditInformation"
+									type="xsd1:additionalCreditInformationDto"/>
+							<xs:element minOccurs="0"
+									name="contractDetails"
+									type="xsd1:detailsDto"/>
+							<xs:element maxOccurs="unbounded"
+									minOccurs="0"
+									name="overdueQuantityDetails"
+									nillable="true"
+									type="xsd1:overdueQuantityDetailsDto"/>
+							<xs:element minOccurs="0"
+									name="maxOverdueQuantity"
+									type="xsd1:overdueQuantityDto"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="baseReportDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="updateDate"
+							type="xs:dateTime"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="additionalCreditInformationDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="contractClassification"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="contractStatus"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="creditUtilizationLocation"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="bankConnectivity"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="loanAccount"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="amounts"
+							type="xsd1:amountsDto"/>
+					<xs:element minOccurs="0"
+							name="dateDeadlines"
+							type="xsd1:dateDeadlinesDto"/>
+					<xs:element minOccurs="0"
+							name="otherOptions"
+							type="xsd1:otherOptionsDto"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="relatedSubjects"
+							nillable="true"
+							type="xsd1:relatedSubjectsDto"/>
+					<xs:element minOccurs="0"
+							name="prolongationInformation"
+							type="xsd1:prolongationInformationDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="amountsDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="instalmentCount"
+							type="xs:int"/>
+					<xs:element minOccurs="0"
+							name="paymentNumberPending"
+							type="xs:int"/>
+					<xs:element minOccurs="0"
+							name="fineDto"
+							type="xsd1:contractDetailsFineDto"/>
+					<xs:element minOccurs="0"
+							name="penaltyDto"
+							type="xsd1:contractDetailsPenaltyDto"/>
+					<xs:element minOccurs="0"
+							name="provisionDto"
+							type="xsd1:contractDetailsProvisionDto"/>
+					<xs:element minOccurs="0"
+							name="interestEffectiveRate"
+							type="xs:decimal"/>
+					<xs:element minOccurs="0"
+							name="interestRateYearly"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="contractDetailsFineDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="fine"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="contractDetailsPenaltyDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="penalty"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="contractDetailsProvisionDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="provision"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="dateDeadlinesDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="periodPaymentDebt"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="gracePrincipal"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="gracePay"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="otherOptionsDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="paymentMethod"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="thirdPartyHolder"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="parentContractNumber"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="parentContractCreditor"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="parentCreditStatus"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="parentContractAcceptDate"
+							type="xs:dateTime"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="relatedSubjectsDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="debtorType"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="debtorName"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="iinBin"
+							type="xs:string"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="debtorRelatedDocuments"
+							nillable="true"
+							type="xsd1:debtorRelatedDocumentsDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="debtorRelatedDocumentsDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="documentType"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="documentNumber"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="prolongationInformationDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="prolongationCount"
+							type="xs:int"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="prolongationDatesDtos"
+							nillable="true"
+							type="xsd1:prolongationDatesDto"/>
+					<xs:element minOccurs="0"
+							name="prolongationDates"
+							type="xsd1:prolongationDatesDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="prolongationDatesDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="prolongationStartDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="prolongationEndDate"
+							type="xs:dateTime"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="detailsDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="agreementNumber"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="creditor"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="amountDto"
+									type="xsd1:contractDetailsAmountDto"/>
+							<xs:element minOccurs="0"
+									name="creditLimitDto"
+									type="xsd1:contractDetailsCreditLimitDto"/>
+							<xs:element minOccurs="0"
+									name="debtValueDto"
+									type="xsd1:contractDetailsDebtValueDto"/>
+							<xs:element minOccurs="0"
+									name="residualAmountDto"
+									type="xsd1:contractDetailsResidualAmountDto"/>
+							<xs:element minOccurs="0"
+									name="usedAmountDto"
+									type="xsd1:contractDetailsUsedAmountDto"/>
+							<xs:element minOccurs="0"
+									name="instalmentAmountDto"
+									type="xsd1:contractDetailsInstalmentAmountDto"/>
+							<xs:element minOccurs="0"
+									name="monthlyInstalmentAmountDto"
+									type="xsd1:contractDetailsMonthlyInstalmentAmountDto"/>
+							<xs:element minOccurs="0"
+									name="debtPastDueValueDto"
+									type="xsd1:contractDetailsDebtPastDueValueDto"/>
+							<xs:element minOccurs="0"
+									name="availableLimitDto"
+									type="xsd1:contractDetailsAvailableLimitDto"/>
+							<xs:element minOccurs="0"
+									name="paymentDaysOverdue"
+									type="xs:int"/>
+							<xs:element minOccurs="0"
+									name="contractNumber"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="contractType"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="financeSource"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="subsidySource"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="creditPurpose"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="debtorType"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="applicationDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="contractDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="contractMaturityDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="maturityDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="availableDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="countNewJobs"
+									type="xs:int"/>
+							<xs:element maxOccurs="unbounded"
+									minOccurs="0"
+									name="pledgesDetails"
+									nillable="true"
+									type="xsd1:pledgesDetailsDto"/>
+							<xs:element minOccurs="0"
+									name="repaymentDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="usage"
+									type="xs:int"/>
+							<xs:element minOccurs="0"
+									name="creditObject"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="actualDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="agreementNumberGuarantee"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="agreementDateGuarantee"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="expireGuaranteeAction"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="branchLocation"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="phase"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="rehabStatus"
+									type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="contractDetailsAmountDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="amount"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="contractDetailsCreditLimitDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="creditLimit"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="contractDetailsDebtValueDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="debtValue"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="contractDetailsResidualAmountDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="residualAmount"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="contractDetailsUsedAmountDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="usedAmount"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="contractDetailsInstalmentAmountDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="instalmentAmount"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="contractDetailsMonthlyInstalmentAmountDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="monthlyInstalmentAmount"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="contractDetailsDebtPastDueValueDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="debtPastDueValue"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="contractDetailsAvailableLimitDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="availableLimit"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="pledgesDetailsDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="pledgeType"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="address"
+							type="xs:string"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="pledgeValueInfo"
+							type="xsd1:pledgeValueInfoDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="pledgeValueInfoDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="pledgeValue"
+							type="xs:decimal"/>
+					<xs:element minOccurs="0"
+							name="pledgeValueCurrency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="pledgeValueType"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="overdueQuantityDetailsDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="year"
+							type="xs:int"/>
+					<xs:element minOccurs="0"
+							name="january"
+							type="xsd1:overdueQuantityDto"/>
+					<xs:element minOccurs="0"
+							name="february"
+							type="xsd1:overdueQuantityDto"/>
+					<xs:element minOccurs="0"
+							name="march"
+							type="xsd1:overdueQuantityDto"/>
+					<xs:element minOccurs="0"
+							name="april"
+							type="xsd1:overdueQuantityDto"/>
+					<xs:element minOccurs="0"
+							name="may"
+							type="xsd1:overdueQuantityDto"/>
+					<xs:element minOccurs="0"
+							name="june"
+							type="xsd1:overdueQuantityDto"/>
+					<xs:element minOccurs="0"
+							name="july"
+							type="xsd1:overdueQuantityDto"/>
+					<xs:element minOccurs="0"
+							name="august"
+							type="xsd1:overdueQuantityDto"/>
+					<xs:element minOccurs="0"
+							name="september"
+							type="xsd1:overdueQuantityDto"/>
+					<xs:element minOccurs="0"
+							name="october"
+							type="xsd1:overdueQuantityDto"/>
+					<xs:element minOccurs="0"
+							name="november"
+							type="xsd1:overdueQuantityDto"/>
+					<xs:element minOccurs="0"
+							name="december"
+							type="xsd1:overdueQuantityDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="overdueQuantityDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="paymentDaysOverdue"
+							type="xs:int"/>
+					<xs:element minOccurs="0"
+							name="debtPastDueValueDto"
+							type="xsd1:overdueQuantityDebtPastDueValueDto"/>
+					<xs:element minOccurs="0"
+							name="repaymentDate"
+							type="xs:dateTime"/>
+					<xs:element name="isLastDate"
+							type="xs:boolean"/>
+					<xs:element minOccurs="0"
+							name="maxDebtPastDueValueRepaymentDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="maxDebtPastDueValueRepaymentOverdueDays"
+							type="xs:int"/>
+					<xs:element minOccurs="0"
+							name="maxPaymentDaysOverdueRepaymentDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="maxPaymentDaysOverdueRepaymentAmountDto"
+							type="xsd1:overdueQuantityDebtPastDueValueDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="overdueQuantityDebtPastDueValueDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="debtPastDueValue"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="organizationPropertyInformation">
+				<xs:complexContent>
+					<xs:extension base="xsd1:propertyInformation">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="orgName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="regDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="bin"
+									type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType abstract="true"
+					name="propertyInformation">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="propertyList"
+							nillable="true"
+							type="xsd1:property"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="propertyRightsList"
+							nillable="true"
+							type="xsd1:propertyRights"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="propertyRightsOldList"
+							nillable="true"
+							type="xsd1:propertyRightsOld"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="propertyLimitsList"
+							nillable="true"
+							type="xsd1:propertyLimits"/>
+					<xs:element minOccurs="0"
+							name="providedInfoDate"
+							type="xs:dateTime"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="property">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="addressRKA"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="lastUpdateDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="originBasement"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="propertyForm"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="rightForm"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="propertyRights">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="addressRKA"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="lastUpdateDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="originBasement"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="propertyTarget"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="propertyType"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="rightForm"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="propertyRightsOld">
+				<xs:complexContent>
+					<xs:extension base="xsd1:property">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="endRightDate"
+									type="xs:dateTime"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="propertyLimits">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="addressRKA"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="lastUpdateDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="limitBasement"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="limitDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="limitType"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="initialReportDto">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="guaranteeInfos"
+							nillable="true"
+							type="xsd1:subjectGeneralReportDiscriminatorsGuaranteeInfoDto"/>
+					<xs:element minOccurs="0"
+							name="rollbackProposal"
+							type="xsd1:subjectRollbackProposals"/>
+					<xs:element minOccurs="0"
+							name="creditHistoryQuery"
+							type="xsd1:creditHistoryQuery"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="subjectGeneralReportDiscriminatorsGuaranteeInfoDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="creditDiscriminatorCode"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="creditDiscriminatorName"
+							type="xs:string"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="reportGuaranteeInfo"
+							nillable="true"
+							type="xsd1:subjectGeneralReportGuaranteeInfoDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="subjectGeneralReportGuaranteeInfoDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="creditPhase"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="guaranteeInfo"
+							type="xsd1:subjectReportGuaranteeInfoDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="subjectReportGuaranteeInfoDto">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="amountsByRole"
+							nillable="true"
+							type="xsd1:guaranteeInfoAmountsByRoleDto"/>
+					<xs:element name="creditQuantity"
+							type="xs:int"/>
+					<xs:element minOccurs="0"
+							name="rehabQuantity"
+							type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="guaranteeInfoAmountsByRoleDto">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="creditLimits"
+							nillable="true"
+							type="xsd1:guaranteeTotalCreditLimitsDto"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="currencies"
+							nillable="true"
+							type="xsd1:guaranteeInfoCurrenciesDto"/>
+					<xs:element minOccurs="0"
+							name="currenciesString"
+							type="xs:string"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="debts"
+							nillable="true"
+							type="xsd1:guaranteeInfoDebtPastDueValuesDto"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="instalments"
+							nillable="true"
+							type="xsd1:guaranteeInfoInstalmentAmountsDto"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="residualAmounts"
+							nillable="true"
+							type="xsd1:guaranteeInfoResidualAmountsDto"/>
+					<xs:element minOccurs="0"
+							name="roles"
+							type="xsd1:guaranteeInfoSubjectRolesDto"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="statuses"
+							nillable="true"
+							type="xsd1:guaranteeInfoContractStatusesDto"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="totals"
+							nillable="true"
+							type="xsd1:guaranteeTotalAmountsDto"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="usedAmounts"
+							nillable="true"
+							type="xsd1:guaranteeInfoUsedAmountsDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="guaranteeTotalCreditLimitsDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="creditLimit"
+							type="xs:decimal"/>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="guaranteeInfoCurrenciesDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element name="number"
+							type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="guaranteeInfoDebtPastDueValuesDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="debtPastDueValue"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="guaranteeInfoInstalmentAmountsDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="instalmentAmount"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="guaranteeInfoResidualAmountsDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="residualAmount"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="guaranteeInfoSubjectRolesDto">
+				<xs:sequence>
+					<xs:element name="number"
+							type="xs:int"/>
+					<xs:element minOccurs="0"
+							name="role"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="guaranteeInfoContractStatusesDto">
+				<xs:sequence>
+					<xs:element name="number"
+							type="xs:int"/>
+					<xs:element minOccurs="0"
+							name="status"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="guaranteeTotalAmountsDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="totalAmount"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="guaranteeInfoUsedAmountsDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="usedAmount"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="subjectRollbackProposals">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="rollbackProposals"
+							nillable="true"
+							type="xsd1:rollbackProposal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="rollbackProposal">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="proposalType"
+							type="xs:string"/>
+					<xs:element name="forWeek"
+							type="xs:int"/>
+					<xs:element name="forMonth"
+							type="xs:int"/>
+					<xs:element name="forQuarter"
+							type="xs:int"/>
+					<xs:element name="forYear"
+							type="xs:int"/>
+					<xs:element name="forThreeYears"
+							type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="creditHistoryQuery">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="creditHistoryQueryQuantity"
+									type="xsd1:creditHistoryQueryQuantity"/>
+							<xs:element maxOccurs="unbounded"
+									minOccurs="0"
+									name="creditHistoryQueryInformation"
+									nillable="true"
+									type="xsd1:creditHistoryQueryInformation"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="creditHistoryQueryQuantity">
+				<xs:sequence>
+					<xs:element name="forWeek"
+							type="xs:int"/>
+					<xs:element name="forMonth"
+							type="xs:int"/>
+					<xs:element name="forQuarter"
+							type="xs:int"/>
+					<xs:element name="forYear"
+							type="xs:int"/>
+					<xs:element name="forThreeYears"
+							type="xs:int"/>
+					<xs:element minOccurs="0"
+							name="forAllTime"
+							type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="creditHistoryQueryInformation">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="queryDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="reportType"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="userName"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="iinBin"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="snmOrganizationReportDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:snmReportDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="detailedContractWrapperDto"
+									type="xsd1:snmOrganizationDetailedContractWrapperDto"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="snmReportDto">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="contractWithPhaseDtoList"
+							nillable="true"
+							type="xsd1:snmContractWithPhaseDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="snmOrganizationDetailedContractWrapperDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:snmDetailedContractWrapperDto">
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded"
+									minOccurs="0"
+									name="detailedContractWithPhaseDtoList"
+									nillable="true"
+									type="xsd1:snmOrganizationDetailedContractWithPhaseDto"/>
+							<xs:element minOccurs="0"
+									name="identityInfo"
+									type="xsd1:snmOrganizationIdentityInfo"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="snmDetailedContractWrapperDto">
+				<xs:sequence/>
+			</xs:complexType>
+			<xs:complexType name="snmOrganizationDetailedContractWithPhaseDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:snmDetailedContractWithPhaseDto">
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded"
+									minOccurs="0"
+									name="detailedContractInfoDtoList"
+									nillable="true"
+									type="xsd1:snmDetailedContractInfoDto"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="snmDetailedContractWithPhaseDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="contractPhase"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="snmDetailedContractInfoDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="address"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="agreementDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="agreementNumber"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="agreementTerminationDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="contractReceivedAt"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="contractUpdatedAt"
+							type="xs:dateTime"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="debtRemainsList"
+							nillable="true"
+							type="xsd1:snmDetailedDebtRemainsInfoDto"/>
+					<xs:element minOccurs="0"
+							name="facilityName"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="facilityType"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="sectorType"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="serviceProvider"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="serviceProviderRegion"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="snmDetailedDebtRemainsInfoDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:snmDebtRemainsInfoDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="debtOverdueDaysCount"
+									type="xs:int"/>
+							<xs:element minOccurs="0"
+									name="debtStartDate"
+									type="xs:dateTime"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="snmDebtRemainsInfoDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="debtFine"
+							type="xs:decimal"/>
+					<xs:element minOccurs="0"
+							name="debtMaturityDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="debtRemains"
+							type="xs:decimal"/>
+					<xs:element minOccurs="0"
+							name="debtRemainsFullAmount"
+							type="xs:decimal"/>
+					<xs:element minOccurs="0"
+							name="serviceType"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="snmOrganizationIdentityInfo">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="addressDto"
+							type="xsd1:snmAddressDto"/>
+					<xs:element minOccurs="0"
+							name="bin"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="ceoFullName"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="contactPhoneNumber"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="name"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="type"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="snmAddressDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="city"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="district"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="flatNumber"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="fullAddress"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="houseNumber"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="street"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="snmContractWithPhaseDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="contractInfoDto"
+							type="xsd1:snmContractInfoDto"/>
+					<xs:element minOccurs="0"
+							name="contractPhase"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="snmContractInfoDto">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="debtRemainsInfoDtoList"
+							nillable="true"
+							type="xsd1:snmDebtRemainsInfoDto"/>
+					<xs:element minOccurs="0"
+							name="numberOfAccounts"
+							type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="organizationHeaderReportDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="id"
+									type="xs:long"/>
+							<xs:element minOccurs="0"
+									name="companyName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="juridicalForm"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="ownershipType"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="registrationCountry"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="registrationDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="bin"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="faxNumber"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="actualAddress"
+									type="xsd1:addressDto"/>
+							<xs:element minOccurs="0"
+									name="juridicalAddress"
+									type="xsd1:addressDto"/>
+							<xs:element minOccurs="0"
+									name="documentNumber"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="documentType"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="mobilePhone"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="workPhone"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="email"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="status"
+									type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="addressDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="country"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="region"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="area"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="locality"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="street"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="number"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="zipcode"
+									type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="companyInformationJuridical">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="econTrade"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="status"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="employeeNumber"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="fullName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="shortName"
+									type="xs:string"/>
+							<xs:element maxOccurs="unbounded"
+									minOccurs="0"
+									name="directors"
+									nillable="true"
+									type="xsd1:companyDirector"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="companyDirector">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="firstName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="lastName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="middleName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="iin"
+									type="xs:string"/>
+							<xs:element maxOccurs="unbounded"
+									minOccurs="0"
+									name="companyDirectorDocuments"
+									nillable="true"
+									type="xsd1:companyDirectorDocuments"/>
+							<xs:element minOccurs="0"
+									name="birthDate"
+									type="xs:dateTime"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="companyDirectorDocuments">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="documentType"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="documentNumber"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="organizationAddrsAndDocsInfo">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="historicalAddressInfo"
+									type="xsd1:historicalGeneralSubjectAddressDto"/>
+							<xs:element maxOccurs="unbounded"
+									minOccurs="0"
+									name="historicalDocuments"
+									nillable="true"
+									type="xsd1:subjectHistoricalDocumentsDto"/>
+							<xs:element minOccurs="0"
+									name="actualDocuments">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element maxOccurs="unbounded"
+												minOccurs="0"
+												name="actualDocument"
+												type="xsd1:subjectActualDocumentsDto"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="historicalGeneralSubjectAddressDto">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="addresses"
+							nillable="true"
+							type="xsd1:historicalSubjectTypeAddresses"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="historicalSubjectTypeAddresses">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="addressType"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="addressTypeCode"
+							type="xs:string"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="address"
+							type="xsd1:addressDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="subjectHistoricalDocumentsDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="documentType"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="documentNumber"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="issueDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="expireDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="issuedBy"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="name"
+									type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="subjectActualDocumentsDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="documentNumber"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="documentType"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="expireDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="issueDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="name"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="updateDate"
+							type="xs:dateTime"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="personExtendedReportDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:personStandardReportDto">
+						<xs:sequence/>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="personStandardReportDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:personInitialReportDto">
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded"
+									minOccurs="0"
+									name="detailsDto"
+									nillable="true"
+									type="xsd1:commonContractDetails"/>
+							<xs:element minOccurs="0"
+									name="propertyInformation"
+									type="xsd1:personPropertyInformation"/>
+							<xs:element minOccurs="0"
+									name="wantedInformation"
+									type="xsd1:personWantedInformation"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="personInitialReportDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:personIdentificationReport">
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded"
+									minOccurs="0"
+									name="seoInformation"
+									type="xsd1:companyInformation"/>
+							<xs:element minOccurs="0"
+									name="unsecuredLoanInfos"
+									type="xsd1:unsecuredLoanInfoDto"/>
+							<xs:element minOccurs="0"
+									name="initialReportBaseInfo"
+									type="xsd1:initialReportDto"/>
+							<xs:element minOccurs="0"
+									name="negativeInformation"
+									type="xsd1:negativeInformationDto"/>
+							<xs:element minOccurs="0"
+									name="snmReportDto"
+									type="xsd1:snmPersonReportDto"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="personIdentificationReport">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="header"
+							type="xsd1:personHeaderReportDto"/>
+					<xs:element minOccurs="0"
+							name="socialStatus"
+							type="xsd1:socialStatus"/>
+					<xs:element minOccurs="0"
+							name="personInformation"
+							type="xsd1:personAddrsAndDocsInfo"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="personPropertyInformation">
+				<xs:complexContent>
+					<xs:extension base="xsd1:propertyInformation">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="firstName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="lastName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="middleName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="birthDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="iin"
+									type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="personWantedInformation">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="wantedList"
+							nillable="true"
+							type="xsd1:wantedInformation"/>
+					<xs:element minOccurs="0"
+							name="providedInfoDate"
+							type="xs:dateTime"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="wantedInformation">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="name"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="iin"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="wantedDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="orgSearch"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="lastInfoUpdateDate"
+							type="xs:dateTime"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="companyInformation">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="companyName"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="position"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="legalForm"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="ownershipType"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="registrationCountry"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="registrationDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="resident"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="bin"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="unsecuredLoanInfoDto">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="debtsByRole"
+							nillable="true"
+							type="xsd1:unsecuredLoanInfoDebtsByRoleDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="unsecuredLoanInfoDebtsByRoleDto">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="currencies"
+							nillable="true"
+							type="xsd1:unsecuredLoanInfoCurrenciesDto"/>
+					<xs:element minOccurs="0"
+							name="currenciesString"
+							type="xs:string"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="debtPastDueValues"
+							nillable="true"
+							type="xsd1:unsecuredLoanInfoDebtPastDueValuesDto"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="debtTotalAmounts"
+							nillable="true"
+							type="xsd1:unsecuredLoanInfoDebtTotalAmountsDto"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="debtValues"
+							nillable="true"
+							type="xsd1:unsecuredLoanInfoDebtValuesDto"/>
+					<xs:element minOccurs="0"
+							name="roles"
+							type="xsd1:unsecuredLoanInfoSubjectRolesDto"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="statuses"
+							nillable="true"
+							type="xsd1:unsecuredLoanInfosContractStatusesDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="unsecuredLoanInfoCurrenciesDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element name="number"
+							type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="unsecuredLoanInfoDebtPastDueValuesDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="debtPastDueValue"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="unsecuredLoanInfoDebtTotalAmountsDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="debtTotalAmount"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="unsecuredLoanInfoDebtValuesDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="currency"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="debtValue"
+							type="xs:decimal"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="unsecuredLoanInfoSubjectRolesDto">
+				<xs:sequence>
+					<xs:element name="number"
+							type="xs:int"/>
+					<xs:element minOccurs="0"
+							name="role"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="unsecuredLoanInfosContractStatusesDto">
+				<xs:sequence>
+					<xs:element name="number"
+							type="xs:int"/>
+					<xs:element minOccurs="0"
+							name="status"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="negativeInformationDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="negativeStatus"
+									type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="snmPersonReportDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:snmReportDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="detailedContractWrapperDto"
+									type="xsd1:snmPersonDetailedContractWrapperDto"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="snmPersonDetailedContractWrapperDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:snmDetailedContractWrapperDto">
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded"
+									minOccurs="0"
+									name="detailedContractWithPhaseDtoList"
+									nillable="true"
+									type="xsd1:snmPersonDetailedContractWithPhaseDto"/>
+							<xs:element minOccurs="0"
+									name="identityInfo"
+									type="xsd1:snmPersonIdentityInfo"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="snmPersonDetailedContractWithPhaseDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:snmDetailedContractWithPhaseDto">
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded"
+									minOccurs="0"
+									name="detailedContractInfoDtoList"
+									nillable="true"
+									type="xsd1:snmDetailedContractInfoDto"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="snmPersonIdentityInfo">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="addresses"
+							nillable="true"
+							type="xsd1:snmAddressInfo"/>
+					<xs:element minOccurs="0"
+							name="contactPhoneNumber"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="fullAddress"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="fullName"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="iinBin"
+							type="xs:string"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="snmFacilityInfoList"
+							nillable="true"
+							type="xsd1:snmFacilityInfoDto"/>
+					<xs:element minOccurs="0"
+							name="type"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="snmAddressInfo">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="addressEntryType"
+							type="xs:int"/>
+					<xs:element minOccurs="0"
+							name="area"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="details"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="flatNumber"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="fullAddress"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="locality"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="postCode"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="region"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="streetNumber"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="snmFacilityInfoDto">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="addresses"
+							nillable="true"
+							type="xsd1:snmAddressInfo"/>
+					<xs:element minOccurs="0"
+							name="ceoFullName"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="contacts"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="id"
+							type="xs:long"/>
+					<xs:element minOccurs="0"
+							name="iinBin"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="name"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="snmOrganizationType"
+							type="xsd1:snmOrganizationTypeInfoDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="snmOrganizationTypeInfoDto">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="code"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="name"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="personHeaderReportDto">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="id"
+									type="xs:long"/>
+							<xs:element minOccurs="0"
+									name="firstName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="lastName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="middleName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="birthDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="iin"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="citizenship"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="gender"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="homePhone"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="actualPlace"
+									type="xsd1:addressDto"/>
+							<xs:element minOccurs="0"
+									name="registrationPlace"
+									type="xsd1:addressDto"/>
+							<xs:element minOccurs="0"
+									name="resident"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="mobilePhone"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="workPhone"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="email"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="documentNumber"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="documentType"
+									type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="socialStatus">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="personType"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="education"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="econTrade"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="occupation"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="employmentType"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="salary"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="maritalStatus"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="familyDependentsUnder18years"
+							type="xs:int"/>
+					<xs:element minOccurs="0"
+							name="familyDependentsOver18years"
+							type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="personAddrsAndDocsInfo">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="historicalAddressInfo"
+							type="xsd1:historicalGeneralSubjectAddressDto"/>
+					<xs:element minOccurs="0"
+							name="actualAddressInfo"
+							type="xsd1:actualGeneralSubjectAddressDto"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="historicalDocuments"
+							nillable="true"
+							type="xsd1:subjectHistoricalDocumentsDto"/>
+					<xs:element minOccurs="0"
+							name="actualDocuments">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element maxOccurs="unbounded"
+										minOccurs="0"
+										name="actualDocument"
+										type="xsd1:subjectActualDocumentsDto"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="actualGeneralSubjectAddressDto">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="addresses"
+							nillable="true"
+							type="xsd1:actualSubjectTypeAddresses"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="actualSubjectTypeAddresses">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="addressType"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="addressTypeCode"
+							type="xs:string"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="address"
+							type="xsd1:addressDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="personNegativeReport">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="header"
+							type="xsd1:personHeaderReportDto"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="negativeHistoryDocuments"
+							nillable="true"
+							type="xsd1:negativeHistoryDocument"/>
+					<xs:element minOccurs="0"
+							name="overDueUpdateDate"
+							type="xs:dateTime"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="actualDocuments"
+							nillable="true"
+							type="xsd1:subjectActualDocumentsDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="negativeHistoryDocument">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="contractCode"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="overDueDays"
+									type="xs:int"/>
+							<xs:element minOccurs="0"
+									name="overDueSum"
+									type="xs:decimal"/>
+							<xs:element minOccurs="0"
+									name="repaymentDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="financialType"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="currency"
+									type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="organizationNegativeReport">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="header"
+							type="xsd1:organizationHeaderReportDto"/>
+					<xs:element minOccurs="0"
+							name="companyInformation"
+							type="xsd1:companyInformationJuridical"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="negativeHistoryDocuments"
+							nillable="true"
+							type="xsd1:negativeHistoryDocument"/>
+					<xs:element minOccurs="0"
+							name="overDueUpdateDate"
+							type="xs:string"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="actualDocuments"
+							nillable="true"
+							type="xsd1:subjectActualDocumentsDto"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="personCreditNoDataReport">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportResponse">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="header"
+									type="xsd1:personHeaderReportDto"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="baseReportResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="creditHistoryQuery"
+							type="xsd1:creditHistoryQuery"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="organizationCreditNoDataReport">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportResponse">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="header"
+									type="xsd1:organizationHeaderReportDto"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="personalCreditReport">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseCreditReportInfo">
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded"
+									minOccurs="0"
+									name="companyInformation"
+									nillable="true"
+									type="xsd1:companyInformation"/>
+							<xs:element minOccurs="0"
+									name="header"
+									type="xsd1:personHeaderReportDto"/>
+							<xs:element minOccurs="0"
+									name="negativeInformation"
+									type="xsd1:negativeInformationDto"/>
+							<xs:element minOccurs="0"
+									name="personInformation"
+									type="xsd1:personAddrsAndDocsInfo"/>
+							<xs:element minOccurs="0"
+									name="propertyInformation"
+									type="xsd1:personPropertyInformation"/>
+							<xs:element minOccurs="0"
+									name="snmReportDto"
+									type="xsd1:snmPersonReportDto"/>
+							<xs:element minOccurs="0"
+									name="socialStatus"
+									type="xsd1:socialStatus"/>
+							<xs:element minOccurs="0"
+									name="wantedInformation"
+									type="xsd1:personWantedInformation"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="baseCreditReportInfo">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportResponse">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="addressInfo"
+									type="xsd1:historicalGeneralSubjectAddressDto"/>
+							<xs:element maxOccurs="unbounded"
+									minOccurs="0"
+									name="detailsDto"
+									nillable="true"
+									type="xsd1:commonContractDetails"/>
+							<xs:element maxOccurs="unbounded"
+									minOccurs="0"
+									name="guaranteeInfo"
+									nillable="true"
+									type="xsd1:subjectGeneralReportDiscriminatorsGuaranteeInfoDto"/>
+							<xs:element maxOccurs="unbounded"
+									minOccurs="0"
+									name="historicalDocuments"
+									nillable="true"
+									type="xsd1:subjectHistoricalDocumentsDto"/>
+							<xs:element minOccurs="0"
+									name="historicalDocumentsUpdateDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="rollbackProposals"
+									type="xsd1:subjectRollbackProposals"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="corporateCreditReport">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseCreditReportInfo">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="header"
+									type="xsd1:organizationHeaderReportDto"/>
+							<xs:element minOccurs="0"
+									name="companyInformation"
+									type="xsd1:companyInformationJuridical"/>
+							<xs:element minOccurs="0"
+									name="propertyInformation"
+									type="xsd1:organizationPropertyInformation"/>
+							<xs:element minOccurs="0"
+									name="snmReportDto"
+									type="xsd1:snmOrganizationReportDto"/>
+							<xs:element minOccurs="0"
+									name="organizationInformation"
+									type="xsd1:organizationAddrsAndDocsInfo"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="pkoNoDataReport">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseCreditReportInfo">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="firstName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="header"
+									type="xsd1:personHeaderReportDto"/>
+							<xs:element minOccurs="0"
+									name="lastName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="middleName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="snmReportDto"
+									type="xsd1:snmPersonReportDto"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="kkoNoDataReport">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseCreditReportInfo">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="companyName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="header"
+									type="xsd1:organizationHeaderReportDto"/>
+							<xs:element minOccurs="0"
+									name="snmReportDto"
+									type="xsd1:snmOrganizationReportDto"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="bankGuaranteeReport">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="bankGuaranteeInfo"
+							type="xsd1:bankGuaranteeInfo"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="debtorInformation"
+							nillable="true"
+							type="xsd1:debtorInformation"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="bankGuaranteeInfo">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="contractNumber"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="contractDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="creditor"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="agreementNumberGuarantee"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="agreementDateGuarantee"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="expireGuaranteeDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="expireGuaranteeAction"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="bankGuaranteeAmount"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="paymentMethod"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="createDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="agreementNumber"
+									type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="debtorInformation">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="debtorType"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="documentsLastUpdateDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="organizationHeader"
+							type="xsd1:organizationHeaderReportDto"/>
+					<xs:element minOccurs="0"
+							name="organizationInformation"
+							type="xsd1:organizationAddrsAndDocsInfo"/>
+					<xs:element minOccurs="0"
+							name="organizationRegistrationDocument"
+							type="xsd1:organizationRegistrationDocument"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="personDocumentsInformation"
+							nillable="true"
+							type="xsd1:guaranteeDocuments"/>
+					<xs:element minOccurs="0"
+							name="personHeader"
+							type="xsd1:personHeaderReportDto"/>
+					<xs:element minOccurs="0"
+							name="personInformation"
+							type="xsd1:personAddrsAndDocsInfo"/>
+					<xs:element name="subjectType"
+							type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="organizationRegistrationDocument">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="documentNumber"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="date"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="country"
+									type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="guaranteeDocuments">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportDto">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="documentType"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="documentNumber"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="issueDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="expireDate"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="issuedBy"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="issueLocation"
+									type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="bankGuaranteeReportNoData">
+				<xs:complexContent>
+					<xs:extension base="xsd1:baseReportResponse">
+						<xs:sequence>
+							<xs:element minOccurs="0"
+									name="agreementDateGuarantee"
+									type="xs:dateTime"/>
+							<xs:element minOccurs="0"
+									name="agreementNumberGuarantee"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="bankGuaranteeAmount"
+									type="xs:decimal"/>
+							<xs:element minOccurs="0"
+									name="bankGuaranteeAmountCurrency"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="creditorIin"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="creditorName"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="docNumber"
+									type="xs:string"/>
+							<xs:element minOccurs="0"
+									name="docType"
+									type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="reportMetadata">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="issueDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="receiver"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="reportNumber"
+							type="xs:long"/>
+					<xs:element minOccurs="0"
+							name="reportTypeName"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="requestCreditReport">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="reportRequest"
+							type="xsd1:reportRequest"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="requestCreditReportResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="reportResponse"
+							type="xsd1:reportResponse"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="reportResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="reportId"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="additionalInfo"
+							type="xs:anyType"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="reportContents"
+							nillable="true"
+							type="xsd1:reportContent"/>
+					<xs:element minOccurs="0"
+							name="reportResponseExceptions"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="reportContext"
+							type="xsd1:reportContext"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="reportContent">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="content"
+							type="xs:base64Binary"/>
+					<xs:element minOccurs="0"
+							name="filename"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="language"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="outputFormat"
+							type="xsd1:reportOutputFormat"/>
+					<xs:element minOccurs="0"
+							name="size"
+							type="xs:long"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="reportContext">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="reportRequest"
+							type="xsd1:reportRequest"/>
+					<xs:element name="billable"
+							type="xs:boolean"/>
+					<xs:element minOccurs="0"
+							name="startDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="finishDate"
+							type="xs:dateTime"/>
+					<xs:element minOccurs="0"
+							name="idBilling"
+							type="xs:long"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="reportContents"
+							nillable="true"
+							type="xsd1:reportContent"/>
+					<xs:element name="data">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element maxOccurs="unbounded"
+										minOccurs="0"
+										name="entry">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element minOccurs="0"
+													name="key"
+													type="xs:string"/>
+											<xs:element minOccurs="0"
+													name="value"
+													type="xs:anyType"/>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element minOccurs="0"
+							name="info"
+							type="xs:anyType"/>
+					<xs:element minOccurs="0"
+							name="requestType"
+							type="xs:string"/>
+					<xs:element minOccurs="0"
+							name="xmlReportContent"
+							type="xs:string"/>
+					<xs:element name="saveToBilling"
+							type="xs:boolean"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="personReportInfo">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="iin"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="organizationReportInfo">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="bin"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="bankGuaranteeReportInfo">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="agreementNumber"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="getCreditReportTypes">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="reportParams"
+							type="xsd1:reportParams"/>
+					<xs:element minOccurs="0"
+							name="language"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="getCreditReportTypesResponse">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="availableReportTypes"
+							type="xsd1:reportTypeLookup"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="requestXmlCreditReports">
+				<xs:sequence>
+					<xs:element minOccurs="0"
+							name="reportGenerationParams"
+							type="xsd1:reportGenerationParams"/>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="reportRequests"
+							type="xsd1:reportRequest"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="requestXmlCreditReportsResponse">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded"
+							minOccurs="0"
+							name="content"
+							type="xs:anyType"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="reportOutputFormat">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="PDF"/>
+					<xs:enumeration value="HTML_ZIP"/>
+					<xs:enumeration value="EXCEL"/>
+					<xs:enumeration value="XML"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="creditReportRecipientTypeLookup">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="RECIPIENT"/>
+					<xs:enumeration value="INHERITOR"/>
+					<xs:enumeration value="CONFIDANT_PERSON"/>
+					<xs:enumeration value="CONFIDANT_IP"/>
+					<xs:enumeration value="CONFIDANT_INHERITOR"/>
+					<xs:enumeration value="CONFIDANT_FARM_HEAD"/>
+					<xs:enumeration value="CONFIDANT_ORGANIZATION"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="reportTypeLookup">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="IDENTIFICATION"/>
+					<xs:enumeration value="INITIAL"/>
+					<xs:enumeration value="STANDARD"/>
+					<xs:enumeration value="EXTENDED"/>
+					<xs:enumeration value="NEGATIVE"/>
+					<xs:enumeration value="CREDIT_NO_DATA"/>
+					<xs:enumeration value="CREDIT"/>
+					<xs:enumeration value="PKO_KKO_NO_DATA"/>
+					<xs:enumeration value="GUARANTEE"/>
+					<xs:enumeration value="GUARANTEE_NO_DATA"/>
+					<xs:enumeration value="FINANCIAL_SUPERVISION"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:element name="ValidationFault"
+					nillable="true"
+					type="xsd1:ValidationFaultBean"/>
+			<xs:element name="ScbBusinessFault"
+					nillable="true"
+					type="xsd1:scbServiceFaultInfo"/>
+			<xs:element name="ScbSystemFault"
+					nillable="true"
+					type="xsd1:scbServiceFaultInfo"/>
+		</xs:schema>
+	</types>
+	<message name="requestCreditReports">
+		<part name="parameters"
+				element="tns:requestCreditReports"/>
+	</message>
+	<message name="requestXmlCreditReportResponse">
+		<part name="parameters"
+				element="tns:requestXmlCreditReportResponse"/>
+	</message>
+	<message name="requestCreditReport">
+		<part name="parameters"
+				element="tns:requestCreditReport"/>
+	</message>
+	<message name="ScbValidationFault">
+		<part name="ScbValidationFault"
+				element="tns:ValidationFault"/>
+	</message>
+	<message name="ScbBusinessFault">
+		<part name="ScbBusinessFault"
+				element="tns:ScbBusinessFault"/>
+	</message>
+	<message name="requestCreditReportResponse">
+		<part name="parameters"
+				element="tns:requestCreditReportResponse"/>
+	</message>
+	<message name="requestXmlCreditReportsResponse">
+		<part name="parameters"
+				element="tns:requestXmlCreditReportsResponse"/>
+	</message>
+	<message name="requestCreditReportsResponse">
+		<part name="parameters"
+				element="tns:requestCreditReportsResponse"/>
+	</message>
+	<message name="getCreditReportTypesResponse">
+		<part name="parameters"
+				element="tns:getCreditReportTypesResponse"/>
+	</message>
+	<message name="requestXmlCreditReport">
+		<part name="parameters"
+				element="tns:requestXmlCreditReport"/>
+	</message>
+	<message name="getCreditReportTypes">
+		<part name="parameters"
+				element="tns:getCreditReportTypes"/>
+	</message>
+	<message name="requestXmlCreditReports">
+		<part name="parameters"
+				element="tns:requestXmlCreditReports"/>
+	</message>
+	<message name="ScbSystemFault">
+		<part name="ScbSystemFault"
+				element="tns:ScbSystemFault"/>
+	</message>
+	<portType name="CreditReportInterface">
+		<operation name="requestCreditReports">
+			<input name="requestCreditReports"
+					message="tns:requestCreditReports"/>
+			<output name="requestCreditReportsResponse"
+					message="tns:requestCreditReportsResponse"/>
+			<fault name="ScbValidationFault"
+					message="tns:ScbValidationFault"/>
+			<fault name="ScbBusinessFault"
+					message="tns:ScbBusinessFault"/>
+		</operation>
+		<operation name="requestXmlCreditReport">
+			<input name="requestXmlCreditReport"
+					message="tns:requestXmlCreditReport"/>
+			<output name="requestXmlCreditReportResponse"
+					message="tns:requestXmlCreditReportResponse"/>
+			<fault name="ScbSystemFault"
+					message="tns:ScbSystemFault"/>
+			<fault name="ScbValidationFault"
+					message="tns:ScbValidationFault"/>
+			<fault name="ScbBusinessFault"
+					message="tns:ScbBusinessFault"/>
+		</operation>
+		<operation name="requestCreditReport">
+			<input name="requestCreditReport"
+					message="tns:requestCreditReport"/>
+			<output name="requestCreditReportResponse"
+					message="tns:requestCreditReportResponse"/>
+			<fault name="ScbSystemFault"
+					message="tns:ScbSystemFault"/>
+			<fault name="ScbValidationFault"
+					message="tns:ScbValidationFault"/>
+			<fault name="ScbBusinessFault"
+					message="tns:ScbBusinessFault"/>
+		</operation>
+		<operation name="getCreditReportTypes">
+			<input name="getCreditReportTypes"
+					message="tns:getCreditReportTypes"/>
+			<output name="getCreditReportTypesResponse"
+					message="tns:getCreditReportTypesResponse"/>
+			<fault name="ScbSystemFault"
+					message="tns:ScbSystemFault"/>
+			<fault name="ScbValidationFault"
+					message="tns:ScbValidationFault"/>
+			<fault name="ScbBusinessFault"
+					message="tns:ScbBusinessFault"/>
+		</operation>
+		<operation name="requestXmlCreditReports">
+			<input name="requestXmlCreditReports"
+					message="tns:requestXmlCreditReports"/>
+			<output name="requestXmlCreditReportsResponse"
+					message="tns:requestXmlCreditReportsResponse"/>
+			<fault name="ScbSystemFault"
+					message="tns:ScbSystemFault"/>
+			<fault name="ScbValidationFault"
+					message="tns:ScbValidationFault"/>
+			<fault name="ScbBusinessFault"
+					message="tns:ScbBusinessFault"/>
+		</operation>
+	</portType>
+	<binding name="CreditReportServiceSoapBinding"
+			type="tns:CreditReportInterface">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="requestCreditReports">
+			<soapbind:operation style="document"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+			<fault name="ScbBusinessFault">
+				<soapbind:fault name="ScbBusinessFault"
+						use="literal"/>
+			</fault>
+			<fault name="ScbValidationFault">
+				<soapbind:fault name="ScbValidationFault"
+						use="literal"/>
+			</fault>
+		</operation>
+		<operation name="requestXmlCreditReport">
+			<soapbind:operation style="document"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+			<fault name="ScbSystemFault">
+				<soapbind:fault name="ScbSystemFault"
+						use="literal"/>
+			</fault>
+			<fault name="ScbBusinessFault">
+				<soapbind:fault name="ScbBusinessFault"
+						use="literal"/>
+			</fault>
+			<fault name="ScbValidationFault">
+				<soapbind:fault name="ScbValidationFault"
+						use="literal"/>
+			</fault>
+		</operation>
+		<operation name="getCreditReportTypes">
+			<soapbind:operation style="document"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+			<fault name="ScbSystemFault">
+				<soapbind:fault name="ScbSystemFault"
+						use="literal"/>
+			</fault>
+			<fault name="ScbBusinessFault">
+				<soapbind:fault name="ScbBusinessFault"
+						use="literal"/>
+			</fault>
+			<fault name="ScbValidationFault">
+				<soapbind:fault name="ScbValidationFault"
+						use="literal"/>
+			</fault>
+		</operation>
+		<operation name="requestCreditReport">
+			<soapbind:operation style="document"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+			<fault name="ScbSystemFault">
+				<soapbind:fault name="ScbSystemFault"
+						use="literal"/>
+			</fault>
+			<fault name="ScbBusinessFault">
+				<soapbind:fault name="ScbBusinessFault"
+						use="literal"/>
+			</fault>
+			<fault name="ScbValidationFault">
+				<soapbind:fault name="ScbValidationFault"
+						use="literal"/>
+			</fault>
+		</operation>
+		<operation name="requestXmlCreditReports">
+			<soapbind:operation style="document"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+			<fault name="ScbSystemFault">
+				<soapbind:fault name="ScbSystemFault"
+						use="literal"/>
+			</fault>
+			<fault name="ScbBusinessFault">
+				<soapbind:fault name="ScbBusinessFault"
+						use="literal"/>
+			</fault>
+			<fault name="ScbValidationFault">
+				<soapbind:fault name="ScbValidationFault"
+						use="literal"/>
+			</fault>
+		</operation>
+	</binding>
+	<service name="CreditReportService">
+		<port name="CreditReportServicePort"
+				binding="tns:CreditReportServiceSoapBinding">
+			<soapbind:address location="https://testws.mkb.kz:8743/reportServices/CreditReportService"/>
+		</port>
+	</service>
+</definitions>

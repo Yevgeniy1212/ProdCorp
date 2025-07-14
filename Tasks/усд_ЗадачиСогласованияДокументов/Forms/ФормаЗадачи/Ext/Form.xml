@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="НадписьЗадача" id="43">
+			<DataPath>НадписьЗадача</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<HorizontalAlign>Center</HorizontalAlign>
+			<TextEdit>false</TextEdit>
+			<TextColor>#004242</TextColor>
+			<BackColor>#B0C4DE</BackColor>
+			<BorderColor>#4682B4</BorderColor>
+			<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="НадписьЗадачаКонтекстноеМеню" id="44"/>
+			<ExtendedTooltip name="НадписьЗадачаРасширеннаяПодсказка" id="67"/>
+		</InputField>
+		<UsualGroup name="ГруппаИсполнитель" id="39">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа исполнитель</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа исполнитель</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаИсполнительРасширеннаяПодсказка" id="68"/>
+			<ChildItems>
+				<InputField name="Исполнитель" id="23">
+					<DataPath>Объект.Исполнитель</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ИсполнительКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ИсполнительРасширеннаяПодсказка" id="69"/>
+				</InputField>
+				<CheckBoxField name="Выполнена" id="40">
+					<DataPath>Объект.Executed</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ВыполненаКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="ВыполненаРасширеннаяПодсказка" id="70"/>
+					<Events>
+						<Event name="OnChange">ВыполненаПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="71"/>
+		</InputField>
+		<UsualGroup name="ГруппаСрокИсполнения" id="42">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа срок исполнения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа срок исполнения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаСрокИсполненияРасширеннаяПодсказка" id="72"/>
+			<ChildItems>
+				<InputField name="СрокИсполнения" id="5">
+					<DataPath>Объект.СрокИсполнения</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исполнить до</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ChoiceListButton>true</ChoiceListButton>
+					<ContextMenu name="СрокИсполненияКонтекстноеМеню" id="6"/>
+					<ExtendedTooltip name="СрокИсполненияРасширеннаяПодсказка" id="73"/>
+					<Events>
+						<Event name="StartChoice">СрокИсполненияНачалоВыбора</Event>
+						<Event name="StartListChoice">СрокИсполненияНачалоВыбораИзСписка</Event>
+						<Event name="ChoiceProcessing">СрокИсполненияОбработкаВыбора</Event>
+					</Events>
+				</InputField>
+				<CheckBoxField name="Оповещение" id="13">
+					<DataPath>Объект.Оповещение</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Напомнить:</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОповещениеКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ОповещениеРасширеннаяПодсказка" id="74"/>
+					<Events>
+						<Event name="OnChange">ОповещениеПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="СрокОповещения" id="15">
+					<DataPath>Объект.СрокОповещения</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<ChoiceListButton>true</ChoiceListButton>
+					<ContextMenu name="СрокОповещенияКонтекстноеМеню" id="16"/>
+					<ExtendedTooltip name="СрокОповещенияРасширеннаяПодсказка" id="75"/>
+					<Events>
+						<Event name="StartChoice">СрокИсполненияНачалоВыбора</Event>
+						<Event name="StartListChoice">СрокИсполненияНачалоВыбораИзСписка</Event>
+						<Event name="ChoiceProcessing">СрокИсполненияОбработкаВыбора</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="НадписьКлассификацияЗадачи" id="48">
+			<DataPath>НадписьКлассификацияЗадачи</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<HorizontalAlign>Center</HorizontalAlign>
+			<TextEdit>false</TextEdit>
+			<TextColor>#004242</TextColor>
+			<BackColor>#B0C4DE</BackColor>
+			<BorderColor>#4682B4</BorderColor>
+			<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="НадписьКлассификацияЗадачиКонтекстноеМеню" id="49"/>
+			<ExtendedTooltip name="НадписьКлассификацияЗадачиРасширеннаяПодсказка" id="76"/>
+		</InputField>
+		<InputField name="ВидЗадачиСогласования" id="56">
+			<DataPath>Объект.ВидЗадачиСогласования</DataPath>
+			<ContextMenu name="ВидЗадачиСогласованияКонтекстноеМеню" id="57"/>
+			<ExtendedTooltip name="ВидЗадачиСогласованияРасширеннаяПодсказка" id="77"/>
+			<Events>
+				<Event name="OnChange">ВидЗадачиСогласованияПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="ГруппаВидМаршрутЭтап" id="51">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа вид маршрут этап</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа вид маршрут этап</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВидМаршрутЭтапРасширеннаяПодсказка" id="78"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаВидМаршрут" id="54">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа вид маршрут</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа вид маршрут</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВидМаршрутРасширеннаяПодсказка" id="79"/>
+					<ChildItems>
+						<InputField name="ВидДокументов" id="60">
+							<DataPath>Объект.ВидДокументов</DataPath>
+							<ContextMenu name="ВидДокументовКонтекстноеМеню" id="61"/>
+							<ExtendedTooltip name="ВидДокументовРасширеннаяПодсказка" id="80"/>
+						</InputField>
+						<InputField name="Маршрут" id="62">
+							<DataPath>Объект.Маршрут</DataPath>
+							<ContextMenu name="МаршрутКонтекстноеМеню" id="63"/>
+							<ExtendedTooltip name="МаршрутРасширеннаяПодсказка" id="81"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаЭтап" id="55">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа этап</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа этап</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаЭтапРасширеннаяПодсказка" id="82"/>
+					<ChildItems>
+						<InputField name="Этап" id="64">
+							<DataPath>Объект.Этап</DataPath>
+							<ContextMenu name="ЭтапКонтекстноеМеню" id="65"/>
+							<ExtendedTooltip name="ЭтапРасширеннаяПодсказка" id="83"/>
+						</InputField>
+						<InputField name="ВидАдресацииЗадачи" id="58">
+							<DataPath>Объект.ВидАдресацииЗадачи</DataPath>
+							<ContextMenu name="ВидАдресацииЗадачиКонтекстноеМеню" id="59"/>
+							<ExtendedTooltip name="ВидАдресацииЗадачиРасширеннаяПодсказка" id="84"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="НадписьОписание" id="45">
+			<DataPath>НадписьОписание</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<HorizontalAlign>Center</HorizontalAlign>
+			<TextEdit>false</TextEdit>
+			<TextColor>#004242</TextColor>
+			<BackColor>#B0C4DE</BackColor>
+			<BorderColor>#4682B4</BorderColor>
+			<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="НадписьОписаниеКонтекстноеМеню" id="46"/>
+			<ExtendedTooltip name="НадписьОписаниеРасширеннаяПодсказка" id="85"/>
+		</InputField>
+		<InputField name="Описание" id="7">
+			<DataPath>Объект.Описание</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<Height>4</Height>
+			<MultiLine>true</MultiLine>
+			<ContextMenu name="ОписаниеКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="86"/>
+		</InputField>
+		<UsualGroup name="ГруппаОбъект" id="47">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа объект</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа объект</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОбъектРасширеннаяПодсказка" id="87"/>
+			<ChildItems>
+				<InputField name="Объект" id="9">
+					<DataPath>Объект.Объект</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основание</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<OpenButton>true</OpenButton>
+					<ContextMenu name="ОбъектКонтекстноеМеню" id="10"/>
+					<ExtendedTooltip name="ОбъектРасширеннаяПодсказка" id="88"/>
+				</InputField>
+				<LabelField name="Инициатор" id="11">
+					<DataPath>Объект.Инициатор</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ИнициаторКонтекстноеМеню" id="12"/>
+					<ExtendedTooltip name="ИнициаторРасширеннаяПодсказка" id="89"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<Button name="ВыполнитьУтверждениеДокумента" id="66">
+			<Type>UsualButton</Type>
+			<Width>40</Width>
+			<Height>1</Height>
+			<CommandName>Form.Command.ВыполнитьУтверждениеДокумента</CommandName>
+			<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ExtendedTooltip name="ВыполнитьУтверждениеДокументаРасширеннаяПодсказка" id="90"/>
+		</Button>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:TaskObject.усд_ЗадачиСогласованияДокументов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="НадписьЗадача" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись группы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьОписание" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись группы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьКлассификацияЗадачи" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись группы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="мВыполнена" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>М выполнена</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="мЧас" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>М час</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="мМинута" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>М минута</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ВыполнитьУтверждениеДокумента" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить утверждение документа</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить утверждение документа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.усд_Флажок</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+				<xr:TransparentPixel x="5" y="5"/>
+			</Picture>
+			<Action>ВыполнитьУтверждениеДокумента</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>
