@@ -1,0 +1,973 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанныхЗапрос</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачисленныйНалог</dataPath>
+			<field>НачисленныйНалог</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Затраты по начисленному налогу</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">20</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатьяЗатратНалога</dataPath>
+			<field>СтатьяЗатратНалога</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто1</dataPath>
+			<field>Субконто1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид налога</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто2</dataPath>
+			<field>Субконто2</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид платежа в бюджет</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто3</dataPath>
+			<field>Субконто3</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Налоговый комитет</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Счет</dataPath>
+			<field>Счет</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Счет налога</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УплаченныйНалог</dataPath>
+			<field>УплаченныйНалог</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачисленныйНалогСУчетомСальдо</dataPath>
+			<field>НачисленныйНалогСУчетомСальдо</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаКонечныйОстаток</dataPath>
+			<field>СуммаКонечныйОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма конечный остаток</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:balance>true</dcscom:balance>
+				<dcscom:balanceGroupName>Сумма</dcscom:balanceGroupName>
+				<dcscom:balanceType>ClosingBalance</dcscom:balanceType>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНалогаВычет</dataPath>
+			<field>СуммаНалогаВычет</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма вычета</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНалогаНЕВычет</dataPath>
+			<field>СуммаНалогаНЕВычет</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Не разрешено к вычету</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНачальныйОстаток</dataPath>
+			<field>СуммаНачальныйОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма начальный остаток</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:balance>true</dcscom:balance>
+				<dcscom:balanceGroupName>Сумма</dcscom:balanceGroupName>
+				<dcscom:balanceType>OpeningBalance</dcscom:balanceType>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УплаченныйНалогСУчетомСальдо</dataPath>
+			<field>УплаченныйНалогСУчетомСальдо</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтруктурноеПодразделение</dataPath>
+			<field>СтруктурноеПодразделение</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<presentationExpression>Выбор Когда Не ЗначениеЗаполнено(СтруктурноеПодразделение) Тогда "Головное подразделение" Иначе СтруктурноеПодразделение Конец</presentationExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подразделение</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидУчетаКор</dataPath>
+			<field>ВидУчетаКор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСубконто1</dataPath>
+			<field>КорСубконто1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСубконто2</dataPath>
+			<field>КорСубконто2</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСубконто3</dataPath>
+			<field>КорСубконто3</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтруктурноеПодразделениеКор</dataPath>
+			<field>СтруктурноеПодразделениеКор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСчет</dataPath>
+			<field>КорСчет</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВозвратНалога</dataPath>
+			<field>ВозвратНалога</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возврат налога</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидУчета</dataPath>
+			<field>ВидУчета</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	НалогиСборыОтчисления.Ссылка КАК Налог,
+	НалогиСборыОтчисления.СчетУчетаРасчетовСКонтрагентомНУ КАК СчетУчетаРасчетовСКонтрагентомНУ,
+	НалогиСборыОтчисления.СтатьяЗатрат КАК СтатьяЗатрат
+ПОМЕСТИТЬ ВТ_СписокНалогов
+ИЗ
+	Справочник.НалогиСборыОтчисления КАК НалогиСборыОтчисления
+ГДЕ
+	НалогиСборыОтчисления.ОтноситьНаВычетыВПределахУплаченнойСуммы
+	И НЕ НалогиСборыОтчисления.Ссылка = &amp;НалогОСМС
+{ГДЕ
+	НалогиСборыОтчисления.Ссылка.* КАК Субконто1}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	НалогиСборыОтчисления.Ссылка КАК Налог,
+	ВЫБОР
+		КОГДА НалогиСборыОтчисления.СчетУчетаРасчетовСКонтрагентомНУ = ЗНАЧЕНИЕ(ПланСчетов.Налоговый.ПустаяСсылка)
+			ТОГДА ЗНАЧЕНИЕ(ПланСчетов.Налоговый.ОбязательстваПоОтчислениямОСМС)
+		ИНАЧЕ НалогиСборыОтчисления.СчетУчетаРасчетовСКонтрагентомНУ
+	КОНЕЦ КАК СчетУчетаРасчетовСКонтрагентомНУ,
+	НалогиСборыОтчисления.СтатьяЗатрат КАК СтатьяЗатрат
+ПОМЕСТИТЬ ВТ_СписокНалоговПоОСМС
+ИЗ
+	Справочник.НалогиСборыОтчисления КАК НалогиСборыОтчисления
+ГДЕ
+	НалогиСборыОтчисления.Ссылка = &amp;НалогОСМС
+	И НалогиСборыОтчисления.ОтноситьНаВычетыВПределахУплаченнойСуммы
+{ГДЕ
+	НалогиСборыОтчисления.Ссылка.* КАК Субконто1}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Общий.Счет КАК Счет,
+	Общий.Организация КАК Организация,
+	Общий.СтруктурноеПодразделение КАК СтруктурноеПодразделение,
+	Общий.Субконто1 КАК Субконто1,
+	Общий.Субконто2 КАК Субконто2,
+	Общий.Субконто3 КАК Субконто3,
+	СУММА(Общий.НачисленныйНалог) КАК НачисленныйНалог,
+	Общий.Субконто1.СтатьяЗатрат КАК СтатьяЗатратНалога,
+	СУММА(Общий.СуммаОплаты) КАК УплаченныйНалог,
+	СУММА(Общий.СуммаНачальныйОстаток) КАК СуммаНачальныйОстаток,
+	СУММА(Общий.СуммаКонечныйОстаток) КАК СуммаКонечныйОстаток,
+	СУММА(Общий.НачисленныйНалогСУчетомСальдо) КАК НачисленныйНалогСУчетомСальдо,
+	СУММА(Общий.УплаченныйНалогСУчетомСальдо) КАК УплаченныйНалогСУчетомСальдо,
+	СУММА(Общий.ВозвратНалога) КАК ВозвратНалога
+ПОМЕСТИТЬ ВТ_РасчетыПоНалогам
+ИЗ
+	(ВЫБРАТЬ
+		НачисленныйНалог.Счет КАК Счет,
+		НачисленныйНалог.Организация КАК Организация,
+		НачисленныйНалог.СтруктурноеПодразделение КАК СтруктурноеПодразделение,
+		НачисленныйНалог.Субконто1 КАК Субконто1,
+		НачисленныйНалог.Субконто2 КАК Субконто2,
+		НачисленныйНалог.Субконто3 КАК Субконто3,
+		НачисленныйНалог.СуммаОборотКт КАК НачисленныйНалог,
+		0 КАК СуммаНачальныйОстаток,
+		0 КАК СуммаКонечныйОстаток,
+		0 КАК СуммаОплаты,
+		НачисленныйНалог.СуммаОборотКт КАК НачисленныйНалогСУчетомСальдо,
+		0 КАК УплаченныйНалогСУчетомСальдо,
+		0 КАК ВозвратНалога
+	ИЗ
+		РегистрБухгалтерии.Налоговый.Обороты(
+				{(&amp;НачалоПериода)},
+				{(&amp;КонецПериода)},
+				,
+				Счет В
+					(ВЫБРАТЬ
+						НалогиСборыОтчисления.СчетУчетаРасчетовСКонтрагентомНУ
+					ИЗ
+						ВТ_СписокНалогов КАК НалогиСборыОтчисления),
+				,
+				ВидУчета = ЗНАЧЕНИЕ(Справочник.ВидыУчетаНУ.НУ)
+					И (КорСубконто1 ССЫЛКА Справочник.СтатьиЗатрат
+						ИЛИ КорСубконто2 ССЫЛКА Справочник.СтатьиЗатрат
+						ИЛИ КорСубконто3 ССЫЛКА Справочник.СтатьиЗатрат)
+					И Субконто1 В
+						(ВЫБРАТЬ
+							НалогиСборыОтчисления.Налог
+						ИЗ
+							ВТ_СписокНалогов КАК НалогиСборыОтчисления) {(Субконто1).* КАК Субконто1, (Субконто2).* КАК Субконто2, (Субконто3).* КАК Субконто3, (СтруктурноеПодразделение).* КАК Подразделение, (Организация).* КАК Организация},
+				,
+				) КАК НачисленныйНалог
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		НачисленныйНалог.Счет,
+		НачисленныйНалог.Организация,
+		НачисленныйНалог.СтруктурноеПодразделение,
+		&amp;НалогОСМС,
+		НачисленныйНалог.Субконто1,
+		&amp;ПустойКонтрагент,
+		НачисленныйНалог.СуммаОборотКт,
+		0,
+		0,
+		0,
+		НачисленныйНалог.СуммаОборотКт,
+		0,
+		0
+	ИЗ
+		РегистрБухгалтерии.Налоговый.Обороты(
+				{(&amp;НачалоПериода)},
+				{(&amp;КонецПериода)},
+				,
+				Счет В
+					(ВЫБРАТЬ
+						НалогиСборыОтчисления.СчетУчетаРасчетовСКонтрагентомНУ
+					ИЗ
+						ВТ_СписокНалоговПоОСМС КАК НалогиСборыОтчисления),
+				,
+				ВидУчета = ЗНАЧЕНИЕ(Справочник.ВидыУчетаНУ.НУ)
+					И (КорСубконто1 ССЫЛКА Справочник.СтатьиЗатрат
+						ИЛИ КорСубконто2 ССЫЛКА Справочник.СтатьиЗатрат
+						ИЛИ КорСубконто3 ССЫЛКА Справочник.СтатьиЗатрат),
+				,
+				) КАК НачисленныйНалог
+	{ГДЕ
+		(&amp;НалогОСМС) КАК Субконто1,
+		НачисленныйНалог.Субконто1 КАК Субконто2,
+		(&amp;ПустойКонтрагент) КАК Субконто3}
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		НалоговыйОстаткиИОбороты.Счет,
+		НалоговыйОстаткиИОбороты.Организация,
+		НалоговыйОстаткиИОбороты.СтруктурноеПодразделение,
+		НалоговыйОстаткиИОбороты.Субконто1,
+		НалоговыйОстаткиИОбороты.Субконто2,
+		НалоговыйОстаткиИОбороты.Субконто3,
+		0,
+		-НалоговыйОстаткиИОбороты.СуммаНачальныйОстаток,
+		-НалоговыйОстаткиИОбороты.СуммаКонечныйОстаток,
+		0,
+		ВЫБОР
+			КОГДА НалоговыйОстаткиИОбороты.СуммаНачальныйОстатокКт &gt; 0
+				ТОГДА НалоговыйОстаткиИОбороты.СуммаНачальныйОстатокКт
+			ИНАЧЕ 0
+		КОНЕЦ,
+		ВЫБОР
+			КОГДА НалоговыйОстаткиИОбороты.СуммаНачальныйОстатокКт &lt; 0
+				ТОГДА -НалоговыйОстаткиИОбороты.СуммаНачальныйОстатокКт
+			ИНАЧЕ 0
+		КОНЕЦ,
+		0
+	ИЗ
+		РегистрБухгалтерии.Налоговый.ОстаткиИОбороты(
+				,
+				,
+				Период,
+				,
+				Счет В
+					(ВЫБРАТЬ
+						НалогиСборыОтчисления.СчетУчетаРасчетовСКонтрагентомНУ
+					ИЗ
+						ВТ_СписокНалогов КАК НалогиСборыОтчисления),
+				,
+				(ВидУчета = ЗНАЧЕНИЕ(Справочник.ВидыУчетаНУ.НУ)
+					ИЛИ ВидУчета = ЗНАЧЕНИЕ(Справочник.ВидыУчетаНУ.ВР))
+					И Субконто1 В
+						(ВЫБРАТЬ
+							НалогиСборыОтчисления.Налог
+						ИЗ
+							ВТ_СписокНалогов КАК НалогиСборыОтчисления) {(Субконто1).* КАК Субконто1, (Субконто2).* КАК Субконто2, (Субконто3).* КАК Субконто3, (СтруктурноеПодразделение).* КАК Подразделение, (Организация).* КАК Организация}) КАК НалоговыйОстаткиИОбороты
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		НалоговыйОстаткиИОбороты.Счет,
+		НалоговыйОстаткиИОбороты.Организация,
+		НалоговыйОстаткиИОбороты.СтруктурноеПодразделение,
+		&amp;НалогОСМС,
+		НалоговыйОстаткиИОбороты.Субконто1,
+		&amp;ПустойКонтрагент,
+		0,
+		-НалоговыйОстаткиИОбороты.СуммаНачальныйОстаток,
+		-НалоговыйОстаткиИОбороты.СуммаКонечныйОстаток,
+		0,
+		ВЫБОР
+			КОГДА НалоговыйОстаткиИОбороты.СуммаНачальныйОстатокКт &gt; 0
+				ТОГДА НалоговыйОстаткиИОбороты.СуммаНачальныйОстатокКт
+			ИНАЧЕ 0
+		КОНЕЦ,
+		ВЫБОР
+			КОГДА НалоговыйОстаткиИОбороты.СуммаНачальныйОстатокКт &lt; 0
+				ТОГДА -НалоговыйОстаткиИОбороты.СуммаНачальныйОстатокКт
+			ИНАЧЕ 0
+		КОНЕЦ,
+		0
+	ИЗ
+		РегистрБухгалтерии.Налоговый.ОстаткиИОбороты(
+				,
+				,
+				Период,
+				,
+				Счет В
+					(ВЫБРАТЬ
+						НалогиСборыОтчисления.СчетУчетаРасчетовСКонтрагентомНУ
+					ИЗ
+						ВТ_СписокНалоговПоОСМС КАК НалогиСборыОтчисления),
+				,
+				ВидУчета = ЗНАЧЕНИЕ(Справочник.ВидыУчетаНУ.НУ)
+					ИЛИ ВидУчета = ЗНАЧЕНИЕ(Справочник.ВидыУчетаНУ.ВР) {(СтруктурноеПодразделение).* КАК Подразделение, (Организация).* КАК Организация}) КАК НалоговыйОстаткиИОбороты
+	{ГДЕ
+		(&amp;НалогОСМС) КАК Субконто1,
+		НалоговыйОстаткиИОбороты.Субконто1 КАК Субконто2,
+		(&amp;ПустойКонтрагент) КАК Субконто3}
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		УплаченныйНалог.Счет,
+		УплаченныйНалог.Организация,
+		УплаченныйНалог.СтруктурноеПодразделение,
+		УплаченныйНалог.Субконто1,
+		УплаченныйНалог.Субконто2,
+		УплаченныйНалог.Субконто3,
+		0,
+		0,
+		0,
+		УплаченныйНалог.СуммаОборотДт,
+		0,
+		УплаченныйНалог.СуммаОборотДт,
+		0
+	ИЗ
+		РегистрБухгалтерии.Налоговый.Обороты(
+				{(&amp;НачалоПериода)},
+				{(&amp;КонецПериода)},
+				,
+				Счет В
+					(ВЫБРАТЬ
+						НалогиСборыОтчисления.СчетУчетаРасчетовСКонтрагентомНУ
+					ИЗ
+						ВТ_СписокНалогов КАК НалогиСборыОтчисления),
+				,
+				Субконто1 В
+						(ВЫБРАТЬ
+							НалогиСборыОтчисления.Налог
+						ИЗ
+							ВТ_СписокНалогов КАК НалогиСборыОтчисления)
+					И ВидУчета = ЗНАЧЕНИЕ(Справочник.ВидыУчетаНУ.НУ)
+					И (НЕ КорСубконто1 ССЫЛКА Справочник.СтатьиЗатрат
+						И НЕ КорСубконто2 ССЫЛКА Справочник.СтатьиЗатрат
+						И НЕ КорСубконто1 ССЫЛКА Справочник.СтатьиЗатрат) {(Субконто1).* КАК Субконто1, (Субконто2).* КАК Субконто2, (Субконто3).* КАК Субконто3, (СтруктурноеПодразделение).* КАК Подразделение, (Организация).* КАК Организация},
+				,
+				) КАК УплаченныйНалог
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		УплаченныйНалог.Счет,
+		УплаченныйНалог.Организация,
+		УплаченныйНалог.СтруктурноеПодразделение,
+		&amp;НалогОСМС,
+		УплаченныйНалог.Субконто1,
+		&amp;ПустойКонтрагент,
+		0,
+		0,
+		0,
+		УплаченныйНалог.СуммаОборотДт,
+		0,
+		УплаченныйНалог.СуммаОборотДт,
+		0
+	ИЗ
+		РегистрБухгалтерии.Налоговый.Обороты(
+				{(&amp;НачалоПериода)},
+				{(&amp;КонецПериода)},
+				,
+				Счет В
+					(ВЫБРАТЬ
+						НалогиСборыОтчисления.СчетУчетаРасчетовСКонтрагентомНУ
+					ИЗ
+						ВТ_СписокНалоговПоОСМС КАК НалогиСборыОтчисления),
+				,
+				ВидУчета = ЗНАЧЕНИЕ(Справочник.ВидыУчетаНУ.НУ)
+					И (НЕ КорСубконто1 ССЫЛКА Справочник.СтатьиЗатрат
+						И НЕ КорСубконто2 ССЫЛКА Справочник.СтатьиЗатрат
+						И НЕ КорСубконто1 ССЫЛКА Справочник.СтатьиЗатрат) {(СтруктурноеПодразделение).* КАК Подразделение, (Организация).* КАК Организация},
+				,
+				) КАК УплаченныйНалог
+	{ГДЕ
+		(&amp;НалогОСМС) КАК Субконто1,
+		УплаченныйНалог.Субконто1 КАК Субконто2,
+		(&amp;ПустойКонтрагент) КАК Субконто3}
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ВозвратНалога.Счет,
+		ВозвратНалога.Организация,
+		ВозвратНалога.СтруктурноеПодразделение,
+		ВозвратНалога.Субконто1,
+		ВозвратНалога.Субконто2,
+		ВозвратНалога.Субконто3,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		ВозвратНалога.СуммаОборотКт
+	ИЗ
+		РегистрБухгалтерии.Налоговый.Обороты(
+				{(&amp;НачалоПериода)},
+				{(&amp;КонецПериода)},
+				,
+				Счет В
+					(ВЫБРАТЬ
+						НалогиСборыОтчисления.СчетУчетаРасчетовСКонтрагентомНУ
+					ИЗ
+						ВТ_СписокНалогов КАК НалогиСборыОтчисления),
+				,
+				ВидУчета = ЗНАЧЕНИЕ(Справочник.ВидыУчетаНУ.НУ)
+					И Субконто1 В
+						(ВЫБРАТЬ
+							НалогиСборыОтчисления.Налог
+						ИЗ
+							ВТ_СписокНалогов КАК НалогиСборыОтчисления) {(Субконто1).* КАК Субконто1, (Субконто2).* КАК Субконто2, (Субконто3).* КАК Субконто3, (СтруктурноеПодразделение).* КАК Подразделение, (Организация).* КАК Организация},
+				КорСчет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Налоговый.ДенежныеСредства)),
+				) КАК ВозвратНалога
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ВозвратНалога.Счет,
+		ВозвратНалога.Организация,
+		ВозвратНалога.СтруктурноеПодразделение,
+		&amp;НалогОСМС,
+		ВозвратНалога.Субконто1,
+		&amp;ПустойКонтрагент,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		ВозвратНалога.СуммаОборотКт
+	ИЗ
+		РегистрБухгалтерии.Налоговый.Обороты(
+				{(&amp;НачалоПериода)},
+				{(&amp;КонецПериода)},
+				,
+				Счет В
+					(ВЫБРАТЬ
+						НалогиСборыОтчисления.СчетУчетаРасчетовСКонтрагентомНУ
+					ИЗ
+						ВТ_СписокНалоговПоОСМС КАК НалогиСборыОтчисления),
+				,
+				ВидУчета = ЗНАЧЕНИЕ(Справочник.ВидыУчетаНУ.НУ),
+				КорСчет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Налоговый.ДенежныеСредства)),
+				) КАК ВозвратНалога
+	{ГДЕ
+		(&amp;НалогОСМС) КАК Субконто1,
+		ВозвратНалога.Субконто1 КАК Субконто2,
+		(&amp;ПустойКонтрагент) КАК Субконто3}) КАК Общий
+
+СГРУППИРОВАТЬ ПО
+	Общий.Счет,
+	Общий.Организация,
+	Общий.СтруктурноеПодразделение,
+	Общий.Субконто1,
+	Общий.Субконто2,
+	Общий.Субконто3,
+	Общий.Субконто1.СтатьяЗатрат
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_РасчетыПоНалогам.Счет КАК Счет,
+	ВТ_РасчетыПоНалогам.Организация КАК Организация,
+	ВТ_РасчетыПоНалогам.СтруктурноеПодразделение КАК СтруктурноеПодразделение,
+	ВТ_РасчетыПоНалогам.Субконто1 КАК Субконто1,
+	ВТ_РасчетыПоНалогам.Субконто2 КАК Субконто2,
+	ВТ_РасчетыПоНалогам.Субконто3 КАК Субконто3,
+	ВТ_РасчетыПоНалогам.НачисленныйНалог КАК НачисленныйНалог,
+	ВТ_РасчетыПоНалогам.Субконто1.СтатьяЗатрат КАК СтатьяЗатратНалога,
+	ВТ_РасчетыПоНалогам.УплаченныйНалог КАК УплаченныйНалог,
+	ВЫБОР
+		КОГДА ВТ_РасчетыПоНалогам.НачисленныйНалогСУчетомСальдо &gt; ВТ_РасчетыПоНалогам.УплаченныйНалогСУчетомСальдо - ВТ_РасчетыПоНалогам.ВозвратНалога
+			ТОГДА ВТ_РасчетыПоНалогам.УплаченныйНалогСУчетомСальдо - ВТ_РасчетыПоНалогам.ВозвратНалога
+		ИНАЧЕ ВТ_РасчетыПоНалогам.НачисленныйНалогСУчетомСальдо
+	КОНЕЦ КАК СуммаНалогаВычет,
+	ВТ_РасчетыПоНалогам.НачисленныйНалогСУчетомСальдо - ВЫБОР
+		КОГДА ВТ_РасчетыПоНалогам.НачисленныйНалогСУчетомСальдо &gt; ВТ_РасчетыПоНалогам.УплаченныйНалогСУчетомСальдо - ВТ_РасчетыПоНалогам.ВозвратНалога
+			ТОГДА ВТ_РасчетыПоНалогам.УплаченныйНалогСУчетомСальдо - ВТ_РасчетыПоНалогам.ВозвратНалога
+		ИНАЧЕ ВТ_РасчетыПоНалогам.НачисленныйНалогСУчетомСальдо
+	КОНЕЦ КАК СуммаНалогаНЕВычет,
+	ВТ_РасчетыПоНалогам.СуммаНачальныйОстаток КАК СуммаНачальныйОстаток,
+	ВТ_РасчетыПоНалогам.СуммаКонечныйОстаток КАК СуммаКонечныйОстаток,
+	ВТ_РасчетыПоНалогам.НачисленныйНалогСУчетомСальдо КАК НачисленныйНалогСУчетомСальдо,
+	ВТ_РасчетыПоНалогам.УплаченныйНалогСУчетомСальдо КАК УплаченныйНалогСУчетомСальдо,
+	ВТ_РасчетыПоНалогам.ВозвратНалога КАК ВозвратНалога
+{ВЫБРАТЬ
+	Счет.*,
+	Организация.*,
+	СтруктурноеПодразделение.*,
+	Субконто1.*,
+	Субконто2.*,
+	Субконто3.*,
+	НачисленныйНалог,
+	СтатьяЗатратНалога.*,
+	УплаченныйНалог,
+	СуммаНачальныйОстаток,
+	СуммаКонечныйОстаток,
+	НачисленныйНалогСУчетомСальдо,
+	УплаченныйНалогСУчетомСальдо,
+	СуммаНалогаВычет,
+	СуммаНалогаНЕВычет,
+	СуммаНачальныйОстаток,
+	СуммаКонечныйОстаток,
+	ВозвратНалога}
+ИЗ
+	ВТ_РасчетыПоНалогам КАК ВТ_РасчетыПоНалогам</query>
+	</dataSet>
+	<totalField>
+		<dataPath>НачисленныйНалог</dataPath>
+		<expression>Сумма(НачисленныйНалог)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>УплаченныйНалог</dataPath>
+		<expression>Сумма(УплаченныйНалог)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НачисленныйНалогСУчетомСальдо</dataPath>
+		<expression>Сумма(НачисленныйНалогСУчетомСальдо)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаКонечныйОстаток</dataPath>
+		<expression>Сумма(СуммаКонечныйОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНалогаВычет</dataPath>
+		<expression>Сумма(СуммаНалогаВычет)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНалогаНЕВычет</dataPath>
+		<expression>Сумма(СуммаНалогаНЕВычет)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНачальныйОстаток</dataPath>
+		<expression>Сумма(СуммаНачальныйОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>УплаченныйНалогСУчетомСальдо</dataPath>
+		<expression>Сумма(УплаченныйНалогСУчетомСальдо)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВозвратНалога</dataPath>
+		<expression>Сумма(ВозвратНалога)</expression>
+	</totalField>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СубконтоДетализации</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Субконто детализации</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.ВидыСубконтоТиповые</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоТиповые.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<parameter>
+		<name>СчетДетализации</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Счет детализации</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfAccountsRef.Налоговый</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Налоговый.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СчетаИсключенныеИзЗапросаПоСчетам</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Счета исключенные из запроса по счетам</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfAccountsRef.Налоговый</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Налоговый.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<parameter>
+		<name>СчетРазвернутоеСальдо</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Счет развернутое сальдо</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfAccountsRef.Налоговый</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Налоговый.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СубконтоРазвернутый</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Субконто развернутый</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.ВидыСубконтоТиповые</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоТиповые.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<parameter>
+		<name>ПоСубсчетам</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>По субсчетам</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СчетаИсключенныеИзЗапросаПоСчетамРазвернутое</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Счета исключенные из запроса по счетам развернутое</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfAccountsRef.Налоговый</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Налоговый.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<parameter>
+		<name>НалогОСМС</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Налог ОСМС</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.НалогиСборыОтчисления</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.НалогиСборыОтчисления.ОтчисленияОбязательноеСоциальноеМедицинскоеСтрахование</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПустойКонтрагент</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Пустой контрагент</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Контрагенты</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.Контрагенты.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<template>
+		<name>Макет1</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">НачисленныйНалог</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">16.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">16.75</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Расшифровка</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Parameter">Субконто1</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>НачисленныйНалог</dcsat:name>
+			<dcsat:expression>НачисленныйНалог</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:DetailsAreaTemplateParameter">
+			<dcsat:name>Субконто1</dcsat:name>
+		</parameter>
+	</template>
+	<fieldTemplate>
+		<field>НачисленныйНалог</field>
+		<template>Макет1</template>
+	</fieldTemplate>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection/>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выделять отрицательные</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection/>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основной шрифт</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Green</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

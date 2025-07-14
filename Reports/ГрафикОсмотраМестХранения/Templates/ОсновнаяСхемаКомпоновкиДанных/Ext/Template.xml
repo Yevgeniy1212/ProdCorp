@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Элеватор</dataPath>
+			<field>Элеватор</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонецНедели</dataPath>
+			<field>КонецНедели</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Месяц</dataPath>
+			<field>Месяц</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДЛФ=MM</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачалоНедели</dataPath>
+			<field>НачалоНедели</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Область</dataPath>
+			<field>Область</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ГрафикОсмотраМестХранения.Организация,
+	ГрафикОсмотраМестХранения.Элеватор,
+	ГрафикОсмотраМестХранения.Регистратор,
+	НАЧАЛОПЕРИОДА(ГрафикОсмотраМестХранения.ДатаОсмотра, НЕДЕЛЯ) КАК НачалоНедели,
+	КОНЕЦПЕРИОДА(ГрафикОсмотраМестХранения.ДатаОсмотра, НЕДЕЛЯ) КАК КонецНедели,
+	ВЫБОР
+		КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 12
+			ТОГДА "Декабрь"
+		ИНАЧЕ ВЫБОР
+				КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 11
+					ТОГДА "Ноябрь"
+				ИНАЧЕ ВЫБОР
+						КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 10
+							ТОГДА "Октябрь"
+						ИНАЧЕ ВЫБОР
+								КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 9
+									ТОГДА "Сентябрь"
+								ИНАЧЕ ВЫБОР
+										КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 8
+											ТОГДА "Август"
+										ИНАЧЕ ВЫБОР
+												КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 7
+													ТОГДА "Июль"
+												ИНАЧЕ ВЫБОР
+														КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 6
+															ТОГДА "Июнь"
+														ИНАЧЕ ВЫБОР
+																КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 5
+																	ТОГДА "Май"
+																ИНАЧЕ ВЫБОР
+																		КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 4
+																			ТОГДА "Апрель"
+																		ИНАЧЕ ВЫБОР
+																				КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 3
+																					ТОГДА "Март"
+																				ИНАЧЕ ВЫБОР
+																						КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 2
+																							ТОГДА "Февраль"
+																						ИНАЧЕ ВЫБОР
+																								КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 1
+																									ТОГДА "Январь"
+																								ИНАЧЕ "Пустая ссылка"
+																							КОНЕЦ
+																					КОНЕЦ
+																			КОНЕЦ
+																	КОНЕЦ
+															КОНЕЦ
+													КОНЕЦ
+											КОНЕЦ
+									КОНЕЦ
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ КАК Месяц,
+	ГрафикОсмотраМестХранения.Элеватор.Область КАК Область
+ИЗ
+	РегистрСведений.ГрафикОсмотраМестХранения КАК ГрафикОсмотраМестХранения
+
+СГРУППИРОВАТЬ ПО
+	НАЧАЛОПЕРИОДА(ГрафикОсмотраМестХранения.ДатаОсмотра, НЕДЕЛЯ),
+	КОНЕЦПЕРИОДА(ГрафикОсмотраМестХранения.ДатаОсмотра, НЕДЕЛЯ),
+	ГрафикОсмотраМестХранения.Организация,
+	ГрафикОсмотраМестХранения.Элеватор,
+	ГрафикОсмотраМестХранения.Регистратор,
+	ГрафикОсмотраМестХранения.Элеватор.Область,
+	ВЫБОР
+		КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 12
+			ТОГДА "Декабрь"
+		ИНАЧЕ ВЫБОР
+				КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 11
+					ТОГДА "Ноябрь"
+				ИНАЧЕ ВЫБОР
+						КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 10
+							ТОГДА "Октябрь"
+						ИНАЧЕ ВЫБОР
+								КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 9
+									ТОГДА "Сентябрь"
+								ИНАЧЕ ВЫБОР
+										КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 8
+											ТОГДА "Август"
+										ИНАЧЕ ВЫБОР
+												КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 7
+													ТОГДА "Июль"
+												ИНАЧЕ ВЫБОР
+														КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 6
+															ТОГДА "Июнь"
+														ИНАЧЕ ВЫБОР
+																КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 5
+																	ТОГДА "Май"
+																ИНАЧЕ ВЫБОР
+																		КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 4
+																			ТОГДА "Апрель"
+																		ИНАЧЕ ВЫБОР
+																				КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 3
+																					ТОГДА "Март"
+																				ИНАЧЕ ВЫБОР
+																						КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 2
+																							ТОГДА "Февраль"
+																						ИНАЧЕ ВЫБОР
+																								КОГДА МЕСЯЦ(ГрафикОсмотраМестХранения.ДатаОсмотра) = 1
+																									ТОГДА "Январь"
+																								ИНАЧЕ "Пустая ссылка"
+																							КОНЕЦ
+																					КОНЕЦ
+																			КОНЕЦ
+																	КОНЕЦ
+															КОНЕЦ
+													КОНЕЦ
+											КОНЕЦ
+									КОНЕЦ
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ</query>
+	</dataSet>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>Элеватор</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Месяц</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>НачалоНедели</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>КонецНедели</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Элеватор</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>Вариант1</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вариант1</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:column>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Область</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:column>
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Месяц</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>НачалоНедели</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>КонецНедели</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Месяц</dataPath>
+			<field>Месяц</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Месяц</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРасчета</dataPath>
+			<field>ВидРасчета</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид расчета</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРасчета1</dataPath>
+			<field>ВидРасчета1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид расчета1</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидДохода</dataPath>
+			<field>ВидДохода</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеОрганизации</dataPath>
+			<field>ПодразделениеОрганизации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Налогоплательщик</dataPath>
+			<field>Налогоплательщик</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодРегистрации</dataPath>
+			<field>ПериодРегистрации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СпособНалогообложения</dataPath>
+			<field>СпособНалогообложения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МесяцНалоговогоПериода</dataPath>
+			<field>МесяцНалоговогоПериода</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтруктурнаяЕдиница</dataPath>
+			<field>СтруктурнаяЕдиница</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФизЛицо</dataPath>
+			<field>ФизЛицо</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИтогоНачисленно</dataPath>
+			<field>ИтогоНачисленно</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итого начисленно</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидПлатежа</dataPath>
+			<field>ВидПлатежа</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Результат1</dataPath>
+			<field>Результат1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат1</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	КОНЕЦПЕРИОДА(ОсновныеНачисленияРаботниковОрганизаций.ПериодРегистрации, МЕСЯЦ) КАК Месяц,
+	ВЫБОР
+		КОГДА ОсновныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование ПОДОБНО "%Оклад%"
+			ТОГДА "1.Оклады"
+		ИНАЧЕ ВЫБОР
+				КОГДА ОсновныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование ПОДОБНО "%мат%Помощь%"
+					ТОГДА "2.мат.помощь"
+				ИНАЧЕ ВЫБОР
+						КОГДА ОсновныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование ПОДОБНО "%Выходн%пособ%"
+							ТОГДА "3.Выходное пособие"
+						ИНАЧЕ ВЫБОР
+								КОГДА ОсновныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование ПОДОБНО "%Отпуск%"
+									ТОГДА "4.Отпускные"
+								ИНАЧЕ ВЫБОР
+										КОГДА ОсновныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование ПОДОБНО "%Преми%фонд%"
+											ТОГДА "5.Премия за счет фондов"
+										ИНАЧЕ ВЫБОР
+												КОГДА ОсновныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование ПОДОБНО "%Преми%"
+													ТОГДА "6.Премии за счет расходов предприятия"
+												ИНАЧЕ ВЫБОР
+														КОГДА ОсновныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование ПОДОБНО "%поощрит%"
+															ТОГДА "7.Единичные поощрительные выплаты"
+														ИНАЧЕ ВЫБОР
+																КОГДА ОсновныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование ПОДОБНО "%Необл%компенс%"
+																	ТОГДА "8.Необлагаемая компенсация труда"
+																ИНАЧЕ "9." + ОсновныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование
+															КОНЕЦ
+													КОНЕЦ
+											КОНЕЦ
+									КОНЕЦ
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ КАК ВидРасчета,
+	ОсновныеНачисленияРаботниковОрганизаций.Результат КАК Результат1,
+	ОсновныеНачисленияРаботниковОрганизаций.ВидРасчета КАК ВидРасчета1,
+	"Итого начисленно" КАК ИтогоНачисленно
+ИЗ
+	РегистрРасчета.ОсновныеНачисленияРаботниковОрганизаций КАК ОсновныеНачисленияРаботниковОрганизаций
+ГДЕ
+	ОсновныеНачисленияРаботниковОрганизаций.ПериодРегистрации &gt;= &amp;ДатаНач
+	И ОсновныеНачисленияРаботниковОрганизаций.ПериодРегистрации &lt;= &amp;ДатаОкон
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	КОНЕЦПЕРИОДА(ДополнительныеНачисленияРаботниковОрганизаций.ПериодРегистрации, МЕСЯЦ),
+	ВЫБОР
+		КОГДА ДополнительныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование ПОДОБНО "%Оклад%"
+			ТОГДА "1.Оклады"
+		ИНАЧЕ ВЫБОР
+				КОГДА ДополнительныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование ПОДОБНО "%мат%Помощь%"
+					ТОГДА "2.мат.помощь"
+				ИНАЧЕ ВЫБОР
+						КОГДА ДополнительныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование ПОДОБНО "%Выходн%пособ%"
+							ТОГДА "3.Выходное пособие"
+						ИНАЧЕ ВЫБОР
+								КОГДА ДополнительныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование ПОДОБНО "%Отпуск%"
+									ТОГДА "4.Отпускные"
+								ИНАЧЕ ВЫБОР
+										КОГДА ДополнительныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование ПОДОБНО "%Преми%фонд%"
+											ТОГДА "4.Премия за счет фондов"
+										ИНАЧЕ ВЫБОР
+												КОГДА ДополнительныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование ПОДОБНО "%Преми%"
+													ТОГДА "5.Премии за счет расходов предприятия"
+												ИНАЧЕ ВЫБОР
+														КОГДА ДополнительныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование ПОДОБНО "%поощрит%"
+															ТОГДА "5.Единичные поощрительные выплаты"
+														ИНАЧЕ ВЫБОР
+																КОГДА ДополнительныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование ПОДОБНО "%Необл%компенс%"
+																	ТОГДА "5.Необлагаемая компенсация труда"
+																ИНАЧЕ "9." + ДополнительныеНачисленияРаботниковОрганизаций.ВидРасчета.Наименование
+															КОНЕЦ
+													КОНЕЦ
+											КОНЕЦ
+									КОНЕЦ
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ,
+	ДополнительныеНачисленияРаботниковОрганизаций.Результат,
+	ДополнительныеНачисленияРаботниковОрганизаций.ВидРасчета,
+	"Итого начисленно"
+ИЗ
+	РегистрРасчета.ДополнительныеНачисленияРаботниковОрганизаций КАК ДополнительныеНачисленияРаботниковОрганизаций
+ГДЕ
+	ДополнительныеНачисленияРаботниковОрганизаций.ПериодРегистрации &gt;= &amp;ДатаНач
+	И ДополнительныеНачисленияРаботниковОрганизаций.ПериодРегистрации &lt;= &amp;ДатаОкон
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	КОНЕЦПЕРИОДА(ИПНИсчисленныйОбороты.МесяцНалоговогоПериода, МЕСЯЦ),
+	"11.Подоходный налог",
+	ИПНИсчисленныйОбороты.НалогОборот,
+	"1",
+	"ИТОГО удержано"
+ИЗ
+	РегистрНакопления.ИПНИсчисленный.Обороты КАК ИПНИсчисленныйОбороты
+ГДЕ
+	ИПНИсчисленныйОбороты.МесяцНалоговогоПериода &gt;= &amp;ДатаНач
+	И ИПНИсчисленныйОбороты.МесяцНалоговогоПериода &lt;= &amp;ДатаОкон
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	КОНЕЦПЕРИОДА(ОПВСведенияОДоходахОбороты.ПериодРегистрации, МЕСЯЦ),
+	"12.ФОТ для определения ОПВ",
+	ОПВСведенияОДоходахОбороты.ОблагаемаяБазаОборот,
+	"1",
+	"ИТОГО удержано"
+ИЗ
+	РегистрНакопления.ОПВСведенияОДоходах.Обороты(, , , ) КАК ОПВСведенияОДоходахОбороты
+ГДЕ
+	ОПВСведенияОДоходахОбороты.ПериодРегистрации &gt;= &amp;ДатаНач
+	И ОПВСведенияОДоходахОбороты.ПериодРегистрации &lt;= &amp;ДатаОкон
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	КОНЕЦПЕРИОДА(ОПВРасчетыСФондамиОбороты.МесяцНалоговогоПериода, МЕСЯЦ),
+	"13.ОПВ",
+	ОПВРасчетыСФондамиОбороты.ВзносОборот,
+	"1",
+	"ИТОГО удержано"
+ИЗ
+	РегистрНакопления.ОПВРасчетыСФондами.Обороты КАК ОПВРасчетыСФондамиОбороты
+ГДЕ
+	ОПВРасчетыСФондамиОбороты.МесяцНалоговогоПериода &gt;= &amp;ДатаНач
+	И ОПВРасчетыСФондамиОбороты.МесяцНалоговогоПериода &lt;= &amp;ДатаОкон
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	КОНЕЦПЕРИОДА(СНСведенияОДоходахОбороты.ПериодРегистрации, МЕСЯЦ),
+	"14.ФОТ для определения СН",
+	СНСведенияОДоходахОбороты.ОблагаемаяБазаОборот,
+	"1",
+	"ИТОГО удержано"
+ИЗ
+	РегистрНакопления.СНСведенияОДоходах.Обороты(, , , ) КАК СНСведенияОДоходахОбороты
+ГДЕ
+	СНСведенияОДоходахОбороты.ПериодРегистрации &gt;= &amp;ДатаНач
+	И СНСведенияОДоходахОбороты.ПериодРегистрации &lt;= &amp;ДатаОкон
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	КОНЕЦПЕРИОДА(СНИсчисленныйОбороты.МесяцНалоговогоПериода, МЕСЯЦ),
+	"15.СН",
+	СНИсчисленныйОбороты.НалогОборот,
+	"1",
+	"ИТОГО удержано"
+ИЗ
+	РегистрНакопления.СНИсчисленный.Обороты(, , , ) КАК СНИсчисленныйОбороты
+ГДЕ
+	СНИсчисленныйОбороты.МесяцНалоговогоПериода &gt;= &amp;ДатаНач
+	И СНИсчисленныйОбороты.МесяцНалоговогоПериода &lt;= &amp;ДатаОкон</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Результат1</dataPath>
+		<expression>Сумма(Результат1)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаНач</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата нач</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаОкон</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окон</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>ЗП</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>kz</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ЗП</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Результат1</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ДатаНач</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>7c8600de-6486-4f01-9e15-33549cac57a9</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата начала</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ДатаОкон</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>e96c71b7-7015-4663-98ce-3329b1030f84</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата окончания</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>Месяц</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=MMMM</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>РасположениеИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">End</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеГруппировки</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionGroupPlacement">End</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:column>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ИтогоНачисленно</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ВидРасчета</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:column>
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Месяц</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

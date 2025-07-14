@@ -1,0 +1,740 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статья</dataPath>
+			<field>Статья</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статья</v8:content>
+				</v8:item>
+			</title>
+			<orderExpression>
+				<dcscom:expression>Статья.КодСтрокиБюджета</dcscom:expression>
+				<dcscom:orderType>Asc</dcscom:orderType>
+				<dcscom:autoOrder>false</dcscom:autoOrder>
+			</orderExpression>
+			<orderExpression>
+				<dcscom:expression>Статья.Наименование</dcscom:expression>
+				<dcscom:orderType>Asc</dcscom:orderType>
+				<dcscom:autoOrder>false</dcscom:autoOrder>
+			</orderExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидСтрокиБюджета</dataPath>
+			<field>ВидСтрокиБюджета</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид строки бюджета</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сценарий</dataPath>
+			<field>Сценарий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сценарий</v8:content>
+				</v8:item>
+			</title>
+			<orderExpression>
+				<dcscom:expression>Сценарий.Наименование</dcscom:expression>
+				<dcscom:orderType>Asc</dcscom:orderType>
+				<dcscom:autoOrder>false</dcscom:autoOrder>
+			</orderExpression>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	фин_РегламентФормированияБюджетов.Бюджет
+ПОМЕСТИТЬ ВТ_ПредшествующиеБюджеты
+ИЗ
+	РегистрСведений.фин_РегламентФормированияБюджетов.СрезПоследних(&amp;ДатаАктуальности, Бюджет = &amp;Бюджет) КАК фин_РегламентФормированияБюджетовСрезПоследних
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.фин_РегламентФормированияБюджетов КАК фин_РегламентФормированияБюджетов
+		ПО фин_РегламентФормированияБюджетовСрезПоследних.Регистратор = фин_РегламентФормированияБюджетов.Регламент
+			И фин_РегламентФормированияБюджетовСрезПоследних.Ранг &gt; фин_РегламентФормированияБюджетов.Ранг
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	фин_СтатьиБюджета.ФинансовыйПоказатель
+ПОМЕСТИТЬ ВТ_ВключениеВТекущийБюджет
+ИЗ
+	Справочник.фин_СтатьиБюджета КАК фин_СтатьиБюджета
+ГДЕ
+	фин_СтатьиБюджета.Владелец = &amp;Бюджет
+	И НЕ фин_СтатьиБюджета.ЭтоГруппа
+	И НЕ фин_СтатьиБюджета.ПометкаУдаления
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	фин_СтатьиБюджета.ФинансовыйПоказатель
+ПОМЕСТИТЬ ВТ_Наследуемые
+ИЗ
+	ВТ_ПредшествующиеБюджеты КАК ВТ_ПредшествующиеБюджеты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.фин_СтатьиБюджета КАК фин_СтатьиБюджета
+		ПО ВТ_ПредшествующиеБюджеты.Бюджет = фин_СтатьиБюджета.Владелец
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_ВключениеВТекущийБюджет КАК ВТ_ВключениеВТекущийБюджет
+		ПО (фин_СтатьиБюджета.ФинансовыйПоказатель = ВТ_ВключениеВТекущийБюджет.ФинансовыйПоказатель)
+ГДЕ
+	НЕ фин_СтатьиБюджета.ПометкаУдаления
+	И НЕ ВТ_ВключениеВТекущийБюджет.ФинансовыйПоказатель ЕСТЬ NULL 
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	фин_ЗависимостиФинансовыхПоказателей.ЗависимаяФинансовыйПоказатель,
+	фин_ЗависимостиФинансовыхПоказателей.ИсхСценарий КАК Сценарий
+ПОМЕСТИТЬ ВТ_Зависимости
+ИЗ
+	РегистрСведений.фин_ЗависимостиФинансовыхПоказателей.СрезПоследних(&amp;ДатаАктуальности, ) КАК фин_ЗависимостиФинансовыхПоказателей
+ГДЕ
+	(фин_ЗависимостиФинансовыхПоказателей.ДатаЗавершения = ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
+			ИЛИ фин_ЗависимостиФинансовыхПоказателей.ДатаЗавершения &gt; &amp;ДатаАктуальности)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	фин_РегламентныеРасчетыПоМоделям.ФинансовыйПоказатель,
+	фин_РегламентныеРасчетыПоМоделям.Сценарий,
+	0 КАК ИзВнешнихБюджетов
+ПОМЕСТИТЬ ВТ_ВсеРасчетыПоМоделям
+ИЗ
+	РегистрСведений.фин_РегламентныеРасчетыПоМоделям КАК фин_РегламентныеРасчетыПоМоделям
+ГДЕ
+	(фин_РегламентныеРасчетыПоМоделям.НачалоИспользования = ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
+			ИЛИ фин_РегламентныеРасчетыПоМоделям.НачалоИспользования &lt; &amp;ДатаАктуальности)
+	И (фин_РегламентныеРасчетыПоМоделям.КонецИспользования = ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
+			ИЛИ фин_РегламентныеРасчетыПоМоделям.КонецИспользования &gt; &amp;ДатаАктуальности)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	МоделиРаспределения.ФинансовыйПоказатель,
+	фин_РасчетМоделейРаспределения.Сценарий,
+	ВЫБОР
+		КОГДА ВТ_ВключениеВТекущийБюджет.ФинансовыйПоказатель ЕСТЬ NULL 
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ
+ИЗ
+	РегистрСведений.фин_РасчетМоделейРаспределения.СрезПоследних(&amp;ДатаАктуальности, ) КАК фин_РасчетМоделейРаспределения
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.фин_МоделиРаспределенияБюджетныхДанных.ОтражениеРезультатов КАК МоделиРаспределения
+		ПО фин_РасчетМоделейРаспределения.Модель = МоделиРаспределения.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ВключениеВТекущийБюджет КАК ВТ_ВключениеВТекущийБюджет
+		ПО фин_РасчетМоделейРаспределения.РаспределяемыйПоказатель = ВТ_ВключениеВТекущийБюджет.ФинансовыйПоказатель
+ГДЕ
+	фин_РасчетМоделейРаспределения.ПрименятьМодель
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВЫБОР
+		КОГДА ПроизводственныеМодели.ФинансовыйПоказатель = ЗНАЧЕНИЕ(Перечисление.фин_ИсточникиЗаполненияПолейПроизводственнойМодели.ФиксированноеЗначение)
+			ТОГДА ПроизводственныеМодели.ЗначениеФинансовыйПоказатель
+		КОГДА ПроизводственныеМодели.ФинансовыйПоказатель = ЗНАЧЕНИЕ(Перечисление.фин_ИсточникиЗаполненияПолейПроизводственнойМодели.ПоПроизводимойПозиции)
+			ТОГДА фин_РасчетПроизводственныхМоделей.ПоказательПланированияПроизводстваПродукции
+		КОГДА ПроизводственныеМодели.ФинансовыйПоказатель = ЗНАЧЕНИЕ(Перечисление.фин_ИсточникиЗаполненияПолейПроизводственнойМодели.ПараметрыПланированияПроизводства)
+			ТОГДА фин_ПараметрыПланированияПроизводства.ФинансовыйПоказатель
+		ИНАЧЕ NULL
+	КОНЕЦ,
+	фин_РасчетПроизводственныхМоделей.Сценарий,
+	ВЫБОР
+		КОГДА ВТ_ВключениеВТекущийБюджет.ФинансовыйПоказатель ЕСТЬ NULL 
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ
+ИЗ
+	РегистрСведений.фин_РасчетПроизводственныхМоделей.СрезПоследних(&amp;ДатаАктуальности, ) КАК фин_РасчетПроизводственныхМоделей
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.фин_ПроизводственныеМодели.ОтражениеРезультатов КАК ПроизводственныеМодели
+		ПО фин_РасчетПроизводственныхМоделей.Модель = ПроизводственныеМодели.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.фин_ПараметрыПланированияПроизводства.СрезПоследних(&amp;ДатаАктуальности, ) КАК фин_ПараметрыПланированияПроизводства
+		ПО (ПроизводственныеМодели.ФинансовыйПоказатель = ЗНАЧЕНИЕ(Перечисление.фин_ИсточникиЗаполненияПолейПроизводственнойМодели.ПараметрыПланированияПроизводства))
+			И (фин_ПараметрыПланированияПроизводства.ФинансовыйПоказатель &lt;&gt; ЗНАЧЕНИЕ(Справочник.фин_ФинансовыеПоказатели.ПустаяСсылка))
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ВключениеВТекущийБюджет КАК ВТ_ВключениеВТекущийБюджет
+		ПО фин_РасчетПроизводственныхМоделей.ПоказательПланированияПроизводстваПродукции = ВТ_ВключениеВТекущийБюджет.ФинансовыйПоказатель
+ГДЕ
+	фин_РасчетПроизводственныхМоделей.ПрименятьМодель
+	И (ПроизводственныеМодели.ФинансовыйПоказатель = ЗНАЧЕНИЕ(Перечисление.фин_ИсточникиЗаполненияПолейПроизводственнойМодели.ФиксированноеЗначение)
+			ИЛИ ПроизводственныеМодели.ФинансовыйПоказатель = ЗНАЧЕНИЕ(Перечисление.фин_ИсточникиЗаполненияПолейПроизводственнойМодели.ПараметрыПланированияПроизводства)
+			ИЛИ ПроизводственныеМодели.ФинансовыйПоказатель = ЗНАЧЕНИЕ(Перечисление.фин_ИсточникиЗаполненияПолейПроизводственнойМодели.ПоПроизводимойПозиции))
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	фин_ПроизводственныеМоделиДополнительныеЗатратыНаВыпуск.ФинансовыйПоказатель,
+	фин_РасчетПроизводственныхМоделей.Сценарий,
+	ВЫБОР
+		КОГДА ВТ_ВключениеВТекущийБюджет.ФинансовыйПоказатель ЕСТЬ NULL 
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ
+ИЗ
+	РегистрСведений.фин_РасчетПроизводственныхМоделей.СрезПоследних(&amp;ДатаАктуальности, ) КАК фин_РасчетПроизводственныхМоделей
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.фин_ПроизводственныеМодели.ДополнительныеЗатратыНаВыпуск КАК фин_ПроизводственныеМоделиДополнительныеЗатратыНаВыпуск
+		ПО фин_РасчетПроизводственныхМоделей.Модель = фин_ПроизводственныеМоделиДополнительныеЗатратыНаВыпуск.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ВключениеВТекущийБюджет КАК ВТ_ВключениеВТекущийБюджет
+		ПО фин_РасчетПроизводственныхМоделей.ПоказательПланированияПроизводстваПродукции = ВТ_ВключениеВТекущийБюджет.ФинансовыйПоказатель
+ГДЕ
+	фин_РасчетПроизводственныхМоделей.ПрименятьМодель
+	И (фин_ПроизводственныеМоделиДополнительныеЗатратыНаВыпуск.ФинансовыйПоказатель = ЗНАЧЕНИЕ(Перечисление.фин_ИсточникиЗаполненияПолейПроизводственнойМодели.ФиксированноеЗначение)
+			ИЛИ фин_ПроизводственныеМоделиДополнительныеЗатратыНаВыпуск.ФинансовыйПоказатель = ЗНАЧЕНИЕ(Перечисление.фин_ИсточникиЗаполненияПолейПроизводственнойМодели.ПараметрыПланированияПроизводства)
+			ИЛИ фин_ПроизводственныеМоделиДополнительныеЗатратыНаВыпуск.ФинансовыйПоказатель = ЗНАЧЕНИЕ(Перечисление.фин_ИсточникиЗаполненияПолейПроизводственнойМодели.ПоПроизводимойПозиции))
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	фин_ПроизводственныеМодели.ФинансовыйПоказательДляОтраженияТрудовыхЗатрат,
+	фин_РасчетПроизводственныхМоделей.Сценарий,
+	ВЫБОР
+		КОГДА ВТ_ВключениеВТекущийБюджет.ФинансовыйПоказатель ЕСТЬ NULL 
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ
+ИЗ
+	РегистрСведений.фин_РасчетПроизводственныхМоделей.СрезПоследних(&amp;ДатаАктуальности, ) КАК фин_РасчетПроизводственныхМоделей
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.фин_ПроизводственныеМодели КАК фин_ПроизводственныеМодели
+		ПО фин_РасчетПроизводственныхМоделей.Модель = фин_ПроизводственныеМодели.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ВключениеВТекущийБюджет КАК ВТ_ВключениеВТекущийБюджет
+		ПО фин_РасчетПроизводственныхМоделей.ПоказательПланированияПроизводстваПродукции = ВТ_ВключениеВТекущийБюджет.ФинансовыйПоказатель
+ГДЕ
+	фин_РасчетПроизводственныхМоделей.ПрименятьМодель
+	И фин_ПроизводственныеМодели.РассчитыватьПрямыеТрудовыеЗатраты
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ВсеРасчетыПоМоделям.ФинансовыйПоказатель,
+	ВТ_ВсеРасчетыПоМоделям.Сценарий,
+	СУММА(ВТ_ВсеРасчетыПоМоделям.ИзВнешнихБюджетов) КАК ИзВнешнихБюджетов
+ПОМЕСТИТЬ ВТ_ИтогоРасчетыПоМоделям
+ИЗ
+	ВТ_ВсеРасчетыПоМоделям КАК ВТ_ВсеРасчетыПоМоделям
+
+СГРУППИРОВАТЬ ПО
+	ВТ_ВсеРасчетыПоМоделям.ФинансовыйПоказатель,
+	ВТ_ВсеРасчетыПоМоделям.Сценарий
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	фин_СтатьиБюджета.Ссылка,
+	фин_СтатьиБюджета.ФинансовыйПоказатель,
+	СценарииПланирования.Ссылка КАК Сценарий
+ПОМЕСТИТЬ ВТ_Кортеж
+ИЗ
+	Справочник.фин_СтатьиБюджета КАК фин_СтатьиБюджета
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.СценарииПланирования КАК СценарииПланирования
+		ПО (СценарииПланирования.ПометкаУдаления = ЛОЖЬ)
+			И (СценарииПланирования.Ссылка В (&amp;Сценарии))
+ГДЕ
+	фин_СтатьиБюджета.Владелец = &amp;Бюджет
+	И НЕ фин_СтатьиБюджета.ЭтоГруппа
+	И НЕ фин_СтатьиБюджета.ПометкаУдаления
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	фин_СтатьиБюджета.Ссылка,
+	фин_СтатьиБюджета.ФинансовыйПоказатель,
+	ЗНАЧЕНИЕ(Справочник.СценарииПланирования.ПустаяСсылка)
+ИЗ
+	Справочник.фин_СтатьиБюджета КАК фин_СтатьиБюджета
+ГДЕ
+	фин_СтатьиБюджета.Владелец = &amp;Бюджет
+	И НЕ фин_СтатьиБюджета.ЭтоГруппа
+	И НЕ фин_СтатьиБюджета.ПометкаУдаления
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	фин_СтатьиБюджета.Ссылка КАК Статья,
+	ВЫБОР
+		КОГДА НЕ ВТ_Наследуемые.ФинансовыйПоказатель ЕСТЬ NULL 
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.фин_ВидыСтрокБюджета.Наследуемая)
+		КОГДА фин_ФинансовыеПоказатели.ВидПоказателя = ЗНАЧЕНИЕ(Перечисление.фин_ВидыФинансовыхПоказателей.Рассчитываемый)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.фин_ВидыСтрокБюджета.РассчитываемаяПоФормуле)
+		КОГДА НЕ ВТ_Зависимости.ЗависимаяФинансовыйПоказатель ЕСТЬ NULL 
+				И НЕ ВТ_ИтогоРасчетыПоМоделям.ФинансовыйПоказатель ЕСТЬ NULL 
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.фин_ВидыСтрокБюджета.РассчитываемаяПоНесколькимИсточникамРасчета)
+		КОГДА НЕ ВТ_Зависимости.ЗависимаяФинансовыйПоказатель ЕСТЬ NULL 
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.фин_ВидыСтрокБюджета.РассчитываемаяПоЗависимости)
+		КОГДА НЕ ВТ_ИтогоРасчетыПоМоделям.ФинансовыйПоказатель ЕСТЬ NULL 
+			ТОГДА ВЫБОР
+					КОГДА ВТ_ИтогоРасчетыПоМоделям.ИзВнешнихБюджетов &gt; 0
+						ТОГДА ЗНАЧЕНИЕ(Перечисление.фин_ВидыСтрокБюджета.РассчитываемаяПоМоделиВПредшествующихБюджетах)
+					ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.фин_ВидыСтрокБюджета.РассчитываемаяПоМодели)
+				КОНЕЦ
+		ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.фин_ВидыСтрокБюджета.Первичная)
+	КОНЕЦ КАК ВидСтрокиБюджета,
+	фин_СтатьиБюджета.Сценарий
+ИЗ
+	ВТ_Кортеж КАК фин_СтатьиБюджета
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.фин_ФинансовыеПоказатели КАК фин_ФинансовыеПоказатели
+		ПО фин_СтатьиБюджета.ФинансовыйПоказатель = фин_ФинансовыеПоказатели.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_Зависимости КАК ВТ_Зависимости
+		ПО фин_СтатьиБюджета.ФинансовыйПоказатель = ВТ_Зависимости.ЗависимаяФинансовыйПоказатель
+			И (фин_СтатьиБюджета.Сценарий = ВТ_Зависимости.Сценарий
+				ИЛИ ВТ_Зависимости.Сценарий = ЗНАЧЕНИЕ(Справочник.СценарииПланирования.ПустаяСсылка))
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ИтогоРасчетыПоМоделям КАК ВТ_ИтогоРасчетыПоМоделям
+		ПО фин_СтатьиБюджета.ФинансовыйПоказатель = ВТ_ИтогоРасчетыПоМоделям.ФинансовыйПоказатель
+			И (фин_СтатьиБюджета.Сценарий = ВТ_ИтогоРасчетыПоМоделям.Сценарий
+				ИЛИ ВТ_ИтогоРасчетыПоМоделям.Сценарий = ЗНАЧЕНИЕ(Справочник.СценарииПланирования.ПустаяСсылка))
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_Наследуемые КАК ВТ_Наследуемые
+		ПО фин_СтатьиБюджета.ФинансовыйПоказатель = ВТ_Наследуемые.ФинансовыйПоказатель</query>
+	</dataSet>
+	<totalField>
+		<dataPath>ВидСтрокиБюджета</dataPath>
+		<expression>Максимум(ВидСтрокиБюджета)</expression>
+		<group>Статья</group>
+		<group>Сценарий</group>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Бюджет</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Бюджет</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.фин_Бюджеты</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.фин_Бюджеты.ПустаяСсылка</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Сценарии</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сценарии</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СценарииПланирования</v8:Type>
+		</valueType>
+		<useRestriction>false</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<parameter>
+		<name>ДатаАктуальности</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата актуальности</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Бюджет</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.фин_Бюджеты.ПустаяСсылка</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Сценарии</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаАктуальности</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ФинансовыйПоказатель</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтатьяБюджета</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Зависимая</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Наследуемая</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Рассчитываемая</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Зависимая</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветФона</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">web:Lavender</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>Зависимая</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Наследуемая</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Рассчитываемая</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Влияющая</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>БЛ=; БИ=+</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ФинансовыйПоказатель</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтатьяБюджета</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Рассчитываемая</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Наследуемая</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Зависимая</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Рассчитываемая</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветФона</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">#9BDADC</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ФинансовыйПоказатель</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СтатьяБюджета</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Рассчитываемая</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Наследуемая</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Зависимая</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Наследуемая</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветФона</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">web:MistyRose</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Green</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:column>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Сценарий</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:column>
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Статья.КодСтрокиБюджета</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Статья</dcsset:field>
+							<dcsset:groupType>Hierarchy</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:field>Статья.Версия</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>ВидСтрокиБюджета</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ВидСтрокиБюджета</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.фин_ВидыСтрокБюджета.РассчитываемаяПоЗависимости</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">#E6E6FA</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>ВидСтрокиБюджета</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ВидСтрокиБюджета</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.фин_ВидыСтрокБюджета.Наследуемая</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">#FFE4E1</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>ВидСтрокиБюджета</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemGroup">
+									<dcsset:groupType>OrGroup</dcsset:groupType>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">ВидСтрокиБюджета</dcsset:left>
+										<dcsset:comparisonType>Equal</dcsset:comparisonType>
+										<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.фин_ВидыСтрокБюджета.РассчитываемаяПоМодели</dcsset:right>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">ВидСтрокиБюджета</dcsset:left>
+										<dcsset:comparisonType>Equal</dcsset:comparisonType>
+										<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.фин_ВидыСтрокБюджета.РассчитываемаяПоНесколькимИсточникамРасчета</dcsset:right>
+									</dcsset:item>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">#9BDADC</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>ВидСтрокиБюджета</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ВидСтрокиБюджета</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.фин_ВидыСтрокБюджета.РассчитываемаяПоФормуле</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">#E8D1E6</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>ВидСтрокиБюджета</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ВидСтрокиБюджета</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.фин_ВидыСтрокБюджета.Первичная</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">#B8FF99</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>ВидСтрокиБюджета</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Статья.ЭтоГруппа</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:LemonChiffon</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Текст</dcscor:parameter>
+									<dcscor:value xsi:type="xs:string"/>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+					</dcsset:conditionalAppearance>
+				</dcsset:row>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ВидСтрокиБюджета</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection>
+							<dcsset:item>
+								<dcsset:field>Сценарий</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:filter>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Сценарий</dcsset:left>
+								<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+							</dcsset:item>
+						</dcsset:filter>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>Текст</dcscor:parameter>
+								<dcscor:value xsi:type="v8:LocalStringType">
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>&lt;общие настройки для всех сценариев&gt;</v8:content>
+									</v8:item>
+								</dcscor:value>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+						<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+						<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

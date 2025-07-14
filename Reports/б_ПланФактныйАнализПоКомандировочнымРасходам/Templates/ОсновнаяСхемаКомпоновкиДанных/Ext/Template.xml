@@ -1,0 +1,845 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатьяБюджета</dataPath>
+			<field>СтатьяБюджета</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Должность</dataPath>
+			<field>Должность</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Должность</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Счет</dataPath>
+			<field>Счет</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто1</dataPath>
+			<field>Субконто1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто2</dataPath>
+			<field>Субконто2</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто3</dataPath>
+			<field>Субконто3</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто4</dataPath>
+			<field>Субконто4</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сотрудник</dataPath>
+			<field>Сотрудник</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сотрудник</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Наименование</dataPath>
+			<field>Наименование</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеОрганизации</dataPath>
+			<field>ПодразделениеОрганизации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаФакт</dataPath>
+			<field>СуммаФакт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма факт</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтруктурноеПодразделение</dataPath>
+			<field>СтруктурноеПодразделение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИсточникФинансирования</dataPath>
+			<field>ИсточникФинансирования</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументДвижения</dataPath>
+			<field>ДокументДвижения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ движения</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГородНазначения</dataPath>
+			<field>ГородНазначения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаПлан</dataPath>
+			<field>СуммаПлан</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма план</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<role>
+				<dcscom:periodNumber>2</dcscom:periodNumber>
+				<dcscom:periodType>Additional</dcscom:periodType>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ=MMMM.yyyy</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ТиповойОстаткиИОбороты.СуммаОборотКт КАК СуммаФакт,
+	ТиповойОстаткиИОбороты.Субконто1 КАК Сотрудник,
+	РаботникиОрганизацийСрезПоследних.ПодразделениеОрганизации,
+	РаботникиОрганизацийСрезПоследних.Должность,
+	ТиповойОстаткиИОбороты.Организация,
+	ТиповойОстаткиИОбороты.Регистратор.ПриказНаКомандировку КАК ПриказНаКомандировку,
+	ТиповойОстаткиИОбороты.Регистратор.ГородНазначения КАК ГородНазначения,
+	ТиповойОстаткиИОбороты.Регистратор,
+	ТиповойОстаткиИОбороты.ПериодМесяц КАК Период
+ПОМЕСТИТЬ Факт
+ИЗ
+	РегистрБухгалтерии.Типовой.ОстаткиИОбороты(&amp;НачалоПериода, &amp;КонецПериода, Авто, , Счет = &amp;Счет1251, , ) КАК ТиповойОстаткиИОбороты
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.РаботникиОрганизаций.СрезПоследних(&amp;НачалоПериода, ) КАК РаботникиОрганизацийСрезПоследних
+		ПО ТиповойОстаткиИОбороты.Субконто1 = РаботникиОрганизацийСрезПоследних.Сотрудник.Физлицо
+ГДЕ
+	ТиповойОстаткиИОбороты.Субконто2 В(&amp;ВидПодотчета)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Номенклатура КАК Наименование,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Сумма1 - б_РасчетнаяТаблицаРасчетнаяТаблица.ИСумма1 КАК СуммаПлан,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Организация,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПодразделениеОрганизации,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Регион,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.СтатьяБюджета КАК СтатьяБюджета,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка КАК ДокументДвижения,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.НомерСтроки,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комДолжность КАК Должность,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комГородНазначения,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комСтранаНазначения,
+	НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ГОД) КАК Период
+ПОМЕСТИТЬ План
+ИЗ
+	Документ.б_РасчетнаяТаблица.РасчетнаяТаблица КАК б_РасчетнаяТаблицаРасчетнаяТаблица
+ГДЕ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Проведен = ИСТИНА
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПериодПланирования = &amp;ПериодПланирования
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ВидРасчетнойТаблицы = &amp;ВидРасчетнойТаблицы
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Номенклатура,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Сумма2 - б_РасчетнаяТаблицаРасчетнаяТаблица.ИСумма2,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Организация,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПодразделениеОрганизации,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Регион,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.СтатьяБюджета,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.НомерСтроки,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комДолжность,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комГородНазначения,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комСтранаНазначения,
+	ДОБАВИТЬКДАТЕ(НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ГОД), МЕСЯЦ, 1)
+ИЗ
+	Документ.б_РасчетнаяТаблица.РасчетнаяТаблица КАК б_РасчетнаяТаблицаРасчетнаяТаблица
+ГДЕ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Проведен = ИСТИНА
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПериодПланирования = &amp;ПериодПланирования
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ВидРасчетнойТаблицы = &amp;ВидРасчетнойТаблицы
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Номенклатура,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Сумма3 - б_РасчетнаяТаблицаРасчетнаяТаблица.ИСумма3,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Организация,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПодразделениеОрганизации,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Регион,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.СтатьяБюджета,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.НомерСтроки,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комДолжность,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комГородНазначения,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комСтранаНазначения,
+	ДОБАВИТЬКДАТЕ(НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ГОД), МЕСЯЦ, 2)
+ИЗ
+	Документ.б_РасчетнаяТаблица.РасчетнаяТаблица КАК б_РасчетнаяТаблицаРасчетнаяТаблица
+ГДЕ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Проведен = ИСТИНА
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПериодПланирования = &amp;ПериодПланирования
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ВидРасчетнойТаблицы = &amp;ВидРасчетнойТаблицы
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Номенклатура,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Сумма4 - б_РасчетнаяТаблицаРасчетнаяТаблица.ИСумма4,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Организация,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПодразделениеОрганизации,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Регион,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.СтатьяБюджета,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.НомерСтроки,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комДолжность,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комГородНазначения,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комСтранаНазначения,
+	ДОБАВИТЬКДАТЕ(НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ГОД), МЕСЯЦ, 3)
+ИЗ
+	Документ.б_РасчетнаяТаблица.РасчетнаяТаблица КАК б_РасчетнаяТаблицаРасчетнаяТаблица
+ГДЕ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Проведен = ИСТИНА
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПериодПланирования = &amp;ПериодПланирования
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ВидРасчетнойТаблицы = &amp;ВидРасчетнойТаблицы
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Номенклатура,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Сумма5 - б_РасчетнаяТаблицаРасчетнаяТаблица.ИСумма5,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Организация,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПодразделениеОрганизации,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Регион,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.СтатьяБюджета,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.НомерСтроки,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комДолжность,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комГородНазначения,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комСтранаНазначения,
+	ДОБАВИТЬКДАТЕ(НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ГОД), МЕСЯЦ, 4)
+ИЗ
+	Документ.б_РасчетнаяТаблица.РасчетнаяТаблица КАК б_РасчетнаяТаблицаРасчетнаяТаблица
+ГДЕ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Проведен = ИСТИНА
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПериодПланирования = &amp;ПериодПланирования
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ВидРасчетнойТаблицы = &amp;ВидРасчетнойТаблицы
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Номенклатура,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Сумма6 - б_РасчетнаяТаблицаРасчетнаяТаблица.ИСумма6,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Организация,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПодразделениеОрганизации,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Регион,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.СтатьяБюджета,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.НомерСтроки,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комДолжность,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комГородНазначения,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комСтранаНазначения,
+	ДОБАВИТЬКДАТЕ(НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ГОД), МЕСЯЦ, 5)
+ИЗ
+	Документ.б_РасчетнаяТаблица.РасчетнаяТаблица КАК б_РасчетнаяТаблицаРасчетнаяТаблица
+ГДЕ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Проведен = ИСТИНА
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПериодПланирования = &amp;ПериодПланирования
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ВидРасчетнойТаблицы = &amp;ВидРасчетнойТаблицы
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Номенклатура,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Сумма7 - б_РасчетнаяТаблицаРасчетнаяТаблица.ИСумма7,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Организация,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПодразделениеОрганизации,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Регион,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.СтатьяБюджета,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.НомерСтроки,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комДолжность,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комГородНазначения,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комСтранаНазначения,
+	ДОБАВИТЬКДАТЕ(НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ГОД), МЕСЯЦ, 6)
+ИЗ
+	Документ.б_РасчетнаяТаблица.РасчетнаяТаблица КАК б_РасчетнаяТаблицаРасчетнаяТаблица
+ГДЕ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Проведен = ИСТИНА
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПериодПланирования = &amp;ПериодПланирования
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ВидРасчетнойТаблицы = &amp;ВидРасчетнойТаблицы
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Номенклатура,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Сумма8 - б_РасчетнаяТаблицаРасчетнаяТаблица.ИСумма8,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Организация,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПодразделениеОрганизации,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Регион,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.СтатьяБюджета,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.НомерСтроки,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комДолжность,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комГородНазначения,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комСтранаНазначения,
+	ДОБАВИТЬКДАТЕ(НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ГОД), МЕСЯЦ, 7)
+ИЗ
+	Документ.б_РасчетнаяТаблица.РасчетнаяТаблица КАК б_РасчетнаяТаблицаРасчетнаяТаблица
+ГДЕ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Проведен = ИСТИНА
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПериодПланирования = &amp;ПериодПланирования
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ВидРасчетнойТаблицы = &amp;ВидРасчетнойТаблицы
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Номенклатура,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Сумма9 - б_РасчетнаяТаблицаРасчетнаяТаблица.ИСумма9,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Организация,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПодразделениеОрганизации,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Регион,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.СтатьяБюджета,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.НомерСтроки,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комДолжность,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комГородНазначения,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комСтранаНазначения,
+	ДОБАВИТЬКДАТЕ(НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ГОД), МЕСЯЦ, 8)
+ИЗ
+	Документ.б_РасчетнаяТаблица.РасчетнаяТаблица КАК б_РасчетнаяТаблицаРасчетнаяТаблица
+ГДЕ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Проведен = ИСТИНА
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПериодПланирования = &amp;ПериодПланирования
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ВидРасчетнойТаблицы = &amp;ВидРасчетнойТаблицы
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Номенклатура,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Сумма10 - б_РасчетнаяТаблицаРасчетнаяТаблица.ИСумма10,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Организация,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПодразделениеОрганизации,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Регион,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.СтатьяБюджета,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.НомерСтроки,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комДолжность,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комГородНазначения,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комСтранаНазначения,
+	ДОБАВИТЬКДАТЕ(НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ГОД), МЕСЯЦ, 9)
+ИЗ
+	Документ.б_РасчетнаяТаблица.РасчетнаяТаблица КАК б_РасчетнаяТаблицаРасчетнаяТаблица
+ГДЕ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Проведен = ИСТИНА
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПериодПланирования = &amp;ПериодПланирования
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ВидРасчетнойТаблицы = &amp;ВидРасчетнойТаблицы
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Номенклатура,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Сумма11 - б_РасчетнаяТаблицаРасчетнаяТаблица.ИСумма11,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Организация,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПодразделениеОрганизации,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Регион,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.СтатьяБюджета,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.НомерСтроки,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комДолжность,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комГородНазначения,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комСтранаНазначения,
+	ДОБАВИТЬКДАТЕ(НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ГОД), МЕСЯЦ, 10)
+ИЗ
+	Документ.б_РасчетнаяТаблица.РасчетнаяТаблица КАК б_РасчетнаяТаблицаРасчетнаяТаблица
+ГДЕ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Проведен = ИСТИНА
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПериодПланирования = &amp;ПериодПланирования
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ВидРасчетнойТаблицы = &amp;ВидРасчетнойТаблицы
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Номенклатура,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Сумма12 - б_РасчетнаяТаблицаРасчетнаяТаблица.ИСумма12,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Организация,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПодразделениеОрганизации,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Регион,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.СтатьяБюджета,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.НомерСтроки,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комДолжность,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комГородНазначения,
+	б_РасчетнаяТаблицаРасчетнаяТаблица.комСтранаНазначения,
+	ДОБАВИТЬКДАТЕ(НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ГОД), МЕСЯЦ, 11)
+ИЗ
+	Документ.б_РасчетнаяТаблица.РасчетнаяТаблица КАК б_РасчетнаяТаблицаРасчетнаяТаблица
+ГДЕ
+	б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.Проведен = ИСТИНА
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ПериодПланирования = &amp;ПериодПланирования
+	И б_РасчетнаяТаблицаРасчетнаяТаблица.Ссылка.ВидРасчетнойТаблицы = &amp;ВидРасчетнойТаблицы
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	План.Наименование,
+	План.СуммаПлан,
+	План.Организация,
+	План.ПодразделениеОрганизации,
+	План.Регион,
+	План.СтатьяБюджета,
+	План.ДокументДвижения,
+	План.НомерСтроки,
+	План.Должность,
+	План.комГородНазначения,
+	План.комСтранаНазначения,
+	План.Период
+ПОМЕСТИТЬ ПланИтог
+ИЗ
+	План КАК План
+ГДЕ
+	План.СуммаПлан &gt; 0
+	И План.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПланИтог.Наименование,
+	ПланИтог.Организация,
+	ПланИтог.ПодразделениеОрганизации,
+	ПланИтог.СтатьяБюджета,
+	ПланИтог.ДокументДвижения,
+	ПланИтог.Должность,
+	ПланИтог.Период,
+	СУММА(ПланИтог.СуммаПлан) КАК СуммаПлан,
+	СУММА(0) КАК СуммаФакт,
+	"" КАК Сотрудник,
+	ПланИтог.комГородНазначения КАК ГородНазначения
+ИЗ
+	ПланИтог КАК ПланИтог
+
+СГРУППИРОВАТЬ ПО
+	ПланИтог.Должность,
+	ПланИтог.ПодразделениеОрганизации,
+	ПланИтог.СтатьяБюджета,
+	ПланИтог.ДокументДвижения,
+	ПланИтог.Наименование,
+	ПланИтог.Период,
+	ПланИтог.комГородНазначения,
+	ПланИтог.Организация
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	"",
+	Факт.Организация,
+	Факт.ПодразделениеОрганизации,
+	"",
+	Факт.Регистратор,
+	Факт.Должность,
+	Факт.Период,
+	СУММА(0),
+	СУММА(Факт.СуммаФакт),
+	Факт.Сотрудник,
+	Факт.ГородНазначения
+ИЗ
+	Факт КАК Факт
+
+СГРУППИРОВАТЬ ПО
+	Факт.Регистратор,
+	Факт.Организация,
+	Факт.ПодразделениеОрганизации,
+	Факт.Должность,
+	Факт.Сотрудник,
+	Факт.ГородНазначения,
+	Факт.Период</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>Отклонение</dataPath>
+		<expression>СуммаПлан-СуммаФакт</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отклонение</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>СуммаПлан</dataPath>
+		<expression>Сумма(СуммаПлан)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаФакт</dataPath>
+		<expression>Сумма(СуммаФакт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Отклонение</dataPath>
+		<expression>Сумма(Отклонение)</expression>
+		<group>ГородНазначения</group>
+		<group>Должность</group>
+		<group>Организация</group>
+		<group>ПодразделениеОрганизации</group>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ВидРасчетнойТаблицы</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вид расчетной таблицы</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.б_ВидыРасчетныхТаблиц</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.б_ВидыРасчетныхТаблиц.Командировочные</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПериодПланирования</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период планирования</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>НачалоПериода(&amp;НачалоПериода, "год")</expression>
+	</parameter>
+	<parameter>
+		<name>Счет1251</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Счет1251</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfAccountsRef.Типовой</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяЗадолженностьПодотчетныхЛиц</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ВидПодотчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вид подотчета</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ОплатаОтПокупателяПлатежнойКартой</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтатьиЗатрат</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПриходныйКассовыйОрдер</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ур_ЗерноваяРасписка</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПлатежныйОрдерСписаниеДенежныхСредств</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ПодразделенияОрганизаций</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.РеализацияТоваровУслуг</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Контрагенты</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ур_ПоступлениеЗерна</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.НоменклатурныеГруппы</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.РегистрацияПрочихОперацийПоПриобретеннымТоварамВЦеляхНДС</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.Партия</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.НематериальныеАктивы</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ВозвратТоваровПоставщику</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ЦенныеБумаги</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.БанковскиеСчета</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПлатежноеПоручениеВходящее</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыДвиженияСтоимостиФА</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.БиологическиеАктивы</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.КомплектацияНоменклатуры</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ФизическиеЛица</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыИзмененийВСобственномКапитале</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ОтчетПроизводстваЗаСмену</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ОприходованиеТоваров</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ЗаявлениеОВвозеТоваровИУплатеКосвенныхНалогов</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПоступлениеДопРасходов</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ДокументРасчетовСКонтрагентом</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.зм_Гарантии</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.АктОбОказанииПроизводственныхУслуг</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыЗадолженностиПодотчетныхЛиц</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.РасходныйКассовыйОрдер</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыПлатежейВБюджетИФонды</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПоступлениеНМА</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.РасходыБудущихПериодов</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ОбъектыСтроительства</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.КорректировкаДолга</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.РегистрацияПрочихОперацийПоРеализованнымТоварамВЦеляхНДС</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПлатежныйОрдерПоступлениеДенежныхСредств</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Номенклатура</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ВозвратТоваровОтПокупателя</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтатьиДвиженияДенежныхСредств</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Резервы</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ГТДИмпорт</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Кассы</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыЗатратПоУвеличениюСтоимостиФА</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПоступлениеТоваровУслуг</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПлатежноеПоручениеИсходящее</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПеремещениеТоваров</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.СписаниеОС</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.АвансовыйОтчет</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПередачаНМА</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.РеализацияУслугПоПереработке</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ур_ПеремещениеЗерна</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Субконто</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ТипыОпераций</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПередачаОС</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ОсновныеСредства</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.НалогиСборыОтчисления</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПоступлениеИзПереработки</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Доходы</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтатьиОборотов</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПередачаТоваров</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыРемонтаВА</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Склады</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ДоходыБудущихПериодов</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыЗадолженностиПодотчетныхЛиц.Суточные</value>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыЗадолженностиПодотчетныхЛиц.СуточныеСверхНормы</value>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыЗадолженностиПодотчетныхЛиц.РасходыНаПроезд</value>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыЗадолженностиПодотчетныхЛиц.РасходыПоНаймуЖилья</value>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сотрудник</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Наименование</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаПлан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Отклонение</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>8b43d7d5-5fc9-4d20-9251-d776fd62b95f</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>6a024d31-241b-4a42-b3c1-f1c589cdf4f7</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:column>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Период</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:column>
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Организация</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ПодразделениеОрганизации</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ГородНазначения</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+							<dcsset:item>
+								<dcsset:groupItems>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Должность</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+								</dcsset:groupItems>
+								<dcsset:order>
+									<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+								</dcsset:order>
+								<dcsset:selection>
+									<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								</dcsset:selection>
+								<dcsset:item>
+									<dcsset:order>
+										<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+									</dcsset:order>
+									<dcsset:selection>
+										<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+									</dcsset:selection>
+								</dcsset:item>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

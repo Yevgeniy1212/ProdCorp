@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументРегистр</dataPath>
+			<field>ДокументРегистр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ / регистр</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Правило</dataPath>
+			<field>Правило</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Правило шаблона</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФинансовыйПоказательИсточник</dataPath>
+			<field>ФинансовыйПоказательИсточник</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Финансовый показатель/соответствие</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФинансовыйПоказательТипИсточника</dataPath>
+			<field>ФинансовыйПоказательТипИсточника</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип источника</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Шаблон</dataPath>
+			<field>Шаблон</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шаблон</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФинансовыйПоказатель</dataPath>
+			<field>ФинансовыйПоказатель</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	НаборыШаблонов.Схема КАК Шаблон
+ПОМЕСТИТЬ ВТ_Наборы
+ИЗ
+	РегистрСведений.фин_ПрименениеСхемОтраженияФактическихДанных.СрезПоследних(&amp;Дата, ) КАК ШаблоныДокументов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.фин_НаборыШаблоновОтраженияПервичныхДанныхВБюджетах.НаборШаблонов КАК НаборыШаблонов
+		ПО ШаблоныДокументов.Схема = НаборыШаблонов.Ссылка
+ГДЕ
+	ШаблоныДокументов.ОбъектИнформационнойБазы ССЫЛКА Справочник.фин_ВидыДокументов
+	И ШаблоныДокументов.ОбъектИнформационнойБазы.РегистрироватьПервичныеДанныеПоБюджетированию
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ШаблоныДокументов.Схема
+ИЗ
+	РегистрСведений.фин_ПрименениеСхемОтраженияФактическихДанных.СрезПоследних(&amp;Дата, ) КАК ШаблоныДокументов
+ГДЕ
+	ШаблоныДокументов.Схема ССЫЛКА Справочник.фин_СхемыОтраженияФактическихДанных
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ШаблоныРегистров.Схема
+ИЗ
+	РегистрСведений.фин_ПрименениеСхемОтраженияФактическихДанных.СрезПоследних(&amp;Дата, ) КАК ШаблоныРегистров
+ГДЕ
+	ШаблоныРегистров.ОбъектИнформационнойБазы.РегистрироватьПервичныеДанныеПоБюджетированию
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Наборы.Шаблон.Владелец КАК ДокументРегистр,
+	ВТ_Наборы.Шаблон,
+	фин_ПравилаОтраженияФактическихДанных.ФинансовыйПоказательИсточник,
+	фин_ПравилаОтраженияФактическихДанных.ФинансовыйПоказательТипИсточника,
+	фин_ПравилаОтраженияФактическихДанных.Ссылка КАК Правило
+ПОМЕСТИТЬ ВТ_СоставНаборов
+ИЗ
+	ВТ_Наборы КАК ВТ_Наборы
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.фин_ПравилаОтраженияФактическихДанных КАК фин_ПравилаОтраженияФактическихДанных
+		ПО (ВТ_Наборы.Шаблон = фин_ПравилаОтраженияФактическихДанных.Владелец
+				ИЛИ ВТ_Наборы.Шаблон = фин_ПравилаОтраженияФактическихДанных.Владелец.Владелец)
+ГДЕ
+	НЕ фин_ПравилаОтраженияФактическихДанных.ПометкаУдаления
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	фин_ПравилаОтраженияФактическихДанных.Владелец,
+	фин_ПравилаОтраженияФактическихДанных.Ссылка,
+	фин_ПравилаОтраженияФактическихДанных.ФинансовыйПоказательИсточник,
+	фин_ПравилаОтраженияФактическихДанных.ФинансовыйПоказательТипИсточника,
+	фин_ПравилаОтраженияФактическихДанных.Ссылка
+ИЗ
+	Справочник.фин_ПравилаОтраженияФактическихДанных КАК фин_ПравилаОтраженияФактическихДанных
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.фин_ПериодыПримененияПравилПоФинансовымПоказателям КАК фин_ПериодыПримененияПравилПоФинансовымПоказателям
+		ПО фин_ПравилаОтраженияФактическихДанных.Ссылка = фин_ПериодыПримененияПравилПоФинансовымПоказателям.Правило
+			И (фин_ПериодыПримененияПравилПоФинансовымПоказателям.ДатаНачала &lt;= &amp;Дата)
+			И (фин_ПериодыПримененияПравилПоФинансовымПоказателям.ДатаОкончания &gt;= &amp;Дата
+				ИЛИ фин_ПериодыПримененияПравилПоФинансовымПоказателям.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1))
+ГДЕ
+	фин_ПравилаОтраженияФактическихДанных.ПоФинансовомуПоказателю
+	И НЕ фин_ПравилаОтраженияФактическихДанных.ПометкаУдаления
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_СоставНаборов.ДокументРегистр,
+	ВТ_СоставНаборов.Шаблон,
+	ВТ_СоставНаборов.ФинансовыйПоказательТипИсточника,
+	ВТ_СоставНаборов.Правило,
+	ВТ_СоставНаборов.ФинансовыйПоказательИсточник,
+	ВТ_СоставНаборов.ФинансовыйПоказательИсточник КАК ФинансовыйПоказательСсылка
+ПОМЕСТИТЬ ВТ_Настройки
+ИЗ
+	ВТ_СоставНаборов КАК ВТ_СоставНаборов
+ГДЕ
+	ВТ_СоставНаборов.ФинансовыйПоказательТипИсточника = ЗНАЧЕНИЕ(Перечисление.фин_ТипыИсточниковОтраженияПервичныхДвижений.ФиксированноеЗначение)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВТ_СоставНаборов.ДокументРегистр,
+	ВТ_СоставНаборов.Шаблон,
+	ВТ_СоставНаборов.ФинансовыйПоказательТипИсточника,
+	ВТ_СоставНаборов.Правило,
+	ВТ_СоставНаборов.ФинансовыйПоказательИсточник,
+	ВложеныйЗапрос.Результат
+ИЗ
+	ВТ_СоставНаборов КАК ВТ_СоставНаборов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.фин_НастройкиПолученияСоответствийДляПервичныхДанныхБюджетирования КАК НастройкиПолученияСоответствий
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ РАЗЛИЧНЫЕ
+				Шкала.Ссылка КАК Вариант,
+				Шкала.Результат КАК Результат
+			ИЗ
+				Справочник.фин_ВариантыПолученияСоответствийДляПервичныхДанных.Шкала КАК Шкала
+			ГДЕ
+				Шкала.Ссылка.ВариантРасчетаСоответствия = ЗНАЧЕНИЕ(Перечисление.фин_ВариантыРасчетаСоответствийДляПервичныхДанныхБюджетирования.ПоШкале)
+			
+			ОБЪЕДИНИТЬ ВСЕ
+			
+			ВЫБРАТЬ РАЗЛИЧНЫЕ
+				Соответствия.Ссылка,
+				Соответствия.Результат
+			ИЗ
+				Справочник.фин_ВариантыПолученияСоответствийДляПервичныхДанных.Соответствия КАК Соответствия
+			ГДЕ
+				Соответствия.Ссылка.ВариантРасчетаСоответствия = ЗНАЧЕНИЕ(Перечисление.фин_ВариантыРасчетаСоответствийДляПервичныхДанныхБюджетирования.ПоПеречню)
+			
+			ОБЪЕДИНИТЬ ВСЕ
+			
+			ВЫБРАТЬ РАЗЛИЧНЫЕ
+				Варианты.Ссылка,
+				Варианты.ЗначениеИначе
+			ИЗ
+				Справочник.фин_ВариантыПолученияСоответствийДляПервичныхДанных КАК Варианты
+			ГДЕ
+				Варианты.ВариантРасчетаСоответствия = ЗНАЧЕНИЕ(Перечисление.фин_ВариантыРасчетаСоответствийДляПервичныхДанныхБюджетирования.ПоПеречню)
+			
+			ОБЪЕДИНИТЬ ВСЕ
+			
+			ВЫБРАТЬ РАЗЛИЧНЫЕ
+				Варианты.Ссылка,
+				Варианты.ЗначениеИначе
+			ИЗ
+				Справочник.фин_ВариантыПолученияСоответствийДляПервичныхДанных КАК Варианты
+			ГДЕ
+				Варианты.ВариантРасчетаСоответствия = ЗНАЧЕНИЕ(Перечисление.фин_ВариантыРасчетаСоответствийДляПервичныхДанныхБюджетирования.ПоПеречнюСоответствийРеквизиту)
+			
+			ОБЪЕДИНИТЬ ВСЕ
+			
+			ВЫБРАТЬ РАЗЛИЧНЫЕ
+				Соответствия.Ссылка,
+				Соответствия.Результат
+			ИЗ
+				Справочник.фин_ВариантыПолученияСоответствийДляПервичныхДанных.Соответствия КАК Соответствия
+			ГДЕ
+				Соответствия.Ссылка.ВариантРасчетаСоответствия = ЗНАЧЕНИЕ(Перечисление.фин_ВариантыРасчетаСоответствийДляПервичныхДанныхБюджетирования.ПоПеречнюСоответствийРеквизиту)
+			
+			ОБЪЕДИНИТЬ ВСЕ
+			
+			ВЫБРАТЬ
+				ЗНАЧЕНИЕ(Справочник.фин_ВариантыПолученияСоответствийДляПервичныхДанных.ПоНастройкеСоответствийДляИзмеренийБюджетирования),
+				НастройкаСоответствий.Соответствие
+			ИЗ
+				РегистрСведений.фин_НастройкаСоответствийДляИзмеренийБюджетирования.СрезПоследних(&amp;Дата, ) КАК НастройкаСоответствий
+			ГДЕ
+				НастройкаСоответствий.Разрез = ЗНАЧЕНИЕ(Перечисление.фин_ФактическиеПоказателиБюджетирования.ФинансовыйПоказатель)
+			
+			ОБЪЕДИНИТЬ ВСЕ
+			
+			ВЫБРАТЬ
+				ВариантыПолученияСоответствий.Ссылка,
+				НастройкаСоответствий.Соответствие
+			ИЗ
+				РегистрСведений.фин_НастройкаСоответствийДляИзмеренийБюджетирования.СрезПоследних(&amp;Дата, ) КАК НастройкаСоответствий
+					ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.фин_ВариантыПолученияСоответствийДляПервичныхДанных КАК ВариантыПолученияСоответствий
+					ПО (ВариантыПолученияСоответствий.Разрез = ЗНАЧЕНИЕ(Перечисление.фин_ФактическиеПоказателиБюджетирования.ФинансовыйПоказатель))
+						И (ВариантыПолученияСоответствий.ВариантРасчетаСоответствия = ЗНАЧЕНИЕ(Перечисление.фин_ВариантыРасчетаСоответствийДляПервичныхДанныхБюджетирования.ПоРегиструСоответствий))
+						И (ВариантыПолученияСоответствий.Регистр = "фин_НастройкаСоответствийДляИзмеренийБюджетирования")
+			ГДЕ
+				НастройкаСоответствий.Разрез = ЗНАЧЕНИЕ(Перечисление.фин_ФактическиеПоказателиБюджетирования.ФинансовыйПоказатель)) КАК ВложеныйЗапрос
+			ПО НастройкиПолученияСоответствий.ВариантПолученияСоответствийДляПервичныхДанных = ВложеныйЗапрос.Вариант
+		ПО ВТ_СоставНаборов.ФинансовыйПоказательИсточник = НастройкиПолученияСоответствий.Ссылка
+ГДЕ
+	ВТ_СоставНаборов.ФинансовыйПоказательТипИсточника = ЗНАЧЕНИЕ(Перечисление.фин_ТипыИсточниковОтраженияПервичныхДвижений.Соответствие)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	фин_ФинансовыеПоказатели.Ссылка КАК ФинансовыйПоказатель,
+	ВТ_Настройки.ДокументРегистр,
+	ВТ_Настройки.Шаблон,
+	ВТ_Настройки.ФинансовыйПоказательТипИсточника,
+	ВТ_Настройки.Правило,
+	ВТ_Настройки.ФинансовыйПоказательИсточник
+ИЗ
+	ВТ_Настройки КАК ВТ_Настройки
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.фин_ФинансовыеПоказатели КАК фин_ФинансовыеПоказатели
+		ПО ВТ_Настройки.ФинансовыйПоказательСсылка = фин_ФинансовыеПоказатели.Ссылка
+ГДЕ
+	фин_ФинансовыеПоказатели.ЭтоГруппа = ЛОЖЬ</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Дата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ФинансовыйПоказатель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДокументРегистр</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Шаблон</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Дата</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Green</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ФинансовыйПоказатель</dcsset:field>
+						<dcsset:groupType>Hierarchy</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection/>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+								<dcscor:value xsi:type="xs:decimal">35</dcscor:value>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+								<dcscor:value xsi:type="xs:decimal">35</dcscor:value>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ДокументРегистр</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:outputParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>РасположениеПолейГруппировки</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionGroupFieldsPlacement">SeparatelyAndInTotalsOnly</dcscor:value>
+						</dcscor:item>
+					</dcsset:outputParameters>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Шаблон</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Правило</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ФинансовыйПоказательТипИсточника</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ФинансовыйПоказательИсточник</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:outputParameters>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>РасположениеПолейГруппировки</dcscor:parameter>
+								<dcscor:value xsi:type="dcsset:DataCompositionGroupFieldsPlacement">SeparatelyAndInTotalsOnly</dcscor:value>
+							</dcscor:item>
+						</dcsset:outputParameters>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

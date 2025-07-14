@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаДохода</dataPath>
+			<field>СуммаДохода</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма дохода</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИПН</dataPath>
+			<field>ИПН</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ИПН</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИИН</dataPath>
+			<field>ИИН</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ИИН</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОПВ</dataPath>
+			<field>ОПВ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОПВ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВзносОСМС</dataPath>
+			<field>ВзносОСМС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Взнос ОСМС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	РасчетНалоговПриПоступленииАктивовУслугИсчисленныйИПН.Ссылка.Организация,
+	РасчетНалоговПриПоступленииАктивовУслугИсчисленныйИПН.ФизЛицо КАК Контрагент,
+	РасчетНалоговПриПоступленииАктивовУслугИсчисленныйИПН.ФизЛицо.ИдентификационныйКодЛичности КАК ИИН,
+	СУММА(РасчетНалоговПриПоступленииАктивовУслугИсчисленныйИПН.ОблагаемаяБаза) КАК СуммаДохода,
+	СУММА(РасчетНалоговПриПоступленииАктивовУслугИсчисленныйИПН.Налог) КАК ИПН,
+	СУММА(РасчетНалоговПриПоступленииАктивовУслугИсчисленныйОПВ.Взнос) КАК ОПВ,
+	СУММА(РасчетНалоговПриПоступленииАктивовУслугИсчисленныеВОСМС.Взнос) КАК ВзносОСМС
+ИЗ
+	Документ.РасчетНалоговПриПоступленииАктивовУслуг.ИсчисленныйИПН КАК РасчетНалоговПриПоступленииАктивовУслугИсчисленныйИПН
+		ПОЛНОЕ СОЕДИНЕНИЕ Документ.РасчетНалоговПриПоступленииАктивовУслуг.ИсчисленныйОПВ КАК РасчетНалоговПриПоступленииАктивовУслугИсчисленныйОПВ
+		ПО РасчетНалоговПриПоступленииАктивовУслугИсчисленныйИПН.Ссылка = РасчетНалоговПриПоступленииАктивовУслугИсчисленныйОПВ.Ссылка
+		ПОЛНОЕ СОЕДИНЕНИЕ Документ.РасчетНалоговПриПоступленииАктивовУслуг.ИсчисленныеВОСМС КАК РасчетНалоговПриПоступленииАктивовУслугИсчисленныеВОСМС
+		ПО РасчетНалоговПриПоступленииАктивовУслугИсчисленныйИПН.Ссылка = РасчетНалоговПриПоступленииАктивовУслугИсчисленныеВОСМС.Ссылка
+ГДЕ
+	РасчетНалоговПриПоступленииАктивовУслугИсчисленныйИПН.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И РасчетНалоговПриПоступленииАктивовУслугИсчисленныйИПН.Ссылка.Проведен = ИСТИНА
+
+СГРУППИРОВАТЬ ПО
+	РасчетНалоговПриПоступленииАктивовУслугИсчисленныйИПН.ФизЛицо,
+	РасчетНалоговПриПоступленииАктивовУслугИсчисленныйИПН.ФизЛицо.ИдентификационныйКодЛичности,
+	РасчетНалоговПриПоступленииАктивовУслугИсчисленныйИПН.Ссылка.Организация</query>
+	</dataSet>
+	<totalField>
+		<dataPath>ИПН</dataPath>
+		<expression>Сумма(ИПН)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаДохода</dataPath>
+		<expression>Сумма(СуммаДохода)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОПВ</dataPath>
+		<expression>Сумма(ОПВ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВзносОСМС</dataPath>
+		<expression>Сумма(ВзносОСМС)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>КонецПериода(&amp;ДатаОкончания, "День")</expression>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Контрагент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ИИН</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаДохода</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОПВ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ИПН</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВзносОСМС</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:ValueListType">
+						<v8:valueType/>
+						<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
+					</dcsset:right>
+					<dcsset:userSettingID>92c97e20-8782-4126-a85b-036bac2b3ffc</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>7b2c3c1d-ca6c-4ce1-9c50-833eb583c04a</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>aa50a51f-dffb-4478-a52a-dcb4e53d8fc6</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Контрагент</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Арктика</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

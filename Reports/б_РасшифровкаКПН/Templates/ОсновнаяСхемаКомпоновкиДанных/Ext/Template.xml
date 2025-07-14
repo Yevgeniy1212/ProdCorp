@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НаименованиеСтатьи</dataPath>
+			<field>НаименованиеСтатьи</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование статьи</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статья</dataPath>
+			<field>Статья</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статья</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сумма</dataPath>
+			<field>Сумма</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоходыРасходы</dataPath>
+			<field>ДоходыРасходы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доходы расходы</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номер</dataPath>
+			<field>Номер</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	б_Бюджет.Организация,
+	б_Бюджет.Сумма,
+	ВЫБОР
+		КОГДА б_Бюджет.СтатьяБюджета В ИЕРАРХИИ (&amp;Доходы)
+			ТОГДА "скорректированный доход"
+		ИНАЧЕ ВЫБОР
+				КОГДА б_Бюджет.СтатьяБюджета В ИЕРАРХИИ (&amp;Расходы)
+					ТОГДА "скорректированные расходы"
+				ИНАЧЕ ""
+			КОНЕЦ
+	КОНЕЦ КАК НаименованиеСтатьи,
+	ЕСТЬNULL(б_ЗависимостиСтатейБюджетаКПН.ВлияющаяСтатьяБюджета, "") КАК ВлияющаяСтатьяБюджета,
+	ВЫБОР
+		КОГДА б_Бюджет.СтатьяБюджета В ИЕРАРХИИ (&amp;Доходы)
+			ТОГДА "Доходы"
+		ИНАЧЕ ВЫБОР
+				КОГДА б_Бюджет.СтатьяБюджета В ИЕРАРХИИ (&amp;Расходы)
+					ТОГДА "Расходы"
+				ИНАЧЕ ""
+			КОНЕЦ
+	КОНЕЦ КАК ДоходыРасходы
+ПОМЕСТИТЬ ВТ
+ИЗ
+	РегистрНакопления.б_Бюджет КАК б_Бюджет
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.б_ЗависимостиСтатейБюджетаКПН КАК б_ЗависимостиСтатейБюджетаКПН
+		ПО б_Бюджет.СтатьяБюджета = б_ЗависимостиСтатейБюджетаКПН.ВлияющаяСтатьяБюджета
+ГДЕ
+	б_Бюджет.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СУММА(ВТ.Сумма) КАК Сумма,
+	ВТ.НаименованиеСтатьи,
+	ВЫБОР
+		КОГДА ВТ.ВлияющаяСтатьяБюджета = ""
+			ТОГДА ВТ.НаименованиеСтатьи
+		ИНАЧЕ ВТ.ВлияющаяСтатьяБюджета
+	КОНЕЦ КАК Статья,
+	ВТ.ДоходыРасходы КАК ДоходыРасходы
+ПОМЕСТИТЬ Итог
+ИЗ
+	ВТ КАК ВТ
+ГДЕ
+	ВТ.НаименованиеСтатьи &lt;&gt; &amp;НаименованиеСтатьи
+
+СГРУППИРОВАТЬ ПО
+	ВТ.НаименованиеСтатьи,
+	ВТ.ДоходыРасходы,
+	ВЫБОР
+		КОГДА ВТ.ВлияющаяСтатьяБюджета = ""
+			ТОГДА ВТ.НаименованиеСтатьи
+		ИНАЧЕ ВТ.ВлияющаяСтатьяБюджета
+	КОНЕЦ
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	СУММА(ВЫБОР
+			КОГДА ВТ.ДоходыРасходы = "Доходы"
+					И ВТ.ВлияющаяСтатьяБюджета = ""
+				ТОГДА ВТ.Сумма
+			ИНАЧЕ ВЫБОР
+					КОГДА ВТ.ВлияющаяСтатьяБюджета = ""
+						ТОГДА -ВТ.Сумма
+					ИНАЧЕ 0
+				КОНЕЦ
+		КОНЕЦ),
+	"Налогооблагаемый доход",
+	"Налогооблагаемый доход",
+	"Налогооблагаемый доход"
+ИЗ
+	ВТ КАК ВТ
+ГДЕ
+	ВТ.НаименованиеСтатьи &lt;&gt; &amp;НаименованиеСтатьи
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	СУММА(ВЫБОР
+			КОГДА ВТ.ДоходыРасходы = "Доходы"
+					И ВТ.ВлияющаяСтатьяБюджета = ""
+				ТОГДА ВТ.Сумма * СведенияОСтавкахНалоговСборовОтчисленийСрезПоследних.Ставка / 100
+			ИНАЧЕ ВЫБОР
+					КОГДА ВТ.ВлияющаяСтатьяБюджета = ""
+						ТОГДА -ВТ.Сумма * СведенияОСтавкахНалоговСборовОтчисленийСрезПоследних.Ставка / 100
+					ИНАЧЕ 0
+				КОНЕЦ
+		КОНЕЦ),
+	"Корпоративный подоходный налог",
+	"Корпоративный подоходный налог",
+	"Корпоративный подоходный налог"
+ИЗ
+	ВТ КАК ВТ,
+	РегистрСведений.СведенияОСтавкахНалоговСборовОтчислений.СрезПоследних(&amp;КонецПериода, ) КАК СведенияОСтавкахНалоговСборовОтчисленийСрезПоследних
+ГДЕ
+	ВТ.НаименованиеСтатьи &lt;&gt; &amp;НаименованиеСтатьи
+	И СведенияОСтавкахНалоговСборовОтчисленийСрезПоследних.ВидНалога = &amp;ВидНалога
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Итог.Сумма,
+	Итог.НаименованиеСтатьи,
+	Итог.Статья,
+	Итог.ДоходыРасходы,
+	ВЫБОР
+		КОГДА Итог.ДоходыРасходы = "Доходы"
+			ТОГДА 1
+		ИНАЧЕ ВЫБОР
+				КОГДА Итог.ДоходыРасходы = "Расходы"
+					ТОГДА 2
+				ИНАЧЕ ВЫБОР
+						КОГДА Итог.ДоходыРасходы = "Налогооблагаемый доход"
+							ТОГДА 3
+						ИНАЧЕ ВЫБОР
+								КОГДА Итог.ДоходыРасходы = "Корпоративный подоходный налог"
+									ТОГДА 4
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ КАК Номер
+ИЗ
+	Итог КАК Итог
+
+УПОРЯДОЧИТЬ ПО
+	Номер</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Сумма</dataPath>
+		<expression>Сумма(Сумма)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ВидНалога</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вид налога</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.НалогиСборыОтчисления</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.НалогиСборыОтчисления.НалогНаПрибыль</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Доходы</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Доходы</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.фин_СтатьиБюджета</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>Справочники.фин_СтатьиБюджета.НайтиПоКоду("000000001")</expression>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>КонецПериода(&amp;НачалоПериода, "год")</expression>
+	</parameter>
+	<parameter>
+		<name>НаименованиеСтатьи</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Наименование статьи</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>25</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Расходы</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Расходы</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.фин_СтатьиБюджета</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>Справочники.фин_СтатьиБюджета.НайтиПоКоду("000000044")</expression>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сумма</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Доходы</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>5465fb3b-a26e-4450-a649-24fb7d5463dc</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Расходы</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Номер</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>Сумма</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2; ЧС=3</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:userSettingID>64de0ee6-1989-42ef-a421-7605d92bca28</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>в тысячах</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Изменение по статье  "Корпоративный подоходный налог" </v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>АвтоПозицияРесурсов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionResourcesAutoPosition">DontUse</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ДоходыРасходы</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Номер</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Статья</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

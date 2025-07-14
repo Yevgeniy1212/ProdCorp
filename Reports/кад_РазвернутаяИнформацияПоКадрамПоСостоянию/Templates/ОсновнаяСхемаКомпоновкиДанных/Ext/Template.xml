@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ШтатнаяЧисленность</dataPath>
+			<field>ШтатнаяЧисленность</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Штатная численность</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Областные</dataPath>
+			<field>Областные</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Областные</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоУволенных</dataPath>
+			<field>КоличествоУволенных</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество уволенных</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИнформацияПоЛицамСовершившимКоррупционныеПравонарушения</dataPath>
+			<field>ИнформацияПоЛицамСовершившимКоррупционныеПравонарушения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Информация по лицам совершившим коррупционные правонарушения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИнформацияПоЛицамПривлеченнымКДисциплинарнойОтветственности</dataPath>
+			<field>ИнформацияПоЛицамПривлеченнымКДисциплинарнойОтветственности</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Информация по лицам привлеченным к дисциплинарной ответственности</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоВакансий</dataPath>
+			<field>КоличествоВакансий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество вакансий</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	КОЛИЧЕСТВО(РаботникиОрганизацийСрезПоследних.Сотрудник) КАК Сотрудник,
+	РаботникиОрганизацийСрезПоследних.Организация,
+	КОЛИЧЕСТВО(ВЫБОР
+			КОГДА РаботникиОрганизацийСрезПоследних.ОбособленноеПодразделение.Код &lt;&gt; "000000001"
+				ТОГДА "все"
+		КОНЕЦ) КАК Поле1
+ПОМЕСТИТЬ Вт_ШтатнаяЧисленность
+ИЗ
+	РегистрСведений.РаботникиОрганизаций.СрезПоследних(
+			&amp;КонецПериода,
+			Сотрудник.ВидЗанятости = ЗНАЧЕНИЕ(Перечисление.ВидыЗанятостиВОрганизации.ОсновноеМестоРаботы)
+				И Сотрудник.ДатаУвольнения = ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
+				И ПричинаИзмененияСостояния = ЗНАЧЕНИЕ(Перечисление.ПричиныИзмененияСостояния.ПриемНаРаботу)
+				И Организация = &amp;Организация) КАК РаботникиОрганизацийСрезПоследних
+ГДЕ
+	РаботникиОрганизацийСрезПоследних.Сотрудник.Физлицо.Родитель.Наименование &lt;&gt; "Внештата"
+	И РаботникиОрганизацийСрезПоследних.Сотрудник.Физлицо.Родитель.Наименование &lt;&gt; "дектретчицы"
+	И РаботникиОрганизацийСрезПоследних.Сотрудник.Физлицо.Родитель.Наименование &lt;&gt; "Зарубежные представительства"
+	И РаботникиОрганизацийСрезПоследних.Сотрудник.Физлицо.Родитель.Наименование = "Центральный аппарат"
+
+СГРУППИРОВАТЬ ПО
+	РаботникиОрганизацийСрезПоследних.Организация
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	КОЛИЧЕСТВО(РаботникиОрганизацийСрезПоследних.Сотрудник) КАК Сотрудник,
+	РаботникиОрганизацийСрезПоследних.Организация
+ПОМЕСТИТЬ ВТ_Уволенные
+ИЗ
+	РегистрСведений.РаботникиОрганизаций.СрезПоследних(
+			,
+			ПричинаИзмененияСостояния = ЗНАЧЕНИЕ(Перечисление.ПричиныИзмененияСостояния.Увольнение)
+				И Сотрудник.ДатаУвольнения &lt;&gt; ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
+				И Сотрудник.ВидЗанятости = ЗНАЧЕНИЕ(Перечисление.ВидыЗанятостиВОрганизации.ОсновноеМестоРаботы)
+				И Организация = &amp;Организация) КАК РаботникиОрганизацийСрезПоследних
+ГДЕ
+	РаботникиОрганизацийСрезПоследних.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+СГРУППИРОВАТЬ ПО
+	РаботникиОрганизацийСрезПоследних.Организация
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Вт_ШтатнаяЧисленность.Сотрудник КАК ШтатнаяЧисленность,
+	ВТ_Уволенные.Сотрудник КАК КоличествоУволенных,
+	0 КАК КоличествоВакансий,
+	0 КАК ИнформацияПоЛицамПривлеченнымКДисциплинарнойОтветственности,
+	0 КАК ИнформацияПоЛицамСовершившимКоррупционныеПравонарушения,
+	Вт_ШтатнаяЧисленность.Поле1 КАК Областные
+ИЗ
+	Вт_ШтатнаяЧисленность КАК Вт_ШтатнаяЧисленность
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_Уволенные КАК ВТ_Уволенные
+		ПО Вт_ШтатнаяЧисленность.Организация = ВТ_Уволенные.Организация
+
+СГРУППИРОВАТЬ ПО
+	Вт_ШтатнаяЧисленность.Сотрудник,
+	ВТ_Уволенные.Сотрудник,
+	Вт_ШтатнаяЧисленность.Поле1</query>
+	</dataSet>
+	<totalField>
+		<dataPath>ИнформацияПоЛицамПривлеченнымКДисциплинарнойОтветственности</dataPath>
+		<expression>Сумма(ИнформацияПоЛицамПривлеченнымКДисциплинарнойОтветственности)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ИнформацияПоЛицамСовершившимКоррупционныеПравонарушения</dataPath>
+		<expression>Сумма(ИнформацияПоЛицамСовершившимКоррупционныеПравонарушения)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоВакансий</dataPath>
+		<expression>Сумма(КоличествоВакансий)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоУволенных</dataPath>
+		<expression>Сумма(КоличествоУволенных)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Областные</dataPath>
+		<expression>Сумма(Областные)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ШтатнаяЧисленность</dataPath>
+		<expression>Сумма(ШтатнаяЧисленность)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ШтатнаяЧисленность</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Областные</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоВакансий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоУволенных</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ИнформацияПоЛицамПривлеченнымКДисциплинарнойОтветственности</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ИнформацияПоЛицамСовершившимКоррупционныеПравонарушения</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>81cef88c-45d6-4320-a224-872e1f1b20b5</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>75442b09-c66d-43c6-951a-5d88081c6ea7</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Организация</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>3a1e54c2-0bcd-4035-b7ec-ab25d390705e</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

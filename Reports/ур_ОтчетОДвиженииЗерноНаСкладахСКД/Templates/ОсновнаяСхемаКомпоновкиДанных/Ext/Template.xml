@@ -1,0 +1,2389 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРесурса</dataPath>
+			<field>ВидРесурса</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГодУрожая</dataPath>
+			<field>ГодУрожая</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Класс</dataPath>
+			<field>Класс</field>
+			<attributeUseRestriction>
+				<field>true</field>
+			</attributeUseRestriction>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Культура</dataPath>
+			<field>Культура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗерноваяРасписка</dataPath>
+			<field>ЗерноваяРасписка</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<presentationExpression>ЗерноваяРасписка.КодМСХ+" "+ЗерноваяРасписка.СерияНомерМСХ+" от "+Формат(ЗерноваяРасписка.ДатаВыдачи,"ДФ= dd.MM.yyyy")</presentationExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонОстаток</dataPath>
+			<field>КонОстаток</field>
+			<role>
+				<dcscom:balance>true</dcscom:balance>
+				<dcscom:balanceGroupName>Сумма</dcscom:balanceGroupName>
+				<dcscom:balanceType>ClosingBalance</dcscom:balanceType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачОстаток</dataPath>
+			<field>НачОстаток</field>
+			<role>
+				<dcscom:balance>true</dcscom:balance>
+				<dcscom:balanceGroupName>Сумма</dcscom:balanceGroupName>
+				<dcscom:balanceType>OpeningBalance</dcscom:balanceType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Приход</dataPath>
+			<field>Приход</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Расход</dataPath>
+			<field>Расход</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Видзерна</dataPath>
+			<field>Видзерна</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ур_ЗерноНаСкладахОстаткиИОбороты.Организация,
+	ур_ЗерноНаСкладахОстаткиИОбороты.ВидРесурса,
+	ур_ЗерноНаСкладахОстаткиИОбороты.Склад,
+	ур_ЗерноНаСкладахОстаткиИОбороты.Культура,
+	ур_ЗерноНаСкладахОстаткиИОбороты.Класс,
+	ур_ЗерноНаСкладахОстаткиИОбороты.ГодУрожая,
+	ур_ЗерноНаСкладахОстаткиИОбороты.ЗерноваяРасписка,
+	ур_ЗерноНаСкладахОстаткиИОбороты.ЗачтенныйВесНачальныйОстаток КАК НачОстаток,
+	ур_ЗерноНаСкладахОстаткиИОбороты.ЗачтенныйВесПриход КАК Приход,
+	ур_ЗерноНаСкладахОстаткиИОбороты.ЗачтенныйВесРасход КАК Расход,
+	ур_ЗерноНаСкладахОстаткиИОбороты.ЗачтенныйВесКонечныйОстаток КАК КонОстаток,
+	ур_ЗерноНаСкладахОстаткиИОбороты.Видзерна
+ИЗ
+	РегистрНакопления.ур_ЗерноНаСкладах.ОстаткиИОбороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			,
+			НЕ Культура = &amp;КультураСахар
+				И НЕ Культура = &amp;КультураМука
+				И НЕ Культура = &amp;КультураГречневаяКрупа) КАК ур_ЗерноНаСкладахОстаткиИОбороты</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных2</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Видзерна</dataPath>
+			<field>Видзерна</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРесурса</dataPath>
+			<field>ВидРесурса</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГодУрожая</dataPath>
+			<field>ГодУрожая</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗерноваяРасписка</dataPath>
+			<field>ЗерноваяРасписка</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Класс</dataPath>
+			<field>Класс</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Культура</dataPath>
+			<field>Культура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Закуп</dataPath>
+			<field>Закуп</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ур_ЗерноНаСкладах.Организация,
+	ур_ЗерноНаСкладах.ВидРесурса,
+	ур_ЗерноНаСкладах.Склад,
+	ур_ЗерноНаСкладах.Культура,
+	ур_ЗерноНаСкладах.Класс,
+	ур_ЗерноНаСкладах.ГодУрожая,
+	ур_ЗерноНаСкладах.ЗерноваяРасписка,
+	ур_ЗерноНаСкладах.Видзерна,
+	ур_ЗерноНаСкладах.ЗачтенныйВес КАК Закуп
+ИЗ
+	РегистрНакопления.ур_ЗерноНаСкладах КАК ур_ЗерноНаСкладах
+ГДЕ
+	ур_ЗерноНаСкладах.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	И ур_ЗерноНаСкладах.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)
+	И ур_ЗерноНаСкладах.ТипОперации.ВидОперацииПоЗерну = ЗНАЧЕНИЕ(Перечисление.ВидыТиповОпераций.Закуп)
+	И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураСахар
+	И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураМука
+	И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураГречневаяКрупа</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных3</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Видзерна</dataPath>
+			<field>Видзерна</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРесурса</dataPath>
+			<field>ВидРесурса</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГодУрожая</dataPath>
+			<field>ГодУрожая</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗерноваяРасписка</dataPath>
+			<field>ЗерноваяРасписка</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Класс</dataPath>
+			<field>Класс</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Культура</dataPath>
+			<field>Культура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Реализация</dataPath>
+			<field>Реализация</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ур_ЗерноНаСкладах.Организация,
+	ур_ЗерноНаСкладах.ВидРесурса,
+	ур_ЗерноНаСкладах.Склад,
+	ур_ЗерноНаСкладах.Культура,
+	ур_ЗерноНаСкладах.Класс,
+	ур_ЗерноНаСкладах.ГодУрожая,
+	ур_ЗерноНаСкладах.ЗерноваяРасписка,
+	ур_ЗерноНаСкладах.Видзерна,
+	ур_ЗерноНаСкладах.ЗачтенныйВес КАК Реализация
+ИЗ
+	РегистрНакопления.ур_ЗерноНаСкладах КАК ур_ЗерноНаСкладах
+ГДЕ
+	ур_ЗерноНаСкладах.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	И ур_ЗерноНаСкладах.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И ур_ЗерноНаСкладах.ТипОперации.ВидОперацииПоЗерну = ЗНАЧЕНИЕ(Перечисление.ВидыТиповОпераций.Реализация)
+	И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураСахар
+			И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураМука
+			И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураГречневаяКрупа</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных4</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Видзерна</dataPath>
+			<field>Видзерна</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРесурса</dataPath>
+			<field>ВидРесурса</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГодУрожая</dataPath>
+			<field>ГодУрожая</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗерноваяРасписка</dataPath>
+			<field>ЗерноваяРасписка</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Класс</dataPath>
+			<field>Класс</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Культура</dataPath>
+			<field>Культура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПеремещениеПриход</dataPath>
+			<field>ПеремещениеПриход</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ур_ЗерноНаСкладах.Организация,
+	ур_ЗерноНаСкладах.ВидРесурса,
+	ур_ЗерноНаСкладах.Склад,
+	ур_ЗерноНаСкладах.Культура,
+	ур_ЗерноНаСкладах.Класс,
+	ур_ЗерноНаСкладах.ГодУрожая,
+	ур_ЗерноНаСкладах.ЗерноваяРасписка,
+	ур_ЗерноНаСкладах.Видзерна,
+	ур_ЗерноНаСкладах.ЗачтенныйВес КАК ПеремещениеПриход
+ИЗ
+	РегистрНакопления.ур_ЗерноНаСкладах КАК ур_ЗерноНаСкладах
+ГДЕ
+	ур_ЗерноНаСкладах.Период МЕЖДУ &amp;НачалоПериода И &amp;Конецпериода
+	И ур_ЗерноНаСкладах.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)
+	И ур_ЗерноНаСкладах.ТипОперации.ВидОперацииПоЗерну = ЗНАЧЕНИЕ(Перечисление.ВидыТиповОпераций.Перемещение)
+	И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураСахар
+			И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураМука
+			И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураГречневаяКрупа</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных5</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Видзерна</dataPath>
+			<field>Видзерна</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРесурса</dataPath>
+			<field>ВидРесурса</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГодУрожая</dataPath>
+			<field>ГодУрожая</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗерноваяРасписка</dataPath>
+			<field>ЗерноваяРасписка</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Класс</dataPath>
+			<field>Класс</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Культура</dataPath>
+			<field>Культура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПеремещениеРасход</dataPath>
+			<field>ПеремещениеРасход</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ур_ЗерноНаСкладах.Организация,
+	ур_ЗерноНаСкладах.ВидРесурса,
+	ур_ЗерноНаСкладах.Склад,
+	ур_ЗерноНаСкладах.Культура,
+	ур_ЗерноНаСкладах.Класс,
+	ур_ЗерноНаСкладах.ГодУрожая,
+	ур_ЗерноНаСкладах.ЗерноваяРасписка,
+	ур_ЗерноНаСкладах.Видзерна,
+	ур_ЗерноНаСкладах.ЗачтенныйВес КАК ПеремещениеРасход
+ИЗ
+	РегистрНакопления.ур_ЗерноНаСкладах КАК ур_ЗерноНаСкладах
+ГДЕ
+	ур_ЗерноНаСкладах.Период МЕЖДУ &amp;НачалоПериода И &amp;Конецпериода
+	И ур_ЗерноНаСкладах.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И ур_ЗерноНаСкладах.ТипОперации.ВидОперацииПоЗерну = ЗНАЧЕНИЕ(Перечисление.ВидыТиповОпераций.Перемещение)
+	И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураСахар
+			И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураМука
+			И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураГречневаяКрупа</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных6</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Видзерна</dataPath>
+			<field>Видзерна</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРесурса</dataPath>
+			<field>ВидРесурса</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГодУрожая</dataPath>
+			<field>ГодУрожая</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗерноваяРасписка</dataPath>
+			<field>ЗерноваяРасписка</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Класс</dataPath>
+			<field>Класс</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Культура</dataPath>
+			<field>Культура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасшифровкаПриход1</dataPath>
+			<field>РасшифровкаПриход1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возмещение недостачи/ухудшение/улучшение качества зерна</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасшифровкаПриход2</dataPath>
+			<field>РасшифровкаПриход2</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Замена зерновой расписки, зерно в пути</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НеРасшифровкаПриход</dataPath>
+			<field>НеРасшифровкаПриход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочий приход</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТоварныйКредитПриход</dataPath>
+			<field>ТоварныйКредитПриход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возврат ТК</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БартерныйОбменПриход</dataPath>
+			<field>БартерныйОбменПриход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Бартерный обмен приход</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ур_ЗерноНаСкладах.Организация,
+	ур_ЗерноНаСкладах.ВидРесурса,
+	ур_ЗерноНаСкладах.Склад,
+	ур_ЗерноНаСкладах.Культура,
+	ур_ЗерноНаСкладах.Класс,
+	ур_ЗерноНаСкладах.ГодУрожая,
+	ур_ЗерноНаСкладах.ЗерноваяРасписка,
+	ур_ЗерноНаСкладах.Видзерна,
+	ВЫБОР
+		КОГДА ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;Возмещение
+				ИЛИ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;УхудшениеКачества
+				ИЛИ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;УлучшениеКачества
+				ИЛИ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;Недостач
+			ТОГДА ур_ЗерноНаСкладах.ЗачтенныйВес
+		ИНАЧЕ 0
+	КОНЕЦ КАК РасшифровкаПриход1,
+	ВЫБОР
+		КОГДА ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;ЗаменаЗерновойРасписки
+				ИЛИ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;ЗерноВПути
+			ТОГДА ур_ЗерноНаСкладах.ЗачтенныйВес
+		ИНАЧЕ 0
+	КОНЕЦ КАК РасшифровкаПриход2,
+	ВЫБОР
+		КОГДА НЕ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;БартерныйОбмен
+				И НЕ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;ЗаменаЗерновойРасписки
+				И НЕ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;ЗерноВПути
+				И НЕ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;Возмещение
+				И НЕ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;Недостач
+				И НЕ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;УхудшениеКачества
+				И НЕ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;УлучшениеКачества
+				И НЕ(ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;ТоварныйКредит
+						И (ур_ЗерноНаСкладах.ЗерноваяРасписка.СерияНомерМСХ &lt;&gt; "600771."
+							И ур_ЗерноНаСкладах.ЗерноваяРасписка.СерияНомерМСХ &lt;&gt; "503173."
+							И ур_ЗерноНаСкладах.ЗерноваяРасписка.СерияНомерМСХ &lt;&gt; "600089."))
+			ТОГДА ур_ЗерноНаСкладах.ЗачтенныйВес
+		ИНАЧЕ 0
+	КОНЕЦ КАК НеРасшифровкаПриход,
+	ВЫБОР
+		КОГДА ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;ТоварныйКредит
+				И (ур_ЗерноНаСкладах.ЗерноваяРасписка.СерияНомерМСХ &lt;&gt; "600771."
+					И ур_ЗерноНаСкладах.ЗерноваяРасписка.СерияНомерМСХ &lt;&gt; "503173."
+					И ур_ЗерноНаСкладах.ЗерноваяРасписка.СерияНомерМСХ &lt;&gt; "600089.")
+			ТОГДА ур_ЗерноНаСкладах.ЗачтенныйВес
+		ИНАЧЕ 0
+	КОНЕЦ КАК ТоварныйКредитПриход,
+	ВЫБОР
+		КОГДА ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;БартерныйОбмен
+			ТОГДА ур_ЗерноНаСкладах.ЗачтенныйВес
+		ИНАЧЕ 0
+	КОНЕЦ КАК БартерныйОбменПриход
+ИЗ
+	РегистрНакопления.ур_ЗерноНаСкладах КАК ур_ЗерноНаСкладах
+ГДЕ
+	ур_ЗерноНаСкладах.Период МЕЖДУ &amp;НачалоПериода И &amp;Конецпериода
+	И ур_ЗерноНаСкладах.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)
+	И НЕ ур_ЗерноНаСкладах.ТипОперации.ВидОперацииПоЗерну В (&amp;СписокВидовОперацийДляОтбораПриход)
+	И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураСахар
+			И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураМука
+			И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураГречневаяКрупа</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных7</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Видзерна</dataPath>
+			<field>Видзерна</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРесурса</dataPath>
+			<field>ВидРесурса</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГодУрожая</dataPath>
+			<field>ГодУрожая</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗерноваяРасписка</dataPath>
+			<field>ЗерноваяРасписка</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Класс</dataPath>
+			<field>Класс</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Культура</dataPath>
+			<field>Культура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасшифровкаРасход1</dataPath>
+			<field>РасшифровкаРасход1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обнаружена недостача/ухудшение/улучшение качества зерна</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасшифровкаРасход2</dataPath>
+			<field>РасшифровкаРасход2</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Замена зерновой расписки, зерно в пути</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НеРасшифровкаРасход</dataPath>
+			<field>НеРасшифровкаРасход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочий расход</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТоварныйКредитРасход</dataPath>
+			<field>ТоварныйКредитРасход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выдача ТК</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БартерныйОбменРасход</dataPath>
+			<field>БартерныйОбменРасход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Бартерный обмен расход</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ур_ЗерноНаСкладах.Организация,
+	ур_ЗерноНаСкладах.ВидРесурса,
+	ур_ЗерноНаСкладах.Склад,
+	ур_ЗерноНаСкладах.Культура,
+	ур_ЗерноНаСкладах.Класс,
+	ур_ЗерноНаСкладах.ГодУрожая,
+	ур_ЗерноНаСкладах.ЗерноваяРасписка,
+	ур_ЗерноНаСкладах.Видзерна,
+	ВЫБОР
+		КОГДА ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;Возмещение
+				ИЛИ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;УхудшениеКачества
+				ИЛИ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;УлучшениеКачества
+				ИЛИ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;Недостач
+			ТОГДА ур_ЗерноНаСкладах.ЗачтенныйВес
+		ИНАЧЕ 0
+	КОНЕЦ КАК РасшифровкаРасход1,
+	ВЫБОР
+		КОГДА ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;ЗаменаЗерновойРасписки
+				ИЛИ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;ЗерноВПути
+			ТОГДА ур_ЗерноНаСкладах.ЗачтенныйВес
+		ИНАЧЕ 0
+	КОНЕЦ КАК РасшифровкаРасход2,
+	ВЫБОР
+		КОГДА НЕ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;БартерныйОбмен
+				И НЕ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;ЗаменаЗерновойРасписки
+				И НЕ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;ЗерноВПути
+				И НЕ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;Возмещение
+				И НЕ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;Недостач
+				И НЕ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;УхудшениеКачества
+				И НЕ ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;УлучшениеКачества
+				И НЕ(ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;ТоварныйКредит
+						И (ур_ЗерноНаСкладах.ЗерноваяРасписка.СерияНомерМСХ &lt;&gt; "600771."
+							И ур_ЗерноНаСкладах.ЗерноваяРасписка.СерияНомерМСХ &lt;&gt; "503173."
+							И ур_ЗерноНаСкладах.ЗерноваяРасписка.СерияНомерМСХ &lt;&gt; "600089."))
+			ТОГДА ур_ЗерноНаСкладах.ЗачтенныйВес
+		ИНАЧЕ 0
+	КОНЕЦ КАК НеРасшифровкаРасход,
+	ВЫБОР
+		КОГДА ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;ТоварныйКредит
+				И (ур_ЗерноНаСкладах.ЗерноваяРасписка.СерияНомерМСХ &lt;&gt; "600771."
+					И ур_ЗерноНаСкладах.ЗерноваяРасписка.СерияНомерМСХ &lt;&gt; "503173."
+					И ур_ЗерноНаСкладах.ЗерноваяРасписка.СерияНомерМСХ &lt;&gt; "600089.")
+			ТОГДА ур_ЗерноНаСкладах.ЗачтенныйВес
+		ИНАЧЕ 0
+	КОНЕЦ КАК ТоварныйКредитРасход,
+	ВЫБОР
+		КОГДА ур_ЗерноНаСкладах.ТипОперации.Наименование ПОДОБНО &amp;БартерныйОбмен
+			ТОГДА ур_ЗерноНаСкладах.ЗачтенныйВес
+		ИНАЧЕ 0
+	КОНЕЦ КАК БартерныйОбменРасход
+ИЗ
+	РегистрНакопления.ур_ЗерноНаСкладах КАК ур_ЗерноНаСкладах
+ГДЕ
+	ур_ЗерноНаСкладах.Период МЕЖДУ &amp;НачалоПериода И &amp;Конецпериода
+	И ур_ЗерноНаСкладах.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И НЕ ур_ЗерноНаСкладах.ТипОперации.ВидОперацииПоЗерну В (&amp;СписокВидовОперацийДляОтбораРасход)
+	И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураСахар
+			И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураМука
+			И НЕ ур_ЗерноНаСкладах.Культура = &amp;КультураГречневаяКрупа</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных8</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРесурса</dataPath>
+			<field>ВидРесурса</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Культура</dataPath>
+			<field>Культура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипОперации</dataPath>
+			<field>ТипОперации</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Класс</dataPath>
+			<field>Класс</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГодУрожая</dataPath>
+			<field>ГодУрожая</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Зерноваярасписка</dataPath>
+			<field>Зерноваярасписка</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Получатель</dataPath>
+			<field>Получатель</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РезервНачальныйОстаток</dataPath>
+			<field>РезервНачальныйОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остаток на начало</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:balance>true</dcscom:balance>
+				<dcscom:balanceGroupName>Резерв</dcscom:balanceGroupName>
+				<dcscom:balanceType>OpeningBalance</dcscom:balanceType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РезервКонечныйОстаток</dataPath>
+			<field>РезервКонечныйОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Резерв конечный остаток</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:balance>true</dcscom:balance>
+				<dcscom:balanceGroupName>Резерв</dcscom:balanceGroupName>
+				<dcscom:balanceType>ClosingBalance</dcscom:balanceType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИтогоРезервРасход</dataPath>
+			<field>ИтогоРезервРасход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итого расход</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИтогоРезервПриход</dataPath>
+			<field>ИтогоРезервПриход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итого приход</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РезервЗаменаРЗЗПриход</dataPath>
+			<field>РезервЗаменаРЗЗПриход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Замена резервного запаса зерна</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РезервЗаменаРЗЗРасход</dataPath>
+			<field>РезервЗаменаРЗЗРасход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Замена резервного запаса зерна</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РезервПрочийПриход</dataPath>
+			<field>РезервПрочийПриход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочий приход</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РезервПрочийРасход</dataPath>
+			<field>РезервПрочийРасход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочий расход</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РезервРеализацияРасход</dataPath>
+			<field>РезервРеализацияРасход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реализация</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ур_ЗерноВЗалогеОстаткиИОбороты.Организация,
+	ур_ЗерноВЗалогеОстаткиИОбороты.ВидРесурса,
+	ур_ЗерноВЗалогеОстаткиИОбороты.Склад,
+	ур_ЗерноВЗалогеОстаткиИОбороты.ТипОперации,
+	ур_ЗерноВЗалогеОстаткиИОбороты.ГодУрожая,
+	ур_ЗерноВЗалогеОстаткиИОбороты.Культура,
+	ур_ЗерноВЗалогеОстаткиИОбороты.Класс,
+	ур_ЗерноВЗалогеОстаткиИОбороты.Зерноваярасписка,
+	ур_ЗерноВЗалогеОстаткиИОбороты.Получатель,
+	ур_ЗерноВЗалогеОстаткиИОбороты.ЗачтенныйвесРасход КАК ИтогоРезервРасход,
+	ур_ЗерноВЗалогеОстаткиИОбороты.ЗачтенныйвесПриход КАК ИтогоРезервПриход,
+	ур_ЗерноВЗалогеОстаткиИОбороты.ЗачтенныйвесНачальныйОстаток КАК РезервНачальныйОстаток,
+	ур_ЗерноВЗалогеОстаткиИОбороты.ЗачтенныйвесКонечныйОстаток КАК РезервКонечныйОстаток,
+	ВЫБОР
+		КОГДА ур_ЗерноВЗалогеОстаткиИОбороты.ТипОперации = &amp;ТипОперацииЗаложить
+			ТОГДА ур_ЗерноВЗалогеОстаткиИОбороты.ЗачтенныйвесПриход
+		ИНАЧЕ 0
+	КОНЕЦ КАК РезервЗаменаРЗЗПриход,
+	ВЫБОР
+		КОГДА ур_ЗерноВЗалогеОстаткиИОбороты.ТипОперации = &amp;ТипОперацииВысвободить
+			ТОГДА ур_ЗерноВЗалогеОстаткиИОбороты.ЗачтенныйвесРасход
+		ИНАЧЕ 0
+	КОНЕЦ КАК РезервЗаменаРЗЗРасход,
+	ВЫБОР
+		КОГДА ур_ЗерноВЗалогеОстаткиИОбороты.ТипОперации &lt;&gt; &amp;ТипОперацииЗаложить
+			ТОГДА ур_ЗерноВЗалогеОстаткиИОбороты.ЗачтенныйвесПриход
+		ИНАЧЕ 0
+	КОНЕЦ КАК РезервПрочийПриход,
+	ВЫБОР
+		КОГДА ур_ЗерноВЗалогеОстаткиИОбороты.ТипОперации &lt;&gt; &amp;ТипОперацииВысвободить
+				И ур_ЗерноВЗалогеОстаткиИОбороты.Получатель = &amp;ПустойПолучатель
+			ТОГДА ур_ЗерноВЗалогеОстаткиИОбороты.ЗачтенныйвесРасход
+		ИНАЧЕ 0
+	КОНЕЦ КАК РезервПрочийРасход,
+	ВЫБОР
+		КОГДА ур_ЗерноВЗалогеОстаткиИОбороты.ТипОперации = &amp;ТипОперацииВысвободить
+				И ур_ЗерноВЗалогеОстаткиИОбороты.Получатель &lt;&gt; &amp;ПустойПолучатель
+			ТОГДА ур_ЗерноВЗалогеОстаткиИОбороты.ЗачтенныйвесРасход
+		ИНАЧЕ 0
+	КОНЕЦ КАК РезервРеализацияРасход
+ИЗ
+	РегистрНакопления.ур_ЗерноВЗалоге.ОстаткиИОбороты(, , , , ) КАК ур_ЗерноВЗалогеОстаткиИОбороты</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных9</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Культура</dataPath>
+			<field>Культура</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГодУрожая</dataPath>
+			<field>ГодУрожая</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Класс</dataPath>
+			<field>Класс</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРесурса</dataPath>
+			<field>ВидРесурса</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗерноваяРасписка</dataPath>
+			<field>ЗерноваяРасписка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидЗерна</dataPath>
+			<field>ВидЗерна</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид зерна</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Реализация</dataPath>
+			<field>Реализация</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реализация</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Расход</dataPath>
+			<field>Расход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расход</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Приход</dataPath>
+			<field>Приход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приход</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачОстаток</dataPath>
+			<field>НачОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Нач остаток</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонОстаток</dataPath>
+			<field>КонОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кон остаток</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ур_ДвиженияЗерна.Организация,
+	ур_ДвиженияЗерна.Склад,
+	ур_ДвиженияЗерна.Культура,
+	ур_ДвиженияЗерна.Класс,
+	ур_ДвиженияЗерна.ГодУрожая,
+	ур_ДвиженияЗерна.ВидРесурса,
+	ур_ДвиженияЗерна.ЗерноваяРасписка,
+	ЗНАЧЕНИЕ(Перечисление.ур_ВидыЗерна.Семенные) КАК ВидЗерна,
+	ур_ДвиженияЗерна.ЗачтенныйВес КАК Реализация,
+	ур_ДвиженияЗерна.ЗачтенныйВес КАК Расход,
+	0 КАК Приход,
+	0 КАК НачОстаток,
+	0 КАК КонОстаток
+ИЗ
+	РегистрНакопления.ур_ДвиженияЗерна КАК ур_ДвиженияЗерна
+ГДЕ
+	ур_ДвиженияЗерна.Регистратор ССЫЛКА Документ.ПеремещениеТоваров
+	И ур_ДвиженияЗерна.Культура.Наименование ПОДОБНО "Отруби"
+	И НЕ ур_ДвиженияЗерна.Культура.Наименование ПОДОБНО "Сахар"
+	И НЕ ур_ДвиженияЗерна.Культура.Наименование ПОДОБНО "Мука"
+	И НЕ ур_ДвиженияЗерна.Культура.Наименование ПОДОБНО "Гречневая крупа"
+	И ур_ДвиженияЗерна.РегламентныйВидОперации = ЗНАЧЕНИЕ(Перечисление.ур_РегламентныеОперацииДвиженияЗерна.Расход)
+
+СГРУППИРОВАТЬ ПО
+	ур_ДвиженияЗерна.Регистратор.Контрагент,
+	ур_ДвиженияЗерна.Организация,
+	ур_ДвиженияЗерна.Культура,
+	ур_ДвиженияЗерна.Класс,
+	ур_ДвиженияЗерна.Склад,
+	ур_ДвиженияЗерна.ГодУрожая,
+	ур_ДвиженияЗерна.ВидРесурса,
+	ур_ДвиженияЗерна.Регистратор.Договор,
+	ур_ДвиженияЗерна.ЗерноваяРасписка,
+	ур_ДвиженияЗерна.ЗачтенныйВес,
+	ур_ДвиженияЗерна.ЗачтенныйВес</query>
+	</dataSet>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных2</destinationDataSet>
+		<sourceExpression>ВидРесурса</sourceExpression>
+		<destinationExpression>ВидРесурса</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных2</destinationDataSet>
+		<sourceExpression>ГодУрожая</sourceExpression>
+		<destinationExpression>ГодУрожая</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных2</destinationDataSet>
+		<sourceExpression>Класс</sourceExpression>
+		<destinationExpression>Класс</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных2</destinationDataSet>
+		<sourceExpression>Культура</sourceExpression>
+		<destinationExpression>Культура</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных2</destinationDataSet>
+		<sourceExpression>Организация</sourceExpression>
+		<destinationExpression>Организация</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных2</destinationDataSet>
+		<sourceExpression>Склад</sourceExpression>
+		<destinationExpression>Склад</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных2</destinationDataSet>
+		<sourceExpression>ЗерноваяРасписка</sourceExpression>
+		<destinationExpression>ЗерноваяРасписка</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных2</destinationDataSet>
+		<sourceExpression>Видзерна</sourceExpression>
+		<destinationExpression>Видзерна</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных3</destinationDataSet>
+		<sourceExpression>ВидРесурса</sourceExpression>
+		<destinationExpression>ВидРесурса</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных3</destinationDataSet>
+		<sourceExpression>ГодУрожая</sourceExpression>
+		<destinationExpression>ГодУрожая</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных3</destinationDataSet>
+		<sourceExpression>Класс</sourceExpression>
+		<destinationExpression>Класс</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных3</destinationDataSet>
+		<sourceExpression>Культура</sourceExpression>
+		<destinationExpression>Культура</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных3</destinationDataSet>
+		<sourceExpression>Организация</sourceExpression>
+		<destinationExpression>Организация</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных3</destinationDataSet>
+		<sourceExpression>Склад</sourceExpression>
+		<destinationExpression>Склад</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных3</destinationDataSet>
+		<sourceExpression>ЗерноваяРасписка</sourceExpression>
+		<destinationExpression>ЗерноваяРасписка</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных3</destinationDataSet>
+		<sourceExpression>Видзерна</sourceExpression>
+		<destinationExpression>Видзерна</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных4</destinationDataSet>
+		<sourceExpression>ВидРесурса</sourceExpression>
+		<destinationExpression>ВидРесурса</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных4</destinationDataSet>
+		<sourceExpression>ГодУрожая</sourceExpression>
+		<destinationExpression>ГодУрожая</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных4</destinationDataSet>
+		<sourceExpression>Класс</sourceExpression>
+		<destinationExpression>Класс</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных4</destinationDataSet>
+		<sourceExpression>Культура</sourceExpression>
+		<destinationExpression>Культура</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных4</destinationDataSet>
+		<sourceExpression>Организация</sourceExpression>
+		<destinationExpression>Организация</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных4</destinationDataSet>
+		<sourceExpression>Склад</sourceExpression>
+		<destinationExpression>Склад</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных4</destinationDataSet>
+		<sourceExpression>ЗерноваяРасписка</sourceExpression>
+		<destinationExpression>ЗерноваяРасписка</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных4</destinationDataSet>
+		<sourceExpression>Видзерна</sourceExpression>
+		<destinationExpression>Видзерна</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных5</destinationDataSet>
+		<sourceExpression>ВидРесурса</sourceExpression>
+		<destinationExpression>ВидРесурса</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных5</destinationDataSet>
+		<sourceExpression>ГодУрожая</sourceExpression>
+		<destinationExpression>ГодУрожая</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных5</destinationDataSet>
+		<sourceExpression>Класс</sourceExpression>
+		<destinationExpression>Класс</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных5</destinationDataSet>
+		<sourceExpression>Культура</sourceExpression>
+		<destinationExpression>Культура</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных5</destinationDataSet>
+		<sourceExpression>Организация</sourceExpression>
+		<destinationExpression>Организация</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных5</destinationDataSet>
+		<sourceExpression>Склад</sourceExpression>
+		<destinationExpression>Склад</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных5</destinationDataSet>
+		<sourceExpression>ЗерноваяРасписка</sourceExpression>
+		<destinationExpression>ЗерноваяРасписка</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных5</destinationDataSet>
+		<sourceExpression>Видзерна</sourceExpression>
+		<destinationExpression>Видзерна</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных6</destinationDataSet>
+		<sourceExpression>ВидРесурса</sourceExpression>
+		<destinationExpression>ВидРесурса</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных6</destinationDataSet>
+		<sourceExpression>ГодУрожая</sourceExpression>
+		<destinationExpression>ГодУрожая</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных6</destinationDataSet>
+		<sourceExpression>Класс</sourceExpression>
+		<destinationExpression>Класс</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных6</destinationDataSet>
+		<sourceExpression>Культура</sourceExpression>
+		<destinationExpression>Культура</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных6</destinationDataSet>
+		<sourceExpression>Организация</sourceExpression>
+		<destinationExpression>Организация</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных6</destinationDataSet>
+		<sourceExpression>Склад</sourceExpression>
+		<destinationExpression>Склад</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных6</destinationDataSet>
+		<sourceExpression>ЗерноваяРасписка</sourceExpression>
+		<destinationExpression>ЗерноваяРасписка</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных6</destinationDataSet>
+		<sourceExpression>Видзерна</sourceExpression>
+		<destinationExpression>Видзерна</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных7</destinationDataSet>
+		<sourceExpression>ВидРесурса</sourceExpression>
+		<destinationExpression>ВидРесурса</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных7</destinationDataSet>
+		<sourceExpression>ГодУрожая</sourceExpression>
+		<destinationExpression>ГодУрожая</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных7</destinationDataSet>
+		<sourceExpression>Класс</sourceExpression>
+		<destinationExpression>Класс</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных7</destinationDataSet>
+		<sourceExpression>Культура</sourceExpression>
+		<destinationExpression>Культура</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных7</destinationDataSet>
+		<sourceExpression>Организация</sourceExpression>
+		<destinationExpression>Организация</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных7</destinationDataSet>
+		<sourceExpression>Склад</sourceExpression>
+		<destinationExpression>Склад</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных7</destinationDataSet>
+		<sourceExpression>ЗерноваяРасписка</sourceExpression>
+		<destinationExpression>ЗерноваяРасписка</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных7</destinationDataSet>
+		<sourceExpression>Видзерна</sourceExpression>
+		<destinationExpression>Видзерна</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных8</destinationDataSet>
+		<sourceExpression>ВидРесурса</sourceExpression>
+		<destinationExpression>ВидРесурса</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных8</destinationDataSet>
+		<sourceExpression>ГодУрожая</sourceExpression>
+		<destinationExpression>ГодУрожая</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных8</destinationDataSet>
+		<sourceExpression>Класс</sourceExpression>
+		<destinationExpression>Класс</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных8</destinationDataSet>
+		<sourceExpression>Культура</sourceExpression>
+		<destinationExpression>Культура</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных8</destinationDataSet>
+		<sourceExpression>Организация</sourceExpression>
+		<destinationExpression>Организация</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных8</destinationDataSet>
+		<sourceExpression>Склад</sourceExpression>
+		<destinationExpression>Склад</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных8</destinationDataSet>
+		<sourceExpression>ЗерноваяРасписка</sourceExpression>
+		<destinationExpression>Зерноваярасписка</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных9</destinationDataSet>
+		<sourceExpression>Видзерна</sourceExpression>
+		<destinationExpression>ВидЗерна</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных9</destinationDataSet>
+		<sourceExpression>ВидРесурса</sourceExpression>
+		<destinationExpression>ВидРесурса</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных9</destinationDataSet>
+		<sourceExpression>ГодУрожая</sourceExpression>
+		<destinationExpression>ГодУрожая</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных9</destinationDataSet>
+		<sourceExpression>Культура</sourceExpression>
+		<destinationExpression>Культура</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных9</destinationDataSet>
+		<sourceExpression>Организация</sourceExpression>
+		<destinationExpression>Организация</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных9</destinationDataSet>
+		<sourceExpression>Склад</sourceExpression>
+		<destinationExpression>Склад</destinationExpression>
+	</dataSetLink>
+	<totalField>
+		<dataPath>НачОстаток</dataPath>
+		<expression>Сумма(НачОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Приход</dataPath>
+		<expression>Сумма(Приход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Расход</dataPath>
+		<expression>Сумма(Расход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КонОстаток</dataPath>
+		<expression>Сумма(КонОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Закуп</dataPath>
+		<expression>Сумма(Закуп)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Реализация</dataPath>
+		<expression>Сумма(Реализация)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПеремещениеПриход</dataPath>
+		<expression>Сумма(ПеремещениеПриход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПеремещениеРасход</dataPath>
+		<expression>Сумма(ПеремещениеРасход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РасшифровкаРасход1</dataPath>
+		<expression>Сумма(РасшифровкаРасход1)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РасшифровкаРасход2</dataPath>
+		<expression>Сумма(РасшифровкаРасход2)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НеРасшифровкаРасход</dataPath>
+		<expression>Сумма(НеРасшифровкаРасход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РасшифровкаПриход1</dataPath>
+		<expression>Сумма(РасшифровкаПриход1)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РасшифровкаПриход2</dataPath>
+		<expression>Сумма(РасшифровкаПриход2)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НеРасшифровкаПриход</dataPath>
+		<expression>Сумма(НеРасшифровкаПриход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТоварныйКредитПриход</dataPath>
+		<expression>Сумма(ТоварныйКредитПриход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТоварныйКредитРасход</dataPath>
+		<expression>Сумма(ТоварныйКредитРасход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РезервКонечныйОстаток</dataPath>
+		<expression>Сумма(РезервКонечныйОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РезервНачальныйОстаток</dataPath>
+		<expression>Сумма(РезервНачальныйОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>БартерныйОбменПриход</dataPath>
+		<expression>Сумма(БартерныйОбменПриход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>БартерныйОбменРасход</dataPath>
+		<expression>Сумма(БартерныйОбменРасход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РезервЗаменаРЗЗПриход</dataPath>
+		<expression>Сумма(РезервЗаменаРЗЗПриход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РезервЗаменаРЗЗРасход</dataPath>
+		<expression>Сумма(РезервЗаменаРЗЗРасход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РезервПрочийПриход</dataPath>
+		<expression>Сумма(РезервПрочийПриход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РезервПрочийРасход</dataPath>
+		<expression>Сумма(РезервПрочийРасход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РезервРеализацияРасход</dataPath>
+		<expression>Сумма(РезервРеализацияРасход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ИтогоРезервПриход</dataPath>
+		<expression>Сумма(ИтогоРезервПриход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ИтогоРезервРасход</dataPath>
+		<expression>Сумма(ИтогоРезервРасход)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СписокВидовОперацийДляОтбораПриход</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Список видов операций для отбора приход</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыТиповОпераций</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыТиповОпераций.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СписокВидовОперацийДляОтбораРасход</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Список видов операций для отбора расход</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыТиповОпераций</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыТиповОпераций.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>БартерныйОбмен</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Бартерный обмен</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string">%бартерный обмен%</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ЗаменаЗерновойРасписки</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Замена зерновой расписки</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string">%замена зерн%</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ЗерноВПути</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Зерно в пути</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string">%Зерно в пути%</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>УхудшениеКачества</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Ухудшение качества</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string">%Ухудшение качества ресурсов%</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>УлучшениеКачества</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Улучшение качества</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string">%Улучшение качества ресурсов%</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Возмещение</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Возмещение</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string">%возмещен%</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Недостач</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Недостач</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string">%недостач%</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТоварныйКредит</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Товарный кредит</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string">%товарный кредит%</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПустойПолучатель</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Пустой получатель</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Контрагенты</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.Контрагенты.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТипОперацииВысвободить</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тип операции высвободить</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ТипыОпераций</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>Справочники.ТипыОпераций.НайтиПоКоду("ЮР-00170")</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ТипОперацииЗаложить</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тип операции заложить</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ТипыОпераций</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>Справочники.ТипыОпераций.НайтиПоКоду("ПР-00254")</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КультураЗерна</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Культура зерна</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Номенклатура</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>Справочники.Номенклатура.НайтиПоНаименованию("Сахар")</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КультураМука</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Культура мука</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ур_ВидыКультур</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>Справочники.ур_ВидыКультур.НайтиПоНаименованию("Мука")</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КультураГречневаяКрупа</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Культура гречневая крупа</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ур_ВидыКультур</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>Справочники.ур_ВидыКультур.НайтиПоНаименованию("Гречневая крупа")</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КультураСахар</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Культура сахар</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ур_ВидыКультур</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>Справочники.ур_ВидыКультур.НайтиПоНаименованию("Сахар")</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НачОстаток</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Приход</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Закуп</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПеремещениеПриход</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Перемещение</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>РасшифровкаПриход1</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>РасшифровкаПриход2</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ТоварныйКредитПриход</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>БартерныйОбменПриход</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НеРасшифровкаПриход</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:use>false</dcsset:use>
+						<dcsset:field>ПрочийПриход</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прочий приход</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Приход</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Итого приход</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расход</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Реализация</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПеремещениеРасход</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Перемещение</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>РасшифровкаРасход1</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>РасшифровкаРасход2</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ТоварныйКредитРасход</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>БартерныйОбменРасход</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НеРасшифровкаРасход</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:use>false</dcsset:use>
+						<dcsset:field>ПрочийРасход</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прочий расход</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Расход</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Итого расход</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонОстаток</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Резерв</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>РезервНачальныйОстаток</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Приход</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>РезервЗаменаРЗЗПриход</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>РезервПрочийПриход</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ИтогоРезервПриход</dcsset:field>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Расход</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>РезервЗаменаРЗЗРасход</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>РезервРеализацияРасход</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>РезервПрочийРасход</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ИтогоРезервРасход</dcsset:field>
+						</dcsset:item>
+						<dcsset:placement>Auto</dcsset:placement>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>РезервКонечныйОстаток</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Склад.Область</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.КлассификаторОбластей.ПустаяСсылка</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Склад</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Склады.ПустаяСсылка</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидРесурса</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.ур_ВидыРесурсов.ПустаяСсылка</dcsset:right>
+				</dcsset:item>
+				<dcsset:userSettingID>6537206f-fbf6-4d0a-a263-b4163df2d238</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>БартерныйОбмен</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ЗаменаЗерновойРасписки</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ЗерноВПути</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>УхудшениеКачества</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КультураЗерна</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КультураМука</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КультураГречневаяКрупа</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ТипОперации</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Left</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ЗачтенныйВес</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветФона</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">web:PaleGreen</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Зеленый</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Auto</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ВидРесурса</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Культура</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Культура</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>НачОстаток</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Приход</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Закуп</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПеремещениеПриход</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Перемещение</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>РасшифровкаПриход1</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>РасшифровкаПриход2</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ТоварныйКредитПриход</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>БартерныйОбменПриход</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>НеРасшифровкаПриход</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Приход</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Итого приход</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Расход</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Реализация</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПеремещениеРасход</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Перемещение</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>РасшифровкаРасход1</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>РасшифровкаРасход2</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ТоварныйКредитРасход</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>БартерныйОбменРасход</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>НеРасшифровкаРасход</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Расход</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Итого расход</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>КонОстаток</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Резерв</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>РезервНачальныйОстаток</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Приход</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>РезервЗаменаРЗЗПриход</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>РезервПрочийПриход</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ИтогоРезервПриход</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Auto</dcsset:placement>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Расход</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>РезервЗаменаРЗЗРасход</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>РезервРеализацияРасход</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>РезервПрочийРасход</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ИтогоРезервРасход</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Auto</dcsset:placement>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>РезервКонечныйОстаток</dcsset:field>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

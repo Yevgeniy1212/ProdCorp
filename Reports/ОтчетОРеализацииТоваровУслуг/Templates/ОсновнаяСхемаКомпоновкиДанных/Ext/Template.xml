@@ -1,0 +1,821 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИнформационнаяБаза</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ движения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Акциз</dataPath>
+			<field>Акциз</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма акциза</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорКонтрагента</dataPath>
+			<field>ДоговорКонтрагента</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорКонтрагентаВладелец</dataPath>
+			<field>ДоговорКонтрагентаВладелец</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументДвижения</dataPath>
+			<field>ДокументДвижения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ движения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество реализации</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НДС</dataPath>
+			<field>НДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма НДС</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Партия</dataPath>
+			<field>Партия</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Профит</dataPath>
+			<field>Профит</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Profit (сумма)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Стоимость</dataPath>
+			<field>Стоимость</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стоимость (без НДС)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сумма</dataPath>
+			<field>Сумма</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма реализации</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаБезНалогов</dataPath>
+			<field>СуммаБезНалогов</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма без налогов</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаВозвратов</dataPath>
+			<field>СуммаВозвратов</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма возвратов</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСВозвратами</dataPath>
+			<field>СуммаСВозвратами</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма реализации (с возвратами)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СчетУчета</dataPath>
+			<field>СчетУчета</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтруктурноеПодразделение</dataPath>
+			<field>СтруктурноеПодразделение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодДень</dataPath>
+			<field>ПериодДень</field>
+			<presentationExpression>Формат(ПериодДень, "ДФ=dd.MM.yyyy")</presentationExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодПолугодие</dataPath>
+			<field>ПериодПолугодие</field>
+			<presentationExpression>ВЫБОР КОГДА Квартал(ПериодПолугодие) &lt; 2 ТОГДА Формат(ПериодПолугодие, "ДФ = '""1 полугодие"" yyyy'") ИНАЧЕ Формат(ПериодПолугодие, "ДФ = '""2 полугодие"" yyyy'") КОНЕЦ</presentationExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодМесяц</dataPath>
+			<field>ПериодМесяц</field>
+			<presentationExpression>Формат(ПериодМесяц, "ДФ = 'MMM yyyy'")</presentationExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодКвартал</dataPath>
+			<field>ПериодКвартал</field>
+			<presentationExpression>ВЫБОР
+ КОГДА Квартал(ПериодКвартал) = 1 
+ ТОГДА Формат(ПериодКвартал, "ДФ = '""1 кв."" yyyy'")
+ КОГДА Квартал(ПериодКвартал) = 2 
+ ТОГДА Формат(ПериодКвартал, "ДФ = '""2 кв."" yyyy'")
+ КОГДА Квартал(ПериодКвартал) = 3 
+ ТОГДА Формат(ПериодКвартал, "ДФ = '""3 кв."" yyyy'")
+ КОГДА Квартал(ПериодКвартал) = 4 
+ ТОГДА Формат(ПериодКвартал, "ДФ = '""4 кв."" yyyy'")
+КОНЕЦ</presentationExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодДекада</dataPath>
+			<field>ПериодДекада</field>
+			<presentationExpression>"декада "+Формат(НачалоПериода(ПериодДекада, "Декада"), "ДФ=dd.MM.yyyy")+" - "+Формат(КонецПериода(ПериодДекада, "Декада"), "ДФ=dd.MM.yyyy")</presentationExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодНеделя</dataPath>
+			<field>ПериодНеделя</field>
+			<presentationExpression>"неделя "+Формат(НачалоПериода(ПериодНеделя, "Неделя"), "ДФ=dd.MM.yyyy")+" - "+Формат(КонецПериода(ПериодНеделя, "Неделя"), "ДФ=dd.MM.yyyy")</presentationExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодГод</dataPath>
+			<field>ПериодГод</field>
+			<presentationExpression>Формат(ПериодГод, "ДФ = 'yyyy'")</presentationExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<role>
+				<dcscom:periodNumber>2</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоВозвратов</dataPath>
+			<field>КоличествоВозвратов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоСВозвратами</dataPath>
+			<field>КоличествоСВозвратами</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество реализации (с возвратами)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИнформационнаяБаза</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	РеализацияТМЗОбороты.Организация,
+	РеализацияТМЗОбороты.Регистратор КАК ДокументДвижения,
+	РеализацияТМЗОбороты.Склад КАК Склад,
+	РеализацияТМЗОбороты.Номенклатура КАК Номенклатура,
+	РеализацияТМЗОбороты.ДоговорКонтрагента КАК ДоговорКонтрагента,
+	РеализацияТМЗОбороты.ДоговорКонтрагента.Владелец КАК Контрагент,
+	ВЫБОР
+		КОГДА РеализацияТМЗОбороты.СуммаОборот &gt; 0
+			ТОГДА РеализацияТМЗОбороты.СуммаОборот
+		ИНАЧЕ 0
+	КОНЕЦ КАК Сумма,
+	ВЫБОР
+		КОГДА РеализацияТМЗОбороты.СуммаОборот &lt; 0
+			ТОГДА РеализацияТМЗОбороты.СуммаОборот
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаВозвратов,
+	РеализацияТМЗОбороты.СуммаОборот КАК СуммаСВозвратами,
+	РеализацияТМЗОбороты.НДСОборот КАК НДС,
+	РеализацияТМЗОбороты.АкцизОборот КАК Акциз,
+	РеализацияТМЗОбороты.СтоимостьОборот КАК Стоимость,
+	ВЫБОР
+		КОГДА РеализацияТМЗОбороты.КоличествоОборот &gt; 0
+			ТОГДА РеализацияТМЗОбороты.КоличествоОборот
+		ИНАЧЕ 0
+	КОНЕЦ КАК Количество,
+	ВЫБОР
+		КОГДА РеализацияТМЗОбороты.КоличествоОборот &lt; 0
+			ТОГДА РеализацияТМЗОбороты.КоличествоОборот
+		ИНАЧЕ 0
+	КОНЕЦ КАК КоличествоВозвратов,
+	РеализацияТМЗОбороты.КоличествоОборот КАК КоличествоСВозвратами,
+	РеализацияТМЗОбороты.СуммаОборот - РеализацияТМЗОбороты.НДСОборот - РеализацияТМЗОбороты.АкцизОборот КАК СуммаБезНалогов,
+	РеализацияТМЗОбороты.СуммаОборот - РеализацияТМЗОбороты.НДСОборот - РеализацияТМЗОбороты.АкцизОборот - РеализацияТМЗОбороты.СтоимостьОборот КАК Профит,
+	РеализацияТМЗОбороты.Партия КАК Партия,
+	РеализацияТМЗОбороты.СтруктурноеПодразделение КАК Подразделение,
+	РеализацияТМЗОбороты.Период КАК Период,
+	НАЧАЛОПЕРИОДА(РеализацияТМЗОбороты.Период, ДЕНЬ) КАК ПериодДень,
+	НАЧАЛОПЕРИОДА(РеализацияТМЗОбороты.Период, НЕДЕЛЯ) КАК ПериодНеделя,
+	НАЧАЛОПЕРИОДА(РеализацияТМЗОбороты.Период, ДЕКАДА) КАК ПериодДекада,
+	НАЧАЛОПЕРИОДА(РеализацияТМЗОбороты.Период, МЕСЯЦ) КАК ПериодМесяц,
+	НАЧАЛОПЕРИОДА(РеализацияТМЗОбороты.Период, КВАРТАЛ) КАК ПериодКвартал,
+	НАЧАЛОПЕРИОДА(РеализацияТМЗОбороты.Период, ПОЛУГОДИЕ) КАК ПериодПолугодие,
+	НАЧАЛОПЕРИОДА(РеализацияТМЗОбороты.Период, ГОД) КАК ПериодГод
+{ВЫБРАТЬ
+	ДокументДвижения.*,
+	Склад.*,
+	Номенклатура.*,
+	ДоговорКонтрагента.*,
+	Контрагент.*,
+	Сумма,
+	СуммаВозвратов,
+	СуммаСВозвратами,
+	НДС,
+	Акциз,
+	Стоимость,
+	Количество,
+	СуммаБезНалогов,
+	Профит,
+	Партия.*,
+	Подразделение.*}
+ИЗ
+	РегистрНакопления.РеализацияТМЗ.Обороты({(&amp;НачалоПериода)}, {(&amp;КонецПериода)}, Регистратор, {(Организация).*, (СчетУчета).*, (ДоговорКонтрагента).*, (Номенклатура).*, (Склад).*, (ДоговорКонтрагента.Владелец).* КАК Контрагент, (Партия).*}) КАК РеализацияТМЗОбороты
+{ГДЕ
+	РеализацияТМЗОбороты.Регистратор.*,
+	РеализацияТМЗОбороты.Склад.*,
+	РеализацияТМЗОбороты.Номенклатура.*,
+	РеализацияТМЗОбороты.ДоговорКонтрагента.*,
+	РеализацияТМЗОбороты.ДоговорКонтрагента.Владелец.*,
+	РеализацияТМЗОбороты.Партия.*,
+	РеализацияТМЗОбороты.СтруктурноеПодразделение.* КАК Подразделение}
+{ХАРАКТЕРИСТИКИ
+	ТИП(Справочник.Организации)
+	ВИДЫХАРАКТЕРИСТИК (ВЫБРАТЬ
+			СвойстваОбъектов.Ссылка,
+			СвойстваОбъектов.Наименование + " (доп. реквизит)" КАК Наименование,
+			СвойстваОбъектов.ТипЗначения
+		ИЗ
+			ПланВидовХарактеристик.СвойстваОбъектов КАК СвойстваОбъектов
+		ГДЕ
+			СвойстваОбъектов.НазначениеСвойства = ЗНАЧЕНИЕ(ПланВидовХарактеристик.НазначенияСвойствКатегорийОбъектов.Справочник_Организации)
+			И (НЕ СвойстваОбъектов.ПометкаУдаления))
+	ПОЛЕКЛЮЧА Ссылка
+	ПОЛЕИМЕНИ Наименование
+	ПОЛЕТИПАЗНАЧЕНИЯ ТипЗначения
+	ЗНАЧЕНИЯХАРАКТЕРИСТИК РегистрСведений.ЗначенияСвойствОбъектов
+	ПОЛЕОБЪЕКТА Объект
+	ПОЛЕВИДА Свойство
+	ПОЛЕЗНАЧЕНИЯ Значение }
+{ХАРАКТЕРИСТИКИ
+	ТИП(Справочник.Склады)
+	ВИДЫХАРАКТЕРИСТИК (ВЫБРАТЬ
+			СвойстваОбъектов.Ссылка,
+			СвойстваОбъектов.Наименование + " (доп. реквизит)" КАК Наименование,
+			СвойстваОбъектов.ТипЗначения
+		ИЗ
+			ПланВидовХарактеристик.СвойстваОбъектов КАК СвойстваОбъектов
+		ГДЕ
+			СвойстваОбъектов.НазначениеСвойства = ЗНАЧЕНИЕ(ПланВидовХарактеристик.НазначенияСвойствКатегорийОбъектов.Справочник_Склады)
+			И (НЕ СвойстваОбъектов.ПометкаУдаления))
+	ПОЛЕКЛЮЧА Ссылка
+	ПОЛЕИМЕНИ Наименование
+	ПОЛЕТИПАЗНАЧЕНИЯ ТипЗначения
+	ЗНАЧЕНИЯХАРАКТЕРИСТИК РегистрСведений.ЗначенияСвойствОбъектов
+	ПОЛЕОБЪЕКТА Объект
+	ПОЛЕВИДА Свойство
+	ПОЛЕЗНАЧЕНИЯ Значение }
+{ХАРАКТЕРИСТИКИ
+	ТИП(Справочник.Номенклатура)
+	ВИДЫХАРАКТЕРИСТИК (ВЫБРАТЬ
+			СвойстваОбъектов.Ссылка,
+			СвойстваОбъектов.Наименование + " (доп. реквизит)" КАК Наименование,
+			СвойстваОбъектов.ТипЗначения
+		ИЗ
+			ПланВидовХарактеристик.СвойстваОбъектов КАК СвойстваОбъектов
+		ГДЕ
+			СвойстваОбъектов.НазначениеСвойства = ЗНАЧЕНИЕ(ПланВидовХарактеристик.НазначенияСвойствКатегорийОбъектов.Справочник_Номенклатура)
+			И (НЕ СвойстваОбъектов.ПометкаУдаления))
+	ПОЛЕКЛЮЧА Ссылка
+	ПОЛЕИМЕНИ Наименование
+	ПОЛЕТИПАЗНАЧЕНИЯ ТипЗначения
+	ЗНАЧЕНИЯХАРАКТЕРИСТИК РегистрСведений.ЗначенияСвойствОбъектов
+	ПОЛЕОБЪЕКТА Объект
+	ПОЛЕВИДА Свойство
+	ПОЛЕЗНАЧЕНИЯ Значение }
+{ХАРАКТЕРИСТИКИ
+	ТИП(Справочник.ДоговорыКонтрагентов)
+	ВИДЫХАРАКТЕРИСТИК (ВЫБРАТЬ
+			СвойстваОбъектов.Ссылка,
+			СвойстваОбъектов.Наименование + " (доп. реквизит)" КАК Наименование,
+			СвойстваОбъектов.ТипЗначения
+		ИЗ
+			ПланВидовХарактеристик.СвойстваОбъектов КАК СвойстваОбъектов
+		ГДЕ
+			СвойстваОбъектов.НазначениеСвойства = ЗНАЧЕНИЕ(ПланВидовХарактеристик.НазначенияСвойствКатегорийОбъектов.Справочник_ДоговорыКонтрагентов)
+			И (НЕ СвойстваОбъектов.ПометкаУдаления))
+	ПОЛЕКЛЮЧА Ссылка
+	ПОЛЕИМЕНИ Наименование
+	ПОЛЕТИПАЗНАЧЕНИЯ ТипЗначения
+	ЗНАЧЕНИЯХАРАКТЕРИСТИК РегистрСведений.ЗначенияСвойствОбъектов
+	ПОЛЕОБЪЕКТА Объект
+	ПОЛЕВИДА Свойство
+	ПОЛЕЗНАЧЕНИЯ Значение }
+{ХАРАКТЕРИСТИКИ
+	ТИП(Справочник.Контрагенты)
+	ВИДЫХАРАКТЕРИСТИК (ВЫБРАТЬ
+			СвойстваОбъектов.Ссылка,
+			СвойстваОбъектов.Наименование + " (доп. реквизит)" КАК Наименование,
+			СвойстваОбъектов.ТипЗначения
+		ИЗ
+			ПланВидовХарактеристик.СвойстваОбъектов КАК СвойстваОбъектов
+		ГДЕ
+			СвойстваОбъектов.НазначениеСвойства = ЗНАЧЕНИЕ(ПланВидовХарактеристик.НазначенияСвойствКатегорийОбъектов.Справочник_Контрагенты)
+			И (НЕ СвойстваОбъектов.ПометкаУдаления))
+	ПОЛЕКЛЮЧА Ссылка
+	ПОЛЕИМЕНИ Наименование
+	ПОЛЕТИПАЗНАЧЕНИЯ ТипЗначения
+	ЗНАЧЕНИЯХАРАКТЕРИСТИК РегистрСведений.ЗначенияСвойствОбъектов
+	ПОЛЕОБЪЕКТА Объект
+	ПОЛЕВИДА Свойство
+	ПОЛЕЗНАЧЕНИЯ Значение }
+{ХАРАКТЕРИСТИКИ
+	ТИП(Документ)
+	ВИДЫХАРАКТЕРИСТИК (ВЫБРАТЬ
+			СвойстваОбъектов.Ссылка,
+			СвойстваОбъектов.Наименование + " (доп. реквизит)" КАК Наименование,
+			СвойстваОбъектов.ТипЗначения
+		ИЗ
+			ПланВидовХарактеристик.СвойстваОбъектов КАК СвойстваОбъектов
+		ГДЕ
+			СвойстваОбъектов.НазначениеСвойства = ЗНАЧЕНИЕ(ПланВидовХарактеристик.НазначенияСвойствКатегорийОбъектов.Документы)
+			И (НЕ СвойстваОбъектов.ПометкаУдаления))
+	ПОЛЕКЛЮЧА Ссылка
+	ПОЛЕИМЕНИ Наименование
+	ПОЛЕТИПАЗНАЧЕНИЯ ТипЗначения
+	ЗНАЧЕНИЯХАРАКТЕРИСТИК РегистрСведений.ЗначенияСвойствОбъектов
+	ПОЛЕОБЪЕКТА Объект
+	ПОЛЕВИДА Свойство
+	ПОЛЕЗНАЧЕНИЯ Значение }
+{ХАРАКТЕРИСТИКИ
+	ТИП(Справочник.ПодразделенияОрганизаций)
+	ВИДЫХАРАКТЕРИСТИК (ВЫБРАТЬ
+			СвойстваОбъектов.Ссылка,
+			СвойстваОбъектов.Наименование + " (доп. реквизит)" КАК Наименование,
+			СвойстваОбъектов.ТипЗначения
+		ИЗ
+			ПланВидовХарактеристик.СвойстваОбъектов КАК СвойстваОбъектов
+		ГДЕ
+			СвойстваОбъектов.НазначениеСвойства = ЗНАЧЕНИЕ(ПланВидовХарактеристик.НазначенияСвойствКатегорийОбъектов.Справочник_ПодразделенияОрганизаций)
+			И (НЕ СвойстваОбъектов.ПометкаУдаления))
+	ПОЛЕКЛЮЧА Ссылка
+	ПОЛЕИМЕНИ Наименование
+	ПОЛЕТИПАЗНАЧЕНИЯ ТипЗначения
+	ЗНАЧЕНИЯХАРАКТЕРИСТИК РегистрСведений.ЗначенияСвойствОбъектов
+	ПОЛЕОБЪЕКТА Объект
+	ПОЛЕВИДА Свойство
+	ПОЛЕЗНАЧЕНИЯ Значение }
+{ХАРАКТЕРИСТИКИ
+	ТИП(Справочник.Организации)
+	ВИДЫХАРАКТЕРИСТИК (ВЫБРАТЬ
+			КатегорииОбъектов.Ссылка,
+			КатегорииОбъектов.Наименование + " (доп. реквизит)" КАК Наименование
+		ИЗ
+			Справочник.КатегорииОбъектов КАК КатегорииОбъектов
+		ГДЕ
+			КатегорииОбъектов.НазначениеКатегории = ЗНАЧЕНИЕ(ПланВидовХарактеристик.НазначенияСвойствКатегорийОбъектов.Справочник_Организации)
+			И (НЕ КатегорииОбъектов.ПометкаУдаления))
+	ПОЛЕКЛЮЧА Ссылка
+	ПОЛЕИМЕНИ Наименование
+	ЗНАЧЕНИЯХАРАКТЕРИСТИК РегистрСведений.КатегорииОбъектов
+	ПОЛЕОБЪЕКТА Объект
+	ПОЛЕВИДА Категория }
+{ХАРАКТЕРИСТИКИ
+	ТИП(Справочник.Склады)
+	ВИДЫХАРАКТЕРИСТИК (ВЫБРАТЬ
+			КатегорииОбъектов.Ссылка,
+			КатегорииОбъектов.Наименование + " (доп. реквизит)" КАК Наименование
+		ИЗ
+			Справочник.КатегорииОбъектов КАК КатегорииОбъектов
+		ГДЕ
+			КатегорииОбъектов.НазначениеКатегории = ЗНАЧЕНИЕ(ПланВидовХарактеристик.НазначенияСвойствКатегорийОбъектов.Справочник_Склады)
+			И (НЕ КатегорииОбъектов.ПометкаУдаления))
+	ПОЛЕКЛЮЧА Ссылка
+	ПОЛЕИМЕНИ Наименование
+	ЗНАЧЕНИЯХАРАКТЕРИСТИК РегистрСведений.КатегорииОбъектов
+	ПОЛЕОБЪЕКТА Объект
+	ПОЛЕВИДА Категория }
+{ХАРАКТЕРИСТИКИ
+	ТИП(Справочник.Номенклатура)
+	ВИДЫХАРАКТЕРИСТИК (ВЫБРАТЬ
+			КатегорииОбъектов.Ссылка,
+			КатегорииОбъектов.Наименование + " (доп. реквизит)" КАК Наименование
+		ИЗ
+			Справочник.КатегорииОбъектов КАК КатегорииОбъектов
+		ГДЕ
+			КатегорииОбъектов.НазначениеКатегории = ЗНАЧЕНИЕ(ПланВидовХарактеристик.НазначенияСвойствКатегорийОбъектов.Справочник_Номенклатура)
+			И (НЕ КатегорииОбъектов.ПометкаУдаления))
+	ПОЛЕКЛЮЧА Ссылка
+	ПОЛЕИМЕНИ Наименование
+	ЗНАЧЕНИЯХАРАКТЕРИСТИК РегистрСведений.КатегорииОбъектов
+	ПОЛЕОБЪЕКТА Объект
+	ПОЛЕВИДА Категория }
+{ХАРАКТЕРИСТИКИ
+	ТИП(Справочник.ДоговорыКонтрагентов)
+	ВИДЫХАРАКТЕРИСТИК (ВЫБРАТЬ
+			КатегорииОбъектов.Ссылка,
+			КатегорииОбъектов.Наименование + " (доп. реквизит)" КАК Наименование
+		ИЗ
+			Справочник.КатегорииОбъектов КАК КатегорииОбъектов
+		ГДЕ
+			КатегорииОбъектов.НазначениеКатегории = ЗНАЧЕНИЕ(ПланВидовХарактеристик.НазначенияСвойствКатегорийОбъектов.Справочник_ДоговорыКонтрагентов)
+			И (НЕ КатегорииОбъектов.ПометкаУдаления))
+	ПОЛЕКЛЮЧА Ссылка
+	ПОЛЕИМЕНИ Наименование
+	ЗНАЧЕНИЯХАРАКТЕРИСТИК РегистрСведений.КатегорииОбъектов
+	ПОЛЕОБЪЕКТА Объект
+	ПОЛЕВИДА Категория }
+{ХАРАКТЕРИСТИКИ
+	ТИП(Справочник.Контрагенты)
+	ВИДЫХАРАКТЕРИСТИК (ВЫБРАТЬ
+			КатегорииОбъектов.Ссылка,
+			КатегорииОбъектов.Наименование + " (доп. реквизит)" КАК Наименование
+		ИЗ
+			Справочник.КатегорииОбъектов КАК КатегорииОбъектов
+		ГДЕ
+			КатегорииОбъектов.НазначениеКатегории = ЗНАЧЕНИЕ(ПланВидовХарактеристик.НазначенияСвойствКатегорийОбъектов.Справочник_Контрагенты)
+			И (НЕ КатегорииОбъектов.ПометкаУдаления))
+	ПОЛЕКЛЮЧА Ссылка
+	ПОЛЕИМЕНИ Наименование
+	ЗНАЧЕНИЯХАРАКТЕРИСТИК РегистрСведений.КатегорииОбъектов
+	ПОЛЕОБЪЕКТА Объект
+	ПОЛЕВИДА Категория }
+{ХАРАКТЕРИСТИКИ
+	ТИП(Документ)
+	ВИДЫХАРАКТЕРИСТИК (ВЫБРАТЬ
+			КатегорииОбъектов.Ссылка,
+			КатегорииОбъектов.Наименование + " (доп. реквизит)" КАК Наименование
+		ИЗ
+			Справочник.КатегорииОбъектов КАК КатегорииОбъектов
+		ГДЕ
+			КатегорииОбъектов.НазначениеКатегории = ЗНАЧЕНИЕ(ПланВидовХарактеристик.НазначенияСвойствКатегорийОбъектов.Документы)
+			И (НЕ КатегорииОбъектов.ПометкаУдаления))
+	ПОЛЕКЛЮЧА Ссылка
+	ПОЛЕИМЕНИ Наименование
+	ЗНАЧЕНИЯХАРАКТЕРИСТИК РегистрСведений.КатегорииОбъектов
+	ПОЛЕОБЪЕКТА Объект
+	ПОЛЕВИДА Категория }
+{ХАРАКТЕРИСТИКИ
+	ТИП(Справочник.ПодразделенияОрганизаций)
+	ВИДЫХАРАКТЕРИСТИК (ВЫБРАТЬ
+			КатегорииОбъектов.Ссылка,
+			КатегорииОбъектов.Наименование + " (доп. реквизит)" КАК Наименование
+		ИЗ
+			Справочник.КатегорииОбъектов КАК КатегорииОбъектов
+		ГДЕ
+			КатегорииОбъектов.НазначениеКатегории = ЗНАЧЕНИЕ(ПланВидовХарактеристик.НазначенияСвойствКатегорийОбъектов.Справочник_ПодразделенияОрганизаций)
+			И (НЕ КатегорииОбъектов.ПометкаУдаления))
+	ПОЛЕКЛЮЧА Ссылка
+	ПОЛЕИМЕНИ Наименование
+	ЗНАЧЕНИЯХАРАКТЕРИСТИК РегистрСведений.КатегорииОбъектов
+	ПОЛЕОБЪЕКТА Объект
+	ПОЛЕВИДА Категория }</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Акциз</dataPath>
+		<expression>Сумма(Акциз)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НДС</dataPath>
+		<expression>Сумма(НДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Профит</dataPath>
+		<expression>Сумма(Профит)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Стоимость</dataPath>
+		<expression>Сумма(Стоимость)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Сумма</dataPath>
+		<expression>Сумма(Сумма)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаБезНалогов</dataPath>
+		<expression>Сумма(СуммаБезНалогов)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаВозвратов</dataPath>
+		<expression>Сумма(СуммаВозвратов)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаСВозвратами</dataPath>
+		<expression>Сумма(СуммаСВозвратами)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоВозвратов</dataPath>
+		<expression>Сумма(КоличествоВозвратов)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоСВозвратами</dataPath>
+		<expression>Сумма(КоличествоСВозвратами)</expression>
+	</totalField>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоВозвратов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоСВозвратами</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сумма</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаВозвратов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаСВозвратами</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Акциз</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаБезНалогов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Стоимость</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Профит</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Организация</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ТипДиаграммы</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:ChartType">StackedColumn3D</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Остатки денежных средств</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Организация</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Номенклатура</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,1188 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтруктурноеПодразделение</dataPath>
+			<field>СтруктурноеПодразделение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорКонтрагента</dataPath>
+			<field>ДоговорКонтрагента</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВсегоОплат</dataPath>
+			<field>ВсегоОплат</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Документ</dataPath>
+			<field>Документ</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:required>true</dcscom:required>
+			</role>
+			<presentationExpression>Строка(Документ)</presentationExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗарегистрированнаяСумма</dataPath>
+			<field>ЗарегистрированнаяСумма</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НеучтенноеИсполнение</dataPath>
+			<field>НеучтенноеИсполнение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НоменклатураОС</dataPath>
+			<field>НоменклатураОС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОжидаетсяОплат</dataPath>
+			<field>ОжидаетсяОплат</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроизведеноОплат</dataPath>
+			<field>ПроизведеноОплат</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаВозвратов</dataPath>
+			<field>СуммаВозвратов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаПрочихОпераций</dataPath>
+			<field>СуммаПрочихОпераций</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаТоварныхОпераций</dataPath>
+			<field>СуммаТоварныхОпераций</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УчтеннаяСуммаИсполнения</dataPath>
+			<field>УчтеннаяСуммаИсполнения</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ДоговорыКонтрагентов.Ссылка КАК Договор,
+	ДоговорыКонтрагентов.Владелец КАК Контрагент
+ПОМЕСТИТЬ ВТ_Договора
+ИЗ
+	Справочник.ДоговорыКонтрагентов КАК ДоговорыКонтрагентов
+ГДЕ
+	ВЫБОР
+			КОГДА &amp;Контрагент = ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка)
+				ТОГДА ИСТИНА
+			ИНАЧЕ ДоговорыКонтрагентов.Владелец = &amp;Контрагент
+		КОНЕЦ
+	И 	ВЫБОР
+					КОГДА &amp;ОтображатьДанныеПоПодчиненнымДоговорамКонтрагента=ИСТИНА
+						ТОГДА ДоговорыКонтрагентов.Ссылка В (&amp;СписокДоговоров)
+					КОГДА &amp;ДоговорКонтрагента=ЗНАЧЕНИЕ(Справочник.ДоговорыКонтрагентов.ПустаяСсылка)
+						ТОГДА ИСТИНА
+					ИНАЧЕ ДоговорыКонтрагентов.Ссылка = &amp;ДоговорКонтрагента
+				КОНЕЦ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ДоговорыИДополнительныеСоглашения.Договор,
+	ДоговорыИДополнительныеСоглашения.СтруктурноеПодразделение КАК СтруктурноеПодразделениеДоговора,
+	ДоговорыИДополнительныеСоглашения.Организация КАК ОрганизацияДоговора,
+	ДоговорыИДополнительныеСоглашения.ОбщаяСуммаДоговора КАК Зарегистрировано,
+	ДоговорыИДополнительныеСоглашения.Регистратор
+ПОМЕСТИТЬ ВТ_Регистрация
+ИЗ
+	РегистрСведений.дог_ДоговорыИДополнительныеСоглашения.СрезПоследних(
+			,
+			ВЫБОР
+					КОГДА &amp;Контрагент = ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка)
+						ТОГДА ИСТИНА
+					ИНАЧЕ Договор.Владелец = &amp;Контрагент
+				КОНЕЦ
+				И ВЫБОР
+					КОГДА &amp;ОтображатьДанныеПоПодчиненнымДоговорамКонтрагента=ИСТИНА
+						ТОГДА Договор В (&amp;СписокДоговоров)
+					КОГДА &amp;ДоговорКонтрагента=ЗНАЧЕНИЕ(Справочник.ДоговорыКонтрагентов.ПустаяСсылка)
+						ТОГДА ИСТИНА
+					ИНАЧЕ Договор = &amp;ДоговорКонтрагента
+				КОНЕЦ) КАК ДоговорыИДополнительныеСоглашения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ДокументОплаты.Ссылка КАК Документ,
+	ДокументОплаты.СуммаПлатежа КАК СуммаПлатежа,
+	ИСТИНА КАК Оплачено,
+	Договора.Договор
+ПОМЕСТИТЬ ВТ_Оплаты
+ИЗ
+	Документ.ПриходныйКассовыйОрдер.РасшифровкаПлатежа КАК ДокументОплаты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ДокументОплаты.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ДокументОплаты.Ссылка.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ДокументОплаты.Ссылка,
+	ДокументОплаты.СуммаПлатежа,
+	ИСТИНА,
+	Договора.Договор
+ИЗ
+	Документ.РасходныйКассовыйОрдер.РасшифровкаПлатежа КАК ДокументОплаты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ДокументОплаты.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ДокументОплаты.Ссылка.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ДокументОплаты.Ссылка,
+	ДокументОплаты.СуммаПлатежа,
+	ДокументОплаты.Ссылка.Оплачено,
+	Договора.Договор
+ИЗ
+	Документ.ПлатежноеПоручениеВходящее.РасшифровкаПлатежа КАК ДокументОплаты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ДокументОплаты.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ДокументОплаты.Ссылка.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ДокументОплаты.Ссылка,
+	ДокументОплаты.СуммаПлатежа,
+	ДокументОплаты.Ссылка.Оплачено,
+	Договора.Договор
+ИЗ
+	Документ.ПлатежноеПоручениеИсходящее.РасшифровкаПлатежа КАК ДокументОплаты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ДокументОплаты.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ДокументОплаты.Ссылка.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ДокументОплаты.Ссылка,
+	ДокументОплаты.СуммаПлатежа,
+	ДокументОплаты.Ссылка.Оплачено,
+	Договора.Договор
+ИЗ
+	Документ.ПлатежныйОрдерПоступлениеДенежныхСредств.РасшифровкаПлатежа КАК ДокументОплаты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ДокументОплаты.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ДокументОплаты.Ссылка.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ДокументОплаты.Ссылка,
+	ДокументОплаты.СуммаПлатежа,
+	ДокументОплаты.Ссылка.Оплачено,
+	Договора.Договор
+ИЗ
+	Документ.ПлатежныйОрдерСписаниеДенежныхСредств.РасшифровкаПлатежа КАК ДокументОплаты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ДокументОплаты.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ДокументОплаты.Ссылка.Проведен
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ОперацияПоДоговору.Ссылка КАК Ссылка,
+	ОперацияПоДоговору.Дата КАК Дата,
+	0 КАК СуммаТоварныхОпераций,
+	0 КАК СуммаПрочихОпераций,
+	ОперацияПоДоговору.СуммаДокумента КАК СуммаВозвратов,
+	Договора.Договор
+ПОМЕСТИТЬ ВТ_ТоварныеОперации
+ИЗ
+	Документ.ВозвратТоваровОтПокупателя КАК ОперацияПоДоговору
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ОперацияПоДоговору.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ОперацияПоДоговору.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОперацияПоДоговору.Ссылка,
+	ОперацияПоДоговору.Дата,
+	0,
+	0,
+	ОперацияПоДоговору.СуммаДокумента,
+	Договора.Договор
+ИЗ
+	Документ.ВозвратТоваровПоставщику КАК ОперацияПоДоговору
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ОперацияПоДоговору.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ОперацияПоДоговору.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОперацияПоДоговору.Ссылка,
+	ОперацияПоДоговору.Дата,
+	ОперацияПоДоговору.СуммаДокумента,
+	0,
+	0,
+	Договора.Договор
+ИЗ
+	Документ.АктОбОказанииПроизводственныхУслуг КАК ОперацияПоДоговору
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ОперацияПоДоговору.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ОперацияПоДоговору.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОперацияПоДоговору.Ссылка,
+	ОперацияПоДоговору.Дата,
+	0,
+	ОперацияПоДоговору.СуммаДокумента,
+	0,
+	Договора.Договор
+ИЗ
+	Документ.ЗаявлениеОВвозеТоваровИУплатеКосвенныхНалогов КАК ОперацияПоДоговору
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ОперацияПоДоговору.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ОперацияПоДоговору.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОперацияПоДоговору.Ссылка,
+	ОперацияПоДоговору.Дата,
+	ОперацияПоДоговору.СуммаДокумента,
+	0,
+	0,
+	Договора.Договор
+ИЗ
+	Документ.ПередачаНМА КАК ОперацияПоДоговору
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ОперацияПоДоговору.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ОперацияПоДоговору.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОперацияПоДоговору.Ссылка,
+	ОперацияПоДоговору.Дата,
+	ОперацияПоДоговору.СуммаДокумента,
+	0,
+	0,
+	Договора.Договор
+ИЗ
+	Документ.ПередачаОС КАК ОперацияПоДоговору
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ОперацияПоДоговору.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ОперацияПоДоговору.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОперацияПоДоговору.Ссылка,
+	ОперацияПоДоговору.Дата,
+	0,
+	0,
+	0,
+	Договора.Договор
+ИЗ
+	Документ.ПередачаТоваров КАК ОперацияПоДоговору
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ОперацияПоДоговору.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ОперацияПоДоговору.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОперацияПоДоговору.Ссылка,
+	ОперацияПоДоговору.Дата,
+	0,
+	ОперацияПоДоговору.СуммаДокумента,
+	0,
+	Договора.Договор
+ИЗ
+	Документ.ПоступлениеДопРасходов КАК ОперацияПоДоговору
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ОперацияПоДоговору.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ОперацияПоДоговору.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОперацияПоДоговору.Ссылка,
+	ОперацияПоДоговору.Дата,
+	ОперацияПоДоговору.СуммаДокумента,
+	0,
+	0,
+	Договора.Договор
+ИЗ
+	Документ.ПоступлениеИзПереработки КАК ОперацияПоДоговору
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ОперацияПоДоговору.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ОперацияПоДоговору.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОперацияПоДоговору.Ссылка,
+	ОперацияПоДоговору.Дата,
+	ОперацияПоДоговору.СуммаДокумента,
+	0,
+	0,
+	Договора.Договор
+ИЗ
+	Документ.ПоступлениеНМА КАК ОперацияПоДоговору
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ОперацияПоДоговору.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ОперацияПоДоговору.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОперацияПоДоговору.Ссылка,
+	ОперацияПоДоговору.Дата,
+	ОперацияПоДоговору.СуммаДокумента,
+	0,
+	0,
+	Договора.Договор
+ИЗ
+	Документ.ПоступлениеТоваровУслуг КАК ОперацияПоДоговору
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ОперацияПоДоговору.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ОперацияПоДоговору.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОперацияПоДоговору.Ссылка,
+	ОперацияПоДоговору.Дата,
+	0,
+	ОперацияПоДоговору.СуммаДокумента,
+	0,
+	Договора.Договор
+ИЗ
+	Документ.РасчетНалоговПриПоступленииАктивовУслуг КАК ОперацияПоДоговору
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ОперацияПоДоговору.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ОперацияПоДоговору.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОперацияПоДоговору.Ссылка,
+	ОперацияПоДоговору.Дата,
+	ОперацияПоДоговору.СуммаДокумента,
+	0,
+	0,
+	Договора.Договор
+ИЗ
+	Документ.РеализацияТоваровУслуг КАК ОперацияПоДоговору
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ОперацияПоДоговору.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ОперацияПоДоговору.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОперацияПоДоговору.Ссылка,
+	ОперацияПоДоговору.Дата,
+	ОперацияПоДоговору.СуммаДокумента,
+	0,
+	0,
+	Договора.Договор
+ИЗ
+	Документ.РеализацияУслугПоПереработке КАК ОперацияПоДоговору
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ОперацияПоДоговору.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ОперацияПоДоговору.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОперацияПоДоговору.Ссылка,
+	ОперацияПоДоговору.Дата,
+	0,
+	ОперацияПоДоговору.СуммаДокумента,
+	0,
+	Договора.Договор
+ИЗ
+	Документ.РегистрацияПрочихОперацийПоПриобретеннымТоварамВЦеляхНДС КАК ОперацияПоДоговору
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ОперацияПоДоговору.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ОперацияПоДоговору.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОперацияПоДоговору.Ссылка,
+	ОперацияПоДоговору.Дата,
+	0,
+	ОперацияПоДоговору.СуммаДокумента,
+	0,
+	Договора.Договор
+ИЗ
+	Документ.РегистрацияПрочихОперацийПоРеализованнымТоварамВЦеляхНДС КАК ОперацияПоДоговору
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Договора КАК Договора
+		ПО ОперацияПоДоговору.ДоговорКонтрагента = Договора.Договор
+ГДЕ
+	ОперацияПоДоговору.Проведен
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	дог_ИсполнениеДоговоровОбороты.ДоговорКонтрагента,
+	дог_ИсполнениеДоговоровОбороты.СуммаРасход КАК УчтеноПоИсполнению,
+	дог_ИсполнениеДоговоровОбороты.Регистратор КАК ДокументИсполнения
+ПОМЕСТИТЬ ВТ_ОперативноеИсполнение
+ИЗ
+	ВТ_Договора КАК ВТ_Договора
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрНакопления.дог_ИсполнениеДоговоров.Обороты(
+				,
+				,
+				Регистратор,
+				ВЫБОР
+						КОГДА &amp;Контрагент = ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка)
+							ТОГДА ИСТИНА
+						ИНАЧЕ ДоговорКонтрагента.Владелец = &amp;Контрагент
+					КОНЕЦ
+					И ВЫБОР
+						КОГДА &amp;ДоговорКонтрагента = ЗНАЧЕНИЕ(Справочник.ДоговорыКонтрагентов.ПустаяСсылка)
+							ТОГДА ИСТИНА
+						ИНАЧЕ ДоговорКонтрагента = &amp;ДоговорКонтрагента
+					КОНЕЦ) КАК дог_ИсполнениеДоговоровОбороты
+		ПО ВТ_Договора.Договор = дог_ИсполнениеДоговоровОбороты.ДоговорКонтрагента
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Договора.Контрагент,
+	ВТ_Договора.Договор КАК ДоговорКонтрагента,
+	ЕСТЬNULL(ВТ_Регистрация.Зарегистрировано, 0) КАК ЗарегистрированнаяСумма,
+	0 КАК ПроизведеноОплат,
+	0 КАК ВсегоОплат,
+	0 КАК ОжидаетсяОплат,
+	0 КАК СуммаТоварныхОпераций,
+	0 КАК СуммаПрочихОпераций,
+	0 КАК СуммаВозвратов,
+	0 КАК УчтеннаяСуммаИсполнения,
+	0 КАК НеучтенноеИсполнение,
+	ВТ_Регистрация.Регистратор КАК Документ,
+	ВТ_Договора.Договор.Организация КАК Организация,
+	ЕСТЬNULL(ВТ_Регистрация.СтруктурноеПодразделениеДоговора, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка)) КАК СтруктурноеПодразделение
+ПОМЕСТИТЬ ВТ_Итог
+ИЗ
+	ВТ_Договора КАК ВТ_Договора
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_Регистрация КАК ВТ_Регистрация
+		ПО ВТ_Договора.Договор = ВТ_Регистрация.Договор
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВТ_Договора.Контрагент,
+	ВТ_Договора.Договор,
+	0,
+	ВЫБОР
+		КОГДА ВТ_Оплаты.СуммаПлатежа ЕСТЬ NULL 
+			ТОГДА 0
+		КОГДА ВТ_Оплаты.Оплачено = ИСТИНА
+			ТОГДА ВТ_Оплаты.СуммаПлатежа
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ЕСТЬNULL(ВТ_Оплаты.СуммаПлатежа, 0),
+	ВЫБОР
+		КОГДА ВТ_Оплаты.СуммаПлатежа ЕСТЬ NULL 
+			ТОГДА 0
+		КОГДА ВТ_Оплаты.Оплачено = ЛОЖЬ
+			ТОГДА ВТ_Оплаты.СуммаПлатежа
+		ИНАЧЕ 0
+	КОНЕЦ,
+	0,
+	0,
+	0,
+	0,
+	0,
+	ВТ_Оплаты.Документ,
+	ВТ_Договора.Договор.Организация,
+	ЕСТЬNULL(ВТ_Регистрация.СтруктурноеПодразделениеДоговора, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))
+ИЗ
+	ВТ_Договора КАК ВТ_Договора
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_Регистрация КАК ВТ_Регистрация
+		ПО ВТ_Договора.Договор = ВТ_Регистрация.Договор
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Оплаты КАК ВТ_Оплаты
+		ПО ВТ_Договора.Договор = ВТ_Оплаты.Договор
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВТ_Договора.Контрагент,
+	ВТ_Договора.Договор,
+	0,
+	0,
+	0,
+	0,
+	ЕСТЬNULL(ВТ_ТоварныеОперации.СуммаТоварныхОпераций, 0),
+	ЕСТЬNULL(ВТ_ТоварныеОперации.СуммаПрочихОпераций, 0),
+	ЕСТЬNULL(ВТ_ТоварныеОперации.СуммаВозвратов, 0),
+	0,
+	ЕСТЬNULL(ВТ_ТоварныеОперации.СуммаТоварныхОпераций, 0),
+	ВТ_ТоварныеОперации.Ссылка,
+	ВТ_Договора.Договор.Организация,
+	ЕСТЬNULL(ВТ_Регистрация.СтруктурноеПодразделениеДоговора, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))
+ИЗ
+	ВТ_Договора КАК ВТ_Договора
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_Регистрация КАК ВТ_Регистрация
+		ПО ВТ_Договора.Договор = ВТ_Регистрация.Договор
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_ТоварныеОперации КАК ВТ_ТоварныеОперации
+		ПО ВТ_Договора.Договор = ВТ_ТоварныеОперации.Договор
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВТ_Договора.Контрагент,
+	ВТ_Договора.Договор,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	ЕСТЬNULL(ВТ_ОперативноеИсполнение.УчтеноПоИсполнению, 0),
+	-ЕСТЬNULL(ВТ_ОперативноеИсполнение.УчтеноПоИсполнению, 0),
+	ВТ_ОперативноеИсполнение.ДокументИсполнения,
+	ВТ_Договора.Договор.Организация,
+	ЕСТЬNULL(ВТ_Регистрация.СтруктурноеПодразделениеДоговора, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))
+ИЗ
+	ВТ_Договора КАК ВТ_Договора
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_Регистрация КАК ВТ_Регистрация
+		ПО ВТ_Договора.Договор = ВТ_Регистрация.Договор
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_ОперативноеИсполнение КАК ВТ_ОперативноеИсполнение
+		ПО ВТ_Договора.Договор = ВТ_ОперативноеИсполнение.ДоговорКонтрагента
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Итог.Контрагент,
+	ВТ_Итог.ДоговорКонтрагента,
+	СУММА(ВТ_Итог.ЗарегистрированнаяСумма) КАК ЗарегистрированнаяСумма,
+	СУММА(ВТ_Итог.ПроизведеноОплат) КАК ПроизведеноОплат,
+	СУММА(ВТ_Итог.ВсегоОплат) КАК ВсегоОплат,
+	СУММА(ВТ_Итог.ОжидаетсяОплат) КАК ОжидаетсяОплат,
+	СУММА(ВТ_Итог.СуммаТоварныхОпераций) КАК СуммаТоварныхОпераций,
+	СУММА(ВТ_Итог.СуммаПрочихОпераций) КАК СуммаПрочихОпераций,
+	СУММА(ВТ_Итог.СуммаВозвратов) КАК СуммаВозвратов,
+	СУММА(ВТ_Итог.УчтеннаяСуммаИсполнения) КАК УчтеннаяСуммаИсполнения,
+	СУММА(ВТ_Итог.НеучтенноеИсполнение) КАК НеучтенноеИсполнение,
+	ВТ_Итог.Документ,
+	ВТ_Итог.Организация,
+	ВТ_Итог.СтруктурноеПодразделение
+ИЗ
+	ВТ_Итог КАК ВТ_Итог
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_Регистрация КАК ВТ_Регистрация
+		ПО ВТ_Итог.ДоговорКонтрагента = ВТ_Регистрация.Договор
+ГДЕ
+	ВЫБОР
+			КОГДА &amp;РежимСверки = ЗНАЧЕНИЕ(Перечисление.дог_РежимФормированияСверкиПоДоговорам.ПоВсемДоговорам)
+					ИЛИ &amp;РежимСверки = ЗНАЧЕНИЕ(Перечисление.дог_РежимФормированияСверкиПоДоговорам.ПустаяСсылка)
+				ТОГДА ИСТИНА
+			КОГДА &amp;РежимСверки = ЗНАЧЕНИЕ(Перечисление.дог_РежимФормированияСверкиПоДоговорам.ТолькоПоЗарегистрированнымДоговорам)
+				ТОГДА НЕ ВТ_Регистрация.Договор ЕСТЬ NULL 
+			КОГДА &amp;РежимСверки = ЗНАЧЕНИЕ(Перечисление.дог_РежимФормированияСверкиПоДоговорам.ТолькоПоНезарегистрированнымДоговорам)
+				ТОГДА ВТ_Регистрация.Договор ЕСТЬ NULL 
+			КОГДА &amp;РежимСверки = ЗНАЧЕНИЕ(Перечисление.дог_РежимФормированияСверкиПоДоговорам.ТолькоПоЗарегистрированнымСРасхождением)
+				ТОГДА НЕ ВТ_Регистрация.Договор ЕСТЬ NULL 
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+
+СГРУППИРОВАТЬ ПО
+	ВТ_Итог.Контрагент,
+	ВТ_Итог.ДоговорКонтрагента,
+	ВТ_Итог.Документ,
+	ВТ_Итог.Организация,
+	ВТ_Итог.СтруктурноеПодразделение
+</query>
+	</dataSet>
+	<totalField>
+		<dataPath>ЗарегистрированнаяСумма</dataPath>
+		<expression>Сумма(ЗарегистрированнаяСумма)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НеучтенноеИсполнение</dataPath>
+		<expression>Сумма(НеучтенноеИсполнение)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОжидаетсяОплат</dataPath>
+		<expression>Сумма(ОжидаетсяОплат)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПроизведеноОплат</dataPath>
+		<expression>Сумма(ПроизведеноОплат)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаВозвратов</dataPath>
+		<expression>Сумма(СуммаВозвратов)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаПрочихОпераций</dataPath>
+		<expression>Сумма(СуммаПрочихОпераций)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаТоварныхОпераций</dataPath>
+		<expression>Сумма(СуммаТоварныхОпераций)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>УчтеннаяСуммаИсполнения</dataPath>
+		<expression>Сумма(УчтеннаяСуммаИсполнения)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВсегоОплат</dataPath>
+		<expression>Сумма(ВсегоОплат)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Контрагент</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Контрагент</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Контрагенты</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.Контрагенты.ПустаяСсылка</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДоговорКонтрагента</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Договор контрагента</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.ДоговорыКонтрагентов.ПустаяСсылка</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>РежимСверки</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Режим сверки</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.дог_РежимФормированияСверкиПоДоговорам</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.дог_РежимФормированияСверкиПоДоговорам.ТолькоПоЗарегистрированнымСРасхождением</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ОтображатьДанныеПоПодчиненнымДоговорамКонтрагента</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отображать данные по подчиненным договорам контрагента</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СписокДоговоров</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Список договоров</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗарегистрированнаяСумма</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оплаты</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПроизведеноОплат</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ОжидаетсяОплат</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ВсегоОплат</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исполнение по БУ</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаТоварныхОпераций</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаВозвратов</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаПрочихОпераций</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исполнение по опер. учету</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>УчтеннаяСуммаИсполнения</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НеучтенноеИсполнение</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">НеучтенноеИсполнение</dcsset:left>
+					<dcsset:comparisonType>Greater</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Контрагент</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.Контрагенты.ПустаяСсылка</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДоговорКонтрагента</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.ДоговорыКонтрагентов.ПустаяСсылка</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РежимСверки</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Перечисление.дог_РежимФормированияСверкиПоДоговорам.ТолькоПоЗарегистрированнымСРасхождением</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection/>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">40</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">40</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ВсегоОплат</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ЗарегистрированнаяСумма</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>НеучтенноеИсполнение</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ОжидаетсяОплат</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПроизведеноОплат</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СуммаВозвратов</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СуммаПрочихОпераций</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СуммаТоварныхОпераций</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>УчтеннаяСуммаИсполнения</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Зеленый</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Организация</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПараметрыДанных.РежимСверки</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.дог_РежимФормированияСверкиПоДоговорам.ТолькоПоЗарегистрированнымСРасхождением</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>AndGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">НеучтенноеИсполнение</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">СуммаТоварныхОпераций</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>СтруктурноеПодразделение</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>OrGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ПараметрыДанных.РежимСверки</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.дог_РежимФормированияСверкиПоДоговорам.ТолькоПоЗарегистрированнымСРасхождением</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemGroup">
+								<dcsset:groupType>AndGroup</dcsset:groupType>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">СуммаТоварныхОпераций</dcsset:left>
+									<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">НеучтенноеИсполнение</dcsset:left>
+									<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+								</dcsset:item>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:outputParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+						</dcscor:item>
+					</dcsset:outputParameters>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Контрагент</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:filter>
+							<dcsset:item xsi:type="dcsset:FilterItemGroup">
+								<dcsset:groupType>OrGroup</dcsset:groupType>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ПараметрыДанных.РежимСверки</dcsset:left>
+									<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.дог_РежимФормированияСверкиПоДоговорам.ТолькоПоЗарегистрированнымСРасхождением</dcsset:right>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemGroup">
+									<dcsset:groupType>AndGroup</dcsset:groupType>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">СуммаТоварныхОпераций</dcsset:left>
+										<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+										<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">НеучтенноеИсполнение</dcsset:left>
+										<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+										<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+									</dcsset:item>
+								</dcsset:item>
+							</dcsset:item>
+						</dcsset:filter>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:outputParameters>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+							</dcscor:item>
+						</dcsset:outputParameters>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ДоговорКонтрагента</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemGroup">
+									<dcsset:groupType>OrGroup</dcsset:groupType>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">ПараметрыДанных.РежимСверки</dcsset:left>
+										<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+										<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.дог_РежимФормированияСверкиПоДоговорам.ТолькоПоЗарегистрированнымСРасхождением</dcsset:right>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:FilterItemGroup">
+										<dcsset:groupType>AndGroup</dcsset:groupType>
+										<dcsset:item xsi:type="dcsset:FilterItemComparison">
+											<dcsset:left xsi:type="dcscor:Field">СуммаТоварныхОпераций</dcsset:left>
+											<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+											<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:FilterItemComparison">
+											<dcsset:left xsi:type="dcscor:Field">НеучтенноеИсполнение</dcsset:left>
+											<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+											<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+										</dcsset:item>
+									</dcsset:item>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+							<dcsset:outputParameters>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+									<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+								</dcscor:item>
+							</dcsset:outputParameters>
+							<dcsset:item xsi:type="dcsset:StructureItemGroup">
+								<dcsset:groupItems>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Документ</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+								</dcsset:groupItems>
+								<dcsset:filter>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">Документ</dcsset:left>
+										<dcsset:comparisonType>Filled</dcsset:comparisonType>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:FilterItemGroup">
+										<dcsset:groupType>OrGroup</dcsset:groupType>
+										<dcsset:item xsi:type="dcsset:FilterItemComparison">
+											<dcsset:left xsi:type="dcscor:Field">ПараметрыДанных.РежимСверки</dcsset:left>
+											<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+											<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.дог_РежимФормированияСверкиПоДоговорам.ТолькоПоЗарегистрированнымСРасхождением</dcsset:right>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:FilterItemGroup">
+											<dcsset:groupType>AndGroup</dcsset:groupType>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">СуммаТоварныхОпераций</dcsset:left>
+												<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+												<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+											</dcsset:item>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">НеучтенноеИсполнение</dcsset:left>
+												<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+												<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+											</dcsset:item>
+										</dcsset:item>
+									</dcsset:item>
+								</dcsset:filter>
+								<dcsset:order>
+									<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+									<dcsset:item xsi:type="dcsset:OrderItemField">
+										<dcsset:field>Документ.Дата</dcsset:field>
+										<dcsset:orderType>Asc</dcsset:orderType>
+									</dcsset:item>
+								</dcsset:order>
+								<dcsset:selection>
+									<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								</dcsset:selection>
+								<dcsset:outputParameters>
+									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+										<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+										<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+									</dcscor:item>
+								</dcsset:outputParameters>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

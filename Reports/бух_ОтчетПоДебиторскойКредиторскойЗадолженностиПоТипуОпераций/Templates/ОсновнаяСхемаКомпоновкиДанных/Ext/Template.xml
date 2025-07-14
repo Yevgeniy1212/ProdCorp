@@ -1,0 +1,2492 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<parameter>
+		<name>ДатаНач</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата нач</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>КонецПериода(&amp;ДатаНач,"Месяц")</expression>
+	</parameter>
+	<parameter>
+		<name>ДатаКон</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата кон</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>КонецПериода(&amp;ДатаКон,"День")</expression>
+	</parameter>
+	<parameter>
+		<name>СчетаДебеторскойЗадолженности</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Счета дебеторской задолженности</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfAccountsRef.Типовой</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяДебиторскаяЗадолженностьПокупателейИЗаказчиковСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ДолгосрочнаяЗадолженностьПокупателейИЗаказчиковСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочаяДебиторскаяЗадолжностьСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ДебиторскаяЗадолжностьПоНеправомернымПретензиямСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочныеРасходыБудущихПериодов</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяЗадолженностьПоВыплаченнойЗаработнойПлате</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяЗадолженностьПоОплатеТруда</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяЗадолженностьПоАренде</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяДебиторскаяЗадолженностьПоАренде</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяДебиторскаяЗадолженностьДочернихОрганизаций</value>
+		<useRestriction>false</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<parameter>
+		<name>СчетаАвансовДеб</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Счета авансов</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfAccountsRef.Типовой</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочныеАвансыВыданныеСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеАвансывыданныеСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПросроченнаяЗадолжностьПоПредоставленнымЗаймамСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПросроченныеДоходыВВидеВознагрожденийПоВыданнымЗаймам</value>
+		<useRestriction>false</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<parameter>
+		<name>СчетаКредит</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Счета кредиторской задолженности</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfAccountsRef.Типовой</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяЗадолженностьПоставщикамИПодрядчикам</value>
+		<useRestriction>false</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<nestedSchema>
+		<name>ДебиторскаяЗадолженность</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дебиторская задолженность</v8:content>
+			</v8:item>
+		</title>
+		<schema>
+			<dataSource>
+				<name>ИсточникДанных1</name>
+				<dataSourceType>Local</dataSourceType>
+			</dataSource>
+			<dataSet xsi:type="DataSetQuery">
+				<name>НаборДанных1</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтруктурноеПодразделение</dataPath>
+					<field>СтруктурноеПодразделение</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ИсточникФинансирования</dataPath>
+					<field>ИсточникФинансирования</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Субконто2</dataPath>
+					<field>Субконто2</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Валюта</dataPath>
+					<field>Валюта</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Субконто4</dataPath>
+					<field>Субконто4</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Субконто1</dataPath>
+					<field>Субконто1</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Субконто3</dataPath>
+					<field>Субконто3</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаОстаток</dataPath>
+					<field>СуммаОстаток</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма остатка на</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Контрагент</dataPath>
+					<field>Контрагент</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ТипОпераций</dataPath>
+					<field>ТипОпераций</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип операций</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Месяц</dataPath>
+					<field>Месяц</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Месяц</v8:content>
+						</v8:item>
+					</title>
+					<appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="xs:string">ДФ=MMMM</dcscor:value>
+						</dcscor:item>
+					</appearance>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Группа</dataPath>
+					<field>Группа</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Порядок</dataPath>
+					<field>Порядок</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Порядок</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ГруппаЗадолженности</dataPath>
+					<field>ГруппаЗадолженности</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа задолженности</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Таблица</dataPath>
+					<field>Таблица</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Таблица</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПросроченнаяЗадолженность</dataPath>
+					<field>ПросроченнаяЗадолженность</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Просроченная задолженность</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СозданныйРезерв</dataPath>
+					<field>СозданныйРезерв</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Созданный резерв</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаОбеспечения</dataPath>
+					<field>СуммаОбеспечения</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма обеспечения</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Обеспечение</dataPath>
+					<field>Обеспечение</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обеспечение</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Дисконт</dataPath>
+					<field>Дисконт</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дисконт</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	ВЫБОР
+		КОГДА ТиповойОстатки.Счет.Родитель.Код = "1720"
+				ИЛИ ТиповойОстатки.Счет.Код = "1251"
+				ИЛИ ТиповойОстатки.Счет.Код = "1252"
+				ИЛИ ТиповойОстатки.Счет.Код = "3350"
+			ТОГДА "Краткосрочная дебиторская задолженность работников"
+		ИНАЧЕ ТиповойОстатки.Субконто1
+	КОНЕЦ КАК Контрагент,
+	ВЫБОР
+		КОГДА ТиповойОстатки.Счет.Код = "1273"
+				И ТиповойОстатки.Субконто3.Наименование &lt;&gt; "прочие"
+			ТОГДА "Недостача зерна"
+		ИНАЧЕ ВЫБОР
+				КОГДА ТиповойОстатки.Счет.Родитель = ЗНАЧЕНИЕ(ПланСчетов.Типовой.КраткосрочныеРасходыБудущихПериодов)
+						ИЛИ ТиповойОстатки.Счет.Код = "1252"
+						ИЛИ ТиповойОстатки.Счет.Родитель.Код = "1720"
+						ИЛИ ТиповойОстатки.Счет.Код = "1251"
+						ИЛИ ТиповойОстатки.Счет.Код = "3350"
+						ИЛИ ТиповойОстатки.Счет.Код = "1273"
+						ИЛИ ТиповойОстатки.Счет.Код = "2017"
+						ИЛИ ТиповойОстатки.Счет.Код = "1118"
+						ИЛИ ТиповойОстатки.Счет.Код = "1260"
+					ТОГДА "Прочая дебиторская задолженность"
+				ИНАЧЕ ВЫБОР
+						КОГДА ТиповойОстатки.Счет.Код = "1272"
+							ТОГДА ВЫБОР
+									КОГДА ТиповойОстатки.Субконто1.Наименование = "АО Казинвестбанк"
+										ТОГДА "Казинвестбанк АО"
+									ИНАЧЕ "Прочая дебиторская задолженность"
+								КОНЕЦ
+						ИНАЧЕ ВЫБОР
+								КОГДА ТиповойОстатки.Счет.Код = "2111"
+										ИЛИ ТиповойОстатки.Счет.Код = "1220"
+									ТОГДА ВЫБОР
+											КОГДА ТиповойОстатки.Субконто3.Наименование = "прочие"
+												ТОГДА "Дебиторская задолженность от реализация Казмакты"
+											ИНАЧЕ ВЫБОР
+													КОГДА ТиповойОстатки.Субконто3.Родитель.Наименование = "Реализация ресурсов зерна"
+														ТОГДА ТиповойОстатки.Субконто3.Наименование
+													ИНАЧЕ "Прочая дебиторская задолженность"
+												КОНЕЦ
+										КОНЕЦ
+								ИНАЧЕ ВЫБОР
+										КОГДА ТиповойОстатки.Субконто3.Родитель.Наименование = "Реализация ресурсов зерна"
+												И ЕСТЬNULL(ТиповойОстатки.Субконто1.Родитель.Наименование, "") ПОДОБНО "%Алиби группа компаний%"
+											ТОГДА "Алиби группа компаний, реализация с отсрочкой платежа 2012 (БВУ)"
+										ИНАЧЕ ТиповойОстатки.Субконто3.Наименование
+									КОНЕЦ
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ КАК ТипОпераций,
+	СУММА(ТиповойОстатки.СуммаОстаток) КАК СуммаОстаток,
+	&amp;Период КАК Месяц,
+	ВЫБОР
+		КОГДА ТиповойОстатки.Субконто1.Родитель.Наименование ПОДОБНО "Богви%"
+			ТОГДА "Задолженность ГК Богви"
+		ИНАЧЕ ВЫБОР
+				КОГДА ТиповойОстатки.Счет.Код = "1210.01"
+					ТОГДА "Ссуда семян"
+				ИНАЧЕ ВЫБОР
+						КОГДА ТиповойОстатки.Счет.Код = "1211"
+								ИЛИ ТиповойОстатки.Счет.Код = "2111"
+								ИЛИ ТиповойОстатки.Счет.Код = "1220"
+							ТОГДА ВЫБОР
+									КОГДА ТиповойОстатки.Субконто3.Родитель.Наименование = "Займы"
+										ТОГДА "Товарный кредит"
+									ИНАЧЕ ВЫБОР
+											КОГДА ТиповойОстатки.Субконто3.Родитель.Наименование = "Реализация ресурсов зерна"
+													ИЛИ ТиповойОстатки.Субконто3.Наименование = "курсовая разница"
+												ТОГДА "Реализация зерна"
+											ИНАЧЕ "Другие"
+										КОНЕЦ
+								КОНЕЦ
+						ИНАЧЕ "Другие"
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ КАК Группа,
+	ВЫБОР
+		КОГДА ТиповойОстатки.Счет.Код = "1210.01"
+			ТОГДА 1
+		ИНАЧЕ ВЫБОР
+				КОГДА ТиповойОстатки.Счет.Код = "1211"
+						ИЛИ ТиповойОстатки.Счет.Код = "2111"
+						ИЛИ ТиповойОстатки.Счет.Код = "1220"
+					ТОГДА ВЫБОР
+							КОГДА ТиповойОстатки.Субконто3.Родитель.Наименование = "Займы"
+								ТОГДА 2
+							ИНАЧЕ ВЫБОР
+									КОГДА ТиповойОстатки.Субконто3.Родитель.Наименование = "Реализация ресурсов зерна"
+											ИЛИ ТиповойОстатки.Субконто3.Наименование = "курсовая разница"
+										ТОГДА 3
+									ИНАЧЕ 4
+								КОНЕЦ
+						КОНЕЦ
+				ИНАЧЕ 4
+			КОНЕЦ
+	КОНЕЦ КАК Порядок,
+	ВЫБОР
+		КОГДА ТиповойОстатки.Субконто1.Родитель.Наименование ПОДОБНО "Богви%"
+			ТОГДА "Авансы и займы"
+		ИНАЧЕ "Дебиторская задолженность"
+	КОНЕЦ КАК ГруппаЗадолженности,
+	1 КАК Таблица,
+	СУММА(ВЫБОР
+			КОГДА ТиповойОстатки.Субконто2 ССЫЛКА Справочник.ДоговорыКонтрагентов
+					И &amp;Период = &amp;КонецПериода
+				ТОГДА ВЫБОР
+						КОГДА ТиповойОстатки.Субконто2.ВидДоговора = ЗНАЧЕНИЕ(Перечисление.ВидыДоговоровКонтрагентов.Займа)
+							ТОГДА ВЫБОР
+									КОГДА ТиповойОстатки.Субконто2.ДатаПогашения &lt;= &amp;КонецПериода
+										ТОГДА ТиповойОстатки.СуммаОстаток
+									ИНАЧЕ 0
+								КОНЕЦ
+						ИНАЧЕ ВЫБОР
+								КОГДА ТиповойОстатки.Субконто2.ДатаОкончанияДействияДоговора &lt;= &amp;КонецПериода
+									ТОГДА ТиповойОстатки.СуммаОстаток
+								ИНАЧЕ 0
+							КОНЕЦ
+					КОНЕЦ
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ПросроченнаяЗадолженность,
+	ТиповойОстатки.Организация,
+	ЕСТЬNULL(ТиповойОстатки.Субконто2, "") КАК Субконто2,
+	ЕСТЬNULL(ТиповойОстатки.Субконто3, "") КАК Субконто3,
+	ТиповойОстатки.Счет
+ПОМЕСТИТЬ ПоПериодам
+ИЗ
+	РегистрБухгалтерии.Типовой.Остатки(ДОБАВИТЬКДАТЕ(&amp;Период, СЕКУНДА, 1), Счет В ИЕРАРХИИ (&amp;СчетаДебетЗадолж), , ) КАК ТиповойОстатки
+
+СГРУППИРОВАТЬ ПО
+	ТиповойОстатки.Организация,
+	ВЫБОР
+		КОГДА ТиповойОстатки.Субконто1.Родитель.Наименование ПОДОБНО "Богви%"
+			ТОГДА "Авансы и займы"
+		ИНАЧЕ "Дебиторская задолженность"
+	КОНЕЦ,
+	ЕСТЬNULL(ТиповойОстатки.Субконто2, ""),
+	ЕСТЬNULL(ТиповойОстатки.Субконто3, ""),
+	ТиповойОстатки.Счет,
+	ВЫБОР
+		КОГДА ТиповойОстатки.Счет.Родитель.Код = "1720"
+				ИЛИ ТиповойОстатки.Счет.Код = "1251"
+				ИЛИ ТиповойОстатки.Счет.Код = "1252"
+				ИЛИ ТиповойОстатки.Счет.Код = "3350"
+			ТОГДА "Краткосрочная дебиторская задолженность работников"
+		ИНАЧЕ ТиповойОстатки.Субконто1
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ТиповойОстатки.Счет.Код = "1273"
+				И ТиповойОстатки.Субконто3.Наименование &lt;&gt; "прочие"
+			ТОГДА "Недостача зерна"
+		ИНАЧЕ ВЫБОР
+				КОГДА ТиповойОстатки.Счет.Родитель = ЗНАЧЕНИЕ(ПланСчетов.Типовой.КраткосрочныеРасходыБудущихПериодов)
+						ИЛИ ТиповойОстатки.Счет.Код = "1252"
+						ИЛИ ТиповойОстатки.Счет.Родитель.Код = "1720"
+						ИЛИ ТиповойОстатки.Счет.Код = "1251"
+						ИЛИ ТиповойОстатки.Счет.Код = "3350"
+						ИЛИ ТиповойОстатки.Счет.Код = "1273"
+						ИЛИ ТиповойОстатки.Счет.Код = "2017"
+						ИЛИ ТиповойОстатки.Счет.Код = "1118"
+						ИЛИ ТиповойОстатки.Счет.Код = "1260"
+					ТОГДА "Прочая дебиторская задолженность"
+				ИНАЧЕ ВЫБОР
+						КОГДА ТиповойОстатки.Счет.Код = "1272"
+							ТОГДА ВЫБОР
+									КОГДА ТиповойОстатки.Субконто1.Наименование = "АО Казинвестбанк"
+										ТОГДА "Казинвестбанк АО"
+									ИНАЧЕ "Прочая дебиторская задолженность"
+								КОНЕЦ
+						ИНАЧЕ ВЫБОР
+								КОГДА ТиповойОстатки.Счет.Код = "2111"
+										ИЛИ ТиповойОстатки.Счет.Код = "1220"
+									ТОГДА ВЫБОР
+											КОГДА ТиповойОстатки.Субконто3.Наименование = "прочие"
+												ТОГДА "Дебиторская задолженность от реализация Казмакты"
+											ИНАЧЕ ВЫБОР
+													КОГДА ТиповойОстатки.Субконто3.Родитель.Наименование = "Реализация ресурсов зерна"
+														ТОГДА ТиповойОстатки.Субконто3.Наименование
+													ИНАЧЕ "Прочая дебиторская задолженность"
+												КОНЕЦ
+										КОНЕЦ
+								ИНАЧЕ ВЫБОР
+										КОГДА ТиповойОстатки.Субконто3.Родитель.Наименование = "Реализация ресурсов зерна"
+												И ЕСТЬNULL(ТиповойОстатки.Субконто1.Родитель.Наименование, "") ПОДОБНО "%Алиби группа компаний%"
+											ТОГДА "Алиби группа компаний, реализация с отсрочкой платежа 2012 (БВУ)"
+										ИНАЧЕ ТиповойОстатки.Субконто3.Наименование
+									КОНЕЦ
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ТиповойОстатки.Субконто1.Родитель.Наименование ПОДОБНО "Богви%"
+			ТОГДА "Задолженность ГК Богви"
+		ИНАЧЕ ВЫБОР
+				КОГДА ТиповойОстатки.Счет.Код = "1210.01"
+					ТОГДА "Ссуда семян"
+				ИНАЧЕ ВЫБОР
+						КОГДА ТиповойОстатки.Счет.Код = "1211"
+								ИЛИ ТиповойОстатки.Счет.Код = "2111"
+								ИЛИ ТиповойОстатки.Счет.Код = "1220"
+							ТОГДА ВЫБОР
+									КОГДА ТиповойОстатки.Субконто3.Родитель.Наименование = "Займы"
+										ТОГДА "Товарный кредит"
+									ИНАЧЕ ВЫБОР
+											КОГДА ТиповойОстатки.Субконто3.Родитель.Наименование = "Реализация ресурсов зерна"
+													ИЛИ ТиповойОстатки.Субконто3.Наименование = "курсовая разница"
+												ТОГДА "Реализация зерна"
+											ИНАЧЕ "Другие"
+										КОНЕЦ
+								КОНЕЦ
+						ИНАЧЕ "Другие"
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ТиповойОстатки.Счет.Код = "1210.01"
+			ТОГДА 1
+		ИНАЧЕ ВЫБОР
+				КОГДА ТиповойОстатки.Счет.Код = "1211"
+						ИЛИ ТиповойОстатки.Счет.Код = "2111"
+						ИЛИ ТиповойОстатки.Счет.Код = "1220"
+					ТОГДА ВЫБОР
+							КОГДА ТиповойОстатки.Субконто3.Родитель.Наименование = "Займы"
+								ТОГДА 2
+							ИНАЧЕ ВЫБОР
+									КОГДА ТиповойОстатки.Субконто3.Родитель.Наименование = "Реализация ресурсов зерна"
+											ИЛИ ТиповойОстатки.Субконто3.Наименование = "курсовая разница"
+										ТОГДА 3
+									ИНАЧЕ 4
+								КОНЕЦ
+						КОНЕЦ
+				ИНАЧЕ 4
+			КОНЕЦ
+	КОНЕЦ
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ТиповойОстатки.Субконто1,
+	ВЫБОР
+		КОГДА ТиповойОстатки.Субконто1.Родитель.Наименование ПОДОБНО "Богви%"
+			ТОГДА ВЫБОР
+					КОГДА ТиповойОстатки.Счет.Код = "1112"
+							ИЛИ ТиповойОстатки.Счет.Код = "1157"
+						ТОГДА "Займы"
+					ИНАЧЕ ВЫБОР
+							КОГДА ТиповойОстатки.Счет.Код = "1711"
+								ТОГДА "Авансы выданные"
+							ИНАЧЕ ТиповойОстатки.Субконто3.Наименование
+						КОНЕЦ
+				КОНЕЦ
+		ИНАЧЕ ВЫБОР
+				КОГДА ТиповойОстатки.Счет.Код = "1112"
+						ИЛИ ТиповойОстатки.Счет.Код = "1157"
+					ТОГДА "Займы выданные 2008,2011 года"
+				ИНАЧЕ ВЫБОР
+						КОГДА ТиповойОстатки.Счет.Код = "1712"
+							ТОГДА "Прочие авансы"
+						ИНАЧЕ ТиповойОстатки.Субконто3.Наименование
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ,
+	СУММА(ТиповойОстатки.СуммаОстаток),
+	&amp;Период,
+	ВЫБОР
+		КОГДА ТиповойОстатки.Субконто1.Родитель.Наименование ПОДОБНО "Богви%"
+			ТОГДА "Задолженность ГК Богви"
+		ИНАЧЕ ВЫБОР
+				КОГДА ТиповойОстатки.Счет.Код = "1112"
+						ИЛИ ТиповойОстатки.Счет.Код = "1157"
+					ТОГДА "Займы"
+				ИНАЧЕ "Авансы"
+			КОНЕЦ
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ТиповойОстатки.Субконто1.Родитель.Наименование ПОДОБНО "Богви%"
+			ТОГДА 3
+		ИНАЧЕ ВЫБОР
+				КОГДА ТиповойОстатки.Счет.Код = "1112"
+						ИЛИ ТиповойОстатки.Счет.Код = "1157"
+					ТОГДА 2
+				ИНАЧЕ 1
+			КОНЕЦ
+	КОНЕЦ,
+	"Авансы и займы",
+	2,
+	СУММА(ВЫБОР
+			КОГДА ТиповойОстатки.Субконто2 ССЫЛКА Справочник.ДоговорыКонтрагентов
+					И &amp;Период = &amp;КонецПериода
+				ТОГДА ВЫБОР
+						КОГДА ТиповойОстатки.Субконто2.ВидДоговора = ЗНАЧЕНИЕ(Перечисление.ВидыДоговоровКонтрагентов.Займа)
+							ТОГДА ВЫБОР
+									КОГДА ТиповойОстатки.Субконто2.ДатаПогашения &lt;= &amp;КонецПериода
+										ТОГДА ТиповойОстатки.СуммаОстаток
+									ИНАЧЕ 0
+								КОНЕЦ
+						ИНАЧЕ ВЫБОР
+								КОГДА ТиповойОстатки.Субконто2.ДатаОкончанияДействияДоговора &lt;= &amp;КонецПериода
+									ТОГДА ТиповойОстатки.СуммаОстаток
+								ИНАЧЕ 0
+							КОНЕЦ
+					КОНЕЦ
+			ИНАЧЕ 0
+		КОНЕЦ),
+	ТиповойОстатки.Организация,
+	ЕСТЬNULL(ТиповойОстатки.Субконто2, ""),
+	ЕСТЬNULL(ТиповойОстатки.Субконто3, ""),
+	ТиповойОстатки.Счет
+ИЗ
+	РегистрБухгалтерии.Типовой.Остатки(ДОБАВИТЬКДАТЕ(&amp;Период, СЕКУНДА, 1), Счет В ИЕРАРХИИ (&amp;СчетаАвансов), , ) КАК ТиповойОстатки
+
+СГРУППИРОВАТЬ ПО
+	ВЫБОР
+		КОГДА ТиповойОстатки.Субконто1.Родитель.Наименование ПОДОБНО "Богви%"
+			ТОГДА "Задолженность ГК Богви"
+		ИНАЧЕ ВЫБОР
+				КОГДА ТиповойОстатки.Счет.Код = "1112"
+						ИЛИ ТиповойОстатки.Счет.Код = "1157"
+					ТОГДА "Займы"
+				ИНАЧЕ "Авансы"
+			КОНЕЦ
+	КОНЕЦ,
+	ТиповойОстатки.Организация,
+	ТиповойОстатки.Субконто1,
+	ВЫБОР
+		КОГДА ТиповойОстатки.Субконто1.Родитель.Наименование ПОДОБНО "Богви%"
+			ТОГДА ВЫБОР
+					КОГДА ТиповойОстатки.Счет.Код = "1112"
+							ИЛИ ТиповойОстатки.Счет.Код = "1157"
+						ТОГДА "Займы"
+					ИНАЧЕ ВЫБОР
+							КОГДА ТиповойОстатки.Счет.Код = "1711"
+								ТОГДА "Авансы выданные"
+							ИНАЧЕ ТиповойОстатки.Субконто3.Наименование
+						КОНЕЦ
+				КОНЕЦ
+		ИНАЧЕ ВЫБОР
+				КОГДА ТиповойОстатки.Счет.Код = "1112"
+						ИЛИ ТиповойОстатки.Счет.Код = "1157"
+					ТОГДА "Займы выданные 2008,2011 года"
+				ИНАЧЕ ВЫБОР
+						КОГДА ТиповойОстатки.Счет.Код = "1712"
+							ТОГДА "Прочие авансы"
+						ИНАЧЕ ТиповойОстатки.Субконто3.Наименование
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ТиповойОстатки.Субконто1.Родитель.Наименование ПОДОБНО "Богви%"
+			ТОГДА 3
+		ИНАЧЕ ВЫБОР
+				КОГДА ТиповойОстатки.Счет.Код = "1112"
+						ИЛИ ТиповойОстатки.Счет.Код = "1157"
+					ТОГДА 2
+				ИНАЧЕ 1
+			КОНЕЦ
+	КОНЕЦ,
+	ЕСТЬNULL(ТиповойОстатки.Субконто2, ""),
+	ЕСТЬNULL(ТиповойОстатки.Субконто3, ""),
+	ТиповойОстатки.Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	&amp;Период КАК Месяц,
+	СУММА(-Резервы.СуммаОстаток) КАК СозданныйРезерв,
+	СУММА(-Дисконт.СуммаОстаток) КАК Дисконт,
+	СУММА(Обеспечение.СуммаОстаток) КАК СуммаОбеспечения,
+	Обеспечение.Субконто4.Гарант КАК Обеспечение,
+	ПоПериодам.ТипОпераций,
+	ПоПериодам.Группа,
+	ПоПериодам.Контрагент,
+	ЕСТЬNULL(ПоПериодам.Субконто3, "") КАК Субконто3
+ПОМЕСТИТЬ РезервДисконт
+ИЗ
+	ПоПериодам КАК ПоПериодам
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Типовой.Остатки(
+				&amp;КонецПериода,
+				Счет В (&amp;СчетаДисконтаДеб)
+					ИЛИ Счет В (&amp;СчетаДисконтаАвансы),
+				,
+				) КАК Дисконт
+		ПО ПоПериодам.Контрагент = Дисконт.Субконто1
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Типовой.Остатки(&amp;КонецПериода, Счет В (&amp;СчетаОбеспечениеДеб), , ) КАК Обеспечение
+		ПО ПоПериодам.Контрагент = Обеспечение.Субконто1
+			И ПоПериодам.Субконто3 = Обеспечение.Субконто3
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Типовой.Остатки(
+				&amp;КонецПериода,
+				Счет В (&amp;СчетаРезервДеб)
+					ИЛИ Счет В (&amp;СчетаРезервАвансы),
+				,
+				) КАК Резервы
+		ПО ПоПериодам.Контрагент = Резервы.Субконто1
+			И (ЕСТЬNULL(ПоПериодам.Субконто3, "") = ЕСТЬNULL(Резервы.Субконто3, ""))
+
+СГРУППИРОВАТЬ ПО
+	Обеспечение.Субконто4.Гарант,
+	ПоПериодам.ТипОпераций,
+	ПоПериодам.Группа,
+	ПоПериодам.Контрагент,
+	ЕСТЬNULL(ПоПериодам.Субконто3, "")
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПоПериодам.Контрагент,
+	ПоПериодам.ТипОпераций,
+	ПоПериодам.СуммаОстаток,
+	ПоПериодам.ПросроченнаяЗадолженность,
+	ПоПериодам.Месяц,
+	ПоПериодам.Группа,
+	ПоПериодам.Порядок,
+	ПоПериодам.ГруппаЗадолженности,
+	ПоПериодам.Таблица,
+	РезервДисконт.СозданныйРезерв,
+	РезервДисконт.Дисконт,
+	РезервДисконт.СуммаОбеспечения,
+	РезервДисконт.Обеспечение,
+	ПоПериодам.Счет
+ИЗ
+	ПоПериодам КАК ПоПериодам
+		ЛЕВОЕ СОЕДИНЕНИЕ РезервДисконт КАК РезервДисконт
+		ПО ПоПериодам.Контрагент = РезервДисконт.Контрагент
+			И ПоПериодам.ТипОпераций = РезервДисконт.ТипОпераций
+			И ПоПериодам.Группа = РезервДисконт.Группа
+			И ПоПериодам.Субконто3 = РезервДисконт.Субконто3</query>
+			</dataSet>
+			<dataSet xsi:type="DataSetQuery">
+				<name>НаборДанных2</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Период</dataPath>
+					<field>Период</field>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	ДОБАВИТЬКДАТЕ(&amp;НачалоПериода, МЕСЯЦ, aa.a * 1000 + bb.b * 100 + cc.c * 10 + dd.d) КАК Период
+{ВЫБРАТЬ
+	Период}
+ИЗ
+	(ВЫБРАТЬ
+		0 КАК a
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		1
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		2
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		3
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		4
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		5
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		6
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		7
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		8
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		9) КАК aa
+		ПОЛНОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			0 КАК b
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			1
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			2
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			3
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			4
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			5
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			6
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			7
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			8
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			9) КАК bb
+		ПО (ИСТИНА)
+		ПОЛНОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			0 КАК c
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			1
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			2
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			3
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			4
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			5
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			6
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			7
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			8
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			9) КАК cc
+		ПО (ИСТИНА)
+		ПОЛНОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			0 КАК d
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			1
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			2
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			3
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			4
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			5
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			6
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			7
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			8
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			9) КАК dd
+		ПО (ИСТИНА)
+ГДЕ
+	aa.a * 1000 + bb.b * 100 + cc.c * 10 + dd.d &lt;= РАЗНОСТЬДАТ(&amp;НачалоПериода, &amp;КонецПериода, МЕСЯЦ)</query>
+			</dataSet>
+			<dataSetLink>
+				<sourceDataSet>НаборДанных2</sourceDataSet>
+				<destinationDataSet>НаборДанных1</destinationDataSet>
+				<sourceExpression>Период</sourceExpression>
+				<destinationExpression>Месяц</destinationExpression>
+				<parameter>Период</parameter>
+				<parameterListAllowed>false</parameterListAllowed>
+			</dataSetLink>
+			<totalField>
+				<dataPath>ПросроченнаяЗадолженность</dataPath>
+				<expression>Сумма(ПросроченнаяЗадолженность)</expression>
+			</totalField>
+			<totalField>
+				<dataPath>СуммаОстаток</dataPath>
+				<expression>Сумма(СуммаОстаток)</expression>
+			</totalField>
+			<totalField>
+				<dataPath>СозданныйРезерв</dataPath>
+				<expression>Сумма(СозданныйРезерв)</expression>
+			</totalField>
+			<totalField>
+				<dataPath>СуммаОбеспечения</dataPath>
+				<expression>Сумма(СуммаОбеспечения)</expression>
+			</totalField>
+			<totalField>
+				<dataPath>Дисконт</dataPath>
+				<expression>Сумма(Дисконт)</expression>
+			</totalField>
+			<parameter>
+				<name>НачалоПериода</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Начало периода</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>DateTime</v8:DateFractions>
+					</v8:DateQualifiers>
+				</valueType>
+				<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+				<useRestriction>false</useRestriction>
+			</parameter>
+			<parameter>
+				<name>КонецПериода</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Конец периода</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>DateTime</v8:DateFractions>
+					</v8:DateQualifiers>
+				</valueType>
+				<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+				<useRestriction>false</useRestriction>
+			</parameter>
+			<parameter>
+				<name>СчетаДебетЗадолж</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Счета дебет задолж</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:ChartOfAccountsRef.Типовой</v8:Type>
+				</valueType>
+				<value xsi:nil="true"/>
+				<useRestriction>false</useRestriction>
+			</parameter>
+			<parameter>
+				<name>СчетаАвансов</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Счета авансов</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:ChartOfAccountsRef.Типовой</v8:Type>
+				</valueType>
+				<value xsi:nil="true"/>
+				<useRestriction>false</useRestriction>
+			</parameter>
+			<parameter>
+				<name>Период</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Период</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>DateTime</v8:DateFractions>
+					</v8:DateQualifiers>
+				</valueType>
+				<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+				<useRestriction>false</useRestriction>
+			</parameter>
+			<parameter>
+				<name>СчетаРезервАвансы</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Счета резерв авансы</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:ChartOfAccountsRef.Типовой</v8:Type>
+				</valueType>
+				<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеУбытковПоАвансамВыданнымСоб</value>
+				<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеУбытковПоЗаймампредоставленнымКлиентамСоб</value>
+				<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеДебиторскойЗадолжностиСоб</value>
+				<useRestriction>false</useRestriction>
+				<valueListAllowed>true</valueListAllowed>
+			</parameter>
+			<parameter>
+				<name>СчетаРезервДеб</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Счета резерв деб</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:ChartOfAccountsRef.Типовой</v8:Type>
+				</valueType>
+				<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеДебиторскойЗадолжностиСоб</value>
+				<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПоСомнительнымТребованиямПоЗаймамВыданнымСотрудникамСоб</value>
+				<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеУбытковПоДочернейДебиторскойЗадолжностиСоб</value>
+				<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеУбытковПоЗаймампредоставленнымКлиентамСоб</value>
+				<useRestriction>false</useRestriction>
+				<valueListAllowed>true</valueListAllowed>
+			</parameter>
+			<parameter>
+				<name>СчетаДисконтаДеб</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Счета дисконта деб</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:ChartOfAccountsRef.Типовой</v8:Type>
+				</valueType>
+				<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ДисконтПоКраткосрочнымПредоставленнымЗаймамСоб</value>
+				<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПремияПоКраткосрочнымПредоставленнымЗаймамСоб</value>
+				<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ДисконтКраткосрочнойЗадолженностиПокупателейИЗаказчиков</value>
+				<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПремияКраткосрочнойЗадолженностиПокупателейИЗаказчиков</value>
+				<useRestriction>false</useRestriction>
+				<valueListAllowed>true</valueListAllowed>
+			</parameter>
+			<parameter>
+				<name>СчетаОбеспечениеДеб</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Счета обеспечение деб</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:ChartOfAccountsRef.Типовой</v8:Type>
+				</valueType>
+				<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ВозможныеТребованияПоПринятымГарантиямПоАвансамВыданнымСоб</value>
+				<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ВозможныеТребованияПоПринятымГарантиямПореализацииЗернаСОтсрочкойПлатежаСоб</value>
+				<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ВозможныеТребованияПоПринятымГарантиямПоСеменнойСсуде</value>
+				<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеТребованияПоПринятымГарантиямСоб</value>
+				<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ВозможныеТребованияПоПринятымГарантиямПоВыданнымЗаймамЗаСчетСобСредствСоб</value>
+				<useRestriction>false</useRestriction>
+				<valueListAllowed>true</valueListAllowed>
+			</parameter>
+			<parameter>
+				<name>СчетаДисконтаАвансы</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Счета дисконта авансы</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:ChartOfAccountsRef.Типовой</v8:Type>
+				</valueType>
+				<value xsi:nil="true"/>
+				<useRestriction>true</useRestriction>
+			</parameter>
+			<settingsVariant>
+				<dcsset:name>Основной</dcsset:name>
+				<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+				<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СуммаОстаток</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:dataParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>НачалоПериода</dcscor:parameter>
+							<dcscor:value xsi:type="v8:StandardBeginningDate">
+								<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+								<v8:date>0001-01-01T00:00:00</v8:date>
+							</dcscor:value>
+							<dcsset:userSettingID>9d0cd937-3225-47d6-97b0-97ebb7a08a64</dcsset:userSettingID>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>КонецПериода</dcscor:parameter>
+							<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+							<dcsset:userSettingID>27770ce1-ac85-49d5-9b72-1a33826b51ba</dcsset:userSettingID>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>СчетаДебетЗадолж</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяДебиторскаяЗадолженностьПокупателейИЗаказчиковГос</dcscor:value>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>04f06a9f-a7eb-4e61-9757-635bb5820936</dcsset:userSettingID>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>СчетаАвансов</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочныеАвансыВыданныеСоб</dcscor:value>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>240035a9-b273-4c06-b626-b326a2545ab9</dcsset:userSettingID>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>Период</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыДоговоровКонтрагентов.Займа</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>СчетаРезервАвансы</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеУбытковПоАвансамВыданнымСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеУбытковПоЗаймампредоставленнымКлиентамСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеДебиторскойЗадолжностиСоб</dcscor:value>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>bbde6781-c593-4d86-8b68-b601662f9339</dcsset:userSettingID>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>СчетаРезервДеб</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеДебиторскойЗадолжностиСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПоСомнительнымТребованиямПоЗаймамВыданнымСотрудникамСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеУбытковПоДочернейДебиторскойЗадолжностиСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеУбытковПоЗаймампредоставленнымКлиентамСоб</dcscor:value>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>0cf89a69-74f5-4ac2-bfd7-b0074bf76c92</dcsset:userSettingID>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>СчетаДисконтаДеб</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ДисконтКраткосрочнойЗадолженностиПокупателейИЗаказчиков</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПремияКраткосрочнойЗадолженностиПокупателейИЗаказчиков</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ДисконтПоКраткосрочнымПредоставленнымЗаймамСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПремияПоКраткосрочнымПредоставленнымЗаймамСоб</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>СчетаОбеспечениеДеб</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ВозможныеТребованияПоПринятымГарантиямПоАвансамВыданнымСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ВозможныеТребованияПоПринятымГарантиямПореализацииЗернаСОтсрочкойПлатежаСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ВозможныеТребованияПоПринятымГарантиямПоСеменнойСсуде</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеТребованияПоПринятымГарантиямСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ВозможныеТребованияПоПринятымГарантиямПоВыданнымЗаймамЗаСчетСобСредствСоб</dcscor:value>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>cc41f5e6-4a2b-439c-a0c9-8439d87d5635</dcsset:userSettingID>
+						</dcscor:item>
+					</dcsset:dataParameters>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Порядок</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:item xsi:type="dcsset:StructureItemTable">
+						<dcsset:column>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Месяц</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:column>
+						<dcsset:column>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto">
+									<dcsset:use>false</dcsset:use>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ПросроченнаяЗадолженность</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+						</dcsset:column>
+						<dcsset:row>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ГруппаЗадолженности</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+							<dcsset:item>
+								<dcsset:groupItems>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Группа</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Порядок</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+								</dcsset:groupItems>
+								<dcsset:order>
+									<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+								</dcsset:order>
+								<dcsset:selection>
+									<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								</dcsset:selection>
+								<dcsset:item>
+									<dcsset:groupItems>
+										<dcsset:item xsi:type="dcsset:GroupItemField">
+											<dcsset:field>ТипОпераций</dcsset:field>
+											<dcsset:groupType>Items</dcsset:groupType>
+											<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+											<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+											<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+										</dcsset:item>
+									</dcsset:groupItems>
+									<dcsset:order>
+										<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+									</dcsset:order>
+									<dcsset:selection>
+										<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+									</dcsset:selection>
+									<dcsset:item>
+										<dcsset:groupItems>
+											<dcsset:item xsi:type="dcsset:GroupItemField">
+												<dcsset:field>Контрагент</dcsset:field>
+												<dcsset:groupType>Items</dcsset:groupType>
+												<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+												<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+												<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+											</dcsset:item>
+										</dcsset:groupItems>
+										<dcsset:order>
+											<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+										</dcsset:order>
+										<dcsset:selection>
+											<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+										</dcsset:selection>
+									</dcsset:item>
+								</dcsset:item>
+							</dcsset:item>
+						</dcsset:row>
+					</dcsset:item>
+				</dcsset:settings>
+			</settingsVariant>
+		</schema>
+		<settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.ДатаНач</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.ДатаКон</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>СчетаДебетЗадолж</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.СчетаДебеторскойЗадолженности</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>СчетаАвансов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.СчетаАвансовДеб</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>СчетаРезервАвансы</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеУбытковПоАвансамВыданнымСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеУбытковПоЗаймампредоставленнымКлиентамСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеДебиторскойЗадолжностиСоб</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>СчетаРезервДеб</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеДебиторскойЗадолжностиСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПоСомнительнымТребованиямПоЗаймамВыданнымСотрудникамСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеУбытковПоДочернейДебиторскойЗадолжностиСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеУбытковПоЗаймампредоставленнымКлиентамСоб</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>СчетаДисконтаДеб</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>СчетаОбеспечениеДеб</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ВозможныеТребованияПоПринятымГарантиямПоАвансамВыданнымСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ВозможныеТребованияПоПринятымГарантиямПореализацииЗернаСОтсрочкойПлатежаСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ВозможныеТребованияПоПринятымГарантиямПоСеменнойСсуде</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеТребованияПоПринятымГарантиямСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ВозможныеТребованияПоПринятымГарантиямПоВыданнымЗаймамЗаСчетСобСредствСоб</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+		</settings>
+	</nestedSchema>
+	<nestedSchema>
+		<name>КредиторскаяЗадолженность</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Кредиторская задолженность</v8:content>
+			</v8:item>
+		</title>
+		<schema>
+			<dataSource>
+				<name>ИсточникДанных1</name>
+				<dataSourceType>Local</dataSourceType>
+			</dataSource>
+			<dataSet xsi:type="DataSetQuery">
+				<name>НаборДанных1</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтруктурноеПодразделение</dataPath>
+					<field>СтруктурноеПодразделение</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ИсточникФинансирования</dataPath>
+					<field>ИсточникФинансирования</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Субконто2</dataPath>
+					<field>Субконто2</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Валюта</dataPath>
+					<field>Валюта</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Субконто4</dataPath>
+					<field>Субконто4</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Субконто1</dataPath>
+					<field>Субконто1</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Субконто3</dataPath>
+					<field>Субконто3</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаОстаток</dataPath>
+					<field>СуммаОстаток</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сальдо на конец</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Контрагент</dataPath>
+					<field>Контрагент</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ТипОпераций</dataPath>
+					<field>ТипОпераций</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип операций</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Месяц</dataPath>
+					<field>Месяц</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Месяц</v8:content>
+						</v8:item>
+					</title>
+					<appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="xs:string">ДФ=MMMM</dcscor:value>
+						</dcscor:item>
+					</appearance>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Группа</dataPath>
+					<field>Группа</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Порядок</dataPath>
+					<field>Порядок</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Порядок</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	ТиповойОстатки.Счет,
+	ТиповойОстатки.Субконто1 КАК Контрагент,
+	ВЫБОР
+		КОГДА ТиповойОстатки.Счет.Код = "3011"
+			ТОГДА "Займы полученные от БВУ"
+		ИНАЧЕ ВЫБОР
+				КОГДА ТиповойОстатки.Счет.Код = "3053"
+					ТОГДА "Начисленное вознаграждение по полученным займам"
+				ИНАЧЕ ВЫБОР
+						КОГДА ТиповойОстатки.Счет.Код = "3012"
+							ТОГДА "Полученные займы от МСХ"
+						ИНАЧЕ ВЫБОР
+								КОГДА ТиповойОстатки.Счет.Код = "3310"
+										ИЛИ ТиповойОстатки.Счет.Код = "3320"
+									ТОГДА "Задолженность поставщикам и подрядчикам (в том числе хранение)"
+								ИНАЧЕ ВЫБОР
+										КОГДА ТиповойОстатки.Счет.Код = "3360"
+												ИЛИ ТиповойОстатки.Счет.Родитель.Код = "3380"
+												ИЛИ ТиповойОстатки.Счет.Код = "3560"
+											ТОГДА "Прочая кредиторская задолженность"
+										ИНАЧЕ ВЫБОР
+												КОГДА ТиповойОстатки.Счет.Родитель.Код = "3510"
+													ТОГДА "Полученные авансы"
+												ИНАЧЕ ВЫБОР
+														КОГДА ТиповойОстатки.Счет.Код = "4016"
+															ТОГДА "Выпущенные в обращение ценные бумаги"
+														ИНАЧЕ ВЫБОР
+																КОГДА ТиповойОстатки.Счет.Код = "3051"
+																	ТОГДА "Вознаграждение по ценным бумагам, выпущенным в обращение"
+																ИНАЧЕ ВЫБОР
+																		КОГДА ТиповойОстатки.Счет.Код = "4018"
+																				ИЛИ ТиповойОстатки.Счет.Код = "4017"
+																			ТОГДА "Дисконт"
+																		ИНАЧЕ ""
+																	КОНЕЦ
+															КОНЕЦ
+													КОНЕЦ
+											КОНЕЦ
+									КОНЕЦ
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ КАК ТипОпераций,
+	-ТиповойОстатки.СуммаОстаток КАК СуммаОстаток,
+	&amp;Период КАК Месяц,
+	ВЫБОР
+		КОГДА ТиповойОстатки.Счет.Код = "3011"
+			ТОГДА "Займы полученные"
+		ИНАЧЕ ВЫБОР
+				КОГДА ТиповойОстатки.Счет.Код = "3053"
+					ТОГДА "Займы полученные"
+				ИНАЧЕ ВЫБОР
+						КОГДА ТиповойОстатки.Счет.Код = "3012"
+							ТОГДА "Займы полученные"
+						ИНАЧЕ ВЫБОР
+								КОГДА ТиповойОстатки.Счет.Код = "3310"
+										ИЛИ ТиповойОстатки.Счет.Код = "3320"
+									ТОГДА "Кредиторская задолженность"
+								ИНАЧЕ ВЫБОР
+										КОГДА ТиповойОстатки.Счет.Код = "3360"
+												ИЛИ ТиповойОстатки.Счет.Родитель.Код = "3380"
+												ИЛИ ТиповойОстатки.Счет.Код = "3560"
+											ТОГДА "Кредиторская задолженность"
+										ИНАЧЕ ВЫБОР
+												КОГДА ТиповойОстатки.Счет.Родитель.Код = "3510"
+													ТОГДА "Полученные авансы"
+												ИНАЧЕ ВЫБОР
+														КОГДА ТиповойОстатки.Счет.Код = "4016"
+															ТОГДА "Облигации"
+														ИНАЧЕ ВЫБОР
+																КОГДА ТиповойОстатки.Счет.Код = "3051"
+																	ТОГДА "Облигации"
+																ИНАЧЕ ВЫБОР
+																		КОГДА ТиповойОстатки.Счет.Код = "4018"
+																				ИЛИ ТиповойОстатки.Счет.Код = "4017"
+																			ТОГДА "Облигации"
+																		ИНАЧЕ ""
+																	КОНЕЦ
+															КОНЕЦ
+													КОНЕЦ
+											КОНЕЦ
+									КОНЕЦ
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ КАК Группа,
+	ВЫБОР
+		КОГДА ТиповойОстатки.Счет.Код = "3011"
+			ТОГДА 1
+		ИНАЧЕ ВЫБОР
+				КОГДА ТиповойОстатки.Счет.Код = "3053"
+					ТОГДА 1
+				ИНАЧЕ ВЫБОР
+						КОГДА ТиповойОстатки.Счет.Код = "3012"
+							ТОГДА 1
+						ИНАЧЕ ВЫБОР
+								КОГДА ТиповойОстатки.Счет.Код = "3310"
+										ИЛИ ТиповойОстатки.Счет.Код = "3320"
+									ТОГДА 2
+								ИНАЧЕ ВЫБОР
+										КОГДА ТиповойОстатки.Счет.Код = "3360"
+												ИЛИ ТиповойОстатки.Счет.Родитель.Код = "3380"
+												ИЛИ ТиповойОстатки.Счет.Код = "3560"
+											ТОГДА 2
+										ИНАЧЕ ВЫБОР
+												КОГДА ТиповойОстатки.Счет.Родитель.Код = "3510"
+													ТОГДА 3
+												ИНАЧЕ ВЫБОР
+														КОГДА ТиповойОстатки.Счет.Код = "4016"
+															ТОГДА 4
+														ИНАЧЕ ВЫБОР
+																КОГДА ТиповойОстатки.Счет.Код = "3051"
+																	ТОГДА 4
+																ИНАЧЕ ВЫБОР
+																		КОГДА ТиповойОстатки.Счет.Код = "4018"
+																				ИЛИ ТиповойОстатки.Счет.Код = "4017"
+																			ТОГДА 4
+																		ИНАЧЕ ""
+																	КОНЕЦ
+															КОНЕЦ
+													КОНЕЦ
+											КОНЕЦ
+									КОНЕЦ
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ КАК Порядок,
+	ТиповойОстатки.Организация
+ИЗ
+	РегистрБухгалтерии.Типовой.Остатки(ДОБАВИТЬКДАТЕ(&amp;Период, СЕКУНДА, 1), Счет В ИЕРАРХИИ (&amp;СчетаКредЗадолж), , ) КАК ТиповойОстатки</query>
+			</dataSet>
+			<dataSet xsi:type="DataSetQuery">
+				<name>НаборДанных2</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Период</dataPath>
+					<field>Период</field>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	ДОБАВИТЬКДАТЕ(&amp;НачалоПериода, МЕСЯЦ, aa.a * 1000 + bb.b * 100 + cc.c * 10 + dd.d) КАК Период
+{ВЫБРАТЬ
+	Период}
+ИЗ
+	(ВЫБРАТЬ
+		0 КАК a
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		1
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		2
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		3
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		4
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		5
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		6
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		7
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		8
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		9) КАК aa
+		ПОЛНОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			0 КАК b
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			1
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			2
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			3
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			4
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			5
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			6
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			7
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			8
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			9) КАК bb
+		ПО (ИСТИНА)
+		ПОЛНОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			0 КАК c
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			1
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			2
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			3
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			4
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			5
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			6
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			7
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			8
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			9) КАК cc
+		ПО (ИСТИНА)
+		ПОЛНОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			0 КАК d
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			1
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			2
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			3
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			4
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			5
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			6
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			7
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			8
+		
+		ОБЪЕДИНИТЬ
+		
+		ВЫБРАТЬ
+			9) КАК dd
+		ПО (ИСТИНА)
+ГДЕ
+	aa.a * 1000 + bb.b * 100 + cc.c * 10 + dd.d &lt;= РАЗНОСТЬДАТ(&amp;НачалоПериода, &amp;КонецПериода, МЕСЯЦ)</query>
+			</dataSet>
+			<dataSetLink>
+				<sourceDataSet>НаборДанных2</sourceDataSet>
+				<destinationDataSet>НаборДанных1</destinationDataSet>
+				<sourceExpression>Период</sourceExpression>
+				<destinationExpression>Месяц</destinationExpression>
+				<parameter>Период</parameter>
+				<parameterListAllowed>false</parameterListAllowed>
+			</dataSetLink>
+			<totalField>
+				<dataPath>СуммаОстаток</dataPath>
+				<expression>Сумма(СуммаОстаток)</expression>
+			</totalField>
+			<parameter>
+				<name>НачалоПериода</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Начало периода</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>DateTime</v8:DateFractions>
+					</v8:DateQualifiers>
+				</valueType>
+				<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+				<useRestriction>false</useRestriction>
+			</parameter>
+			<parameter>
+				<name>КонецПериода</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Конец периода</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>DateTime</v8:DateFractions>
+					</v8:DateQualifiers>
+				</valueType>
+				<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+				<useRestriction>false</useRestriction>
+			</parameter>
+			<parameter>
+				<name>Период</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Период</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>DateTime</v8:DateFractions>
+					</v8:DateQualifiers>
+				</valueType>
+				<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+				<useRestriction>false</useRestriction>
+			</parameter>
+			<parameter>
+				<name>СчетаКредЗадолж</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Счета кред задолж</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:ChartOfAccountsRef.Типовой</v8:Type>
+				</valueType>
+				<value xsi:nil="true"/>
+				<useRestriction>false</useRestriction>
+			</parameter>
+			<settingsVariant>
+				<dcsset:name>Основной</dcsset:name>
+				<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+				<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СуммаОстаток</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:dataParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>НачалоПериода</dcscor:parameter>
+							<dcscor:value xsi:type="v8:StandardBeginningDate">
+								<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+								<v8:date>0001-01-01T00:00:00</v8:date>
+							</dcscor:value>
+							<dcsset:userSettingID>9d0cd937-3225-47d6-97b0-97ebb7a08a64</dcsset:userSettingID>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>КонецПериода</dcscor:parameter>
+							<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+							<dcsset:userSettingID>27770ce1-ac85-49d5-9b72-1a33826b51ba</dcsset:userSettingID>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>СчетаКредЗадолж</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Field">ПараметрыДанных.СчетаКредЗадолж</dcscor:value>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>240035a9-b273-4c06-b626-b326a2545ab9</dcsset:userSettingID>
+						</dcscor:item>
+					</dcsset:dataParameters>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Порядок</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:item xsi:type="dcsset:StructureItemTable">
+						<dcsset:column>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Месяц</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:column>
+						<dcsset:row>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Группа</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Порядок</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+							<dcsset:item>
+								<dcsset:groupItems>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>ТипОпераций</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Счет</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+								</dcsset:groupItems>
+								<dcsset:order>
+									<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+								</dcsset:order>
+								<dcsset:selection>
+									<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								</dcsset:selection>
+								<dcsset:item>
+									<dcsset:groupItems>
+										<dcsset:item xsi:type="dcsset:GroupItemField">
+											<dcsset:field>Контрагент</dcsset:field>
+											<dcsset:groupType>Items</dcsset:groupType>
+											<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+											<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+											<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+										</dcsset:item>
+									</dcsset:groupItems>
+									<dcsset:order>
+										<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+									</dcsset:order>
+									<dcsset:selection>
+										<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+									</dcsset:selection>
+								</dcsset:item>
+							</dcsset:item>
+						</dcsset:row>
+					</dcsset:item>
+				</dcsset:settings>
+			</settingsVariant>
+		</schema>
+		<settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.ДатаНач</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.ДатаКон</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>СчетаКредЗадолж</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.СчетаКредит</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+		</settings>
+	</nestedSchema>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ДатаНач</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>82da7374-9be6-45cd-a507-debb029bd707</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ДатаКон</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>7d33a216-e541-4858-a591-40632cc7bf94</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>СчетаДебеторскойЗадолженности</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяДебиторскаяЗадолженностьПокупателейИЗаказчиковСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ДолгосрочнаяЗадолженностьПокупателейИЗаказчиковСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочаяДебиторскаяЗадолжностьСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ДебиторскаяЗадолжностьПоНеправомернымПретензиямСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочныеРасходыБудущихПериодов</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяЗадолженностьПоВыплаченнойЗаработнойПлате</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяЗадолженностьПоОплатеТруда</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяЗадолженностьПоАренде</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяДебиторскаяЗадолженностьПоАренде</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяДебиторскаяЗадолженностьДочернихОрганизаций</dcscor:value>
+					<dcsset:userSettingID>0f8591c3-0f17-4d14-a433-87f06b2af5b6</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>СчетаАвансовДеб</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочныеАвансыВыданныеСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеАвансывыданныеСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПросроченнаяЗадолжностьПоПредоставленнымЗаймамСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПросроченныеДоходыВВидеВознагрожденийПоВыданнымЗаймам</dcscor:value>
+					<dcsset:userSettingID>a26b8912-3661-4a4a-b317-e00a137154ce</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>СчетаКредит</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяЗадолженностьПоставщикамИПодрядчикам</dcscor:value>
+					<dcsset:userSettingID>eb1e3176-12d8-4b93-a9a5-889f12081ff2</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дебиторская - кредиторская задолженности</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemNestedObject">
+				<dcsset:objectID>ДебиторскаяЗадолженность</dcsset:objectID>
+				<dcsset:settings>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СуммаОстаток</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:dataParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>НачалоПериода</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.ДатаНач</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>КонецПериода</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.ДатаКон</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>СчетаДебетЗадолж</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.СчетаДебеторскойЗадолженности</dcscor:value>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>de7a3a0f-b182-4fa5-b453-7282c7e32217</dcsset:userSettingID>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>СчетаАвансов</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.СчетаАвансовДеб</dcscor:value>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>abff94dc-3893-4fed-b227-7dda0bcb5b6c</dcsset:userSettingID>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>СчетаРезервАвансы</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеУбытковПоАвансамВыданнымСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеУбытковПоЗаймампредоставленнымКлиентамСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеДебиторскойЗадолжностиСоб</dcscor:value>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>5f9888a7-7875-4d65-8ab0-c304841a101a</dcsset:userSettingID>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>СчетаРезервДеб</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеДебиторскойЗадолжностиСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПоСомнительнымТребованиямПоЗаймамВыданнымСотрудникамСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеУбытковПоДочернейДебиторскойЗадолжностиСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РезервыПровизииНаПокрытиеУбытковПоЗаймампредоставленнымКлиентамСоб</dcscor:value>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>ea0a60c3-7fcd-4bd4-8802-734eb0f5b0e2</dcsset:userSettingID>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>СчетаДисконтаДеб</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ДисконтДолгосрочнойЗадолженностиПокупателейИЗаказчиков</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПремияДолгосрочнойЗадолженностиПокупателейИЗаказчиков</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ДисконтКраткосрочнойЗадолженностиПокупателейИЗаказчиков</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПремияКраткосрочнойЗадолженностиПокупателейИЗаказчиков</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ДисконтПоКраткосрочнымПредоставленнымЗаймамСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПремияПоКраткосрочнымПредоставленнымЗаймамСоб</dcscor:value>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>3014f59e-2c80-4a81-92f9-b75a091eb65b</dcsset:userSettingID>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>СчетаОбеспечениеДеб</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ВозможныеТребованияПоПринятымГарантиямПоАвансамВыданнымСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ВозможныеТребованияПоПринятымГарантиямПореализацииЗернаСОтсрочкойПлатежаСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ВозможныеТребованияПоПринятымГарантиямПоСеменнойСсуде</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеТребованияПоПринятымГарантиямСоб</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ВозможныеТребованияПоПринятымГарантиямПоВыданнымЗаймамЗаСчетСобСредствСоб</dcscor:value>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>8581dd57-a159-4c77-93a7-fcd983ae9b8f</dcsset:userSettingID>
+						</dcscor:item>
+					</dcsset:dataParameters>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Порядок</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Месяц</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter/>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Формат</dcscor:parameter>
+									<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+					</dcsset:conditionalAppearance>
+					<dcsset:outputParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Заголовок</dcscor:parameter>
+							<dcscor:value xsi:type="xs:string">1. Дебиторская задолженность</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+						</dcscor:item>
+					</dcsset:outputParameters>
+					<dcsset:item xsi:type="dcsset:StructureItemTable">
+						<dcsset:column>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Месяц</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Месяц</dcsset:left>
+									<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.ДатаКон</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:column>
+						<dcsset:column>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Месяц</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Месяц</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.ДатаКон</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ПросроченнаяЗадолженность</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>СозданныйРезерв</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Дисконт</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>СуммаОбеспечения</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+						</dcsset:column>
+						<dcsset:row>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ГруппаЗадолженности</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+							<dcsset:item>
+								<dcsset:groupItems>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Группа</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Порядок</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+								</dcsset:groupItems>
+								<dcsset:order>
+									<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+								</dcsset:order>
+								<dcsset:selection>
+									<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								</dcsset:selection>
+								<dcsset:item>
+									<dcsset:groupItems>
+										<dcsset:item xsi:type="dcsset:GroupItemField">
+											<dcsset:field>ТипОпераций</dcsset:field>
+											<dcsset:groupType>Items</dcsset:groupType>
+											<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+											<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+											<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+										</dcsset:item>
+									</dcsset:groupItems>
+									<dcsset:order>
+										<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+									</dcsset:order>
+									<dcsset:selection>
+										<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+									</dcsset:selection>
+									<dcsset:item>
+										<dcsset:groupItems>
+											<dcsset:item xsi:type="dcsset:GroupItemField">
+												<dcsset:field>Контрагент</dcsset:field>
+												<dcsset:groupType>Items</dcsset:groupType>
+												<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+												<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+												<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+											</dcsset:item>
+										</dcsset:groupItems>
+										<dcsset:order>
+											<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+										</dcsset:order>
+										<dcsset:selection>
+											<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+										</dcsset:selection>
+									</dcsset:item>
+								</dcsset:item>
+							</dcsset:item>
+						</dcsset:row>
+					</dcsset:item>
+				</dcsset:settings>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemNestedObject">
+				<dcsset:objectID>КредиторскаяЗадолженность</dcsset:objectID>
+				<dcsset:settings>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СуммаОстаток</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:dataParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>НачалоПериода</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.ДатаНач</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>КонецПериода</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.ДатаКон</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>СчетаКредЗадолж</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.СчетаКредит</dcscor:value>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>ad750a36-c11c-4e34-af7a-c7a0d66b26f0</dcsset:userSettingID>
+						</dcscor:item>
+					</dcsset:dataParameters>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Порядок</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Месяц</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter/>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Формат</dcscor:parameter>
+									<dcscor:value xsi:type="xs:string">ДФ=MMMM</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+					</dcsset:conditionalAppearance>
+					<dcsset:outputParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Заголовок</dcscor:parameter>
+							<dcscor:value xsi:type="xs:string">2. Кредиторская задолженность</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+						</dcscor:item>
+					</dcsset:outputParameters>
+					<dcsset:item xsi:type="dcsset:StructureItemTable">
+						<dcsset:column>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Месяц</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:column>
+						<dcsset:row>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Группа</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Порядок</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+							<dcsset:item>
+								<dcsset:groupItems>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>ТипОпераций</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Счет</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+								</dcsset:groupItems>
+								<dcsset:order>
+									<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+								</dcsset:order>
+								<dcsset:selection>
+									<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								</dcsset:selection>
+								<dcsset:item>
+									<dcsset:groupItems>
+										<dcsset:item xsi:type="dcsset:GroupItemField">
+											<dcsset:field>Контрагент</dcsset:field>
+											<dcsset:groupType>Items</dcsset:groupType>
+											<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+											<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+											<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+										</dcsset:item>
+									</dcsset:groupItems>
+									<dcsset:order>
+										<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+									</dcsset:order>
+									<dcsset:selection>
+										<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+									</dcsset:selection>
+								</dcsset:item>
+							</dcsset:item>
+						</dcsset:row>
+					</dcsset:item>
+				</dcsset:settings>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

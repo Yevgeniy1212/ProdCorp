@@ -1,0 +1,996 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИнформационнаяБаза</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetUnion">
+		<name>СвободныИЗаняты</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Помещение</dataPath>
+			<field>Помещение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Помещение</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Территория</dataPath>
+			<field>Территория</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Территория</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонецПериода</dataPath>
+			<field>КонецПериода</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>по</v8:content>
+				</v8:item>
+			</title>
+			<orderExpression>
+				<dcscom:expression>ПризнакУпорядочиванияДляКонецПериода</dcscom:expression>
+				<dcscom:orderType>Asc</dcscom:orderType>
+				<dcscom:autoOrder>false</dcscom:autoOrder>
+			</orderExpression>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=ЧЧ:мм</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">6.75</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">6.75</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачалоПериода</dataPath>
+			<field>НачалоПериода</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>с</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=ЧЧ:мм</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">6.75</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">6.75</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПризнакУпорядочиванияДляКонецПериода</dataPath>
+			<field>ПризнакУпорядочиванияДляКонецПериода</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Признак упорядочивания для конец периода</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СвободноЗанято</dataPath>
+			<field>СвободноЗанято</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свободно / занято</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</valueType>
+			<availableValue>
+				<value xsi:type="xs:string">Занято</value>
+				<presentation xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Занято</v8:content>
+					</v8:item>
+				</presentation>
+			</availableValue>
+			<availableValue>
+				<value xsi:type="xs:string">Свободно</value>
+				<presentation xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Свободно</v8:content>
+					</v8:item>
+				</presentation>
+			</availableValue>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ответственный</dataPath>
+			<field>Ответственный</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Занял</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Комментарий</dataPath>
+			<field>Комментарий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<item xsi:type="DataSetQuery">
+			<name>СвободныеПомещения</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Помещение</dataPath>
+				<field>Помещение</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Помещение</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Территория</dataPath>
+				<field>Территория</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Территория</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КонецПериода</dataPath>
+				<field>КонецПериода</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>по</v8:content>
+					</v8:item>
+				</title>
+				<orderExpression>
+					<dcscom:expression>ПризнакУпорядочиванияДляКонецПериода</dcscom:expression>
+					<dcscom:orderType>Asc</dcscom:orderType>
+					<dcscom:autoOrder>false</dcscom:autoOrder>
+				</orderExpression>
+				<appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Формат</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">ДФ=ЧЧ:мм</dcscor:value>
+					</dcscor:item>
+				</appearance>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НачалоПериода</dataPath>
+				<field>НачалоПериода</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>с</v8:content>
+					</v8:item>
+				</title>
+				<appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Формат</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">ДФ=ЧЧ:мм</dcscor:value>
+					</dcscor:item>
+				</appearance>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Дата</dataPath>
+				<field>Дата</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Дата</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>Date</v8:DateFractions>
+					</v8:DateQualifiers>
+				</valueType>
+				<appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Формат</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+					</dcscor:item>
+				</appearance>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПризнакУпорядочиванияДляКонецПериода</dataPath>
+				<field>ПризнакУпорядочиванияДляКонецПериода</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Признак упорядочивания для конец периода</v8:content>
+					</v8:item>
+				</title>
+				<useRestriction>
+					<field>true</field>
+					<condition>true</condition>
+					<group>true</group>
+					<order>true</order>
+				</useRestriction>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СвободноЗанято</dataPath>
+				<field>СвободноЗанято</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Свободно занято</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Ответственный</dataPath>
+				<field>Ответственный</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Ответственный</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Регистратор</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИнформационнаяБаза</dataSource>
+			<query>ВЫБРАТЬ
+	РегламентированныйПроизводственныйКалендарь.ДатаКалендаря КАК ДатаКалендаря
+ПОМЕСТИТЬ Даты
+ИЗ
+	РегистрСведений.РегламентированныйПроизводственныйКалендарь КАК РегламентированныйПроизводственныйКалендарь
+ГДЕ
+	РегламентированныйПроизводственныйКалендарь.ДатаКалендаря МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+;
+
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Помещения.Владелец КАК Территория,
+	Помещения.Ссылка КАК Помещение,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ПериодаСвободныхПомещений.НачалоПериода, Даты.ДатаКалендаря) &lt; Даты.ДатаКалендаря
+			ТОГДА Даты.ДатаКалендаря
+		ИНАЧЕ ЕСТЬNULL(ПериодаСвободныхПомещений.НачалоПериода, Даты.ДатаКалендаря)
+	КОНЕЦ КАК НачалоПериода,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ПериодаСвободныхПомещений.КонецПериода, КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)) &gt; КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)
+			ТОГДА КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)
+		ИНАЧЕ ЕСТЬNULL(ПериодаСвободныхПомещений.КонецПериода, КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ))
+	КОНЕЦ КАК КонецПериода,
+	Даты.ДатаКалендаря КАК Дата,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ПериодаСвободныхПомещений.КонецПериода, КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)) &gt; КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)
+			ТОГДА НАЧАЛОПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)
+		ИНАЧЕ ЕСТЬNULL(ПериодаСвободныхПомещений.КонецПериода, НАЧАЛОПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ))
+	КОНЕЦ КАК ПризнакУпорядочиванияДляКонецПериода,
+	"Свободно" КАК СвободноЗанято,
+	ЗНАЧЕНИЕ(Справочник.Пользователи.ПустаяСсылка) КАК Ответственный,
+	НЕОПРЕДЕЛЕНО КАК Регистратор
+{ВЫБРАТЬ
+	Территория.*,
+	Помещение.*,
+	НачалоПериода,
+	КонецПериода,
+	Дата,
+	ПризнакУпорядочиванияДляКонецПериода,
+	СвободноЗанято,
+	Ответственный,
+	Регистратор}
+ИЗ
+	Справочник.Помещения КАК Помещения
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ВложенныйЗапрос.Помещение КАК Помещение,
+			ВложенныйЗапрос.ДатаНачала КАК НачалоПериода,
+			МИНИМУМ(ПланируемаяЗанятостьПомещений.Период) КАК КонецПериода
+		ИЗ
+			(ВЫБРАТЬ
+				ПланируемаяЗанятостьПомещенийСрезПоследних.Помещение КАК Помещение,
+				ПланируемаяЗанятостьПомещенийСрезПоследних.ДатаОкончания КАК ДатаНачала
+			ИЗ
+				РегистрСведений.ПланируемаяЗанятостьПомещений.СрезПоследних(&amp;НачалоПериода, ) КАК ПланируемаяЗанятостьПомещенийСрезПоследних
+			ГДЕ
+				ПланируемаяЗанятостьПомещенийСрезПоследних.ДатаОкончания &lt;= &amp;НачалоПериода
+			
+			ОБЪЕДИНИТЬ ВСЕ
+			
+			ВЫБРАТЬ
+				ПланируемаяЗанятостьПомещений.Помещение,
+				ПланируемаяЗанятостьПомещений.ДатаОкончания
+			ИЗ
+				РегистрСведений.ПланируемаяЗанятостьПомещений КАК ПланируемаяЗанятостьПомещений
+			ГДЕ
+				ПланируемаяЗанятостьПомещений.ДатаОкончания МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+			
+			ОБЪЕДИНИТЬ ВСЕ
+			
+			ВЫБРАТЬ
+				Помещения.Ссылка,
+				&amp;НачалоПериода
+			ИЗ
+				Справочник.Помещения КАК Помещения
+					ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПланируемаяЗанятостьПомещений.СрезПоследних(&amp;НачалоПериода, ) КАК ПланируемаяЗанятостьПомещенийСрезПоследних
+					ПО Помещения.Ссылка = ПланируемаяЗанятостьПомещенийСрезПоследних.Помещение
+			ГДЕ
+				ПланируемаяЗанятостьПомещенийСрезПоследних.Помещение ЕСТЬ NULL ) КАК ВложенныйЗапрос
+				ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПланируемаяЗанятостьПомещений КАК ПланируемаяЗанятостьПомещений
+				ПО ВложенныйЗапрос.Помещение = ПланируемаяЗанятостьПомещений.Помещение
+					И ВложенныйЗапрос.ДатаНачала &lt;= ПланируемаяЗанятостьПомещений.Период
+		
+		СГРУППИРОВАТЬ ПО
+			ВложенныйЗапрос.Помещение,
+			ВложенныйЗапрос.ДатаНачала) КАК ПериодаСвободныхПомещений
+			ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+				РегламентированныйПроизводственныйКалендарь.ДатаКалендаря КАК ДатаКалендаря
+			ИЗ
+				Даты КАК РегламентированныйПроизводственныйКалендарь
+			ГДЕ
+				РегламентированныйПроизводственныйКалендарь.ДатаКалендаря МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода) КАК Даты
+			ПО (НАЧАЛОПЕРИОДА(ЕСТЬNULL(ПериодаСвободныхПомещений.НачалоПериода, &amp;НачалоПериода), ДЕНЬ) &lt;= Даты.ДатаКалендаря)
+				И (КОНЕЦПЕРИОДА(ЕСТЬNULL(ПериодаСвободныхПомещений.КонецПериода, &amp;КонецПериода), ДЕНЬ) &gt;= Даты.ДатаКалендаря)
+		ПО Помещения.Ссылка = ПериодаСвободныхПомещений.Помещение
+ГДЕ
+	ВЫБОР
+			КОГДА ЕСТЬNULL(ПериодаСвободныхПомещений.НачалоПериода, Даты.ДатаКалендаря) &lt; Даты.ДатаКалендаря
+				ТОГДА Даты.ДатаКалендаря
+			ИНАЧЕ ЕСТЬNULL(ПериодаСвободныхПомещений.НачалоПериода, Даты.ДатаКалендаря)
+		КОНЕЦ &lt;&gt; ВЫБОР
+			КОГДА ЕСТЬNULL(ПериодаСвободныхПомещений.КонецПериода, КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)) &gt; КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)
+				ТОГДА КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)
+			ИНАЧЕ ЕСТЬNULL(ПериодаСвободныхПомещений.КонецПериода, КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ))
+		КОНЕЦ
+{ГДЕ
+	Помещения.Владелец.* КАК Территория,
+	Помещения.Ссылка.* КАК Помещение,
+	(ЕСТЬNULL(ПериодаСвободныхПомещений.НачалоПериода, &amp;НачалоПериода)) КАК НачалоПериода,
+	(ЕСТЬNULL(ПериодаСвободныхПомещений.КонецПериода, &amp;КонецПериода)) КАК КонецПериода,
+	Даты.ДатаКалендаря КАК Дата,
+	(ВЫБОР
+			КОГДА ЕСТЬNULL(ПериодаСвободныхПомещений.КонецПериода, КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)) &gt; КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)
+				ТОГДА НАЧАЛОПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)
+			ИНАЧЕ ЕСТЬNULL(ПериодаСвободныхПомещений.КонецПериода, НАЧАЛОПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ))
+		КОНЕЦ) КАК ПризнакУпорядочиванияДляКонецПериода,
+	("Свободно") КАК СвободноЗанято,
+	(ЗНАЧЕНИЕ(Справочник.Пользователи.ПустаяСсылка)) КАК Ответственный,
+	(НЕОПРЕДЕЛЕНО) КАК Регистратор}</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ЗанятыеПомещения</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Помещение</dataPath>
+				<field>Помещение</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Помещение</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Территория</dataPath>
+				<field>Территория</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Территория</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КонецПериода</dataPath>
+				<field>КонецПериода</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>по</v8:content>
+					</v8:item>
+				</title>
+				<orderExpression>
+					<dcscom:expression>ПризнакУпорядочиванияДляКонецПериода</dcscom:expression>
+					<dcscom:orderType>Asc</dcscom:orderType>
+					<dcscom:autoOrder>false</dcscom:autoOrder>
+				</orderExpression>
+				<appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Формат</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">ДФ=ЧЧ:мм</dcscor:value>
+					</dcscor:item>
+				</appearance>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НачалоПериода</dataPath>
+				<field>НачалоПериода</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>с</v8:content>
+					</v8:item>
+				</title>
+				<appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Формат</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">ДФ=ЧЧ:мм</dcscor:value>
+					</dcscor:item>
+				</appearance>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Дата</dataPath>
+				<field>Дата</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Дата</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>Date</v8:DateFractions>
+					</v8:DateQualifiers>
+				</valueType>
+				<appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Формат</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+					</dcscor:item>
+				</appearance>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПризнакУпорядочиванияДляКонецПериода</dataPath>
+				<field>ПризнакУпорядочиванияДляКонецПериода</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Признак упорядочивания для конец периода</v8:content>
+					</v8:item>
+				</title>
+				<useRestriction>
+					<field>true</field>
+					<condition>true</condition>
+					<group>true</group>
+					<order>true</order>
+				</useRestriction>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СвободноЗанято</dataPath>
+				<field>СвободноЗанято</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Свободно занято</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Регистратор</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Ответственный</dataPath>
+				<field>Ответственный</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Ответственный</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Комментарий</dataPath>
+				<field>Комментарий</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Комментарий</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИнформационнаяБаза</dataSource>
+			<query>ВЫБРАТЬ
+	РегламентированныйПроизводственныйКалендарь.ДатаКалендаря КАК ДатаКалендаря
+ПОМЕСТИТЬ Даты
+ИЗ
+	РегистрСведений.РегламентированныйПроизводственныйКалендарь КАК РегламентированныйПроизводственныйКалендарь
+ГДЕ
+	РегламентированныйПроизводственныйКалендарь.ДатаКалендаря МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Помещения.Владелец КАК Территория,
+	Помещения.Ссылка КАК Помещение,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ПериодыЗанятыхПомещений.НачалоПериода, Даты.ДатаКалендаря) &lt; Даты.ДатаКалендаря
+			ТОГДА Даты.ДатаКалендаря
+		ИНАЧЕ ЕСТЬNULL(ПериодыЗанятыхПомещений.НачалоПериода, Даты.ДатаКалендаря)
+	КОНЕЦ КАК НачалоПериода,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ПериодыЗанятыхПомещений.КонецПериода, КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)) &gt; КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)
+			ТОГДА КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)
+		ИНАЧЕ ЕСТЬNULL(ПериодыЗанятыхПомещений.КонецПериода, КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ))
+	КОНЕЦ КАК КонецПериода,
+	Даты.ДатаКалендаря КАК Дата,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ПериодыЗанятыхПомещений.КонецПериода, КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)) &gt; КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)
+			ТОГДА НАЧАЛОПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)
+		ИНАЧЕ ЕСТЬNULL(ПериодыЗанятыхПомещений.КонецПериода, НАЧАЛОПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ))
+	КОНЕЦ КАК ПризнакУпорядочиванияДляКонецПериода,
+	"Занято" КАК СвободноЗанято,
+	ПериодыЗанятыхПомещений.Регистратор КАК Регистратор,
+	ПериодыЗанятыхПомещений.Регистратор.Ответственный КАК Ответственный,
+	ПериодыЗанятыхПомещений.Регистратор.Комментарий КАК Комментарий
+{ВЫБРАТЬ
+	Территория.*,
+	Помещение.*,
+	НачалоПериода,
+	КонецПериода,
+	Дата,
+	ПризнакУпорядочиванияДляКонецПериода,
+	СвободноЗанято,
+	Регистратор.*,
+	Ответственный.*,
+	Комментарий КАК Комментарий}
+ИЗ
+	Справочник.Помещения КАК Помещения
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ПланируемаяЗанятостьПомещений.Помещение КАК Помещение,
+			ПланируемаяЗанятостьПомещений.Период КАК НачалоПериода,
+			МИНИМУМ(ПланируемаяЗанятостьПомещений.ДатаОкончания) КАК КонецПериода,
+			ПланируемаяЗанятостьПомещений.Регистратор КАК Регистратор
+		ИЗ
+			РегистрСведений.ПланируемаяЗанятостьПомещений КАК ПланируемаяЗанятостьПомещений
+		ГДЕ
+			ПланируемаяЗанятостьПомещений.Период &lt;= &amp;КонецПериода
+			И ПланируемаяЗанятостьПомещений.ДатаОкончания &gt;= &amp;НачалоПериода
+		
+		СГРУППИРОВАТЬ ПО
+			ПланируемаяЗанятостьПомещений.Помещение,
+			ПланируемаяЗанятостьПомещений.Период,
+			ПланируемаяЗанятостьПомещений.Регистратор) КАК ПериодыЗанятыхПомещений
+			ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+				РегламентированныйПроизводственныйКалендарь.ДатаКалендаря КАК ДатаКалендаря
+			ИЗ
+				Даты КАК РегламентированныйПроизводственныйКалендарь
+			ГДЕ
+				РегламентированныйПроизводственныйКалендарь.ДатаКалендаря МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода) КАК Даты
+			ПО (ЕСТЬNULL(НАЧАЛОПЕРИОДА(ПериодыЗанятыхПомещений.НачалоПериода, ДЕНЬ), &amp;НачалоПериода) &lt;= Даты.ДатаКалендаря)
+				И (ЕСТЬNULL(КОНЕЦПЕРИОДА(ПериодыЗанятыхПомещений.КонецПериода, ДЕНЬ), &amp;КонецПериода) &gt;= Даты.ДатаКалендаря)
+		ПО Помещения.Ссылка = ПериодыЗанятыхПомещений.Помещение
+ГДЕ
+	ВЫБОР
+			КОГДА ЕСТЬNULL(ПериодыЗанятыхПомещений.НачалоПериода, Даты.ДатаКалендаря) &lt; Даты.ДатаКалендаря
+				ТОГДА Даты.ДатаКалендаря
+			ИНАЧЕ ЕСТЬNULL(ПериодыЗанятыхПомещений.НачалоПериода, Даты.ДатаКалендаря)
+		КОНЕЦ &lt;&gt; ВЫБОР
+			КОГДА ЕСТЬNULL(ПериодыЗанятыхПомещений.КонецПериода, КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)) &gt; КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)
+				ТОГДА КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)
+			ИНАЧЕ ЕСТЬNULL(ПериодыЗанятыхПомещений.КонецПериода, КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ))
+		КОНЕЦ
+{ГДЕ
+	Помещения.Владелец.* КАК Территория,
+	Помещения.Ссылка.* КАК Помещение,
+	(ЕСТЬNULL(ПериодыЗанятыхПомещений.НачалоПериода, &amp;НачалоПериода)) КАК НачалоПериода,
+	(ЕСТЬNULL(ПериодыЗанятыхПомещений.КонецПериода, &amp;КонецПериода)) КАК КонецПериода,
+	Даты.ДатаКалендаря КАК Дата,
+	(ВЫБОР
+			КОГДА ЕСТЬNULL(ПериодыЗанятыхПомещений.КонецПериода, КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)) &gt; КОНЕЦПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)
+				ТОГДА НАЧАЛОПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ)
+			ИНАЧЕ ЕСТЬNULL(ПериодыЗанятыхПомещений.КонецПериода, НАЧАЛОПЕРИОДА(Даты.ДатаКалендаря, ДЕНЬ))
+		КОНЕЦ) КАК ПризнакУпорядочиванияДляКонецПериода,
+	("Занято") КАК СвободноЗанято,
+	ПериодыЗанятыхПомещений.Регистратор.*,
+	ПериодыЗанятыхПомещений.Регистратор.Ответственный.* КАК Ответственный}</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+	</dataSet>
+	<calculatedField>
+		<dataPath>Свободно</dataPath>
+		<expression>"свободно " +
+ ВЫБОР КОГДА НачалоПериода = &amp;НачалоПериода ТОГДА "с " + ФОРМАТ(НачалоПериода, "ДФ= 'dd MMMM yyyy'") 
+ 
+КОГДА НАЧАЛОПЕРИОДА(НачалоПериода, "ДЕНЬ") =  НАЧАЛОПЕРИОДА(КонецПериода, "ДЕНЬ") ТОГДА "с " +  ФОРМАТ(НачалоПериода, "ДФ='ЧЧ:мм'") 
+
+ИНАЧЕ "с " +  ФОРМАТ(НачалоПериода, "ДФ='ЧЧ:мм dd MMMM yyyy'")  КОНЕЦ + 
+
+ВЫБОР КОГДА КонецПериода = &amp;КонецПериода ТОГДА " по " + ФОРМАТ(КонецПериода, "ДФ='dd MMMM yyyy'") 
+ИНАЧЕ " по " +  ФОРМАТ(НачалоПериода, "ДФ='ЧЧ:мм dd MMMM yyyy'")  КОНЕЦ
+
+
+
+
+</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Свободно</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<condition>true</condition>
+			<group>true</group>
+			<order>true</order>
+		</useRestriction>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПредставлениеНачалоПериода</dataPath>
+		<expression>ВЫБОР КОГДА НачалоПериода = НАЧАЛОПЕРИОДА(НачалоПериода, "ДЕНЬ") ТОГДА "" ИНАЧЕ ФОРМАТ(НачалоПериода, "ДФ='ЧЧ:мм '") КОНЕЦ
+
+</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Представление времени начала</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<condition>true</condition>
+			<group>true</group>
+			<order>true</order>
+		</useRestriction>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПредставлениеКонецПериода</dataPath>
+		<expression>ВЫБОР КОГДА КонецПериода = КОНЕЦПЕРИОДА(КонецПериода, "ДЕНЬ") ТОГДА "" ИНАЧЕ ФОРМАТ(КонецПериода, "ДФ='ЧЧ:мм '") КОНЕЦ
+</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Представление времени окончания</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<condition>true</condition>
+			<group>true</group>
+			<order>true</order>
+		</useRestriction>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>Время</dataPath>
+		<expression>ВЫБОР 
+КОГДА НачалоПериода = НАЧАЛОПЕРИОДА(НачалоПериода, "ДЕНЬ") И КонецПериода = КОНЕЦПЕРИОДА(КонецПериода, "ДЕНЬ")  ТОГДА "весь день" 
+КОГДА НачалоПериода = НАЧАЛОПЕРИОДА(НачалоПериода, "ДЕНЬ") И КонецПериода &lt;&gt; КОНЕЦПЕРИОДА(КонецПериода, "ДЕНЬ")  ТОГДА "" 
+КОГДА НачалоПериода &lt;&gt; НАЧАЛОПЕРИОДА(НачалоПериода, "ДЕНЬ") И КонецПериода = КОНЕЦПЕРИОДА(КонецПериода, "ДЕНЬ")  ТОГДА "" 
+ИНАЧЕ ""+СТРОКА((РАЗНОСТЬДАТ(НачалоПериода, КонецПериода, "минута") - РАЗНОСТЬДАТ(НачалоПериода, КонецПериода, "минута")%60)/60) + ":" + ФОРМАТ((РАЗНОСТЬДАТ(НачалоПериода, КонецПериода, "минута")%60), "ЧЦ=2; ЧН=00; ЧВН=") КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>в течение</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПредставлениеДокумент</dataPath>
+		<expression>ВЫБОР КОГДА Регистратор &lt;&gt; Неопределено ТОГДА Строка(Регистратор) + " (" +Строка(Ответственный) + ")" ИНАЧЕ "" КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Представление документ</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<condition>true</condition>
+			<group>true</group>
+			<order>true</order>
+		</useRestriction>
+	</calculatedField>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Помещение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СвободноЗанято</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НачалоПериода</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонецПериода</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Время</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Ответственный</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Комментарий</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СвободноЗанято</dcsset:left>
+					<dcsset:comparisonType>Contains</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string">Занято</dcsset:right>
+					<dcsset:presentation xsi:type="xs:string">Только занятые помещения</dcsset:presentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СвободноЗанято</dcsset:left>
+					<dcsset:comparisonType>Contains</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string">Свободно</dcsset:right>
+					<dcsset:presentation xsi:type="xs:string">Только свободные помещения</dcsset:presentation>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Территория</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Дата</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>НачалоПериода</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>КонецПериода</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Помещение</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>НачалоПериода</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Отступ</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>АвтоОтступ</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Текст</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Field">ПредставлениеНачалоПериода</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>КонецПериода</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Отступ</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>АвтоОтступ</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Текст</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Field">ПредставлениеКонецПериода</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>Регистратор</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Текст</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Field">ПредставлениеДокумент</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Занятость помещений</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Территория</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Дата</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

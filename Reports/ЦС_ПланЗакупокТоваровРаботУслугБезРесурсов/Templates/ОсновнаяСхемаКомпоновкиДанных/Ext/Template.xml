@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АвансПлатеж</dataPath>
+			<field>АвансПлатеж</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРасчетнойТаблицы</dataPath>
+			<field>ВидРасчетнойТаблицы</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаКонПоставокТовара</dataPath>
+			<field>ДатаКонПоставокТовара</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаКонПроведенияЗакупок</dataPath>
+			<field>ДатаКонПроведенияЗакупок</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаНачПоставокТовара</dataPath>
+			<field>ДатаНачПоставокТовара</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаНачПроведенияЗакупок</dataPath>
+			<field>ДатаНачПроведенияЗакупок</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЕдиницаИзмерения</dataPath>
+			<field>ЕдиницаИзмерения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МестоПоставкиТоваров</dataPath>
+			<field>МестоПоставкиТоваров</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МестоПроведЗакупок</dataPath>
+			<field>МестоПроведЗакупок</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбъемЗакупаВНатуральномВыражении</dataPath>
+			<field>ОбъемЗакупаВНатуральномВыражении</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПланируемаяСуммаЗакупаБезУчетаНДС</dataPath>
+			<field>ПланируемаяСуммаЗакупаБезУчетаНДС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СпособЗакупок</dataPath>
+			<field>СпособЗакупок</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Цена</dataPath>
+			<field>Цена</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПланируемаяСуммаЗакупаСУчетомНДС</dataPath>
+			<field>ПланируемаяСуммаЗакупаСУчетомНДС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГруппаЗакупаемыхТоваровРаботУслуг</dataPath>
+			<field>ГруппаЗакупаемыхТоваровРаботУслуг</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Инициатор</dataPath>
+			<field>Инициатор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организатор</dataPath>
+			<field>Организатор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КодКПВЭД</dataPath>
+			<field>КодКПВЭД</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГодПланирования</dataPath>
+			<field>ГодПланирования</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЦенаБезНДС</dataPath>
+			<field>ЦенаБезНДС</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.Ссылка,
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.Ссылка.ВидРасчетнойТаблицы КАК ВидРасчетнойТаблицы,
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.НоменклатураГосЗакупа КАК Номенклатура,
+	ВЫБОР
+		КОГДА НЕ ЦС_ПланГосЗакупокРасчетнаяТаблица.НоменклатураГосЗакупа.Услуга
+			ТОГДА ЦС_ПланГосЗакупокРасчетнаяТаблица.ЕдиницаИзмерения
+		ИНАЧЕ "услуга"
+	КОНЕЦ КАК ЕдиницаИзмерения,
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.ОбъемЗакупаВНатуральномВыражении,
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.ЦенаСНДС КАК Цена,
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.КонтрольнаяСумма КАК ПланируемаяСуммаЗакупаБезУчетаНДС,
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.СпособЗакупок,
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.АвансПлатеж,
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.ДатаНачПроведенияЗакупок,
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.ДатаКонПроведенияЗакупок,
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.ДатаНачПоставокТовара,
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.ДатаКонПоставокТовара,
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.МестоПроведЗакупок,
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.МестоПоставкиТоваров,
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.СуммаСНДС КАК ПланируемаяСуммаЗакупаСУчетомНДС,
+	ВЫБОР
+		КОГДА ЦС_ПланГосЗакупокРасчетнаяТаблица.НоменклатураГосЗакупа.Услуга
+				И НЕ ЦС_ПланГосЗакупокРасчетнаяТаблица.НоменклатураГосЗакупа.Работа
+			ТОГДА "Услуги"
+		КОГДА ЦС_ПланГосЗакупокРасчетнаяТаблица.НоменклатураГосЗакупа.Работа
+			ТОГДА "Работы"
+		ИНАЧЕ "Товары"
+	КОНЕЦ КАК ГруппаЗакупаемыхТоваровРаботУслуг,
+	ВЫБОР
+		КОГДА ЦС_ПланГосЗакупокРасчетнаяТаблица.Ссылка.ПодразделениеОрганизации = ЗНАЧЕНИЕ(Справочник.подразделенияорганизаций.пустаяссылка)
+			ТОГДА ЦС_ПланГосЗакупокРасчетнаяТаблица.Ссылка.Организация
+		ИНАЧЕ ЦС_ПланГосЗакупокРасчетнаяТаблица.Ссылка.ПодразделениеОрганизации
+	КОНЕЦ КАК Инициатор,
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.Ссылка.Организация,
+	ВЫБОР
+		КОГДА ЦС_ПланГосЗакупокРасчетнаяТаблица.Ссылка.Организация = &amp;ЦентральныйАппарат
+			ТОГДА &amp;АД
+		ИНАЧЕ ЦС_ПланГосЗакупокРасчетнаяТаблица.Ссылка.Организация
+	КОНЕЦ КАК Организатор,
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.КодКПВЭД,
+	ГОД(ЦС_ПланГосЗакупокРасчетнаяТаблица.Ссылка.ПериодПланирования) КАК ГодПланирования,
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.Цена КАК ЦенаБезНДС
+ИЗ
+	Документ.ЦС_ПланГосЗакупок.РасчетнаяТаблица КАК ЦС_ПланГосЗакупокРасчетнаяТаблица
+ГДЕ
+	ЦС_ПланГосЗакупокРасчетнаяТаблица.Ссылка.ПериодПланирования = &amp;ПериодПланирования
+	И ЦС_ПланГосЗакупокРасчетнаяТаблица.Ссылка.Проведен = ИСТИНА</query>
+	</dataSet>
+	<parameter>
+		<name>ПериодПланирования</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период планирования</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>АД</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>АД</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ЦентральныйАппарат</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Центральный аппарат</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СистемныеПоля.НомерПоПорядку</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>№ п/п</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Ссылка.Организация.ИдентификационныйНомер</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>БИН</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Ссылка.Организация.РНН</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РНН</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование заказчика</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Ссылка.Организация.НаименованиеПолноеКЗ</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>на государственном языке</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Ссылка.Организация</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>на русском языке</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КодКПВЭД</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код КПВЭД (6 знаков)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование и краткое (с указанием СТ РК, ГОСТ и т.д. дополнительное) описание приобретаемых товаров работ и услуг</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Номенклатура.НаименованиеНаКазахскомЯзыке</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>на государственном языке</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Номенклатура</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>на русском языке</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЕдиницаИзмерения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЕдиницаИзмерения.Код</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Код единиц измерений (в соответствии с МКЕИ)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОбъемЗакупаВНатуральномВыражении</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Цена</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Цена за единицу измерения, тенге, с учетом НДС</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЦенаБезНДС</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Цена за единицу измерения, тенге, без учета НДС</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПланируемаяСуммаЗакупаБезУчетаНДС</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планируемая сумма закупа, тенге, без учета НДС</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПланируемаяСуммаЗакупаСУчетомНДС</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планируемая сумма закупа, тенге, с учетом НДС</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СпособЗакупок</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МестоПроведЗакупок</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Место (адрес) проведения закупок</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МестоПроведЗакупок.КодКАТО</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Место проведения закупок (Код населенного пункта в соответствии с КАТО)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Срок проведения закупок (предполагаемая дата.месяц проведения)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДатаНачПроведенияЗакупок</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Начало</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДатаКонПроведенияЗакупок</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Окончание</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Срок поставки товара, выполнения работ, оказания услуг</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДатаНачПоставокТовара</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Начало</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДатаКонПоставокТовара</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Окончание</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МестоПоставкиТоваров</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Место поставки товаров, выполнения работ, оказания услуг</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АвансПлатеж</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Размер авансового платежа, %</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ГодПланирования</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Год плана закупок</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Инициатор</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Инициатор закупок</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Организатор</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:userSettingID>6537206f-fbf6-4d0a-a263-b4163df2d238</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Основной</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">Begin</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Auto</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:name>Группа</dcsset:name>
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ГруппаЗакупаемыхТоваровРаботУслуг</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:name>ДетальныеЗаписи</dcsset:name>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

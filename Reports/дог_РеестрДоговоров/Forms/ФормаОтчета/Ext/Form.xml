@@ -1,0 +1,682 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<CommandBarLocation>None</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<ReportResult>Результат</ReportResult>
+	<DetailsData>ДанныеРасшифровки</DetailsData>
+	<ReportFormType>Main</ReportFormType>
+	<VariantAppearance>НаименованиеТекущегоВарианта</VariantAppearance>
+	<AutoShowState>DontShow</AutoShowState>
+	<ReportResultViewMode>Auto</ReportResultViewMode>
+	<ViewModeApplicationOnSetReportResult>Auto</ViewModeApplicationOnSetReportResult>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаВарианта" id="1">
+			<Visible>false</Visible>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа варианта</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВариантаРасширеннаяПодсказка" id="63"/>
+			<ChildItems>
+				<InputField name="НаименованиеТекущегоВарианта" id="2">
+					<DataPath>НаименованиеТекущегоВарианта</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleLocation>Left</TitleLocation>
+					<ContextMenu name="НаименованиеТекущегоВариантаКонтекстноеМеню" id="3"/>
+					<ExtendedTooltip name="НаименованиеТекущегоВариантаРасширеннаяПодсказка" id="64"/>
+				</InputField>
+				<Button name="ЗагрузитьВариант" id="4">
+					<Type>UsualButton</Type>
+					<Visible>false</Visible>
+					<CommandName>Form.StandardCommand.LoadVariant</CommandName>
+					<ExtendedTooltip name="ЗагрузитьВариантРасширеннаяПодсказка" id="65"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<CommandBar name="ОсновнаяКоманднаяПанель" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основная командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<CommandSource>Form</CommandSource>
+			<ExtendedTooltip name="ОсновнаяКоманднаяПанельРасширеннаяПодсказка" id="66"/>
+			<ChildItems>
+				<Button name="СохранитьНастройки" id="44">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.СохранитьНастройки</CommandName>
+					<ExtendedTooltip name="СохранитьНастройкиРасширеннаяПодсказка" id="67"/>
+				</Button>
+				<Button name="ФормаВосстановитьНастройки" id="45">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.ВосстановитьНастройки</CommandName>
+					<ExtendedTooltip name="ФормаВосстановитьНастройкиРасширеннаяПодсказка" id="68"/>
+				</Button>
+				<Button name="ФормаКнопка1" id="124">
+					<Type>CommandBarButton</Type>
+					<Visible>false</Visible>
+					<CommandName>Form.StandardCommand.LoadVariant</CommandName>
+					<ExtendedTooltip name="ФормаКнопка1РасширеннаяПодсказка" id="125"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
+		<InputField name="НадписьПараметры" id="53">
+			<DataPath>НадписьПараметры</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<HorizontalAlign>Center</HorizontalAlign>
+			<HorizontalStretch>true</HorizontalStretch>
+			<TextEdit>false</TextEdit>
+			<TextColor>#004242</TextColor>
+			<BackColor>#B0C4DE</BackColor>
+			<BorderColor>#4682B4</BorderColor>
+			<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="НадписьПараметрыКонтекстноеМеню" id="54"/>
+			<ExtendedTooltip name="НадписьПараметрыРасширеннаяПодсказка" id="69"/>
+		</InputField>
+		<UsualGroup name="Параметры" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ПараметрыРасширеннаяПодсказка" id="70"/>
+			<ChildItems>
+				<InputField name="ДатаОкончания" id="8">
+					<DataPath>Отчет.ДатаОкончания</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаОкончанияКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="ДатаОкончанияРасширеннаяПодсказка" id="71"/>
+				</InputField>
+				<Pages name="ПанельСтруктурногоПодразделения" id="46">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Панель структурного подразделения</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Панель структурного подразделения</v8:content>
+						</v8:item>
+					</ToolTip>
+					<PagesRepresentation>None</PagesRepresentation>
+					<ExtendedTooltip name="ПанельСтруктурногоПодразделенияРасширеннаяПодсказка" id="72"/>
+					<ChildItems>
+						<Page name="СтруктурнаяЕдиница" id="47">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Структурная единица</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Структурная единица</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="СтруктурнаяЕдиницаРасширеннаяПодсказка" id="73"/>
+							<ChildItems>
+								<InputField name="СтруктурноеПодразделениеОрганизация" id="121">
+									<DataPath>СтруктурноеПодразделениеОрганизация</DataPath>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ChooseType>false</ChooseType>
+									<ChoiceParameters>
+										<app:item name="ВыбиратьСтруктурныеЕдиницы">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xs:boolean">true</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="СтруктурноеПодразделениеОрганизацияКонтекстноеМеню" id="122"/>
+									<ExtendedTooltip name="СтруктурноеПодразделениеОрганизацияРасширеннаяПодсказка" id="123"/>
+									<Events>
+										<Event name="OnChange">СтруктурноеПодразделениеОрганизацияПриИзменении</Event>
+										<Event name="StartChoice">СтруктурноеПодразделениеОрганизацияНачалоВыбора</Event>
+									</Events>
+								</InputField>
+								<CheckBoxField name="ВключаяПодчиненные" id="59">
+									<DataPath>Отчет.ВключаяПодчиненные</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ВключаяПодчиненныеКонтекстноеМеню" id="60"/>
+									<ExtendedTooltip name="ВключаяПодчиненныеРасширеннаяПодсказка" id="75"/>
+								</CheckBoxField>
+							</ChildItems>
+						</Page>
+					</ChildItems>
+				</Pages>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="КомпоновщикНастроекПользовательскиеНастройки" id="16">
+			<CommandBarLocation>None</CommandBarLocation>
+			<Autofill>true</Autofill>
+			<Header>false</Header>
+			<VerticalStretch>false</VerticalStretch>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Отчет.SettingsComposer.UserSettings</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица пользовательских настроек</v8:content>
+				</v8:item>
+			</Title>
+			<CommandSet>
+				<ExcludedCommand>HierarchicalList</ExcludedCommand>
+				<ExcludedCommand>List</ExcludedCommand>
+				<ExcludedCommand>Tree</ExcludedCommand>
+			</CommandSet>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<ViewMode>QuickAccess</ViewMode>
+			<ContextMenu name="КомпоновщикНастроекПользовательскиеНастройкиКонтекстноеМеню" id="17"/>
+			<AutoCommandBar name="КомпоновщикНастроекПользовательскиеНастройкиКоманднаяПанель" id="18"/>
+			<ExtendedTooltip name="КомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="78"/>
+			<SearchStringAddition name="КомпоновщикНастроекПользовательскиеНастройкиСтрокаПоиска" id="79">
+				<AdditionSource>
+					<Item>КомпоновщикНастроекПользовательскиеНастройки</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="КомпоновщикНастроекПользовательскиеНастройкиСтрокаПоискаКонтекстноеМеню" id="80"/>
+				<ExtendedTooltip name="КомпоновщикНастроекПользовательскиеНастройкиСтрокаПоискаРасширеннаяПодсказка" id="81"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="КомпоновщикНастроекПользовательскиеНастройкиСостояниеПросмотра" id="82">
+				<AdditionSource>
+					<Item>КомпоновщикНастроекПользовательскиеНастройки</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="КомпоновщикНастроекПользовательскиеНастройкиСостояниеПросмотраКонтекстноеМеню" id="83"/>
+				<ExtendedTooltip name="КомпоновщикНастроекПользовательскиеНастройкиСостояниеПросмотраРасширеннаяПодсказка" id="84"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="КомпоновщикНастроекПользовательскиеНастройкиУправлениеПоиском" id="85">
+				<AdditionSource>
+					<Item>КомпоновщикНастроекПользовательскиеНастройки</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="КомпоновщикНастроекПользовательскиеНастройкиУправлениеПоискомКонтекстноеМеню" id="86"/>
+				<ExtendedTooltip name="КомпоновщикНастроекПользовательскиеНастройкиУправлениеПоискомРасширеннаяПодсказка" id="87"/>
+			</SearchControlAddition>
+		</Table>
+		<UsualGroup name="Группа1" id="23">
+			<Group>Horizontal</Group>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="88"/>
+			<ChildItems>
+				<SpreadSheetDocumentField name="Результат" id="19">
+					<DataPath>Результат</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<TitleLocation>None</TitleLocation>
+					<Width>100</Width>
+					<VerticalScrollBar>true</VerticalScrollBar>
+					<HorizontalScrollBar>true</HorizontalScrollBar>
+					<ContextMenu name="РезультатКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="РезультатРасширеннаяПодсказка" id="89"/>
+				</SpreadSheetDocumentField>
+				<UsualGroup name="ГруппаНастройки" id="24">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выводимые параметры</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа настройки</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="90"/>
+					<ChildItems>
+						<InputField name="НадписьВыводимыеПараметры" id="55">
+							<DataPath>НадписьВыводимыеПараметры</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<HorizontalStretch>true</HorizontalStretch>
+							<TextEdit>false</TextEdit>
+							<TextColor>#004242</TextColor>
+							<BackColor>#B0C4DE</BackColor>
+							<BorderColor>#4682B4</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьВыводимыеПараметрыКонтекстноеМеню" id="56"/>
+							<ExtendedTooltip name="НадписьВыводимыеПараметрыРасширеннаяПодсказка" id="91"/>
+						</InputField>
+						<Table name="ВыводимыеПараметры" id="25">
+							<HeightInTableRows>5</HeightInTableRows>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Отчет.ВыводимыеПараметры</DataPath>
+							<TextColor>web:MidnightBlue</TextColor>
+							<BorderColor>#B0C4DE</BorderColor>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content> </v8:content>
+								</v8:item>
+							</Title>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ВыводимыеПараметрыКонтекстноеМеню" id="26"/>
+							<AutoCommandBar name="ВыводимыеПараметрыКоманднаяПанель" id="27"/>
+							<ExtendedTooltip name="ВыводимыеПараметрыРасширеннаяПодсказка" id="92"/>
+							<SearchStringAddition name="ВыводимыеПараметрыСтрокаПоиска" id="93">
+								<AdditionSource>
+									<Item>ВыводимыеПараметры</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ВыводимыеПараметрыСтрокаПоискаКонтекстноеМеню" id="94"/>
+								<ExtendedTooltip name="ВыводимыеПараметрыСтрокаПоискаРасширеннаяПодсказка" id="95"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ВыводимыеПараметрыСостояниеПросмотра" id="96">
+								<AdditionSource>
+									<Item>ВыводимыеПараметры</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ВыводимыеПараметрыСостояниеПросмотраКонтекстноеМеню" id="97"/>
+								<ExtendedTooltip name="ВыводимыеПараметрыСостояниеПросмотраРасширеннаяПодсказка" id="98"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ВыводимыеПараметрыУправлениеПоиском" id="99">
+								<AdditionSource>
+									<Item>ВыводимыеПараметры</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ВыводимыеПараметрыУправлениеПоискомКонтекстноеМеню" id="100"/>
+								<ExtendedTooltip name="ВыводимыеПараметрыУправлениеПоискомРасширеннаяПодсказка" id="101"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ВыводимыеПараметрыНомерСтроки" id="28">
+									<DataPath>Отчет.ВыводимыеПараметры.LineNumber</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ВыводимыеПараметрыНомерСтрокиКонтекстноеМеню" id="29"/>
+									<ExtendedTooltip name="ВыводимыеПараметрыНомерСтрокиРасширеннаяПодсказка" id="102"/>
+								</LabelField>
+								<InputField name="ВыводимыеПараметрыПараметр" id="30">
+									<DataPath>Отчет.ВыводимыеПараметры.Параметр</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ВыводимыеПараметрыПараметрКонтекстноеМеню" id="31"/>
+									<ExtendedTooltip name="ВыводимыеПараметрыПараметрРасширеннаяПодсказка" id="103"/>
+									<Events>
+										<Event name="StartChoice">ВыводимыеПараметрыПараметрНачалоВыбора</Event>
+									</Events>
+								</InputField>
+								<CheckBoxField name="ВыводимыеПараметрыГруппировка" id="61">
+									<DataPath>Отчет.ВыводимыеПараметры.Группировка</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content> </v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>web:LightSteelBlue</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группировка</v8:content>
+										</v8:item>
+									</ToolTip>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ВыводимыеПараметрыГруппировкаКонтекстноеМеню" id="62"/>
+									<ExtendedTooltip name="ВыводимыеПараметрыГруппировкаРасширеннаяПодсказка" id="104"/>
+								</CheckBoxField>
+							</ChildItems>
+						</Table>
+						<InputField name="НадписьОтбор" id="57">
+							<DataPath>НадписьОтбор</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<HorizontalStretch>true</HorizontalStretch>
+							<TextEdit>false</TextEdit>
+							<TextColor>#004242</TextColor>
+							<BackColor>#B0C4DE</BackColor>
+							<BorderColor>#4682B4</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьОтборКонтекстноеМеню" id="58"/>
+							<ExtendedTooltip name="НадписьОтборРасширеннаяПодсказка" id="105"/>
+						</InputField>
+						<UsualGroup name="ГруппаОтбор" id="32">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отбор</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбор</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтборРасширеннаяПодсказка" id="106"/>
+							<ChildItems>
+								<Table name="Отборы" id="33">
+									<HeightInTableRows>5</HeightInTableRows>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Отчет.Отборы</DataPath>
+									<TextColor>web:MidnightBlue</TextColor>
+									<BorderColor>#B0C4DE</BorderColor>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ОтборыКонтекстноеМеню" id="34"/>
+									<AutoCommandBar name="ОтборыКоманднаяПанель" id="35"/>
+									<ExtendedTooltip name="ОтборыРасширеннаяПодсказка" id="107"/>
+									<SearchStringAddition name="ОтборыСтрокаПоиска" id="108">
+										<AdditionSource>
+											<Item>Отборы</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ОтборыСтрокаПоискаКонтекстноеМеню" id="109"/>
+										<ExtendedTooltip name="ОтборыСтрокаПоискаРасширеннаяПодсказка" id="110"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ОтборыСостояниеПросмотра" id="111">
+										<AdditionSource>
+											<Item>Отборы</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="ОтборыСостояниеПросмотраКонтекстноеМеню" id="112"/>
+										<ExtendedTooltip name="ОтборыСостояниеПросмотраРасширеннаяПодсказка" id="113"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ОтборыУправлениеПоиском" id="114">
+										<AdditionSource>
+											<Item>Отборы</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="ОтборыУправлениеПоискомКонтекстноеМеню" id="115"/>
+										<ExtendedTooltip name="ОтборыУправлениеПоискомРасширеннаяПодсказка" id="116"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="OnActivateRow">ОтборыПриАктивизацииСтроки</Event>
+									</Events>
+									<ChildItems>
+										<LabelField name="ОтборыНомерСтроки" id="36">
+											<DataPath>Отчет.Отборы.LineNumber</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>2</Width>
+											<ContextMenu name="ОтборыНомерСтрокиКонтекстноеМеню" id="37"/>
+											<ExtendedTooltip name="ОтборыНомерСтрокиРасширеннаяПодсказка" id="117"/>
+										</LabelField>
+										<InputField name="ОтборыПараметр" id="38">
+											<DataPath>Отчет.Отборы.Параметр</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтборыПараметрКонтекстноеМеню" id="39"/>
+											<ExtendedTooltip name="ОтборыПараметрРасширеннаяПодсказка" id="118"/>
+											<Events>
+												<Event name="OnChange">ОтборыПараметрПриИзменении</Event>
+												<Event name="StartChoice">ВыводимыеПараметрыПараметрНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ОтборыВидСравнения" id="40">
+											<DataPath>Отчет.Отборы.ВидСравнения</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Вид</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Вид сравнения</v8:content>
+												</v8:item>
+											</ToolTip>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>7</Width>
+											<ContextMenu name="ОтборыВидСравненияКонтекстноеМеню" id="41"/>
+											<ExtendedTooltip name="ОтборыВидСравненияРасширеннаяПодсказка" id="119"/>
+											<Events>
+												<Event name="StartChoice">ОтборыВидСравненияНачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<InputField name="ОтборыЗначение" id="42">
+											<DataPath>Отчет.Отборы.Значение</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="ОтборыЗначениеКонтекстноеМеню" id="43"/>
+											<ExtendedTooltip name="ОтборыЗначениеРасширеннаяПодсказка" id="120"/>
+											<Events>
+												<Event name="StartChoice">ОтборыЗначениеНачалоВыбора</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Отчет" id="1">
+			<Type>
+				<v8:Type>cfg:ReportObject.дог_РеестрДоговоров</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="НаименованиеТекущегоВарианта" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вариант отчета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Результат" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДанныеРасшифровки" id="4">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьПараметры" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись параметры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьВыводимыеПараметры" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись выводимые параметры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьОтбор" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись отбор</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СохраненнаяНастройка" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохраненная настройка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.общ_СохраненныеНастройки</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СтруктурноеПодразделениеОрганизация" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структурная единица</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ПодразделенияОрганизаций</v8:Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПоддержкаРаботыСоСтруктурнымиПодразделениями" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поддержка работы со структурными подразделениями</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СохранитьНастройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить настройки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить настройки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SaveValues</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ДействияФормыДополнительныеСохранитьЗначения</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ВосстановитьНастройки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Восстановить настройки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Восстановить настройки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.RestoreValues</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ДействияФормыДополнительныеВосстановитьЗначения</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

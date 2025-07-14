@@ -1,0 +1,1340 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldFolder">
+			<dataPath>НаНачалоПериода</dataPath>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>На начало периода</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldFolder">
+			<dataPath>НаКонецПериода</dataPath>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>На конец периода</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldFolder">
+			<dataPath>ЗаПериод</dataPath>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>За период</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НематериальныйАктив</dataPath>
+			<field>НематериальныйАктив</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.НематериальныеАктивы</v8:Type>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Счет</dataPath>
+			<field>Счет</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто2</dataPath>
+			<field>Субконто2</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто3</dataPath>
+			<field>Субконто3</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НаКонецПериода.АмортизацияКонечныйОстаток</dataPath>
+			<field>АмортизацияКонечныйОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Амортизация на конец периода</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">24</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НаНачалоПериода.АмортизацияНачальныйОстаток</dataPath>
+			<field>АмортизацияНачальныйОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Амортизация на начало периода</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">24</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НаКонецПериода.СтоимостьКонечныйОстаток</dataPath>
+			<field>СтоимостьКонечныйОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стоимость на конец периода</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">24</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НаНачалоПериода.СтоимостьНачальныйОстаток</dataPath>
+			<field>СтоимостьНачальныйОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стоимость на начало периода</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">24</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>СтруктурноеПодразделение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структурное подразделение</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<presentationExpression>Выбор Когда Не ЗначениеЗаполнено(Подразделение) Тогда "Головное подразделение" Иначе Подразделение Конец</presentationExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ движения</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<attributeUseRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</attributeUseRestriction>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаПериод.СтоимостьОборотДт</dataPath>
+			<field>СтоимостьОборотДт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Увеличение стоимости</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаПериод.СтоимостьОборотКт</dataPath>
+			<field>СтоимостьОборотКт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Уменьшение стоимости</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаПериод.АмортизацияОборотКт</dataPath>
+			<field>АмортизацияОборотКт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Амортизация начисление</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаПериод.АмортизацияОборотДт</dataPath>
+			<field>АмортизацияОборотДт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Амортизация списание</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПервоначальнаяСтоимость</dataPath>
+			<field>ПервоначальнаяСтоимость</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтоимостьДляВычисленияАмортизации</dataPath>
+			<field>СтоимостьДляВычисленияАмортизации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НематериальныйАктив.НачислятьАмортизацию</dataPath>
+			<field>НачислятьАмортизацию</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начислять амортизацию</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НематериальныйАктив.СпособНачисленияАмортизации</dataPath>
+			<field>СпособНачисленияАмортизации</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способ начисления амортизации</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НематериальныйАктив.СрокПолезногоИспользования</dataPath>
+			<field>СрокПолезногоИспользования</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Срок полезного использования, мес.</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НематериальныйАктив.ИнвентарныйНомер</dataPath>
+			<field>ИнвентарныйНомер</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Инвентарный номер</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НематериальныйАктив.ОбъемПродукцииРаботДляВычисленияАмортизации</dataPath>
+			<field>ОбъемПродукцииРаботДляВычисленияАмортизации</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объем продукции (работ) для исчисления амортизации в натуральных ед.</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОстаточнаяСтоимость</dataPath>
+			<field>ОстаточнаяСтоимость</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Выработка</dataPath>
+			<field>Выработка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НематериальныйАктив.НМАСписанНаНачало</dataPath>
+			<field>НМАСписанНаНачало</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Списан на начало отчета</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НематериальныйАктив.ЗначениеТекущегоСостояния</dataPath>
+			<field>ЗначениеТекущегоСостояния</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущее состояние</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НематериальныйАктив.Период</dataPath>
+			<field>Период</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата установки текущего состояния</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НематериальныйАктив.ДатаПринятияКУчету</dataPath>
+			<field>ДатаПринятияКУчету</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата принятия к учету</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ РАЗЛИЧНЫЕ
+	СчетаУчетаНМА.СчетУчетаБУ КАК СчетУчета
+ПОМЕСТИТЬ СчетаУчета
+ИЗ
+	РегистрСведений.СчетаУчетаНМА КАК СчетаУчетаНМА
+ГДЕ
+	НЕ СчетаУчетаНМА.СчетУчетаБУ = ЗНАЧЕНИЕ(ПланСчетов.Типовой.ПустаяСсылка)
+{ГДЕ
+	СчетаУчетаНМА.Организация.*}
+
+ИНДЕКСИРОВАТЬ ПО
+	СчетУчета
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ РАЗЛИЧНЫЕ
+	СчетаУчетаНМА.СчетНачисленияАмортизацииБУ КАК СчетНачисленияАмортизацииБУ
+ПОМЕСТИТЬ СчетаНачисленияАмортизации
+ИЗ
+	РегистрСведений.СчетаУчетаНМА КАК СчетаУчетаНМА
+ГДЕ
+	НЕ СчетаУчетаНМА.СчетНачисленияАмортизацииБУ = ЗНАЧЕНИЕ(ПланСчетов.Типовой.ПустаяСсылка)
+{ГДЕ
+	СчетаУчетаНМА.Организация.*}
+
+ИНДЕКСИРОВАТЬ ПО
+	СчетНачисленияАмортизацииБУ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТиповойОстаткиИОбороты.Субконто1 КАК НематериальныйАктив,
+	ТиповойОстаткиИОбороты.Организация КАК Организация,
+	ТиповойОстаткиИОбороты.СтруктурноеПодразделение КАК СтруктурноеПодразделение,
+	ТиповойОстаткиИОбороты.Счет КАК Счет,
+	ТиповойОстаткиИОбороты.Регистратор КАК Регистратор,
+	ВЫБОР
+		КОГДА ТиповойОстаткиИОбороты.Счет В
+				(ВЫБРАТЬ
+					СчетаУчета.СчетУчета
+				ИЗ
+					СчетаУчета)
+			ТОГДА ТиповойОстаткиИОбороты.СуммаОборотДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК СтоимостьОборотДт,
+	ВЫБОР
+		КОГДА ТиповойОстаткиИОбороты.Счет В
+				(ВЫБРАТЬ
+					СчетаНачисленияАмортизации.СчетНачисленияАмортизацииБУ
+				ИЗ
+					СчетаНачисленияАмортизации)
+			ТОГДА ТиповойОстаткиИОбороты.СуммаОборотКт
+		ИНАЧЕ 0
+	КОНЕЦ КАК АмортизацияОборотКт,
+	ВЫБОР
+		КОГДА ТиповойОстаткиИОбороты.Счет В
+				(ВЫБРАТЬ
+					СчетаУчета.СчетУчета
+				ИЗ
+					СчетаУчета)
+			ТОГДА ТиповойОстаткиИОбороты.СуммаОборотКт
+		ИНАЧЕ 0
+	КОНЕЦ КАК СтоимостьОборотКт,
+	ВЫБОР
+		КОГДА ТиповойОстаткиИОбороты.Счет В
+				(ВЫБРАТЬ
+					СчетаНачисленияАмортизации.СчетНачисленияАмортизацииБУ
+				ИЗ
+					СчетаНачисленияАмортизации)
+			ТОГДА ТиповойОстаткиИОбороты.СуммаОборотДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК АмортизацияОборотДт,
+	ВЫБОР
+		КОГДА ТиповойОстаткиИОбороты.Счет В
+				(ВЫБРАТЬ
+					СчетаНачисленияАмортизации.СчетНачисленияАмортизацииБУ
+				ИЗ
+					СчетаНачисленияАмортизации)
+			ТОГДА ТиповойОстаткиИОбороты.СуммаНачальныйОстатокКт
+		ИНАЧЕ 0
+	КОНЕЦ КАК АмортизацияНачальныйОстаток,
+	ВЫБОР
+		КОГДА ТиповойОстаткиИОбороты.Счет В
+				(ВЫБРАТЬ
+					СчетаНачисленияАмортизации.СчетНачисленияАмортизацииБУ
+				ИЗ
+					СчетаНачисленияАмортизации)
+			ТОГДА ТиповойОстаткиИОбороты.СуммаКонечныйОстатокКт
+		ИНАЧЕ 0
+	КОНЕЦ КАК АмортизацияКонечныйОстаток,
+	ВЫБОР
+		КОГДА ТиповойОстаткиИОбороты.Счет В
+				(ВЫБРАТЬ
+					СчетаУчета.СчетУчета
+				ИЗ
+					СчетаУчета)
+			ТОГДА ТиповойОстаткиИОбороты.СуммаНачальныйОстатокДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК СтоимостьНачальныйОстаток,
+	ВЫБОР
+		КОГДА ТиповойОстаткиИОбороты.Счет В
+				(ВЫБРАТЬ
+					СчетаУчета.СчетУчета
+				ИЗ
+					СчетаУчета)
+			ТОГДА ТиповойОстаткиИОбороты.СуммаКонечныйОстатокДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК СтоимостьКонечныйОстаток
+ПОМЕСТИТЬ ТиповойОстаткиИОбороты
+ИЗ
+	РегистрБухгалтерии.Типовой.ОстаткиИОбороты(
+			{(&amp;НачПериода)},
+			{(&amp;КонПериода)},
+			Авто,
+			ДвиженияИГраницыПериода,
+			Счет В ИЕРАРХИИ
+				(ВЫБРАТЬ
+					СчетаУчета.СчетУчета
+				ИЗ
+					СчетаУчета
+			
+				ОБЪЕДИНИТЬ ВСЕ
+			
+				ВЫБРАТЬ
+					СчетаНачисленияАмортизации.СчетНачисленияАмортизацииБУ
+				ИЗ
+					СчетаНачисленияАмортизации),
+			&amp;ВидыСубконтоНМА,
+			{(Организация).*, (СтруктурноеПодразделение).*, (Субконто1).* КАК НематериальныйАктив}) КАК ТиповойОстаткиИОбороты
+
+ИНДЕКСИРОВАТЬ ПО
+	НематериальныйАктив,
+	Организация,
+	СтруктурноеПодразделение
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТиповойОстаткиИОбороты.НематериальныйАктив,
+	ТиповойОстаткиИОбороты.Организация,
+	ТиповойОстаткиИОбороты.СтруктурноеПодразделение,
+	ТиповойОстаткиИОбороты.Счет,
+	ТиповойОстаткиИОбороты.Регистратор,
+	ТекущееСостояние.Состояние КАК ЗначениеТекущегоСостояния,
+	ТекущееСостояние.Период КАК Период,
+	ПервоначальныеСведенияНМАБухгалтерскийУчетСрезПоследних.СпособНачисленияАмортизации КАК СпособНачисленияАмортизации,
+	ПервоначальныеСведенияНМАБухгалтерскийУчетСрезПоследних.СрокПолезногоИспользования КАК СрокПолезногоИспользования,
+	ПервоначальныеСведенияНМАБухгалтерскийУчетСрезПоследних.НачислятьАмортизацию КАК НачислятьАмортизацию,
+	ПервоначальныеСведенияНМАБухгалтерскийУчетСрезПоследних.НематериальныйАктив.Код КАК ИнвентарныйНомер,
+	ЕСТЬNULL(Списанные.Списан, ЛОЖЬ) КАК НМАСписанНаНачало,
+	ПервоначальныеСведенияНМАБухгалтерскийУчетСрезПоследних.ОбъемПродукцииРаботДляВычисленияАмортизации КАК ОбъемПродукцииРаботДляВычисленияАмортизации,
+	ЕСТЬNULL(ПервоначальныеСведенияНМАБухгалтерскийУчетСрезПоследних.ПервоначальнаяСтоимость, 0) КАК ПервоначальнаяСтоимость,
+	ЕСТЬNULL(ПервоначальныеСведенияНМАБухгалтерскийУчетСрезПоследних.СтоимостьДляВычисленияАмортизации, 0) КАК СтоимостьДляВычисленияАмортизации,
+	ТиповойОстаткиИОбороты.СтоимостьОборотДт,
+	ТиповойОстаткиИОбороты.АмортизацияОборотКт,
+	ТиповойОстаткиИОбороты.СтоимостьОборотКт,
+	ТиповойОстаткиИОбороты.АмортизацияОборотДт,
+	ТиповойОстаткиИОбороты.АмортизацияНачальныйОстаток,
+	ТиповойОстаткиИОбороты.АмортизацияКонечныйОстаток,
+	ТиповойОстаткиИОбороты.СтоимостьНачальныйОстаток,
+	ТиповойОстаткиИОбороты.СтоимостьКонечныйОстаток,
+	ТиповойОстаткиИОбороты.СтоимостьКонечныйОстаток - ТиповойОстаткиИОбороты.АмортизацияКонечныйОстаток КАК ОстаточнаяСтоимость,
+	ЕСТЬNULL(ВыработкаНМАОбороты.КоличествоОборот, 0) КАК Выработка,
+	ПринятыеКУчету.Период КАК ДатаПринятияКУчету
+ИЗ
+	ТиповойОстаткиИОбороты КАК ТиповойОстаткиИОбороты
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПервоначальныеСведенияНМАБухгалтерскийУчет.СрезПоследних({(&amp;КонПериода)}, {(Организация).* КАК Организация, (НематериальныйАктив).* КАК НематериальныйАктив}) КАК ПервоначальныеСведенияНМАБухгалтерскийУчетСрезПоследних
+		ПО ТиповойОстаткиИОбороты.НематериальныйАктив = ПервоначальныеСведенияНМАБухгалтерскийУчетСрезПоследних.НематериальныйАктив
+			И ТиповойОстаткиИОбороты.Организация = ПервоначальныеСведенияНМАБухгалтерскийУчетСрезПоследних.Организация
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ВыработкаНМА.Обороты({(&amp;НачПериода)}, {(&amp;КонПериода)}, , ) КАК ВыработкаНМАОбороты
+		ПО ТиповойОстаткиИОбороты.НематериальныйАктив = ВыработкаНМАОбороты.НематериальныйАктив
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			СостоянияНМАОрганизацийСрезПоследних.НематериальныйАктив КАК НематериальныйАктив,
+			ИСТИНА КАК Списан
+		ИЗ
+			РегистрСведений.СостоянияНМАОрганизаций.СрезПоследних({(&amp;КонПериода)}, {(Организация)}) КАК СостоянияНМАОрганизацийСрезПоследних
+		ГДЕ
+			СостоянияНМАОрганизацийСрезПоследних.Состояние = &amp;СостояниеСнятоСУчета
+			И СостоянияНМАОрганизацийСрезПоследних.Период &lt; &amp;НачПериода) КАК Списанные
+		ПО ТиповойОстаткиИОбороты.НематериальныйАктив = Списанные.НематериальныйАктив
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			СостоянияНМАОрганизацийСрезПоследних.Период КАК Период,
+			СостоянияНМАОрганизацийСрезПоследних.НематериальныйАктив КАК НематериальныйАктив,
+			СостоянияНМАОрганизацийСрезПоследних.Организация КАК Организация
+		ИЗ
+			РегистрСведений.СостоянияНМАОрганизаций.СрезПоследних({(&amp;КонПериода)}, Состояние = &amp;СостояниеПринятоКУчету {(Организация)}) КАК СостоянияНМАОрганизацийСрезПоследних) КАК ПринятыеКУчету
+		ПО ТиповойОстаткиИОбороты.НематериальныйАктив = ПринятыеКУчету.НематериальныйАктив
+			И ТиповойОстаткиИОбороты.Организация = ПринятыеКУчету.Организация
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			СостоянияНМАОрганизаций.НематериальныйАктив КАК НематериальныйАктив,
+			СостоянияНМАОрганизаций.Состояние КАК Состояние,
+			СостоянияНМАОрганизаций.Период КАК Период,
+			СостоянияНМАОрганизаций.Регистратор КАК Регистратор
+		ИЗ
+			РегистрСведений.СостоянияНМАОрганизаций КАК СостоянияНМАОрганизаций
+		ГДЕ
+			СостоянияНМАОрганизаций.Период В
+					(ВЫБРАТЬ
+						МАКСИМУМ(ДатаПоследнегоСостояния.Период)
+					ИЗ
+						РегистрСведений.СостоянияНМАОрганизаций КАК ДатаПоследнегоСостояния
+					ГДЕ
+						ДатаПоследнегоСостояния.НематериальныйАктив = СостоянияНМАОрганизаций.НематериальныйАктив
+						И СостоянияНМАОрганизаций.Состояние В
+							(ВЫБРАТЬ ПЕРВЫЕ 1
+								ДатаПоследнегоСостояния.Состояние
+							ИЗ
+								РегистрСведений.СостоянияНМАОрганизаций КАК ДатаПоследнегоСостояния
+							ГДЕ
+								ДатаПоследнегоСостояния.НематериальныйАктив = СостоянияНМАОрганизаций.НематериальныйАктив
+								И ДатаПоследнегоСостояния.Период = СостоянияНМАОрганизаций.Период
+							СГРУППИРОВАТЬ ПО
+								ДатаПоследнегоСостояния.НематериальныйАктив,
+								ДатаПоследнегоСостояния.Состояние)
+						И ВЫБОР
+							КОГДА &amp;КонПериода = &amp;ПустаяДата
+								ТОГДА ИСТИНА
+							ИНАЧЕ ДатаПоследнегоСостояния.Период &lt; &amp;КонПериода
+						КОНЕЦ
+					СГРУППИРОВАТЬ ПО
+						ДатаПоследнегоСостояния.НематериальныйАктив)
+			И СостоянияНМАОрганизаций.НомерСтроки В
+					(ВЫБРАТЬ РАЗЛИЧНЫЕ
+						МАКСИМУМ(ДатаПоследнегоСостояния.НомерСтроки)
+					ИЗ
+						РегистрСведений.СостоянияНМАОрганизаций КАК ДатаПоследнегоСостояния
+					ГДЕ
+						ДатаПоследнегоСостояния.НематериальныйАктив = СостоянияНМАОрганизаций.НематериальныйАктив
+						И ДатаПоследнегоСостояния.Период = СостоянияНМАОрганизаций.Период
+					СГРУППИРОВАТЬ ПО
+						ДатаПоследнегоСостояния.НематериальныйАктив)) КАК ТекущееСостояние
+		ПО ТиповойОстаткиИОбороты.НематериальныйАктив = ТекущееСостояние.НематериальныйАктив
+{ГДЕ
+	(ВЫБОР
+			КОГДА Списанные.Списан ЕСТЬ NULL 
+				ТОГДА ЛОЖЬ
+			ИНАЧЕ Списанные.Списан
+		КОНЕЦ) КАК НМАСписанНаНачало}</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ПоказательБУ</dataPath>
+		<expression>"БУ"</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Показатель БУ</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<condition>true</condition>
+			<order>true</order>
+		</useRestriction>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">7</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">7</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<totalField>
+		<dataPath>ПоказательБУ</dataPath>
+		<expression>Сумма(ПоказательБУ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НаНачалоПериода.СтоимостьНачальныйОстаток</dataPath>
+		<expression>Сумма(НаНачалоПериода.СтоимостьНачальныйОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НаНачалоПериода.АмортизацияНачальныйОстаток</dataPath>
+		<expression>Сумма(НаНачалоПериода.АмортизацияНачальныйОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НаКонецПериода.СтоимостьКонечныйОстаток</dataPath>
+		<expression>Сумма(НаКонецПериода.СтоимостьКонечныйОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НаКонецПериода.АмортизацияКонечныйОстаток</dataPath>
+		<expression>Сумма(НаКонецПериода.АмортизацияКонечныйОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗаПериод.СтоимостьОборотДт</dataPath>
+		<expression>Сумма(ЗаПериод.СтоимостьОборотДт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗаПериод.СтоимостьОборотКт</dataPath>
+		<expression>Сумма(ЗаПериод.СтоимостьОборотКт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗаПериод.АмортизацияОборотКт</dataPath>
+		<expression>Сумма(ЗаПериод.АмортизацияОборотКт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗаПериод.АмортизацияОборотДт</dataPath>
+		<expression>Сумма(ЗаПериод.АмортизацияОборотДт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПервоначальнаяСтоимость</dataPath>
+		<expression>Максимум(ПервоначальнаяСтоимость)</expression>
+		<group>НематериальныйАктив</group>
+	</totalField>
+	<totalField>
+		<dataPath>СтоимостьДляВычисленияАмортизации</dataPath>
+		<expression>Максимум(СтоимостьДляВычисленияАмортизации)</expression>
+		<group>НематериальныйАктив</group>
+	</totalField>
+	<totalField>
+		<dataPath>ОстаточнаяСтоимость</dataPath>
+		<expression>Сумма(ОстаточнаяСтоимость)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Выработка</dataPath>
+		<expression>Максимум(Выработка)</expression>
+		<group>Выработка</group>
+	</totalField>
+	<parameter>
+		<name>ВидыСубконтоНМА</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Виды субконто НМА</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.ВидыСубконтоТиповые</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоТиповые.НематериальныеАктивы</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Кон периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>НачПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Нач периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СостояниеСнятоСУчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Состояние снято с учета</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыСостоянийНМА</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыСостоянийНМА.Списан</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ПустаяДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Пустая дата</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>СостояниеПринятоКУчету</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Состояние принято к учету</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыСостоянийНМА</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыСостоянийНМА.ПринятКУчету</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<template>
+		<name>Макет1</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>БУ</v8:content>
+							</v8:item>
+						</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+	</template>
+	<template>
+		<name>Макет2</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ЗаПериод.АмортизацияОборотКт</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ЗаПериод.АмортизацияОборотКт</dcsat:name>
+			<dcsat:expression>ЗаПериод.АмортизацияОборотКт</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет3</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ЗаПериод.АмортизацияОборотДт</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ЗаПериод.АмортизацияОборотДт</dcsat:name>
+			<dcsat:expression>ЗаПериод.АмортизацияОборотДт</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет4</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ЗаПериод.СтоимостьОборотДт</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ЗаПериод.СтоимостьОборотДт</dcsat:name>
+			<dcsat:expression>ЗаПериод.СтоимостьОборотДт</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет5</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ЗаПериод.СтоимостьОборотКт</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ЗаПериод.СтоимостьОборотКт</dcsat:name>
+			<dcsat:expression>ЗаПериод.СтоимостьОборотКт</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет6</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">НаКонецПериода.АмортизацияКонечныйОстаток</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>НаКонецПериода.АмортизацияКонечныйОстаток</dcsat:name>
+			<dcsat:expression>НаКонецПериода.АмортизацияКонечныйОстаток</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет7</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">НаКонецПериода.СтоимостьКонечныйОстаток</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>НаКонецПериода.СтоимостьКонечныйОстаток</dcsat:name>
+			<dcsat:expression>НаКонецПериода.СтоимостьКонечныйОстаток</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет8</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">НаНачалоПериода.АмортизацияНачальныйОстаток</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>НаНачалоПериода.АмортизацияНачальныйОстаток</dcsat:name>
+			<dcsat:expression>НаНачалоПериода.АмортизацияНачальныйОстаток</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет9</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">НаНачалоПериода.СтоимостьНачальныйОстаток</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>НаНачалоПериода.СтоимостьНачальныйОстаток</dcsat:name>
+			<dcsat:expression>НаНачалоПериода.СтоимостьНачальныйОстаток</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет10</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">Выработка</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>Выработка</dcsat:name>
+			<dcsat:expression>Выработка</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет11</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ОстаточнаяСтоимость</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ОстаточнаяСтоимость</dcsat:name>
+			<dcsat:expression>ОстаточнаяСтоимость</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет12</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ПервоначальнаяСтоимость</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ПервоначальнаяСтоимость</dcsat:name>
+			<dcsat:expression>ПервоначальнаяСтоимость</dcsat:expression>
+		</parameter>
+	</template>
+	<template>
+		<name>Макет13</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">СтоимостьДляВычисленияАмортизации</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>СтоимостьДляВычисленияАмортизации</dcsat:name>
+			<dcsat:expression>СтоимостьДляВычисленияАмортизации</dcsat:expression>
+		</parameter>
+	</template>
+	<fieldTemplate>
+		<field>ПоказательБУ</field>
+		<template>Макет1</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ЗаПериод.АмортизацияОборотКт</field>
+		<template>Макет2</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ЗаПериод.АмортизацияОборотДт</field>
+		<template>Макет3</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ЗаПериод.СтоимостьОборотДт</field>
+		<template>Макет4</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ЗаПериод.СтоимостьОборотКт</field>
+		<template>Макет5</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>НаКонецПериода.АмортизацияКонечныйОстаток</field>
+		<template>Макет6</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>НаКонецПериода.СтоимостьКонечныйОстаток</field>
+		<template>Макет7</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>НаНачалоПериода.АмортизацияНачальныйОстаток</field>
+		<template>Макет8</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>НаНачалоПериода.СтоимостьНачальныйОстаток</field>
+		<template>Макет9</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>Выработка</field>
+		<template>Макет10</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ОстаточнаяСтоимость</field>
+		<template>Макет11</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>ПервоначальнаяСтоимость</field>
+		<template>Макет12</template>
+	</fieldTemplate>
+	<fieldTemplate>
+		<field>СтоимостьДляВычисленияАмортизации</field>
+		<template>Макет13</template>
+	</fieldTemplate>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">НематериальныйАктив</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.НематериальныеАктивы.ПустаяСсылка</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Счет</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПустаяСсылка</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">НематериальныйАктив.НМАСписанНаНачало</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection/>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выделять отрицательные</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection/>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основной шрифт</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">End</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">End</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

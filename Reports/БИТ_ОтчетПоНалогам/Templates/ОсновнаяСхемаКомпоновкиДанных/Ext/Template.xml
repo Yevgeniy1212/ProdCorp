@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Счет</dataPath>
+			<field>Счет</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Начисление</dataPath>
+			<field>Начисление</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начисление</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСчет</dataPath>
+			<field>КорСчет</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто1</dataPath>
+			<field>Субконто1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтруктурноеПодразделение</dataPath>
+			<field>СтруктурноеПодразделение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто2</dataPath>
+			<field>Субконто2</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто3</dataPath>
+			<field>Субконто3</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто4</dataPath>
+			<field>Субконто4</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСубконто1</dataPath>
+			<field>КорСубконто1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВалютаКор</dataPath>
+			<field>ВалютаКор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСубконто2</dataPath>
+			<field>КорСубконто2</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтруктурноеПодразделениеКор</dataPath>
+			<field>СтруктурноеПодразделениеКор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСубконто3</dataPath>
+			<field>КорСубконто3</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСубконто4</dataPath>
+			<field>КорСубконто4</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИсточникФинансирования</dataPath>
+			<field>ИсточникФинансирования</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Зачет</dataPath>
+			<field>Зачет</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зачет</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Оплата</dataPath>
+			<field>Оплата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оплата</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Налог</dataPath>
+			<field>Налог</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Налог</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонечныйОстаток</dataPath>
+			<field>КонечныйОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Конечный остаток</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:balance>true</dcscom:balance>
+				<dcscom:balanceGroupName>Группа</dcscom:balanceGroupName>
+				<dcscom:balanceType>ClosingBalance</dcscom:balanceType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачальныйОстаток</dataPath>
+			<field>НачальныйОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начальный остаток</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:balance>true</dcscom:balance>
+				<dcscom:balanceGroupName>Группа</dcscom:balanceGroupName>
+				<dcscom:balanceType>OpeningBalance</dcscom:balanceType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СрокОплаты</dataPath>
+			<field>СрокОплаты</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СрокПредоставленияОтчета</dataPath>
+			<field>СрокПредоставленияОтчета</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ТиповойОстаткиИОбороты.Субконто1,
+	СУММА(ТиповойОстаткиИОбороты.СуммаНачальныйОстаток) КАК СуммаНачальныйОстаток,
+	СУММА(ТиповойОстаткиИОбороты.СуммаКонечныйОстаток) КАК СуммаКонечныйОстаток
+ПОМЕСТИТЬ Сальдо
+ИЗ
+	РегистрБухгалтерии.Типовой.ОстаткиИОбороты(&amp;НачалоПериода, &amp;КонецПериода, , , Счет В (&amp;Налог), , ) КАК ТиповойОстаткиИОбороты
+
+СГРУППИРОВАТЬ ПО
+	ТиповойОстаткиИОбороты.Субконто1
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВЫБОР
+		КОГДА ТиповойОстаткиИОбороты.Счет.Код = "3211"
+			ТОГДА "Обязательные социальные отчисления"
+		ИНАЧЕ "Отчисления обязательное социальное медицинское страхование"
+	КОНЕЦ КАК Налог,
+	СУММА(ТиповойОстаткиИОбороты.СуммаНачальныйОстаток) КАК СуммаНачальныйОстаток,
+	ТиповойОстаткиИОбороты.СуммаКонечныйОстаток
+ПОМЕСТИТЬ СОиОСМССальдо
+ИЗ
+	РегистрБухгалтерии.Типовой.ОстаткиИОбороты(&amp;НачалоПериода, &amp;КонецПериода, , , Счет В (&amp;СОиОСМС), , ) КАК ТиповойОстаткиИОбороты
+
+СГРУППИРОВАТЬ ПО
+	ТиповойОстаткиИОбороты.СуммаКонечныйОстаток,
+	ВЫБОР
+		КОГДА ТиповойОстаткиИОбороты.Счет.Код = "3211"
+			ТОГДА "Обязательные социальные отчисления"
+		ИНАЧЕ "Отчисления обязательное социальное медицинское страхование"
+	КОНЕЦ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТиповойОбороты.Субконто1,
+	ТиповойОбороты.СуммаОборот
+ПОМЕСТИТЬ Оплата
+ИЗ
+	РегистрБухгалтерии.Типовой.Обороты(&amp;НачалоПериода, &amp;КонецПериода, , Счет В (&amp;Налог1), , , КорСчет В (&amp;Оплата), ) КАК ТиповойОбороты
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТиповойОбороты.Субконто1,
+	ТиповойОбороты.СуммаОборот
+ПОМЕСТИТЬ Зачет
+ИЗ
+	РегистрБухгалтерии.Типовой.Обороты(&amp;НачалоПериода, &amp;КонецПериода, , Счет В (&amp;Налог1), , , КорСчет В (&amp;Зачет), ) КАК ТиповойОбороты
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТиповойОбороты.Субконто1,
+	ТиповойОбороты.СуммаОборот
+ПОМЕСТИТЬ Начисление
+ИЗ
+	РегистрБухгалтерии.Типовой.Обороты(&amp;НачалоПериода, &amp;КонецПериода, , Счет В (&amp;Налог1), , , КорСчет В (&amp;СчетНачисления), ) КАК ТиповойОбороты
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТиповойОбороты.СуммаОборот,
+	ВЫБОР
+		КОГДА ТиповойОбороты.Счет.Код = "3211"
+			ТОГДА "Обязательные социальные отчисления"
+		ИНАЧЕ "Отчисления обязательное социальное медицинское страхование"
+	КОНЕЦ КАК Налог
+ПОМЕСТИТЬ СОиОСМСНачисление
+ИЗ
+	РегистрБухгалтерии.Типовой.Обороты(&amp;НачалоПериода, &amp;КонецПериода, , Счет В (&amp;СОиОСМС), , , КорСчет В (&amp;СчетНачисления), ) КАК ТиповойОбороты
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВЫБОР
+		КОГДА ТиповойОбороты.Счет.Код = "3211"
+			ТОГДА "Обязательные социальные отчисления"
+		ИНАЧЕ "Отчисления обязательное социальное медицинское страхование"
+	КОНЕЦ КАК Налог,
+	ТиповойОбороты.СуммаОборот
+ПОМЕСТИТЬ СОиОСМСОплата
+ИЗ
+	РегистрБухгалтерии.Типовой.Обороты(&amp;НачалоПериода, &amp;КонецПериода, , Счет В (&amp;СОиОСМС), , , КорСчет В (&amp;Оплата), ) КАК ТиповойОбороты
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Сальдо.Субконто1 КАК Налог,
+	СУММА(Сальдо.СуммаНачальныйОстаток) КАК НачальныйОстаток,
+	СУММА(Оплата.СуммаОборот) КАК Оплата,
+	СУММА(Начисление.СуммаОборот) КАК Начисление,
+	СУММА(Зачет.СуммаОборот) КАК Зачет,
+	СУММА(Сальдо.СуммаКонечныйОстаток) КАК КонечныйОстаток,
+	СрокиУплатыНалогов.СрокПредоставленияОтчета,
+	СрокиУплатыНалогов.СрокОплаты
+ИЗ
+	Сальдо КАК Сальдо
+		ЛЕВОЕ СОЕДИНЕНИЕ Оплата КАК Оплата
+		ПО Сальдо.Субконто1 = Оплата.Субконто1
+		ЛЕВОЕ СОЕДИНЕНИЕ Начисление КАК Начисление
+			ЛЕВОЕ СОЕДИНЕНИЕ Зачет КАК Зачет
+			ПО Начисление.Субконто1 = Зачет.Субконто1
+		ПО Сальдо.Субконто1 = Начисление.Субконто1
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СрокиУплатыНалогов КАК СрокиУплатыНалогов
+		ПО Сальдо.Субконто1 = СрокиУплатыНалогов.Налог
+
+СГРУППИРОВАТЬ ПО
+	Сальдо.Субконто1,
+	СрокиУплатыНалогов.СрокПредоставленияОтчета,
+	СрокиУплатыНалогов.СрокОплаты
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	СОиОСМССальдо.Налог,
+	СУММА(СОиОСМССальдо.СуммаНачальныйОстаток),
+	СУММА(СОиОСМСОплата.СуммаОборот),
+	СУММА(СОиОСМСНачисление.СуммаОборот),
+	СУММА(0),
+	СУММА(СОиОСМССальдо.СуммаКонечныйОстаток),
+	"ежеквартально до 15 числа второго месяца, следующего за отчетным",
+	"до 25 числа месяца,следующего за месяцем выплаты"
+ИЗ
+	СОиОСМССальдо КАК СОиОСМССальдо
+		ЛЕВОЕ СОЕДИНЕНИЕ СОиОСМСНачисление КАК СОиОСМСНачисление
+		ПО СОиОСМССальдо.Налог = СОиОСМСНачисление.Налог
+		ЛЕВОЕ СОЕДИНЕНИЕ СОиОСМСОплата КАК СОиОСМСОплата
+		ПО СОиОСМССальдо.Налог = СОиОСМСОплата.Налог
+
+СГРУППИРОВАТЬ ПО
+	СОиОСМССальдо.Налог</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Начисление</dataPath>
+		<expression>Сумма(Начисление)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Зачет</dataPath>
+		<expression>Сумма(Зачет)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Оплата</dataPath>
+		<expression>Сумма(Оплата)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КонечныйОстаток</dataPath>
+		<expression>Сумма(КонечныйОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НачальныйОстаток</dataPath>
+		<expression>Сумма(НачальныйОстаток)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>КонецПериода(&amp;КонецПериода, "День")</expression>
+	</parameter>
+	<parameter>
+		<name>Налог</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Налог</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfAccountsRef.Типовой</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеНалогиСоциальныйНалогСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеНалогиЗемельныйНалогСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеНалогиНалогНаТранспортСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеНалогиНалогНаИмуществоСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ИныеНалогиИОбязательныеПлатежиВБюджетСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ИныеНалогиИОбязательныеПлатежиВБюджетСоцОтчисленияСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ИныеНалогиКПНСЮрЛицСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.НалогНаДобавленнуюСтоимостьКВозмещениюСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КорпоративныйПодоходныйНалог</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.НДСНачисленныйПриПокупке</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КорпоративныйПодоходныйНалогПодлежащийУплате</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ИндивидуальныйПодоходныйНалог</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.НалогНаДобавленнуюСтоимость</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.Акцизы</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.СоциальныйНалог</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ЗемельныйНалог</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.НалогНаТранспортныеСредства</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.НалогНаИмущество</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеНалоги</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ОбязательстваПоПенсионнымОтчислениям</value>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<parameter>
+		<name>Налог1</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Налог1</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfAccountsRef.Типовой</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КорпоративныйПодоходныйНалогПодлежащийУплате</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ИндивидуальныйПодоходныйНалог</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.НалогНаДобавленнуюСтоимость</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.Акцизы</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.СоциальныйНалог</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ЗемельныйНалог</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.НалогНаТранспортныеСредства</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.НалогНаИмущество</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеНалоги</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ОбязательстваПоПенсионнымОтчислениям</value>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<parameter>
+		<name>Оплата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Оплата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfAccountsRef.Типовой</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ДенежныеСредстваНаТекущихБанковскихСчетахСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ДенежныеСредстваНаТекущихБанковскихСчетахЗаРубежомСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеНалогиСоциальныйНалогСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеНалогиЗемельныйНалогСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеНалогиНалогНаТранспортСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеНалогиНалогНаИмуществоСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ИныеНалогиИОбязательныеПлатежиВБюджетСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ИныеНалогиИОбязательныеПлатежиВБюджетСоцОтчисленияСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ИныеНалогиКПНСЮрЛицСоб</value>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<parameter>
+		<name>СчетНачисления</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Счет начисления</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfAccountsRef.Типовой</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеАдминистративныеРасходыНеОтносимыеНавычет</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РасходыПоСОиСН</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РасходыПоЗемельномуналогу</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РасходыПоНаТранспортныеСредства</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РасходыПоПрочимНалогам</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяДебиторскаяЗадолженностьПокупателейИЗаказчиковСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяЗадолженностьПоставщикамИПодрядчикам</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РасходыПоРеализацииПродукцииИОказаниюУслугСоб</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочнаяЗадолженностьПоОплатеТруда</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КраткосрочныеОценочныеОбязательстваПоВознаграждениямРаботникам</value>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<parameter>
+		<name>Зачет</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Зачет</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfAccountsRef.Типовой</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.НалогНаДобавленнуюСтоимостьКВозмещениюСоб</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СОиОСМС</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>СО и ОСМС</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfAccountsRef.Типовой</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ОбязательстваПоСоциальномуСтрахованию</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ОбязательстваПоОтчислениямОСМС</value>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Налог</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НачальныйОстаток</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Начисление</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Оплата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Зачет</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонечныйОстаток</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СрокПредоставленияОтчета</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СрокОплаты</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>2e27a201-11ea-4128-be9a-bd4275d56d38</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>023b0ecd-0d92-472f-9e98-2862d1d17f19</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Налог</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеНалогиСоциальныйНалогСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеНалогиЗемельныйНалогСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеНалогиНалогНаТранспортСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеНалогиНалогНаИмуществоСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ИныеНалогиИОбязательныеПлатежиВБюджетСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ИныеНалогиИОбязательныеПлатежиВБюджетСоцОтчисленияСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ИныеНалогиКПНСЮрЛицСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.НалогНаДобавленнуюСтоимостьКВозмещениюСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КорпоративныйПодоходныйНалог</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.НДСНачисленныйПриПокупке</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КорпоративныйПодоходныйНалогПодлежащийУплате</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ИндивидуальныйПодоходныйНалог</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.НалогНаДобавленнуюСтоимость</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.Акцизы</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.СоциальныйНалог</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ЗемельныйНалог</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.НалогНаТранспортныеСредства</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.НалогНаИмущество</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеНалоги</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Налог1</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.КорпоративныйПодоходныйНалогПодлежащийУплате</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ИндивидуальныйПодоходныйНалог</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.НалогНаДобавленнуюСтоимость</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.Акцизы</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.СоциальныйНалог</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ЗемельныйНалог</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.НалогНаТранспортныеСредства</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.НалогНаИмущество</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеНалоги</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Оплата</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ДенежныеСредстваНаТекущихБанковскихСчетахСоб</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ДенежныеСредстваНаТекущихБанковскихСчетахЗаРубежомСоб</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>СчетНачисления</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПрочиеАдминистративныеРасходыНеОтносимыеНавычет</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РасходыПоСОиСН</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РасходыПоЗемельномуналогу</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РасходыПоНаТранспортныеСредства</dcscor:value>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.РасходыПоПрочимНалогам</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Налог</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Движение по задолженности перед бюджетом</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>АвтоПозицияРесурсов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionResourcesAutoPosition">DontUse</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

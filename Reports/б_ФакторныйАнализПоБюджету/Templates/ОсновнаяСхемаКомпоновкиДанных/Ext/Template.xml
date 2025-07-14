@@ -1,0 +1,766 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Счет</dataPath>
+			<field>Счет</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСчет</dataPath>
+			<field>КорСчет</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСубконто1</dataPath>
+			<field>КорСубконто1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСубконто2</dataPath>
+			<field>КорСубконто2</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСубконто3</dataPath>
+			<field>КорСубконто3</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСубконто4</dataPath>
+			<field>КорСубконто4</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто1</dataPath>
+			<field>Субконто1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто2</dataPath>
+			<field>Субконто2</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто3</dataPath>
+			<field>Субконто3</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто4</dataPath>
+			<field>Субконто4</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВалютаКор</dataPath>
+			<field>ВалютаКор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИсточникФинансирования</dataPath>
+			<field>ИсточникФинансирования</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатьяБюджета</dataPath>
+			<field>СтатьяБюджета</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтруктурноеПодразделение</dataPath>
+			<field>СтруктурноеПодразделение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтруктурноеПодразделениеКор</dataPath>
+			<field>СтруктурноеПодразделениеКор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сумма</dataPath>
+			<field>Сумма</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=19; ЧДЦ=3</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодКвартал</dataPath>
+			<field>ПериодКвартал</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Квартал</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>3</dcscom:periodNumber>
+				<dcscom:periodType>Additional</dcscom:periodType>
+			</role>
+			<presentationExpression>ВЫБОР КОГДА Месяц(ПериодКвартал) &lt;4 ТОГДА "1 квартал" ИНАЧЕ ВЫБОР КОГДА Месяц(ПериодКвартал)&gt;3 И Месяц(ПериодКвартал) &lt; 7 Тогда "2 квартал" ИНАЧЕ ВЫБОР КОГДА Месяц(ПериодКвартал)&gt;6 И Месяц(ПериодКвартал)&lt;10 Тогда "3 квартал" ИНАЧЕ ВЫБОР КОГДА Месяц(ПериодКвартал)&gt;9 Тогда "4 квартал" КОНЕЦ КОНЕЦ КОНЕЦ КОНЕЦ</presentationExpression>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string"/>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодМесяц</dataPath>
+			<field>ПериодМесяц</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Месяц</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>2</dcscom:periodNumber>
+				<dcscom:periodType>Additional</dcscom:periodType>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=MMMM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Бюджет</dataPath>
+			<field>Бюджет</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Проект</dataPath>
+			<field>Проект</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаПлан</dataPath>
+			<field>СуммаПлан</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=19; ЧДЦ=3</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДополнительнаяАналитика</dataPath>
+			<field>ДополнительнаяАналитика</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ОборотПоБУ.СтатьяБюджета КАК СтатьяБюджета,
+	ОборотПоБУ.Организация КАК Организация,
+	ОборотПоБУ.Сумма КАК Сумма,
+	ОборотПоБУ.Регистратор КАК Регистратор,
+	ОборотПоБУ.ПериодМесяц КАК ПериодМесяц,
+	ОборотПоБУ.ПериодКвартал КАК ПериодКвартал
+ПОМЕСТИТЬ ФактическийОборот
+ИЗ
+	(ВЫБРАТЬ
+		б_СоответствияСтатейБюджетаСчетамБУ.СтатьяБюджета КАК СтатьяБюджета,
+		ЕСТЬNULL(ТиповойОбороты.Организация, ЗНАЧЕНИЕ(Справочник.Организации.ПустаяСсылка)) КАК Организация,
+		ВЫБОР
+			КОГДА б_СоответствияСтатейБюджетаСчетамБУ.Счет.Вид = ЗНАЧЕНИЕ(ВидСчета.Активный)
+				ТОГДА ЕСТЬNULL(ТиповойОбороты.СуммаОборотДт, 0) * б_СоответствияСтатейБюджетаСчетамБУ.ПризнакСуммы
+			ИНАЧЕ ЕСТЬNULL(ТиповойОбороты.СуммаОборотКт, 0) * б_СоответствияСтатейБюджетаСчетамБУ.ПризнакСуммы
+		КОНЕЦ КАК Сумма,
+		ТиповойОбороты.Регистратор КАК Регистратор,
+		ТиповойОбороты.ПериодМесяц КАК ПериодМесяц,
+		ТиповойОбороты.ПериодКвартал КАК ПериодКвартал
+	ИЗ
+		РегистрСведений.б_СоответствияСтатейБюджетаСчетамБУ КАК б_СоответствияСтатейБюджетаСчетамБУ
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Типовой.Обороты(
+					&amp;НачалоПериода,
+					&amp;КонецПериода,
+					Авто,
+					Счет В
+						(ВЫБРАТЬ РАЗЛИЧНЫЕ
+							СоответствияСтатейБюджетаСчетамБУ.Счет
+						ИЗ
+							РегистрСведений.б_СоответствияСтатейБюджетаСчетамБУ КАК СоответствияСтатейБюджетаСчетамБУ),
+					,
+					,
+					,
+					) КАК ТиповойОбороты
+			ПО (ТиповойОбороты.Счет = б_СоответствияСтатейБюджетаСчетамБУ.Счет)
+	ГДЕ
+		б_СоответствияСтатейБюджетаСчетамБУ.СтатьяБюджета.Владелец = &amp;ФормируемыйБюджет
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		б_СоответствияСтатейБюджетаДоходамБУ.СтатьяБюджета,
+		ЕСТЬNULL(ТиповойОбороты.Организация, ЗНАЧЕНИЕ(Справочник.Организации.ПустаяСсылка)),
+		ВЫБОР
+			КОГДА б_СоответствияСтатейБюджетаДоходамБУ.Счет.Вид = ЗНАЧЕНИЕ(ВидСчета.Активный)
+				ТОГДА ЕСТЬNULL(ТиповойОбороты.СуммаОборотДт, 0) * б_СоответствияСтатейБюджетаДоходамБУ.ПризнакСуммы
+			ИНАЧЕ ЕСТЬNULL(ТиповойОбороты.СуммаОборотКт, 0) * б_СоответствияСтатейБюджетаДоходамБУ.ПризнакСуммы
+		КОНЕЦ,
+		ТиповойОбороты.Регистратор,
+		ТиповойОбороты.ПериодМесяц,
+		ТиповойОбороты.ПериодКвартал
+	ИЗ
+		РегистрСведений.б_СоответствияСтатейБюджетаДоходамБУ КАК б_СоответствияСтатейБюджетаДоходамБУ
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Типовой.Обороты(
+					&amp;НачалоПериода,
+					&amp;КонецПериода,
+					Авто,
+					Счет В
+						(ВЫБРАТЬ РАЗЛИЧНЫЕ
+							СоответствияСтатейБюджетаДоходамБУ.Счет
+						ИЗ
+							РегистрСведений.б_СоответствияСтатейБюджетаДоходамБУ КАК СоответствияСтатейБюджетаДоходамБУ),
+					&amp;мСубконтоДоходы,
+					,
+					,
+					) КАК ТиповойОбороты
+			ПО (ТиповойОбороты.Счет = б_СоответствияСтатейБюджетаДоходамБУ.Счет)
+				И (ТиповойОбороты.Субконто1 = б_СоответствияСтатейБюджетаДоходамБУ.Доход)
+	ГДЕ
+		б_СоответствияСтатейБюджетаДоходамБУ.СтатьяБюджета.Владелец = &amp;ФормируемыйБюджет
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		б_СоответствияСтатейБюджетаТипамОперацийБУ.СтатьяБюджета,
+		ЕСТЬNULL(ТиповойОбороты.Организация, ЗНАЧЕНИЕ(Справочник.Организации.ПустаяСсылка)),
+		ВЫБОР
+			КОГДА б_СоответствияСтатейБюджетаТипамОперацийБУ.Счет.Вид = ЗНАЧЕНИЕ(ВидСчета.Активный)
+				ТОГДА ЕСТЬNULL(ТиповойОбороты.СуммаОборотДт, 0) * б_СоответствияСтатейБюджетаТипамОперацийБУ.ПризнакСуммы
+			ИНАЧЕ ЕСТЬNULL(ТиповойОбороты.СуммаОборотКт, 0) * б_СоответствияСтатейБюджетаТипамОперацийБУ.ПризнакСуммы
+		КОНЕЦ,
+		ТиповойОбороты.Регистратор,
+		ТиповойОбороты.ПериодМесяц,
+		ТиповойОбороты.ПериодКвартал
+	ИЗ
+		РегистрСведений.б_СоответствияСтатейБюджетаТипамОперацийБУ КАК б_СоответствияСтатейБюджетаТипамОперацийБУ
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Типовой.Обороты(
+					&amp;НачалоПериода,
+					&amp;КонецПериода,
+					Авто,
+					Счет В
+						(ВЫБРАТЬ РАЗЛИЧНЫЕ
+							СоответствияСтатейБюджетаТипамОперацийБУ.Счет
+						ИЗ
+							РегистрСведений.б_СоответствияСтатейБюджетаТипамОперацийБУ КАК СоответствияСтатейБюджетаТипамОперацийБУ),
+					&amp;мСубконтоТипыОпераций,
+					,
+					,
+					) КАК ТиповойОбороты
+			ПО (ТиповойОбороты.Счет = б_СоответствияСтатейБюджетаТипамОперацийБУ.Счет)
+				И (ТиповойОбороты.Субконто1 = б_СоответствияСтатейБюджетаТипамОперацийБУ.ТипОперации)
+	ГДЕ
+		б_СоответствияСтатейБюджетаТипамОперацийБУ.СтатьяБюджета.Владелец = &amp;ФормируемыйБюджет
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		б_СоответствияСтатейБюджетаСтатьямЗатратБУ.СтатьяБюджета,
+		ЕСТЬNULL(ТиповойОбороты.Организация, ЗНАЧЕНИЕ(Справочник.Организации.ПустаяСсылка)),
+		ВЫБОР
+			КОГДА б_СоответствияСтатейБюджетаСтатьямЗатратБУ.Счет.Вид = ЗНАЧЕНИЕ(ВидСчета.Активный)
+				ТОГДА ЕСТЬNULL(ТиповойОбороты.СуммаОборотДт, 0) * б_СоответствияСтатейБюджетаСтатьямЗатратБУ.ПризнакСуммы
+			ИНАЧЕ ЕСТЬNULL(ТиповойОбороты.СуммаОборотКт, 0) * б_СоответствияСтатейБюджетаСтатьямЗатратБУ.ПризнакСуммы
+		КОНЕЦ,
+		ТиповойОбороты.Регистратор,
+		ТиповойОбороты.ПериодМесяц,
+		ТиповойОбороты.ПериодКвартал
+	ИЗ
+		РегистрСведений.б_СоответствияСтатейБюджетаСтатьямЗатратБУ КАК б_СоответствияСтатейБюджетаСтатьямЗатратБУ
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Типовой.Обороты(
+					&amp;НачалоПериода,
+					&amp;КонецПериода,
+					Авто,
+					Счет В
+						(ВЫБРАТЬ РАЗЛИЧНЫЕ
+							СоответствияСтатейБюджетаСтатьямЗатратБУ.Счет
+						ИЗ
+							РегистрСведений.б_СоответствияСтатейБюджетаСтатьямЗатратБУ КАК СоответствияСтатейБюджетаСтатьямЗатратБУ),
+					&amp;мСубконтоСтатьиЗатрат,
+					,
+					,
+					) КАК ТиповойОбороты
+			ПО (ТиповойОбороты.Счет = б_СоответствияСтатейБюджетаСтатьямЗатратБУ.Счет)
+				И (ТиповойОбороты.Субконто1 = б_СоответствияСтатейБюджетаСтатьямЗатратБУ.СтатьяЗатрат)
+	ГДЕ
+		б_СоответствияСтатейБюджетаСтатьямЗатратБУ.СтатьяБюджета.Владелец = &amp;ФормируемыйБюджет
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		б_СоответствияСтатейБюджетаГруппамОСБУ.СтатьяБюджета,
+		ЕСТЬNULL(ТиповойОбороты.Организация, ЗНАЧЕНИЕ(Справочник.Организации.ПустаяСсылка)),
+		ЕСТЬNULL(ТиповойОбороты.СуммаОборотДт, 0) * б_СоответствияСтатейБюджетаГруппамОСБУ.ПризнакСуммы,
+		ТиповойОбороты.Регистратор,
+		ТиповойОбороты.ПериодМесяц,
+		ТиповойОбороты.ПериодКвартал
+	ИЗ
+		РегистрСведений.б_СоответствияСтатейБюджетаГруппамОСБУ КАК б_СоответствияСтатейБюджетаГруппамОСБУ
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Типовой.Обороты(
+					&amp;НачалоПериода,
+					&amp;КонецПериода,
+					Авто,
+					Счет В
+						(ВЫБРАТЬ РАЗЛИЧНЫЕ
+							СоответствияСтатейБюджетаГруппамОСБУ.Счет
+						ИЗ
+							РегистрСведений.б_СоответствияСтатейБюджетаГруппамОСБУ КАК СоответствияСтатейБюджетаГруппамОСБУ),
+					&amp;мСубконтоОС,
+					,
+					КорСчет В ИЕРАРХИИ (&amp;мСписокСчетовПоставщиков),
+					) КАК ТиповойОбороты
+			ПО (ТиповойОбороты.Счет = б_СоответствияСтатейБюджетаГруппамОСБУ.Счет)
+				И (ТиповойОбороты.Субконто1.ГруппаОС = б_СоответствияСтатейБюджетаГруппамОСБУ.ГруппаОС)
+	ГДЕ
+		б_СоответствияСтатейБюджетаГруппамОСБУ.СтатьяБюджета.Владелец = &amp;ФормируемыйБюджет
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		б_СоответствияСтатейБюджетаВидамНМАБУ.СтатьяБюджета,
+		ЕСТЬNULL(ТиповойОбороты.Организация, ЗНАЧЕНИЕ(Справочник.Организации.ПустаяСсылка)),
+		ЕСТЬNULL(ТиповойОбороты.СуммаОборотДт, 0) * б_СоответствияСтатейБюджетаВидамНМАБУ.ПризнакСуммы,
+		ТиповойОбороты.Регистратор,
+		ТиповойОбороты.ПериодМесяц,
+		ТиповойОбороты.ПериодКвартал
+	ИЗ
+		РегистрСведений.б_СоответствияСтатейБюджетаВидамНМАБУ КАК б_СоответствияСтатейБюджетаВидамНМАБУ
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Типовой.Обороты(
+					&amp;НачалоПериода,
+					&amp;КонецПериода,
+					Авто,
+					Счет В
+						(ВЫБРАТЬ РАЗЛИЧНЫЕ
+							СоответствияСтатейБюджетаВидамНМАБУ.Счет
+						ИЗ
+							РегистрСведений.б_СоответствияСтатейБюджетаВидамНМАБУ КАК СоответствияСтатейБюджетаВидамНМАБУ),
+					&amp;мСубконтоНМА,
+					,
+					КорСчет В ИЕРАРХИИ (&amp;мСписокСчетовПоставщиков),
+					) КАК ТиповойОбороты
+			ПО (ТиповойОбороты.Счет = б_СоответствияСтатейБюджетаВидамНМАБУ.Счет)
+				И (ТиповойОбороты.Субконто1.ВидНМА = б_СоответствияСтатейБюджетаВидамНМАБУ.ВидНМА)
+	ГДЕ
+		б_СоответствияСтатейБюджетаВидамНМАБУ.СтатьяБюджета.Владелец = &amp;ФормируемыйБюджет) КАК ОборотПоБУ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	фин_СтатьиБюджета.Ссылка КАК СтатьяБюджета,
+	ОборотыБУ.Организация КАК Организация,
+	ЕСТЬNULL(ОборотыБУ.Регистратор, """") КАК Регистратор,
+	ЕСТЬNULL(ОборотыБУ.ПериодМесяц, """") КАК ПериодМесяц,
+	ЕСТЬNULL(ОборотыБУ.ПериодКвартал, """") КАК ПериодКвартал,
+	ВЫБОР
+		КОГДА &amp;ЕдиницаИзмерения = ЗНАЧЕНИЕ(Перечисление.ПорядкиОкругленияОтчетности.ОКР1000000)
+			ТОГДА ЕСТЬNULL(ОборотыБУ.Сумма, 0) / 1000000
+		ИНАЧЕ ВЫБОР
+				КОГДА &amp;ЕдиницаИзмерения = ЗНАЧЕНИЕ(Перечисление.ПорядкиОкругленияОтчетности.ОКР1000)
+					ТОГДА ЕСТЬNULL(ОборотыБУ.Сумма, 0) / 1000
+				ИНАЧЕ ЕСТЬNULL(ОборотыБУ.Сумма, 0)
+			КОНЕЦ
+	КОНЕЦ КАК Сумма,
+	ВЫБОР
+		КОГДА &amp;ЕдиницаИзмерения = ЗНАЧЕНИЕ(Перечисление.ПорядкиОкругленияОтчетности.ОКР1000000)
+			ТОГДА ЕСТЬNULL(ОборотыБУ.СуммаПлан, 0) / 1000000
+		ИНАЧЕ ВЫБОР
+				КОГДА &amp;ЕдиницаИзмерения = ЗНАЧЕНИЕ(Перечисление.ПорядкиОкругленияОтчетности.ОКР1000)
+					ТОГДА ЕСТЬNULL(ОборотыБУ.СуммаПлан, 0) / 1000
+				ИНАЧЕ ЕСТЬNULL(ОборотыБУ.СуммаПлан, 0)
+			КОНЕЦ
+	КОНЕЦ КАК СуммаПлан
+ИЗ
+	Справочник.фин_СтатьиБюджета КАК фин_СтатьиБюджета
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ФактическийОборотБУ.СтатьяБюджета КАК СтатьяБюджета,
+			ФактическийОборотБУ.Организация КАК Организация,
+			ФактическийОборотБУ.Сумма КАК Сумма,
+			0 КАК СуммаПлан,
+			ФактическийОборотБУ.Регистратор КАК Регистратор,
+			ФактическийОборотБУ.ПериодМесяц КАК ПериодМесяц,
+			ФактическийОборотБУ.ПериодКвартал КАК ПериодКвартал
+		ИЗ
+			ФактическийОборот КАК ФактическийОборотБУ
+		
+		ОБЪЕДИНИТЬ ВСЕ
+		
+		ВЫБРАТЬ
+			б_БюджетОбороты.СтатьяБюджета,
+			б_БюджетОбороты.Организация,
+			0,
+			б_БюджетОбороты.СуммаОборот,
+			б_БюджетОбороты.Регистратор,
+			б_БюджетОбороты.ПериодМесяц,
+			б_БюджетОбороты.ПериодКвартал
+		ИЗ
+			РегистрНакопления.б_Бюджет.Обороты(
+					&amp;НачалоПериода,
+					&amp;КонецПериода,
+					Авто,
+					Бюджет = &amp;ФормируемыйБюджет
+						И Статус = &amp;Статус) КАК б_БюджетОбороты
+		
+		ОБЪЕДИНИТЬ ВСЕ
+		
+		ВЫБРАТЬ
+			ЗависимостиСтатейБюджета.ЗависимаяСтатьяБюджета,
+			ЕСТЬNULL(ФактическийОборотПоБУ.Организация, ЗНАЧЕНИЕ(Справочник.Организации.ПустаяСсылка)),
+			ЕСТЬNULL(ФактическийОборотПоБУ.Сумма, 0) * ЗависимостиСтатейБюджета.Коэффициент,
+			0,
+			ЕСТЬNULL(ФактическийОборотПоБУ.Регистратор, NULL),
+			ЕСТЬNULL(ФактическийОборотПоБУ.ПериодМесяц, NULL),
+			ЕСТЬNULL(ФактическийОборотПоБУ.ПериодКвартал, NULL)
+		ИЗ
+			РегистрСведений.ЗависимостиСтатейБюджета КАК ЗависимостиСтатейБюджета
+				ВНУТРЕННЕЕ СОЕДИНЕНИЕ ФактическийОборот КАК ФактическийОборотПоБУ
+				ПО ЗависимостиСтатейБюджета.ВлияющаяСтатьяБюджета = ФактическийОборотПоБУ.СтатьяБюджета
+		ГДЕ
+			ЗависимостиСтатейБюджета.ЗависимыйБюджет = &amp;ФормируемыйБюджет) КАК ОборотыБУ
+		ПО (ОборотыБУ.СтатьяБюджета = фин_СтатьиБюджета.Ссылка)
+ГДЕ
+	фин_СтатьиБюджета.Владелец = &amp;ФормируемыйБюджет
+	И НЕ фин_СтатьиБюджета.ЭтоГруппа</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ПроцентИсполнения</dataPath>
+		<expression>ВЫБОР КОГДА СуммаПлан=0 Тогда 0 Иначе Сумма*100/СуммаПлан КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Процент исполнения</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+		</appearance>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+	</calculatedField>
+	<totalField>
+		<dataPath>Сумма</dataPath>
+		<expression>Сумма(Сумма)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаПлан</dataPath>
+		<expression>Сумма(СуммаПлан)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПроцентИсполнения</dataPath>
+		<expression>ВЫБОР КОГДА Сумма(СуммаПлан)=0 Тогда 0 Иначе Сумма(Сумма)*100/Сумма(СуммаПлан) КОНЕЦ</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ЕдиницаИзмерения</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Единица измерения</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ПорядкиОкругленияОтчетности</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ПорядкиОкругленияОтчетности.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ФормируемыйБюджет</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Формируемый бюджет</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.Бюджеты.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>мСубконтоДоходы</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>М субконто доходы</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.ВидыСубконтоТиповые</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоТиповые.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>мСубконтоТипыОпераций</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>М субконто типы операций</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.ВидыСубконтоТиповые</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоТиповые.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>мСубконтоСтатьиЗатрат</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>М субконто статьи затрат</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.ВидыСубконтоТиповые</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоТиповые.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>мСубконтоОС</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>М субконто ОС</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.ВидыСубконтоТиповые</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоТиповые.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>мСписокСчетовПоставщиков</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>М список счетов поставщиков</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfAccountsRef.Типовой</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Типовой.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Статус</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Статус</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.СостоянияОбъектов</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОбъектов.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>мСубконтоНМА</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>М субконто НМА</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.ВидыСубконтоТиповые</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоТиповые.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаПлан</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>План</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сумма</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Факт</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПроцентИсполнения</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>% исп.</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:userSettingID>6537206f-fbf6-4d0a-a263-b4163df2d238</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>мСубконтоТипыОпераций</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.Организации.ПустаяСсылка</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Море</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Auto</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:column>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ПериодКвартал</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ПериодМесяц</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:column>
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>СтатьяБюджета.КодСтрокиБюджета</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>СтатьяБюджета</dcsset:field>
+							<dcsset:groupType>Hierarchy</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,884 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИнформационнаяБаза</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ДанныеРегистровНДС</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ отгрузки</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидНалогаНДС</dataPath>
+			<field>ВидНалогаНДС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидОперацииКорректировки</dataPath>
+			<field>ВидОперацииКорректировки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидОперацииРеализации</dataPath>
+			<field>ВидОперацииРеализации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГТД</dataPath>
+			<field>ГТД</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Налогоплательщик</dataPath>
+			<field>Налогоплательщик</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОборотПоРеализацииОборот</dataPath>
+			<field>ОборотПоРеализацииОборот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оборот по реализации</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтавкаНДС</dataPath>
+			<field>СтавкаНДС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтруктурнаяЕдиница</dataPath>
+			<field>СтруктурнаяЕдиница</field>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаБезНДСОборот</dataPath>
+			<field>СуммаБезНДСОборот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма без НДС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНДСОборот</dataPath>
+			<field>СуммаНДСОборот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма НДС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТМЗ</dataPath>
+			<field>ТМЗ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаВсего</dataPath>
+			<field>СуммаВсего</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СчетФактураРеализации</dataPath>
+			<field>СчетФактураРеализации</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Счет-фактура</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СчетФактура</dataPath>
+			<field>СчетФактура</field>
+			<useRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<attributeUseRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</attributeUseRestriction>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтруктурноеПодразделение</dataPath>
+			<field>СтруктурноеПодразделение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структурное подразделение</v8:content>
+				</v8:item>
+			</title>
+			<presentationExpression>Выбор Когда Не ЗначениеЗаполнено(СтруктурноеПодразделение) Тогда "Головное подразделение" Иначе СтруктурноеПодразделение Конец</presentationExpression>
+		</field>
+		<dataSource>ИнформационнаяБаза</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	НДСОбороты.Регистратор,
+	НДСОбороты.Налогоплательщик,
+	НДСОбороты.Организация,
+	НДСОбороты.Контрагент,
+	НДСОбороты.СуммаБезНДСОборот,
+	НДСОбороты.ОборотПоРеализацииОборот,
+	НДСОбороты.СуммаНДСОборот,
+	НДСОбороты.Регистратор.СтруктурноеПодразделение КАК СтруктурноеПодразделение
+ПОМЕСТИТЬ ВТ_ДвиженияНДС
+ИЗ
+	РегистрНакопления.НДС.Обороты({(&amp;НачалоПериода)}, {(&amp;КонецПериода)}, Регистратор, {(Организация = &amp;Организация)}) КАК НДСОбороты
+ГДЕ
+	ТИПЗНАЧЕНИЯ(НДСОбороты.Регистратор) В (&amp;ТипЗначенияРегистратора)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	КорректировкаНДСОбороты.Регистратор,
+	КорректировкаНДСОбороты.Налогоплательщик,
+	КорректировкаНДСОбороты.Организация,
+	КорректировкаНДСОбороты.Контрагент,
+	КорректировкаНДСОбороты.СуммаКорректировкиОборотаОборот,
+	КорректировкаНДСОбороты.СуммаКорректировкиОборотаОборот,
+	КорректировкаНДСОбороты.СуммаНДСОборот,
+	КорректировкаНДСОбороты.Регистратор.СтруктурноеПодразделение
+ИЗ
+	РегистрНакопления.КорректировкаНДС.Обороты({(&amp;НачалоПериода)}, {(&amp;КонецПериода)}, Регистратор, {(Организация = &amp;Организация)}) КАК КорректировкаНДСОбороты
+ГДЕ
+	ТИПЗНАЧЕНИЯ(КорректировкаНДСОбороты.Регистратор) В (&amp;ТипЗначенияРегистратора)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	СчетФактураВыданныйДокументыОснования.ДокументОснование КАК ДокументОснования,
+	СчетФактураВыданныйДокументыОснования.Ссылка КАК СчетФактура
+ПОМЕСТИТЬ ВТ_СчетаФактурыДокументов
+ИЗ
+	Документ.СчетФактураВыданный.ДокументыОснования КАК СчетФактураВыданныйДокументыОснования
+ГДЕ
+	СчетФактураВыданныйДокументыОснования.ДокументОснование В
+			(ВЫБРАТЬ
+				ВТ_ДвиженияНДС.Регистратор
+			ИЗ
+				ВТ_ДвиженияНДС)
+	И НЕ СчетФактураВыданныйДокументыОснования.Ссылка.ПометкаУдаления
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	АктуальныеСчетаФактуры.ДокументОснования КАК ДокументОснования,
+	АктуальныеСчетаФактуры.СчетФактура КАК СчетФактура,
+	АктуальныеСчетаФактуры.СчетФактура.Проведен КАК СчетФактураПроведен
+ПОМЕСТИТЬ ВТ_АктуальныеСчетаФактурыДокументов
+ИЗ
+	ВТ_СчетаФактурыДокументов КАК АктуальныеСчетаФактуры
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СчетаФактурыПрекратившиеДействие КАК СчетаФактурыПрекратившиеДействие
+		ПО (СчетаФактурыПрекратившиеДействие.СчетФактура = АктуальныеСчетаФактуры.СчетФактура)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Сторнирование КАК Сторнирование
+		ПО АктуальныеСчетаФактуры.СчетФактура = Сторнирование.ДокументОснование
+			И (НЕ Сторнирование.ПометкаУдаления)
+ГДЕ
+	СчетаФактурыПрекратившиеДействие.СчетФактура ЕСТЬ NULL 
+	И Сторнирование.Ссылка ЕСТЬ NULL 
+
+СГРУППИРОВАТЬ ПО
+	АктуальныеСчетаФактуры.ДокументОснования,
+	АктуальныеСчетаФактуры.СчетФактура,
+	АктуальныеСчетаФактуры.СчетФактура.Проведен
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ДвиженияНДС.Регистратор,
+	ВТ_АктуальныеСчетаФактурыДокументов.СчетФактура,
+	ВТ_АктуальныеСчетаФактурыДокументов.СчетФактура КАК СчетФактураРеализации,
+	ВТ_ДвиженияНДС.Налогоплательщик,
+	ВТ_ДвиженияНДС.Организация,
+	ВТ_ДвиженияНДС.Контрагент,
+	ВТ_ДвиженияНДС.СуммаБезНДСОборот,
+	ВТ_ДвиженияНДС.ОборотПоРеализацииОборот,
+	ВТ_ДвиженияНДС.СуммаНДСОборот,
+	ВТ_ДвиженияНДС.СуммаБезНДСОборот + ВТ_ДвиженияНДС.СуммаНДСОборот КАК СуммаВсего,
+	ВТ_ДвиженияНДС.СтруктурноеПодразделение
+ИЗ
+	ВТ_ДвиженияНДС КАК ВТ_ДвиженияНДС
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_АктуальныеСчетаФактурыДокументов КАК ВТ_АктуальныеСчетаФактурыДокументов
+		ПО ВТ_ДвиженияНДС.Регистратор = ВТ_АктуальныеСчетаФактурыДокументов.ДокументОснования</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ДанныеСчетовФактур</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Налогоплательщик</dataPath>
+			<field>Налогоплательщик</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Покупатель</dataPath>
+			<field>Покупатель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтавкаАкциза</dataPath>
+			<field>СтавкаАкциза</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтавкаНДС</dataPath>
+			<field>СтавкаНДС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтруктурнаяЕдиница</dataPath>
+			<field>СтруктурнаяЕдиница</field>
+			<attributeUseRestriction>
+				<field>true</field>
+			</attributeUseRestriction>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СчетФактура</dataPath>
+			<field>СчетФактура</field>
+			<useRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<attributeUseRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</attributeUseRestriction>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТМЗ</dataPath>
+			<field>ТМЗ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СФДата</dataPath>
+			<field>СФДата</field>
+			<useRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СФДатаОборота</dataPath>
+			<field>СФДатаОборота</field>
+			<useRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СФСрокВыписки</dataPath>
+			<field>СФСрокВыписки</field>
+			<useRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаАкцизаВВалютеДоговора</dataPath>
+			<field>СуммаАкцизаВВалютеДоговора</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма акциза в валюте договора (счет-фактура)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СФОборотПоРеализацииВВалютеДоговора</dataPath>
+			<field>СФОборотПоРеализацииВВалютеДоговора</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оборот по реализации в валюте договора (счет-фактура)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СФОборотПоРеализацииРегл</dataPath>
+			<field>СФОборотПоРеализацииРегл</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оборот по реализации регл. (счет-фактура)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СФСуммаАкцизаРегл</dataPath>
+			<field>СФСуммаАкцизаРегл</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма акциза регл. (счет-фактура)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СФСуммаВВалютеДоговора</dataPath>
+			<field>СФСуммаВВалютеДоговора</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма в валюте договора (счет-фактура)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СФСуммаНДСВВалютеДоговора</dataPath>
+			<field>СФСуммаНДСВВалютеДоговора</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма НДС в валюте договора (счет-фактура)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СФСуммаНДСРегл</dataPath>
+			<field>СФСуммаНДСРегл</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма НДС регл. (счет-фактура)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СФСуммаРегл</dataPath>
+			<field>СФСуммаРегл</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма регл. (счет-фактура)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтруктурноеПодразделение</dataPath>
+			<field>СтруктурноеПодразделение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структурное подразделение</v8:content>
+				</v8:item>
+			</title>
+			<presentationExpression>Выбор Когда Не ЗначениеЗаполнено(СтруктурноеПодразделение) Тогда "Головное подразделение" Иначе СтруктурноеПодразделение Конец</presentationExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СпособВыставления</dataPath>
+			<field>СпособВыставления</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способ выписки счета-фактуры</v8:content>
+				</v8:item>
+			</title>
+			<presentationExpression>ВЫБОР КОГДА СпособВыставления = 1 ТОГДА "На бумажном носителе" КОГДА СпособВыставления = 2 ТОГДА "В электронном виде" КОГДА СпособВыставления = 3 ТОГДА "Обоими способами" КОНЕЦ</presentationExpression>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<availableValue>
+				<value xsi:type="xs:decimal">1</value>
+				<presentation xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>На бумажном носителе</v8:content>
+					</v8:item>
+				</presentation>
+			</availableValue>
+			<availableValue>
+				<value xsi:type="xs:decimal">2</value>
+				<presentation xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>В электронном виде</v8:content>
+					</v8:item>
+				</presentation>
+			</availableValue>
+			<availableValue>
+				<value xsi:type="xs:decimal">3</value>
+				<presentation xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обоими способами</v8:content>
+					</v8:item>
+				</presentation>
+			</availableValue>
+		</field>
+		<dataSource>ИнформационнаяБаза</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+    СведенияСчетовФактурВыданныхОбороты.Налогоплательщик,
+    СведенияСчетовФактурВыданныхОбороты.Организация,
+    СведенияСчетовФактурВыданныхОбороты.СтруктурнаяЕдиница,
+    СведенияСчетовФактурВыданныхОбороты.СчетФактура,
+    СведенияСчетовФактурВыданныхОбороты.Контрагент,
+    СведенияСчетовФактурВыданныхОбороты.Покупатель,
+    СведенияСчетовФактурВыданныхОбороты.СуммаВВалютеДоговораОборот КАК СФСуммаВВалютеДоговора,
+    СведенияСчетовФактурВыданныхОбороты.СуммаРеглОборот КАК СФСуммаРегл,
+    СведенияСчетовФактурВыданныхОбороты.ОборотПоРеализацииВВалютеДоговораОборот КАК СФОборотПоРеализацииВВалютеДоговора,
+    СведенияСчетовФактурВыданныхОбороты.СуммаНДСВВалютеДоговораОборот КАК СФСуммаНДСВВалютеДоговора,
+    СведенияСчетовФактурВыданныхОбороты.ОборотПоРеализацииРеглОборот КАК СФОборотПоРеализацииРегл,
+    СведенияСчетовФактурВыданныхОбороты.СуммаНДСРеглОборот КАК СФСуммаНДСРегл,
+    СведенияСчетовФактурВыданныхОбороты.СуммаАкцизаВВалютеДоговораОборот КАК СуммаАкцизаВВалютеДоговора,
+    СведенияСчетовФактурВыданныхОбороты.СуммаАкцизаРеглОборот КАК СФСуммаАкцизаРегл,
+    СведенияСчетовФактурВыданныхОбороты.СчетФактура.ДатаСовершенияОборотаПоРеализации КАК СФДатаОборота,
+    СведенияСчетовФактурВыданныхОбороты.СчетФактура.Дата КАК СФДата,
+    РАЗНОСТЬДАТ(СведенияСчетовФактурВыданныхОбороты.СчетФактура.ДатаСовершенияОборотаПоРеализации, СведенияСчетовФактурВыданныхОбороты.СчетФактура.Дата, ДЕНЬ) КАК СФСрокВыписки,
+    СведенияСчетовФактурВыданныхОбороты.СчетФактура.СтруктурноеПодразделение КАК СтруктурноеПодразделение,
+    ВЫБОР
+        КОГДА НЕ ЕСТЬNULL(ЭСФ.ДатаВыпискиНаБумажномНосителе, ДАТАВРЕМЯ(1, 1, 1)) = ДАТАВРЕМЯ(1, 1, 1)
+            ТОГДА 3
+        ИНАЧЕ ВЫБОР
+                КОГДА СведенияСчетовФактурВыданныхОбороты.СчетФактура.СпособВыставления = ЗНАЧЕНИЕ(Перечисление.СпособыОбменаДокументами.Электронно)
+                    ТОГДА 2
+                ИНАЧЕ 1
+            КОНЕЦ
+    КОНЕЦ КАК СпособВыставления
+ПОМЕСТИТЬ СведенияСчетовФактурВыданныхОбороты
+ИЗ
+    РегистрНакопления.СведенияСчетовФактурВыданных.Обороты({(&amp;НачалоПериода)}, {(&amp;КонецПериода)}, , {(Организация = &amp;Организация)}) КАК СведенияСчетовФактурВыданныхОбороты
+        ЛЕВОЕ СОЕДИНЕНИЕ Документ.ЭСФ КАК ЭСФ
+        ПО СведенияСчетовФактурВыданныхОбороты.СчетФактура = ЭСФ.СчетФактура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+    СчетФактураВыданныйУчастникиСовместнойДеятельности.Ссылка
+ПОМЕСТИТЬ СчетФактураВыданныйУчастникиСовместнойДеятельности
+ИЗ
+    Документ.СчетФактураВыданный.УчастникиСовместнойДеятельности КАК СчетФактураВыданныйУчастникиСовместнойДеятельности
+ГДЕ
+    СчетФактураВыданныйУчастникиСовместнойДеятельности.Ссылка В
+            (ВЫБРАТЬ
+                СведенияСчетовФактурВыданныхОбороты.СчетФактура
+            ИЗ
+                СведенияСчетовФактурВыданныхОбороты КАК СведенияСчетовФактурВыданныхОбороты)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+    СведенияСчетовФактурВыданныхОбороты.Налогоплательщик,
+    СведенияСчетовФактурВыданныхОбороты.Организация,
+    СведенияСчетовФактурВыданныхОбороты.СтруктурнаяЕдиница,
+    СведенияСчетовФактурВыданныхОбороты.СчетФактура,
+    ВЫБОР
+        КОГДА СчетФактураВыданныйУчастникиСовместнойДеятельности.Ссылка ЕСТЬ NULL 
+            ТОГДА СведенияСчетовФактурВыданныхОбороты.Контрагент
+        ИНАЧЕ СведенияСчетовФактурВыданныхОбороты.Покупатель
+    КОНЕЦ КАК Контрагент,
+    СведенияСчетовФактурВыданныхОбороты.СФСуммаВВалютеДоговора,
+    СведенияСчетовФактурВыданныхОбороты.СФСуммаРегл,
+    СведенияСчетовФактурВыданныхОбороты.СФОборотПоРеализацииВВалютеДоговора,
+    СведенияСчетовФактурВыданныхОбороты.СФСуммаНДСВВалютеДоговора,
+    СведенияСчетовФактурВыданныхОбороты.СФОборотПоРеализацииРегл,
+    СведенияСчетовФактурВыданныхОбороты.СФСуммаНДСРегл,
+    СведенияСчетовФактурВыданныхОбороты.СуммаАкцизаВВалютеДоговора,
+    СведенияСчетовФактурВыданныхОбороты.СФСуммаАкцизаРегл,
+    СведенияСчетовФактурВыданныхОбороты.СФДатаОборота,
+    СведенияСчетовФактурВыданныхОбороты.СФДата,
+    СведенияСчетовФактурВыданныхОбороты.СФСрокВыписки,
+    СведенияСчетовФактурВыданныхОбороты.СтруктурноеПодразделение,
+    СведенияСчетовФактурВыданныхОбороты.СпособВыставления
+ИЗ
+    СведенияСчетовФактурВыданныхОбороты КАК СведенияСчетовФактурВыданныхОбороты
+        ЛЕВОЕ СОЕДИНЕНИЕ СчетФактураВыданныйУчастникиСовместнойДеятельности КАК СчетФактураВыданныйУчастникиСовместнойДеятельности
+        ПО СведенияСчетовФактурВыданныхОбороты.СчетФактура = СчетФактураВыданныйУчастникиСовместнойДеятельности.Ссылка</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ДанныеЭСФ</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Состояние</dataPath>
+			<field>Состояние</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЭСФ</dataPath>
+			<field>ЭСФ</field>
+			<presentationExpression>"ЭСФ № " +ЭСФ.Номер + " от " +  Формат(ЭСФ.Дата, "ДФ=dd.MM.yyyy") + "(" + Представление(Состояние) + ", рег. № " + ЭСФ.РегистрационныйНомер+
+")"</presentationExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СчетФактура</dataPath>
+			<field>СчетФактура</field>
+			<useRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<attributeUseRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</attributeUseRestriction>
+		</field>
+		<dataSource>ИнформационнаяБаза</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	АктуальныеЭСФ.ЭСФ,
+	АктуальныеЭСФ.Состояние,
+	АктуальныеЭСФ.СчетФактура
+ИЗ
+	РегистрСведений.АктуальныеЭСФ КАК АктуальныеЭСФ</query>
+	</dataSet>
+	<dataSetLink>
+		<sourceDataSet>ДанныеРегистровНДС</sourceDataSet>
+		<destinationDataSet>ДанныеСчетовФактур</destinationDataSet>
+		<sourceExpression>Организация</sourceExpression>
+		<destinationExpression>Организация</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ДанныеРегистровНДС</sourceDataSet>
+		<destinationDataSet>ДанныеСчетовФактур</destinationDataSet>
+		<sourceExpression>Налогоплательщик</sourceExpression>
+		<destinationExpression>Налогоплательщик</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ДанныеРегистровНДС</sourceDataSet>
+		<destinationDataSet>ДанныеСчетовФактур</destinationDataSet>
+		<sourceExpression>Контрагент</sourceExpression>
+		<destinationExpression>Контрагент</destinationExpression>
+		<required>false</required>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ДанныеРегистровНДС</sourceDataSet>
+		<destinationDataSet>ДанныеСчетовФактур</destinationDataSet>
+		<sourceExpression>СчетФактура</sourceExpression>
+		<destinationExpression>СчетФактура</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ДанныеРегистровНДС</sourceDataSet>
+		<destinationDataSet>ДанныеЭСФ</destinationDataSet>
+		<sourceExpression>СчетФактура</sourceExpression>
+		<destinationExpression>СчетФактура</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ДанныеРегистровНДС</sourceDataSet>
+		<destinationDataSet>ДанныеСчетовФактур</destinationDataSet>
+		<sourceExpression>СтруктурноеПодразделение</sourceExpression>
+		<destinationExpression>СтруктурноеПодразделение</destinationExpression>
+	</dataSetLink>
+	<calculatedField>
+		<dataPath>СчетФактураПроведен</dataPath>
+		<expression>ВЫБОР Когда СчетФактураРеализации есть NULL тогда ложь Иначе СчетФактураРеализации.Проведен Конец</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Проведен счет-фактура</v8:content>
+			</v8:item>
+		</title>
+		<presentationExpression>ВЫБОР Когда СчетФактураРеализации есть NULL тогда "" иначе ВЫБОР КОГДА СчетФактураРеализации.Проведен  ТОГДА "•" Иначе  "" Конец Конец</presentationExpression>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:use>false</dcscor:use>
+				<dcscor:parameter>Шрифт</dcscor:parameter>
+				<dcscor:value xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="12" bold="false" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:use>false</dcscor:use>
+				<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СчетФактураВыписан</dataPath>
+		<expression>ВЫБОР Когда СчетФактураРеализации есть NULL тогда Ложь иначе Истина Конец</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Выписан счет-фактура</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>ОборотПоРеализацииОборот</dataPath>
+		<expression>Сумма(ОборотПоРеализацииОборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаБезНДСОборот</dataPath>
+		<expression>Сумма(СуммаБезНДСОборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНДСОборот</dataPath>
+		<expression>Сумма(СуммаНДСОборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаВсего</dataPath>
+		<expression>Сумма(СуммаВсего)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СФСуммаНДСРегл</dataPath>
+		<expression>Сумма(СФСуммаНДСРегл)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СФОборотПоРеализацииРегл</dataPath>
+		<expression>Сумма(СФОборотПоРеализацииРегл)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СФСуммаРегл</dataPath>
+		<expression>Сумма(СФСуммаРегл)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СФСуммаНДСВВалютеДоговора</dataPath>
+		<expression>Сумма(СФСуммаНДСВВалютеДоговора)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СФСуммаВВалютеДоговора</dataPath>
+		<expression>Сумма(СФСуммаВВалютеДоговора)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СФСуммаАкцизаРегл</dataPath>
+		<expression>Сумма(СФСуммаАкцизаРегл)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СФОборотПоРеализацииВВалютеДоговора</dataPath>
+		<expression>Сумма(СФОборотПоРеализацииВВалютеДоговора)</expression>
+	</totalField>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СрокВыписки</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Срок выписки</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">15</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СостоянияПриема</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Состояния приема</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.СостоянияЭСФ</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияЭСФ.ПринятСервером</value>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияЭСФ.ДоставленПолучателю</value>
+		<useRestriction>false</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<parameter>
+		<name>ТипЗначенияРегистратора</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тип значения регистратора</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:Type</v8:Type>
+		</valueType>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>НаличиеСчетовФактурВыданных</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Наличие счетов-фактур выданных</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>СрокВыписки</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Регистратор</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection/>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выделять отрицательные</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection/>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основной шрифт</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Green</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеПолейГруппировки</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionGroupFieldsPlacement">Together</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеГруппировки</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionGroupPlacement">Begin</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

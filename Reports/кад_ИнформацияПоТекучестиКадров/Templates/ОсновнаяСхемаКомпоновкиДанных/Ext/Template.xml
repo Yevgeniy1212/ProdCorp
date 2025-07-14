@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ШтатнаяЧисленность</dataPath>
+			<field>ШтатнаяЧисленность</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Штатная численность</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Уволено</dataPath>
+			<field>Уволено</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Уволено</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроцентОтШтатнойЧисленности</dataPath>
+			<field>ПроцентОтШтатнойЧисленности</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Процент от штатной численности</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=15; ЧДЦ=</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Процент</dataPath>
+			<field>Процент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Процент</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=15; ЧДЦ=</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЧистаяСменяемость</dataPath>
+			<field>ЧистаяСменяемость</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Чистая сменяемость</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	РаботникиОрганизацийСрезПоследних.Сотрудник,
+	РаботникиОрганизацийСрезПоследних.Организация
+ПОМЕСТИТЬ ВТ_Уволенные
+ИЗ
+	РегистрСведений.РаботникиОрганизаций.СрезПоследних(
+			,
+			ПричинаИзмененияСостояния = ЗНАЧЕНИЕ(Перечисление.ПричиныИзмененияСостояния.Увольнение)
+				И Сотрудник.ДатаУвольнения &lt;&gt; ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
+				И Сотрудник.ВидЗанятости = ЗНАЧЕНИЕ(Перечисление.ВидыЗанятостиВОрганизации.ОсновноеМестоРаботы)
+				И Организация = &amp;Организация) КАК РаботникиОрганизацийСрезПоследних
+ГДЕ
+	РаботникиОрганизацийСрезПоследних.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РаботникиОрганизацийСрезПоследних.Сотрудник,
+	РаботникиОрганизацийСрезПоследних.Организация
+ПОМЕСТИТЬ ВТ_ШтатныеСотрудники
+ИЗ
+	РегистрСведений.РаботникиОрганизаций.СрезПоследних(
+			&amp;КонецПериода,
+			Сотрудник.ВидЗанятости = ЗНАЧЕНИЕ(Перечисление.ВидыЗанятостиВОрганизации.ОсновноеМестоРаботы)
+				И Сотрудник.ДатаУвольнения = ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
+				И ПричинаИзмененияСостояния = ЗНАЧЕНИЕ(Перечисление.ПричиныИзмененияСостояния.ПриемНаРаботу)
+				И Организация = &amp;Организация) КАК РаботникиОрганизацийСрезПоследних
+ГДЕ
+	РаботникиОрганизацийСрезПоследних.Сотрудник.Физлицо.Родитель.Наименование &lt;&gt; "Внештата"
+	И РаботникиОрганизацийСрезПоследних.Сотрудник.Физлицо.Родитель.Наименование &lt;&gt; "дектретчицы"
+	И РаботникиОрганизацийСрезПоследних.Сотрудник.Физлицо.Родитель.Наименование &lt;&gt; "Зарубежные представительства"
+	И РаботникиОрганизацийСрезПоследних.Сотрудник.Физлицо.Родитель.Наименование = "Центральный аппарат"
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ШтатныеСотрудники.Организация,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ВТ_ШтатныеСотрудники.Сотрудник) КАК ШтатнаяЧисленность,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ВТ_Уволенные.Сотрудник) КАК Уволено,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ВТ_Уволенные.Сотрудник) / КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ВТ_ШтатныеСотрудники.Сотрудник) * 100 КАК Процент,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ВТ_Уволенные.Сотрудник) / КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ВТ_ШтатныеСотрудники.Сотрудник) * 100 КАК ПроцентОтШтатнойЧисленности,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ВТ_Уволенные.Сотрудник) КАК ЧистаяСменяемость
+ИЗ
+	ВТ_ШтатныеСотрудники КАК ВТ_ШтатныеСотрудники
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_Уволенные КАК ВТ_Уволенные
+		ПО ВТ_ШтатныеСотрудники.Организация = ВТ_Уволенные.Организация
+
+СГРУППИРОВАТЬ ПО
+	ВТ_ШтатныеСотрудники.Организация</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Процент</dataPath>
+		<expression>Сумма(Процент)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПроцентОтШтатнойЧисленности</dataPath>
+		<expression>Сумма(ПроцентОтШтатнойЧисленности)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Уволено</dataPath>
+		<expression>Сумма(Уволено)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЧистаяСменяемость</dataPath>
+		<expression>Сумма(ЧистаяСменяемость)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ШтатнаяЧисленность</dataPath>
+		<expression>Сумма(ШтатнаяЧисленность)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>ДобавитьКДате(КонецПериода(&amp;КонецПериода,"День"),"Секунда",1)</expression>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Организация</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ШтатнаяЧисленность</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Уволено</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Процент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЧистаяСменяемость</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПроцентОтШтатнойЧисленности</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Организация</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>b1b18551-d898-494a-96ce-4e1aa48b70f1</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>c2d5c816-bb86-498c-9cee-feb9cc06e3b6</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>11130330-c449-4422-9c13-4264a4b0fe2f</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>
