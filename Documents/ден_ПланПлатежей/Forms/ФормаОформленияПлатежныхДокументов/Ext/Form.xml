@@ -1,0 +1,922 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<ScalingMode>Compact</ScalingMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОформленияПлатежныхДокументов" id="36">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оформления платежных документов</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОформленияПлатежныхДокументовРасширеннаяПодсказка" id="59"/>
+			<ChildItems>
+				<InputField name="НадписьГруппы" id="42">
+					<DataPath>НадписьГруппы</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HorizontalAlign>Center</HorizontalAlign>
+					<TextEdit>false</TextEdit>
+					<TextColor>#004242</TextColor>
+					<BackColor>#B0C4DE</BackColor>
+					<BorderColor>#4682B4</BorderColor>
+					<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<ContextMenu name="НадписьГруппыКонтекстноеМеню" id="43"/>
+					<ExtendedTooltip name="НадписьГруппыРасширеннаяПодсказка" id="60"/>
+				</InputField>
+				<UsualGroup name="ГруппаОтбор" id="44">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отбор</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отбор</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОтборРасширеннаяПодсказка" id="61"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаОтборЛевая" id="56">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отбор (левая колонка)</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтборЛеваяРасширеннаяПодсказка" id="62"/>
+							<ChildItems>
+								<InputField name="ФормаОплаты" id="51">
+									<DataPath>ФормаОплаты</DataPath>
+									<ContextMenu name="ФормаОплатыКонтекстноеМеню" id="52"/>
+									<ExtendedTooltip name="ФормаОплатыРасширеннаяПодсказка" id="63"/>
+									<Events>
+										<Event name="OnChange">ФормаОплатыПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="БанковскийСчетКасса" id="54">
+									<DataPath>БанковскийСчетКасса</DataPath>
+									<ContextMenu name="БанковскийСчетКассаКонтекстноеМеню" id="55"/>
+									<ExtendedTooltip name="БанковскийСчетКассаРасширеннаяПодсказка" id="64"/>
+									<Events>
+										<Event name="OnChange">БанковскийСчетКассаПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОтборПравая" id="57">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отбор (правая колонка)</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтборПраваяРасширеннаяПодсказка" id="65"/>
+							<ChildItems>
+								<InputField name="ВидОперации" id="45">
+									<DataPath>ВидОперации</DataPath>
+									<ContextMenu name="ВидОперацииКонтекстноеМеню" id="46"/>
+									<ExtendedTooltip name="ВидОперацииРасширеннаяПодсказка" id="66"/>
+									<Events>
+										<Event name="OnChange">ВидОперацииПриИзменении</Event>
+									</Events>
+								</InputField>
+								<UsualGroup name="ГруппаОтборВидОперацииДетали" id="58">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отбор вид операции (детали)</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОтборВидОперацииДеталиРасширеннаяПодсказка" id="67"/>
+									<ChildItems>
+										<InputField name="Контрагент" id="47">
+											<DataPath>Контрагент</DataPath>
+											<ContextMenu name="КонтрагентКонтекстноеМеню" id="48"/>
+											<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="68"/>
+											<Events>
+												<Event name="OnChange">КонтрагентПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="Получатель" id="49">
+											<DataPath>Получатель</DataPath>
+											<ContextMenu name="ПолучательКонтекстноеМеню" id="50"/>
+											<ExtendedTooltip name="ПолучательРасширеннаяПодсказка" id="69"/>
+											<Events>
+												<Event name="OnChange">ПолучательПриИзменении</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаДокументыКОплате" id="37">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документы к оплате</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДокументыКОплатеРасширеннаяПодсказка" id="70"/>
+					<ChildItems>
+						<Table name="ДеревоЗаявок" id="1">
+							<Representation>Tree</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<HeaderHeight>2</HeaderHeight>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ДеревоЗаявок</DataPath>
+							<TextColor>web:DarkSlateBlue</TextColor>
+							<BorderColor>#B0C4DE</BorderColor>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<ContextMenu name="ДеревоЗаявокКонтекстноеМеню" id="2"/>
+							<AutoCommandBar name="ДеревоЗаявокКоманднаяПанель" id="3">
+								<ChildItems>
+									<Button name="ДеревоЗаявокОбновитьДеревоЗаявок" id="33">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ОбновитьДеревоЗаявок</CommandName>
+										<Picture>
+											<xr:Ref>StdPicture.Refresh</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<ExtendedTooltip name="ДеревоЗаявокОбновитьДеревоЗаявокРасширеннаяПодсказка" id="71"/>
+									</Button>
+									<Button name="ДеревоЗаявокУстановитьФлажки" id="20">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.УстановитьФлажки</CommandName>
+										<ExtendedTooltip name="ДеревоЗаявокУстановитьФлажкиРасширеннаяПодсказка" id="72"/>
+									</Button>
+									<Button name="ДеревоЗаявокСнятьФлажки" id="19">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СнятьФлажки</CommandName>
+										<ExtendedTooltip name="ДеревоЗаявокСнятьФлажкиРасширеннаяПодсказка" id="73"/>
+									</Button>
+									<Button name="ДокументыОплатыПоказатьДокументы" id="30">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<Check>true</Check>
+										<CommandName>Form.Command.ПоказатьДокументы</CommandName>
+										<Picture>
+											<xr:Ref>CommonPicture.фин_ФиксироватьКолонки</xr:Ref>
+											<xr:LoadTransparent>false</xr:LoadTransparent>
+										</Picture>
+										<ExtendedTooltip name="ДокументыОплатыПоказатьДокументыРасширеннаяПодсказка" id="74"/>
+									</Button>
+									<Button name="ДеревоЗаявокСформироватьДокументы" id="18">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<CommandName>Form.Command.СформироватьДокументы</CommandName>
+										<ExtendedTooltip name="ДеревоЗаявокСформироватьДокументыРасширеннаяПодсказка" id="75"/>
+									</Button>
+									<Button name="ДеревоЗаявокЕдиныйПлатежныйДокумент" id="53">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ЕдиныйПлатежныйДокумент</CommandName>
+										<ExtendedTooltip name="ДеревоЗаявокЕдиныйПлатежныйДокументРасширеннаяПодсказка" id="76"/>
+									</Button>
+									<Button name="ДеревоЗаявокПровести" id="21">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<CommandName>Form.Command.Провести</CommandName>
+										<ExtendedTooltip name="ДеревоЗаявокПровестиРасширеннаяПодсказка" id="77"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ДеревоЗаявокРасширеннаяПодсказка" id="78"/>
+							<SearchStringAddition name="ДеревоЗаявокСтрокаПоиска" id="79">
+								<AdditionSource>
+									<Item>ДеревоЗаявок</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДеревоЗаявокСтрокаПоискаКонтекстноеМеню" id="80"/>
+								<ExtendedTooltip name="ДеревоЗаявокСтрокаПоискаРасширеннаяПодсказка" id="81"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ДеревоЗаявокСостояниеПросмотра" id="82">
+								<AdditionSource>
+									<Item>ДеревоЗаявок</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДеревоЗаявокСостояниеПросмотраКонтекстноеМеню" id="83"/>
+								<ExtendedTooltip name="ДеревоЗаявокСостояниеПросмотраРасширеннаяПодсказка" id="84"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ДеревоЗаявокУправлениеПоиском" id="85">
+								<AdditionSource>
+									<Item>ДеревоЗаявок</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ДеревоЗаявокУправлениеПоискомКонтекстноеМеню" id="86"/>
+								<ExtendedTooltip name="ДеревоЗаявокУправлениеПоискомРасширеннаяПодсказка" id="87"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeEditEnd">ДеревоЗаявокПередОкончаниемРедактирования</Event>
+								<Event name="OnActivateRow">ДеревоЗаявокПриАктивизацииСтроки</Event>
+							</Events>
+							<ChildItems>
+								<CheckBoxField name="ДеревоЗаявокПрименить" id="22">
+									<DataPath>ДеревоЗаявок.Применить</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ДеревоЗаявокПрименитьКонтекстноеМеню" id="23"/>
+									<ExtendedTooltip name="ДеревоЗаявокПрименитьРасширеннаяПодсказка" id="88"/>
+								</CheckBoxField>
+								<InputField name="ДеревоЗаявокВидОперацииФОБК" id="4">
+									<DataPath>ДеревоЗаявок.ВидОперацииФОБК</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Вид операции\ Форма оплаты\ 
+Счет\Касса\ Заявка на расходование</v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДеревоЗаявокВидОперацииФОБККонтекстноеМеню" id="5"/>
+									<ExtendedTooltip name="ДеревоЗаявокВидОперацииФОБКРасширеннаяПодсказка" id="89"/>
+								</InputField>
+								<InputField name="ДеревоЗаявокПолучатель" id="34">
+									<DataPath>ДеревоЗаявок.Получатель</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДеревоЗаявокПолучательКонтекстноеМеню" id="35"/>
+									<ExtendedTooltip name="ДеревоЗаявокПолучательРасширеннаяПодсказка" id="90"/>
+								</InputField>
+								<InputField name="ДеревоЗаявокДатаПлатежа" id="6">
+									<DataPath>ДеревоЗаявок.ДатаПлатежа</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДеревоЗаявокДатаПлатежаКонтекстноеМеню" id="7"/>
+									<ExtendedTooltip name="ДеревоЗаявокДатаПлатежаРасширеннаяПодсказка" id="91"/>
+								</InputField>
+								<InputField name="ДеревоЗаявокЗРСВалютаДокумента" id="10">
+									<DataPath>ДеревоЗаявок.ЗРС.ВалютаДокумента</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Валюта</v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<ContextMenu name="ДеревоЗаявокЗРСВалютаДокументаКонтекстноеМеню" id="11"/>
+									<ExtendedTooltip name="ДеревоЗаявокЗРСВалютаДокументаРасширеннаяПодсказка" id="92"/>
+								</InputField>
+								<InputField name="ДеревоЗаявокСуммаПлатежа" id="8">
+									<DataPath>ДеревоЗаявок.СуммаПлатежа</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДеревоЗаявокСуммаПлатежаКонтекстноеМеню" id="9"/>
+									<ExtendedTooltip name="ДеревоЗаявокСуммаПлатежаРасширеннаяПодсказка" id="93"/>
+								</InputField>
+								<CheckBoxField name="ДеревоЗаявокИмеютсяПлатежныеДокументы" id="14">
+									<DataPath>ДеревоЗаявок.ИмеютсяПлатежныеДокументы</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ДеревоЗаявокИмеютсяПлатежныеДокументыКонтекстноеМеню" id="15"/>
+									<ExtendedTooltip name="ДеревоЗаявокИмеютсяПлатежныеДокументыРасширеннаяПодсказка" id="94"/>
+								</CheckBoxField>
+								<InputField name="ДеревоЗаявокПлатежныйДокумент" id="16">
+									<DataPath>ДеревоЗаявок.ПлатежныйДокумент</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<SpinButton>false</SpinButton>
+									<OpenButton>true</OpenButton>
+									<ChooseType>false</ChooseType>
+									<TextEdit>false</TextEdit>
+									<ChoiceListButton>false</ChoiceListButton>
+									<ContextMenu name="ДеревоЗаявокПлатежныйДокументКонтекстноеМеню" id="17"/>
+									<ExtendedTooltip name="ДеревоЗаявокПлатежныйДокументРасширеннаяПодсказка" id="95"/>
+									<Events>
+										<Event name="StartChoice">ДеревоЗаявокПлатежныйДокументНачалоВыбора</Event>
+										<Event name="Clearing">ДеревоЗаявокПлатежныйДокументОчистка</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<CheckBoxField name="ФормироватьДокументыТекущейДатой" id="40">
+							<DataPath>ФормироватьДокументыТекущейДатой</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ФормироватьДокументыТекущейДатойКонтекстноеМеню" id="41"/>
+							<ExtendedTooltip name="ФормироватьДокументыТекущейДатойРасширеннаяПодсказка" id="96"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаДокументыОплаты" id="29">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документы оплаты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа документы оплаты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<ExtendedTooltip name="ГруппаДокументыОплатыРасширеннаяПодсказка" id="97"/>
+					<ChildItems>
+						<Table name="ДокументыОплаты" id="24">
+							<Representation>List</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ДокументыОплаты</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Документы оплаты</v8:content>
+								</v8:item>
+							</Title>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ДокументыОплатыКонтекстноеМеню" id="25"/>
+							<AutoCommandBar name="ДокументыОплатыКоманднаяПанель" id="26">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ДокументыОплатыРасширеннаяПодсказка" id="98"/>
+							<SearchStringAddition name="ДокументыОплатыСтрокаПоиска" id="99">
+								<AdditionSource>
+									<Item>ДокументыОплаты</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДокументыОплатыСтрокаПоискаКонтекстноеМеню" id="100"/>
+								<ExtendedTooltip name="ДокументыОплатыСтрокаПоискаРасширеннаяПодсказка" id="101"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ДокументыОплатыСостояниеПросмотра" id="102">
+								<AdditionSource>
+									<Item>ДокументыОплаты</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДокументыОплатыСостояниеПросмотраКонтекстноеМеню" id="103"/>
+								<ExtendedTooltip name="ДокументыОплатыСостояниеПросмотраРасширеннаяПодсказка" id="104"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ДокументыОплатыУправлениеПоиском" id="105">
+								<AdditionSource>
+									<Item>ДокументыОплаты</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ДокументыОплатыУправлениеПоискомКонтекстноеМеню" id="106"/>
+								<ExtendedTooltip name="ДокументыОплатыУправлениеПоискомРасширеннаяПодсказка" id="107"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<PictureField name="ДокументыОплатыПроведен" id="31">
+									<DataPath>ДокументыОплаты.Проведен</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.ден_ДокументПроведен</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</ValuesPicture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="ДокументыОплатыПроведенКонтекстноеМеню" id="32"/>
+									<ExtendedTooltip name="ДокументыОплатыПроведенРасширеннаяПодсказка" id="108"/>
+								</PictureField>
+								<InputField name="ДокументыОплатыПлатежныеДокументы" id="27">
+									<DataPath>ДокументыОплаты.ПлатежныеДокументы</DataPath>
+									<EditMode>Directly</EditMode>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<SpinButton>false</SpinButton>
+									<OpenButton>true</OpenButton>
+									<ChooseType>false</ChooseType>
+									<TextEdit>false</TextEdit>
+									<ChoiceListButton>false</ChoiceListButton>
+									<ContextMenu name="ДокументыОплатыПлатежныеДокументыКонтекстноеМеню" id="28"/>
+									<ExtendedTooltip name="ДокументыОплатыПлатежныеДокументыРасширеннаяПодсказка" id="109"/>
+									<Events>
+										<Event name="StartChoice">ДокументыОплатыПлатежныеДокументыНачалоВыбора</Event>
+										<Event name="Clearing">ДокументыОплатыПлатежныеДокументыОчистка</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<LabelField name="Заявка" id="38">
+							<DataPath>Заявка</DataPath>
+							<ContextMenu name="ЗаявкаКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="ЗаявкаРасширеннаяПодсказка" id="110"/>
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ДеревоЗаявок" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дерево заявок</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ВидОперацииФОБК" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид операции ФОБК</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ден_ВидыОперацийЗаявкиНаРасходование</v8:Type>
+						<v8:Type>cfg:CatalogRef.БанковскиеСчета</v8:Type>
+						<v8:Type>cfg:DocumentRef.ден_ЗаявкаНаРасходованиеСредств</v8:Type>
+						<v8:Type>cfg:CatalogRef.Кассы</v8:Type>
+						<v8:Type>cfg:EnumRef.ден_ВидыДенежныхСредств</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДатаПлатежа" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата платежа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="СуммаПлатежа" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма платежа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЗРС" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЗРС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.ден_ЗаявкаНаРасходованиеСредств</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ИмеютсяПлатежныеДокументы" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имеются платежные документы</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПлатежныйДокумент" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Платежный документ</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.РасходныйКассовыйОрдер</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:Type>cfg:DocumentRef.ПлатежноеПоручениеИсходящее</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Применить" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Применить</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Получатель" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Получатель</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+						<v8:Type>cfg:CatalogRef.ФизическиеЛица</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ДокументыОплаты" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документы оплаты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ПлатежныеДокументы" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Платежные документы</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.РасходныйКассовыйОрдер</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:Type>cfg:DocumentRef.ПлатежноеПоручениеИсходящее</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Проведен" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Проведен</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЗРС" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЗРС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.ден_ЗаявкаНаРасходованиеСредств</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Заявка" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.ден_ЗаявкаНаРасходованиеСредств</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФормироватьДокументыТекущейДатой" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формировать документы текущей датой</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьГруппы" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись группы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Контрагент" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидОперации" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид операции</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ден_ВидыОперацийЗаявкиНаРасходование</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Получатель" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получатель</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ФизическиеЛица</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФормаОплаты" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Форма оплаты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ден_ВидыДенежныхСредств</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="БанковскийСчетКасса" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Банковский счет / касса</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.БанковскиеСчета</v8:Type>
+				<v8:Type>cfg:CatalogRef.Кассы</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Организация" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыборПоВладельцу" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбор по владельцу</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДеревоЗаявокИмеютсяПлатежныеДокументы</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДеревоЗаявокПлатежныйДокумент</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДеревоЗаявок.ЗРС</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Отображать</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="СформироватьДокументы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать документы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать документы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ден_ПачкаДокументов</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+				<xr:TransparentPixel x="12" y="0"/>
+			</Picture>
+			<Action>СформироватьДокументы</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Провести" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Провести</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Провести</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Post</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Провести</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СнятьФлажки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять флажки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять флажки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьФлажки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УстановитьФлажки" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьФлажки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоказатьДокументы" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать документы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать документы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказатьДокументы</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОбновитьДеревоЗаявок" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить </v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить дерево заявок</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОбновитьДеревоЗаявок</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЕдиныйПлатежныйДокумент" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Единый платежный документ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Единый платежный документ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Document</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ЕдиныйПлатежныйДокумент</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="План">
+			<Type>
+				<v8:Type>cfg:DocumentRef.ден_ПланПлатежей</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+	</Parameters>
+</Form>

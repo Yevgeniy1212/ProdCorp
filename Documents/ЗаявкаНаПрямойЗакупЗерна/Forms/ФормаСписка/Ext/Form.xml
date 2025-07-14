@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаПоказатьДополнительныйОтбор" id="42">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПоказатьДополнительныйОтбор</CommandName>
+				<ExtendedTooltip name="ФормаПоказатьДополнительныйОтборРасширеннаяПодсказка" id="43"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Отборы" id="38">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отборы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отборы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<ExtendedTooltip name="ОтборыРасширеннаяПодсказка" id="44"/>
+			<ChildItems>
+				<CheckBoxField name="ПоказатьНезаключенныеДоговора" id="34">
+					<DataPath>ПоказатьНезаключенныеДоговора</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПоказатьНезаключенныеДоговораКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ПоказатьНезаключенныеДоговораРасширеннаяПодсказка" id="45"/>
+					<Events>
+						<Event name="OnChange">ПоказатьНезаключенныеДоговораПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="ПоказатьЗаявкиСРасторгнутымиДоговорами" id="36">
+					<DataPath>ПоказатьЗаявкиСРасторгнутымиДоговорами</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПоказатьЗаявкиСРасторгнутымиДоговорамиКонтекстноеМеню" id="37"/>
+					<ExtendedTooltip name="ПоказатьЗаявкиСРасторгнутымиДоговорамиРасширеннаяПодсказка" id="46"/>
+					<Events>
+						<Event name="OnChange">ПоказатьЗаявкиСРасторгнутымиДоговорамиПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<Table name="Отбор" id="39">
+					<Representation>Tree</Representation>
+					<Visible>false</Visible>
+					<Autofill>true</Autofill>
+					<InitialTreeView>ExpandAllLevels</InitialTreeView>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Список.Filter</DataPath>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<ViewMode>All</ViewMode>
+					<SettingsNamedItemDetailedRepresentation>false</SettingsNamedItemDetailedRepresentation>
+					<ContextMenu name="ОтборКонтекстноеМеню" id="40"/>
+					<AutoCommandBar name="ОтборКоманднаяПанель" id="41"/>
+					<ExtendedTooltip name="ОтборРасширеннаяПодсказка" id="47"/>
+					<SearchStringAddition name="ОтборСтрокаПоиска" id="48">
+						<AdditionSource>
+							<Item>Отбор</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ОтборСтрокаПоискаКонтекстноеМеню" id="49"/>
+						<ExtendedTooltip name="ОтборСтрокаПоискаРасширеннаяПодсказка" id="50"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ОтборСостояниеПросмотра" id="51">
+						<AdditionSource>
+							<Item>Отбор</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ОтборСостояниеПросмотраКонтекстноеМеню" id="52"/>
+						<ExtendedTooltip name="ОтборСостояниеПросмотраРасширеннаяПодсказка" id="53"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ОтборУправлениеПоиском" id="54">
+						<AdditionSource>
+							<Item>Отбор</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ОтборУправлениеПоискомКонтекстноеМеню" id="55"/>
+						<ExtendedTooltip name="ОтборУправлениеПоискомРасширеннаяПодсказка" id="56"/>
+					</SearchControlAddition>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="Список" id="1">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="57"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="58">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="59"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="60"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="61">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="62"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="63"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="64">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="65"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="66"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<ColumnGroup name="Группа1" id="18">
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="67"/>
+					<ChildItems>
+						<LabelField name="Дата" id="4">
+							<DataPath>Список.Date</DataPath>
+							<DefaultItem>true</DefaultItem>
+							<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="68"/>
+						</LabelField>
+						<LabelField name="Номер" id="6">
+							<DataPath>Список.Number</DataPath>
+							<ContextMenu name="НомерКонтекстноеМеню" id="7"/>
+							<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="69"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаОргСтрукт" id="22">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа орг структ</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа орг структ</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаОргСтруктРасширеннаяПодсказка" id="70"/>
+					<ChildItems>
+						<LabelField name="Организация" id="12">
+							<DataPath>Список.Организация</DataPath>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="13"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="71"/>
+						</LabelField>
+						<LabelField name="СтруктурноеПодразделение" id="23">
+							<DataPath>Список.СтруктурноеПодразделение</DataPath>
+							<ContextMenu name="СтруктурноеПодразделениеКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="СтруктурноеПодразделениеРасширеннаяПодсказка" id="72"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<LabelField name="Поставщик" id="10">
+					<DataPath>Список.Поставщик</DataPath>
+					<ContextMenu name="ПоставщикКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ПоставщикРасширеннаяПодсказка" id="73"/>
+				</LabelField>
+				<LabelField name="СуммаДокумента" id="14">
+					<DataPath>Список.СуммаДокумента</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="СуммаДокументаКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="СуммаДокументаРасширеннаяПодсказка" id="74"/>
+				</LabelField>
+				<LabelField name="СтатусЗаявки" id="16">
+					<DataPath>Список.СтатусЗаявки</DataPath>
+					<ContextMenu name="СтатусЗаявкиКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="СтатусЗаявкиРасширеннаяПодсказка" id="75"/>
+				</LabelField>
+				<ColumnGroup name="Договоры" id="33">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Договоры</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Договоры</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ДоговорыРасширеннаяПодсказка" id="76"/>
+					<ChildItems>
+						<LabelField name="ЗаключеноДоговоров" id="29">
+							<DataPath>Список.ЗаключеноДоговоров</DataPath>
+							<ContextMenu name="ЗаключеноДоговоровКонтекстноеМеню" id="30"/>
+							<ExtendedTooltip name="ЗаключеноДоговоровРасширеннаяПодсказка" id="77"/>
+						</LabelField>
+						<LabelField name="СостояниеДоговора" id="27">
+							<DataPath>Список.СостояниеДоговора</DataPath>
+							<ContextMenu name="СостояниеДоговораКонтекстноеМеню" id="28"/>
+							<ExtendedTooltip name="СостояниеДоговораРасширеннаяПодсказка" id="78"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<CheckBoxField name="ОтраженФактНезаключенияДоговора" id="31">
+					<DataPath>Список.ОтраженФактНезаключенияДоговора</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтраженФактНезаключенияДоговораКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ОтраженФактНезаключенияДоговораРасширеннаяПодсказка" id="79"/>
+				</CheckBoxField>
+				<CheckBoxField name="Оплачено" id="25">
+					<DataPath>Список.Оплачено</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОплаченоКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ОплаченоРасширеннаяПодсказка" id="80"/>
+				</CheckBoxField>
+				<ColumnGroup name="Группа2" id="19">
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="81"/>
+					<ChildItems>
+						<LabelField name="Автор" id="8">
+							<DataPath>Список.Автор</DataPath>
+							<ContextMenu name="АвторКонтекстноеМеню" id="9"/>
+							<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="82"/>
+						</LabelField>
+						<LabelField name="Комментарий" id="20">
+							<DataPath>Список.Комментарий</DataPath>
+							<ContextMenu name="КомментарийКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="83"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	Документцс_ЗаявкаНаФинасирование.Ссылка,
+	Документцс_ЗаявкаНаФинасирование.ВерсияДанных,
+	Документцс_ЗаявкаНаФинасирование.ПометкаУдаления,
+	Документцс_ЗаявкаНаФинасирование.Номер,
+	Документцс_ЗаявкаНаФинасирование.Дата,
+	Документцс_ЗаявкаНаФинасирование.Проведен,
+	Документцс_ЗаявкаНаФинасирование.Автор,
+	Документцс_ЗаявкаНаФинасирование.ВалютаДокумента,
+	Документцс_ЗаявкаНаФинасирование.Комментарий,
+	Документцс_ЗаявкаНаФинасирование.Поставщик,
+	Документцс_ЗаявкаНаФинасирование.Организация,
+	Документцс_ЗаявкаНаФинасирование.Ответственный,
+	Документцс_ЗаявкаНаФинасирование.СуммаДокумента,
+	Документцс_ЗаявкаНаФинасирование.СтруктурноеПодразделение,
+	Документцс_ЗаявкаНаФинасирование.ОбщаяПлощадь,
+	Документцс_ЗаявкаНаФинасирование.ПлощадьПшеницы,
+	Документцс_ЗаявкаНаФинасирование.ПлощадьЯчменя,
+	Документцс_ЗаявкаНаФинасирование.ПосевнаяПлощадь,
+	Документцс_ЗаявкаНаФинасирование.Гарант,
+	Документцс_ЗаявкаНаФинасирование.ГруппаКомпаний,
+	Документцс_ЗаявкаНаФинасирование.СтатусЗаявки,
+	Документцс_ЗаявкаНаФинасирование.Оплачено,
+	Документцс_ЗаявкаНаФинасирование.МоментВремени,
+	ЕСТЬNULL(ЗаключенныеДоговораПоЗаявке.Количество, 0) КАК ЗаключеноДоговоров,
+	ВЫБОР
+		КОГДА РасторгнутыеДоговора.ОснованиеДляРасторжения ЕСТЬ NULL 
+				И ЕСТЬNULL(ЗаключенныеДоговораПоЗаявке.Количество, 0) &gt; 0
+			ТОГДА "Действует"
+		КОГДА РасторгнутыеДоговора.ОснованиеДляРасторжения ЕСТЬ NULL 
+				И ЕСТЬNULL(ЗаключенныеДоговораПоЗаявке.Количество, 0) = 0
+			ТОГДА "Не заключен"
+		ИНАЧЕ РасторгнутыеДоговора.ОснованиеДляРасторжения
+	КОНЕЦ КАК СостояниеДоговора,
+	ВЫБОР
+		КОГДА НезаключенныеДоговора.ЦС_Заявка ЕСТЬ NULL 
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК ОтраженФактНезаключенияДоговора
+ИЗ
+	Документ.ЗаявкаНаПрямойЗакупЗерна КАК Документцс_ЗаявкаНаФинасирование
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			цс_Договор.ДокументОснование КАК ДокументОснование,
+			КОЛИЧЕСТВО(РАЗЛИЧНЫЕ цс_Договор.ДокументОснование) КАК Количество
+		ИЗ
+			Документ.цс_Договор КАК цс_Договор
+		ГДЕ
+			НЕ цс_Договор.ПометкаУдаления
+		
+		СГРУППИРОВАТЬ ПО
+			цс_Договор.ДокументОснование) КАК ЗаключенныеДоговораПоЗаявке
+		ПО Документцс_ЗаявкаНаФинасирование.Ссылка = ЗаключенныеДоговораПоЗаявке.ДокументОснование
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ЦС_РасторгнутыеДоговораФорвардногоЗакупа.ОснованиеДляРасторжения КАК ОснованиеДляРасторжения,
+			ЦС_РасторгнутыеДоговораФорвардногоЗакупа.ЦС_Договор.ДокументОснование КАК ЦС_ДоговорДокументОснование
+		ИЗ
+			РегистрСведений.ЦС_РасторгнутыеДоговораФорвардногоЗакупа КАК ЦС_РасторгнутыеДоговораФорвардногоЗакупа) КАК РасторгнутыеДоговора
+		ПО Документцс_ЗаявкаНаФинасирование.Ссылка = РасторгнутыеДоговора.ЦС_ДоговорДокументОснование
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ЦС_ЗаявкиСНезаключеннымиДоговорами.ЦС_Заявка КАК ЦС_Заявка
+		ИЗ
+			РегистрСведений.ЦС_ЗаявкиСНезаключеннымиДоговорами КАК ЦС_ЗаявкиСНезаключеннымиДоговорами) КАК НезаключенныеДоговора
+		ПО Документцс_ЗаявкаНаФинасирование.Ссылка = НезаключенныеДоговора.ЦС_Заявка</QueryText>
+				<MainTable>Document.ЗаявкаНаПрямойЗакупЗерна</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">СтатусЗаявки</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">ЗаключеноДоговоров</dcsset:left>
+							<dcsset:comparisonType>Greater</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Автор</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Дата</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Номер</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Поставщик</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Организация</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>СуммаДокумента</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>СтатусЗаявки</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Комментарий</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>СтруктурноеПодразделение</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Оплачено</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">СтатусЗаявки</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.цс_СтатусЗаявкиФорвардныйЗакуп.Принята</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:BorderColor</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Автор</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Дата</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Номер</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Поставщик</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Организация</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>СуммаДокумента</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>СтатусЗаявки</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Комментарий</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>СтруктурноеПодразделение</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Оплачено</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">СтатусЗаявки</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.цс_СтатусЗаявкиФорвардныйЗакуп.Отклонена</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:Coral</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Автор</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Дата</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Номер</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Поставщик</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Организация</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>СуммаДокумента</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>СтатусЗаявки</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Комментарий</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>СтруктурноеПодразделение</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Оплачено</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">СтатусЗаявки</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.цс_СтатусЗаявкиФорвардныйЗакуп.Одобрена</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:PaleGreen</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ПоказатьНезаключенныеДоговора" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать незаключенные договора</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоказатьЗаявкиСРасторгнутымиДоговорами" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать заявки с расторгнутыми договорами</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СвязанныеДокументы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Связанные документы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Связанные документы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДействияФормыСтруктураПодчиненностиДокумента</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоказатьДополнительныйОтбор" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать дополнительный отбор</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать дополнительный отбор</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказатьДополнительныйОтбор</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

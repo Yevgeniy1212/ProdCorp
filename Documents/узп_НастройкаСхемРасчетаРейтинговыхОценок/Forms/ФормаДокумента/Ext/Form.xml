@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="87">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шапка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шапка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="88"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаШапкаЛевая" id="89">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шапка (Левая)</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шапка (Левая)</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаШапкаЛеваяРасширеннаяПодсказка" id="90"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаДатаНомер" id="47">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата номер</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаДатаНомерРасширеннаяПодсказка" id="48"/>
+							<ChildItems>
+								<InputField name="Номер" id="1">
+									<DataPath>Объект.Number</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+								</InputField>
+								<InputField name="Дата" id="4">
+									<DataPath>Объект.Date</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>от</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+									<Events>
+										<Event name="OnChange">ДатаПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="СтруктурноеПодразделениеОрганизация" id="84">
+							<DataPath>СтруктурноеПодразделениеОрганизация</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ChooseType>false</ChooseType>
+							<ChoiceParameters>
+								<app:item name="ВыбиратьСтруктурныеЕдиницы">
+									<app:value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xs:boolean">true</Value>
+									</app:value>
+								</app:item>
+							</ChoiceParameters>
+							<ContextMenu name="СтруктурноеПодразделениеОрганизацияКонтекстноеМеню" id="85"/>
+							<ExtendedTooltip name="СтруктурноеПодразделениеОрганизацияРасширеннаяПодсказка" id="86"/>
+							<Events>
+								<Event name="OnChange">СтруктурноеПодразделениеОрганизацияПриИзменении</Event>
+								<Event name="StartChoice">СтруктурноеПодразделениеОрганизацияНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаШапкаПравая" id="91">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шапка (Правая)</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шапка (Правая)</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаШапкаПраваяРасширеннаяПодсказка" id="92"/>
+					<ChildItems>
+						<InputField name="Состояние" id="7">
+							<DataPath>Объект.Состояние</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СостояниеКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="СостояниеРасширеннаяПодсказка" id="9"/>
+						</InputField>
+						<InputField name="СхемаРасчета" id="16">
+							<DataPath>Объект.СхемаРасчета</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СхемаРасчетаКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="СхемаРасчетаРасширеннаяПодсказка" id="18"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаСтраницы" id="61">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="62"/>
+			<ChildItems>
+				<Page name="ГруппаКритерии" id="63">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Критерии</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Критерии</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаКритерииРасширеннаяПодсказка" id="64"/>
+					<ChildItems>
+						<Table name="Приоритеты" id="19">
+							<Representation>List</Representation>
+							<Footer>true</Footer>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.Приоритеты</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПриоритетыКонтекстноеМеню" id="20"/>
+							<AutoCommandBar name="ПриоритетыКоманднаяПанель" id="21">
+								<ChildItems>
+									<Button name="ПриоритетыЗаполнить" id="70">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Заполнить</CommandName>
+										<ExtendedTooltip name="ПриоритетыЗаполнитьРасширеннаяПодсказка" id="71"/>
+									</Button>
+									<Popup name="ПриоритетыРаспределить" id="72">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Распределить приоритеты</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Приоритеты распределить</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="ПриоритетыРаспределитьРасширеннаяПодсказка" id="73"/>
+										<ChildItems>
+											<Button name="ПриоритетыРаспределитьПриоритетыКакВПрошлом" id="76">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.РаспределитьПриоритетыКакВПрошлом</CommandName>
+												<ExtendedTooltip name="ПриоритетыРаспределитьПриоритетыКакВПрошломРасширеннаяПодсказка" id="77"/>
+											</Button>
+											<Button name="ПриоритетыРаспределитьПриоритетыРавнымиДолями" id="78">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.РаспределитьПриоритетыРавнымиДолями</CommandName>
+												<ExtendedTooltip name="ПриоритетыРаспределитьПриоритетыРавнымиДолямиРасширеннаяПодсказка" id="79"/>
+											</Button>
+											<Button name="ПриоритетыРаспределитьПриоритетыЛесенкой" id="74">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.РаспределитьПриоритетыЛесенкойВверх</CommandName>
+												<ExtendedTooltip name="ПриоритетыРаспределитьПриоритетыЛесенкойРасширеннаяПодсказка" id="75"/>
+											</Button>
+											<Button name="ПриоритетыРаспределитьПриоритетыЛесенкойВниз" id="82">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.РаспределитьПриоритетыЛесенкойВниз</CommandName>
+												<ExtendedTooltip name="ПриоритетыРаспределитьПриоритетыЛесенкойВнизРасширеннаяПодсказка" id="83"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+									<Button name="ПриоритетыАвтоматическийПерерасчет" id="80">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.АвтоматическийПерерасчет</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Автоперерасчет</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ПриоритетыАвтоматическийПерерасчетРасширеннаяПодсказка" id="81"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПриоритетыРасширеннаяПодсказка" id="22"/>
+							<SearchStringAddition name="ПриоритетыСтрокаПоиска" id="23">
+								<AdditionSource>
+									<Item>Приоритеты</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПриоритетыСтрокаПоискаКонтекстноеМеню" id="26"/>
+								<ExtendedTooltip name="ПриоритетыСтрокаПоискаРасширеннаяПодсказка" id="27"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПриоритетыСостояниеПросмотра" id="28">
+								<AdditionSource>
+									<Item>Приоритеты</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПриоритетыСостояниеПросмотраКонтекстноеМеню" id="31"/>
+								<ExtendedTooltip name="ПриоритетыСостояниеПросмотраРасширеннаяПодсказка" id="32"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПриоритетыУправлениеПоиском" id="33">
+								<AdditionSource>
+									<Item>Приоритеты</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПриоритетыУправлениеПоискомКонтекстноеМеню" id="36"/>
+								<ExtendedTooltip name="ПриоритетыУправлениеПоискомРасширеннаяПодсказка" id="37"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeEditEnd">ПриоритетыПередОкончаниемРедактирования</Event>
+								<Event name="BeforeRowChange">ПриоритетыПередНачаломИзменения</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="ПриоритетыНомерСтроки" id="38">
+									<DataPath>Объект.Приоритеты.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПриоритетыНомерСтрокиКонтекстноеМеню" id="39"/>
+									<ExtendedTooltip name="ПриоритетыНомерСтрокиРасширеннаяПодсказка" id="40"/>
+								</LabelField>
+								<InputField name="ПриоритетыКритерий" id="41">
+									<DataPath>Объект.Приоритеты.Критерий</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПриоритетыКритерийКонтекстноеМеню" id="42"/>
+									<ExtendedTooltip name="ПриоритетыКритерийРасширеннаяПодсказка" id="43"/>
+								</InputField>
+								<InputField name="ПриоритетыПриоритет" id="44">
+									<DataPath>Объект.Приоритеты.Приоритет</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<FooterDataPath>Объект.Приоритеты.TotalПриоритет</FooterDataPath>
+									<FooterText>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>%</v8:content>
+										</v8:item>
+									</FooterText>
+									<MinValue xsi:type="xs:decimal">0</MinValue>
+									<MaxValue xsi:type="xs:decimal">100</MaxValue>
+									<ContextMenu name="ПриоритетыПриоритетКонтекстноеМеню" id="45"/>
+									<ExtendedTooltip name="ПриоритетыПриоритетРасширеннаяПодсказка" id="46"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаДополнительно" id="65">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаДополнительноРасширеннаяПодсказка" id="66"/>
+					<ChildItems>
+						<InputField name="Ответственный" id="10">
+							<DataPath>Объект.Ответственный</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОтветственныйКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="12"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<InputField name="Комментарий" id="13">
+			<DataPath>Объект.Комментарий</DataPath>
+			<TitleLocation>Left</TitleLocation>
+			<EditMode>EnterOnInput</EditMode>
+			<Height>1</Height>
+			<MultiLine>true</MultiLine>
+			<ChoiceButton>true</ChoiceButton>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="15"/>
+			<Events>
+				<Event name="StartChoice">КомментарийНачалоВыбора</Event>
+			</Events>
+		</InputField>
+		<LabelField name="Автор" id="67">
+			<DataPath>Объект.Автор</DataPath>
+			<ContextMenu name="АвторКонтекстноеМеню" id="68"/>
+			<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="69"/>
+		</LabelField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.узп_НастройкаСхемРасчетаРейтинговыхОценок</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="мИсходноеСтруктурноеПодразделение" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>М исходное структурное подразделение</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="СтруктурноеПодразделениеОрганизация" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структурная единица</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ПодразделенияОрганизаций</v8:Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоддержкаРаботыСоСтруктурнымиПодразделениями" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поддержка работы со структурными подразделениями</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекущаяДатаДокумента" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущая дата документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Заполнить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Заполнить</Action>
+		</Command>
+		<Command name="РаспределитьПриоритетыЛесенкойВверх" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Лесенкой вверх</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределить приоритеты лесенкой вверх</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РаспределитьПриоритетыЛесенкой</Action>
+		</Command>
+		<Command name="РаспределитьПриоритетыКакВПрошлом" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Как в прошлом</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределить приоритеты как в прошлом</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РаспределитьПриоритетыКакВПрошлом</Action>
+		</Command>
+		<Command name="РаспределитьПриоритетыРавнымиДолями" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Равными долями</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределить приоритеты равными долями</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РаспределитьПриоритетыРавнымиДолями</Action>
+		</Command>
+		<Command name="АвтоматическийПерерасчет" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автоматически перерасчитывать строки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автоматический перерасчет</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.фин_РасчетКоэффициентов32</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>АвтоматическийПерерасчет</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="РаспределитьПриоритетыЛесенкойВниз" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Лесенкой вниз</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределить приоритеты лесенкой вверх</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РаспределитьПриоритетыЛесенкой</Action>
+		</Command>
+	</Commands>
+</Form>

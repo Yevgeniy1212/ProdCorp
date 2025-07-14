@@ -1,0 +1,870 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="50">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="81"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаШапкаЛевая" id="51">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка левая</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка левая</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаШапкаЛеваяРасширеннаяПодсказка" id="82"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаДатаНомер" id="52">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа дата номер</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа дата номер</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаДатаНомерРасширеннаяПодсказка" id="83"/>
+							<ChildItems>
+								<InputField name="Номер" id="1">
+									<DataPath>Объект.Number</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="84"/>
+								</InputField>
+								<InputField name="Дата" id="3">
+									<DataPath>Объект.Date</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДатаКонтекстноеМеню" id="4"/>
+									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="85"/>
+									<Events>
+										<Event name="OnChange">ДатаПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="Сценарий" id="21">
+							<DataPath>Объект.Сценарий</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СценарийКонтекстноеМеню" id="22"/>
+							<ExtendedTooltip name="СценарийРасширеннаяПодсказка" id="86"/>
+							<Events>
+								<Event name="OnChange">СценарийПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ВыборочнаяКорректировка" id="7">
+							<DataPath>Объект.ВыборочнаяКорректировка</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Способ корректировки остатков</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>63</Width>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ChooseType>false</ChooseType>
+							<TextEdit>false</TextEdit>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>По всем счетам бюджетирования</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:boolean">false</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Только по счетам, указанным в табличной части</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:boolean">true</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ВыборочнаяКорректировкаКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ВыборочнаяКорректировкаРасширеннаяПодсказка" id="92"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаШапкаПравая" id="53">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка правая</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка правая</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаШапкаПраваяРасширеннаяПодсказка" id="88"/>
+					<ChildItems>
+						<InputField name="Организация" id="13">
+							<DataPath>Объект.Организация</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="87"/>
+						</InputField>
+						<InputField name="ДатаНачала" id="9">
+							<DataPath>Объект.ДатаНачала</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата остатков</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДатаНачалаКонтекстноеМеню" id="10"/>
+							<ExtendedTooltip name="ДатаНачалаРасширеннаяПодсказка" id="89"/>
+							<Events>
+								<Event name="OnChange">ДатаНачалаПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Страницы" id="58">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="102"/>
+			<ChildItems>
+				<Page name="СтраницаНовыеОстаткиПоСчетамБюджетирования" id="59">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Новые остатки по счетам бюджетирования</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница новые остатки по счетам бюджетирования</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаНовыеОстаткиПоСчетамБюджетированияРасширеннаяПодсказка" id="103"/>
+					<ChildItems>
+						<InputField name="оф_АктуальныеОстаткиПоСчетамБюджетирования" id="66">
+							<DataPath>оф_АктуальныеОстаткиПоСчетамБюджетирования</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<Width>24</Width>
+							<HorizontalStretch>true</HorizontalStretch>
+							<TextEdit>false</TextEdit>
+							<TextColor>#004242</TextColor>
+							<BackColor>#B0C4DE</BackColor>
+							<BorderColor>#4682B4</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="оф_АктуальныеОстаткиПоСчетамБюджетированияКонтекстноеМеню" id="67"/>
+							<ExtendedTooltip name="оф_АктуальныеОстаткиПоСчетамБюджетированияРасширеннаяПодсказка" id="104"/>
+						</InputField>
+						<Table name="НовыеОстаткиПоСчетамБюджетирования" id="23">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.НовыеОстаткиПоСчетамБюджетирования</DataPath>
+							<TextColor>#191970</TextColor>
+							<BorderColor>#B0C4DE</BorderColor>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="НовыеОстаткиПоСчетамБюджетированияКонтекстноеМеню" id="24"/>
+							<AutoCommandBar name="НовыеОстаткиПоСчетамБюджетированияКоманднаяПанель" id="25">
+								<ChildItems>
+									<Button name="НовыеОстаткиПоСчетамБюджетированияЗаполнить" id="141">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Заполнить</CommandName>
+										<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияЗаполнитьРасширеннаяПодсказка" id="142"/>
+									</Button>
+									<Button name="НовыеОстаткиПоСчетамБюджетированияОчистить" id="143">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Очистить</CommandName>
+										<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияОчиститьРасширеннаяПодсказка" id="144"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияРасширеннаяПодсказка" id="105"/>
+							<SearchStringAddition name="НовыеОстаткиПоСчетамБюджетированияСтрокаПоиска" id="106">
+								<AdditionSource>
+									<Item>НовыеОстаткиПоСчетамБюджетирования</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НовыеОстаткиПоСчетамБюджетированияСтрокаПоискаКонтекстноеМеню" id="107"/>
+								<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияСтрокаПоискаРасширеннаяПодсказка" id="108"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="НовыеОстаткиПоСчетамБюджетированияСостояниеПросмотра" id="109">
+								<AdditionSource>
+									<Item>НовыеОстаткиПоСчетамБюджетирования</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НовыеОстаткиПоСчетамБюджетированияСостояниеПросмотраКонтекстноеМеню" id="110"/>
+								<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияСостояниеПросмотраРасширеннаяПодсказка" id="111"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="НовыеОстаткиПоСчетамБюджетированияУправлениеПоиском" id="112">
+								<AdditionSource>
+									<Item>НовыеОстаткиПоСчетамБюджетирования</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="НовыеОстаткиПоСчетамБюджетированияУправлениеПоискомКонтекстноеМеню" id="113"/>
+								<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияУправлениеПоискомРасширеннаяПодсказка" id="114"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="НовыеОстаткиПоСчетамБюджетированияНомерСтроки" id="26">
+									<DataPath>Объект.НовыеОстаткиПоСчетамБюджетирования.LineNumber</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НовыеОстаткиПоСчетамБюджетированияНомерСтрокиКонтекстноеМеню" id="27"/>
+									<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияНомерСтрокиРасширеннаяПодсказка" id="115"/>
+								</LabelField>
+								<InputField name="НовыеОстаткиПоСчетамБюджетированияСчет" id="28">
+									<DataPath>Объект.НовыеОстаткиПоСчетамБюджетирования.Счет</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НовыеОстаткиПоСчетамБюджетированияСчетКонтекстноеМеню" id="29"/>
+									<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияСчетРасширеннаяПодсказка" id="116"/>
+									<Events>
+										<Event name="OnChange">НовыеОстаткиПоСчетамБюджетированияСчетПриИзменении</Event>
+									</Events>
+								</InputField>
+								<ColumnGroup name="НовыеОстаткиПоСчетамБюджетированияГруппа1" id="61">
+									<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияГруппа1РасширеннаяПодсказка" id="117"/>
+									<ChildItems>
+										<InputField name="НовыеОстаткиПоСчетамБюджетированияСубконто1" id="30">
+											<DataPath>Объект.НовыеОстаткиПоСчетамБюджетирования.Субконто1</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ChooseType>false</ChooseType>
+											<ContextMenu name="НовыеОстаткиПоСчетамБюджетированияСубконто1КонтекстноеМеню" id="31"/>
+											<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияСубконто1РасширеннаяПодсказка" id="118"/>
+										</InputField>
+										<InputField name="НовыеОстаткиПоСчетамБюджетированияСубконто2" id="32">
+											<DataPath>Объект.НовыеОстаткиПоСчетамБюджетирования.Субконто2</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ChooseType>false</ChooseType>
+											<ContextMenu name="НовыеОстаткиПоСчетамБюджетированияСубконто2КонтекстноеМеню" id="33"/>
+											<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияСубконто2РасширеннаяПодсказка" id="119"/>
+										</InputField>
+										<InputField name="НовыеОстаткиПоСчетамБюджетированияСубконто3" id="34">
+											<DataPath>Объект.НовыеОстаткиПоСчетамБюджетирования.Субконто3</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ChooseType>false</ChooseType>
+											<ContextMenu name="НовыеОстаткиПоСчетамБюджетированияСубконто3КонтекстноеМеню" id="35"/>
+											<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияСубконто3РасширеннаяПодсказка" id="120"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="НовыеОстаткиПоСчетамБюджетированияГруппа2" id="62">
+									<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияГруппа2РасширеннаяПодсказка" id="121"/>
+									<ChildItems>
+										<InputField name="НовыеОстаткиПоСчетамБюджетированияСубконто4" id="46">
+											<DataPath>Объект.НовыеОстаткиПоСчетамБюджетирования.Субконто4</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Субконто 4</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ChooseType>false</ChooseType>
+											<ContextMenu name="НовыеОстаткиПоСчетамБюджетированияСубконто4КонтекстноеМеню" id="47"/>
+											<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияСубконто4РасширеннаяПодсказка" id="122"/>
+										</InputField>
+										<InputField name="НовыеОстаткиПоСчетамБюджетированияСубконто5" id="48">
+											<DataPath>Объект.НовыеОстаткиПоСчетамБюджетирования.Субконто5</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Субконто 5</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ChooseType>false</ChooseType>
+											<ContextMenu name="НовыеОстаткиПоСчетамБюджетированияСубконто5КонтекстноеМеню" id="49"/>
+											<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияСубконто5РасширеннаяПодсказка" id="123"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<InputField name="НовыеОстаткиПоСчетамБюджетированияВалюта" id="36">
+									<DataPath>Объект.НовыеОстаткиПоСчетамБюджетирования.Валюта</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>10</Width>
+									<ContextMenu name="НовыеОстаткиПоСчетамБюджетированияВалютаКонтекстноеМеню" id="37"/>
+									<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияВалютаРасширеннаяПодсказка" id="124"/>
+									<Events>
+										<Event name="OnChange">НовыеОстаткиПоСчетамБюджетированияВалютаПриИзменении</Event>
+									</Events>
+								</InputField>
+								<ColumnGroup name="НовыеОстаткиПоСчетамБюджетированияГруппа3" id="63">
+									<Width>15</Width>
+									<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияГруппа3РасширеннаяПодсказка" id="125"/>
+									<ChildItems>
+										<InputField name="НовыеОстаткиПоСчетамБюджетированияСуммаУпр" id="40">
+											<DataPath>Объект.НовыеОстаткиПоСчетамБюджетирования.СуммаУпр</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="НовыеОстаткиПоСчетамБюджетированияСуммаУпрКонтекстноеМеню" id="41"/>
+											<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияСуммаУпрРасширеннаяПодсказка" id="126"/>
+										</InputField>
+										<InputField name="НовыеОстаткиПоСчетамБюджетированияВалютнаяСумма" id="42">
+											<DataPath>Объект.НовыеОстаткиПоСчетамБюджетирования.ВалютнаяСумма</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="НовыеОстаткиПоСчетамБюджетированияВалютнаяСуммаКонтекстноеМеню" id="43"/>
+											<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияВалютнаяСуммаРасширеннаяПодсказка" id="127"/>
+										</InputField>
+										<InputField name="НовыеОстаткиПоСчетамБюджетированияСуммаСценария" id="44">
+											<DataPath>Объект.НовыеОстаткиПоСчетамБюджетирования.СуммаСценария</DataPath>
+											<TitleTextColor>#004242</TitleTextColor>
+											<TitleBackColor>#B0C4DE</TitleBackColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<ContextMenu name="НовыеОстаткиПоСчетамБюджетированияСуммаСценарияКонтекстноеМеню" id="45"/>
+											<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияСуммаСценарияРасширеннаяПодсказка" id="128"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<InputField name="НовыеОстаткиПоСчетамБюджетированияКоличество" id="38">
+									<DataPath>Объект.НовыеОстаткиПоСчетамБюджетирования.Количество</DataPath>
+									<TitleTextColor>#004242</TitleTextColor>
+									<TitleBackColor>#B0C4DE</TitleBackColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>10</Width>
+									<ContextMenu name="НовыеОстаткиПоСчетамБюджетированияКоличествоКонтекстноеМеню" id="39"/>
+									<ExtendedTooltip name="НовыеОстаткиПоСчетамБюджетированияКоличествоРасширеннаяПодсказка" id="129"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаДополнительно" id="60">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница дополнительно</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаДополнительноРасширеннаяПодсказка" id="130"/>
+					<ChildItems>
+						<InputField name="Ответственный" id="15">
+							<DataPath>Объект.Ответственный</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОтветственныйКонтекстноеМеню" id="16"/>
+							<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="131"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<UsualGroup name="ГруппаПанельНижняя" id="135">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа панель нижняя</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа панель нижняя</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПанельНижняяРасширеннаяПодсказка" id="136"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаСостояниеИКомментарий" id="137">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа состояние и комментарий</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа состояние и комментарий</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаСостояниеИКомментарийРасширеннаяПодсказка" id="138"/>
+					<ChildItems>
+						<InputField name="Состояние" id="19">
+							<DataPath>Объект.Состояние</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СостояниеКонтекстноеМеню" id="20"/>
+							<ExtendedTooltip name="СостояниеРасширеннаяПодсказка" id="132"/>
+						</InputField>
+						<InputField name="Комментарий" id="11">
+							<DataPath>Объект.Комментарий</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ChoiceButton>true</ChoiceButton>
+							<ContextMenu name="КомментарийКонтекстноеМеню" id="12"/>
+							<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="133"/>
+							<Events>
+								<Event name="StartChoice">КомментарийНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаБаланс" id="139">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Баланс</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа баланс</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаБалансРасширеннаяПодсказка" id="140"/>
+					<ChildItems>
+						<LabelDecoration name="НадписьБалансУпр" id="54">
+							<HorizontalStretch>true</HorizontalStretch>
+							<TextColor>web:MidnightBlue</TextColor>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Баланс (сумма упр.)</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьБалансУпрКонтекстноеМеню" id="55"/>
+							<ExtendedTooltip name="НадписьБалансУпрРасширеннаяПодсказка" id="90"/>
+						</LabelDecoration>
+						<LabelDecoration name="НадписьБалансСценарий" id="56">
+							<HorizontalStretch>true</HorizontalStretch>
+							<TextColor>web:MidnightBlue</TextColor>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Баланс (сумма упр.)</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьБалансСценарийКонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="НадписьБалансСценарийРасширеннаяПодсказка" id="91"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<LabelField name="Автор" id="5">
+			<DataPath>Объект.Автор</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="АвторКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="134"/>
+		</LabelField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.фин_КорректировкаОстатковПоПрогнознымБалансам</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="оф_АктуальныеОстаткиПоСчетамБюджетирования" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оф актуальные остатки по счетам бюджетирования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекущаяДатаДокумента" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущая дата документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="БюджетированиеПоОрганизациям" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Бюджетирование по организациям</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="мВалютаРегламентированногоУчета" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>М валюта регламентированного учета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СтруктураСоответствия" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура соответствия</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="КурсВалютыОперации" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Курс валюты операции</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КратностьВалютыОперации" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кратность валюты операции</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КурсВалютыУпрУчета" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Курс валюты упр учета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КратностьВалютыУпрУчета" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кратность валюты упр учета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КурсВалютыРеглУчета" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Курс валюты регл учета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КратностьВалютыРеглУчета" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кратность валюты регл учета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КурсВалютыСценария" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Курс валюты сценария</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КратностьВалютыСценария" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кратность валюты сценария</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВалютаУпр" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта упр</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВалютаСценария" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта сценария</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВалютаРегл" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта регл</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КЭШ_Разрезы" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>КЭШ разрезы</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Заполнить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Заполнить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Очистить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Очистить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

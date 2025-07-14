@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаОтменаПроведения" id="35">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.UndoPosting</CommandName>
+				<ExtendedTooltip name="ФормаОтменаПроведенияРасширеннаяПодсказка" id="37"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="34">
+			<Group>Horizontal</Group>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="39"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="40"/>
+				</InputField>
+				<InputField name="Дата" id="3">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="41"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Организация" id="5">
+			<DataPath>Объект.Организация</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="42"/>
+		</InputField>
+		<LabelDecoration name="ПериодОсмотра" id="74">
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период осмотра:</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ПериодОсмотраКонтекстноеМеню" id="75"/>
+			<ExtendedTooltip name="ПериодОсмотраРасширеннаяПодсказка" id="76"/>
+		</LabelDecoration>
+		<UsualGroup name="Группа2" id="77">
+			<Group>Horizontal</Group>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="78"/>
+			<ChildItems>
+				<InputField name="ПериодС" id="68">
+					<DataPath>Объект.ПериодС</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>С</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ПериодСКонтекстноеМеню" id="69"/>
+					<ExtendedTooltip name="ПериодСРасширеннаяПодсказка" id="70"/>
+				</InputField>
+				<InputField name="ПериодПо" id="71">
+					<DataPath>Объект.ПериодПо</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>По</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ПериодПоКонтекстноеМеню" id="72"/>
+					<ExtendedTooltip name="ПериодПоРасширеннаяПодсказка" id="73"/>
+				</InputField>
+				<CheckBoxField name="ВнеГрафика" id="79">
+					<DataPath>Объект.ВнеГрафика</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ВнеГрафикаКонтекстноеМеню" id="80"/>
+					<ExtendedTooltip name="ВнеГрафикаРасширеннаяПодсказка" id="81"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ОсмотромУстановлено" id="11">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.ОсмотромУстановлено</DataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ОсмотромУстановленоКонтекстноеМеню" id="12"/>
+			<AutoCommandBar name="ОсмотромУстановленоКоманднаяПанель" id="13"/>
+			<ExtendedTooltip name="ОсмотромУстановленоРасширеннаяПодсказка" id="43"/>
+			<SearchStringAddition name="ОсмотромУстановленоСтрокаПоиска" id="44">
+				<AdditionSource>
+					<Item>ОсмотромУстановлено</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ОсмотромУстановленоСтрокаПоискаКонтекстноеМеню" id="45"/>
+				<ExtendedTooltip name="ОсмотромУстановленоСтрокаПоискаРасширеннаяПодсказка" id="46"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ОсмотромУстановленоСостояниеПросмотра" id="47">
+				<AdditionSource>
+					<Item>ОсмотромУстановлено</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ОсмотромУстановленоСостояниеПросмотраКонтекстноеМеню" id="48"/>
+				<ExtendedTooltip name="ОсмотромУстановленоСостояниеПросмотраРасширеннаяПодсказка" id="49"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ОсмотромУстановленоУправлениеПоиском" id="50">
+				<AdditionSource>
+					<Item>ОсмотромУстановлено</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ОсмотромУстановленоУправлениеПоискомКонтекстноеМеню" id="51"/>
+				<ExtendedTooltip name="ОсмотромУстановленоУправлениеПоискомРасширеннаяПодсказка" id="52"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ОсмотромУстановленоНомерСтроки" id="14">
+					<DataPath>Объект.ОсмотромУстановлено.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОсмотромУстановленоНомерСтрокиКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ОсмотромУстановленоНомерСтрокиРасширеннаяПодсказка" id="53"/>
+				</LabelField>
+				<InputField name="ОсмотромУстановленоХПП" id="16">
+					<DataPath>Объект.ОсмотромУстановлено.ХПП</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОсмотромУстановленоХППКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ОсмотромУстановленоХППРасширеннаяПодсказка" id="54"/>
+				</InputField>
+				<InputField name="ОсмотромУстановленоДатаОсмотра" id="18">
+					<DataPath>Объект.ОсмотромУстановлено.ДатаОсмотра</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОсмотромУстановленоДатаОсмотраКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="ОсмотромУстановленоДатаОсмотраРасширеннаяПодсказка" id="55"/>
+				</InputField>
+				<InputField name="ОсмотромУстановленоПредставительКорпорации" id="20">
+					<DataPath>Объект.ОсмотромУстановлено.ПредставительКорпорации</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОсмотромУстановленоПредставительКорпорацииКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ОсмотромУстановленоПредставительКорпорацииРасширеннаяПодсказка" id="56"/>
+				</InputField>
+				<InputField name="ОсмотромУстановленоПредставительМИО" id="22">
+					<DataPath>Объект.ОсмотромУстановлено.ПредставительМИО</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОсмотромУстановленоПредставительМИОКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ОсмотромУстановленоПредставительМИОРасширеннаяПодсказка" id="57"/>
+				</InputField>
+				<InputField name="ОсмотромУстановленоПрочие" id="24">
+					<DataPath>Объект.ОсмотромУстановлено.Прочие</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОсмотромУстановленоПрочиеКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="ОсмотромУстановленоПрочиеРасширеннаяПодсказка" id="58"/>
+				</InputField>
+				<InputField name="ОсмотромУстановленоНедостачаЗерна" id="26">
+					<DataPath>Объект.ОсмотромУстановлено.НедостачаЗерна</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОсмотромУстановленоНедостачаЗернаКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ОсмотромУстановленоНедостачаЗернаРасширеннаяПодсказка" id="59"/>
+				</InputField>
+				<InputField name="ОсмотромУстановленоУхудшениеКачестваЗерна" id="28">
+					<DataPath>Объект.ОсмотромУстановлено.УхудшениеКачестваЗерна</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОсмотромУстановленоУхудшениеКачестваЗернаКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ОсмотромУстановленоУхудшениеКачестваЗернаРасширеннаяПодсказка" id="60"/>
+				</InputField>
+				<InputField name="ОсмотромУстановленоЗараженностьЗерна" id="30">
+					<DataPath>Объект.ОсмотромУстановлено.ЗараженностьЗерна</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОсмотромУстановленоЗараженностьЗернаКонтекстноеМеню" id="31"/>
+					<ExtendedTooltip name="ОсмотромУстановленоЗараженностьЗернаРасширеннаяПодсказка" id="61"/>
+				</InputField>
+				<InputField name="ОсмотромУстановленоНарушениеПравилХраненияЗерна" id="32">
+					<DataPath>Объект.ОсмотромУстановлено.НарушениеПравилХраненияЗерна</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОсмотромУстановленоНарушениеПравилХраненияЗернаКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ОсмотромУстановленоНарушениеПравилХраненияЗернаРасширеннаяПодсказка" id="62"/>
+				</InputField>
+				<CheckBoxField name="ОсмотромУстановленоВнеГрафика" id="65">
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОсмотромУстановленоВнеГрафикаКонтекстноеМеню" id="66"/>
+					<ExtendedTooltip name="ОсмотромУстановленоВнеГрафикаРасширеннаяПодсказка" id="67"/>
+				</CheckBoxField>
+			</ChildItems>
+		</Table>
+		<InputField name="Комментарий" id="7">
+			<DataPath>Объект.Комментарий</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="64"/>
+		</InputField>
+		<UsualGroup name="Группа3" id="88">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="89"/>
+			<ChildItems>
+				<PictureDecoration name="КартинкаАвторДокумента" id="85">
+					<Width>2</Width>
+					<Height>1</Height>
+					<HorizontalStretch>false</HorizontalStretch>
+					<VerticalStretch>false</VerticalStretch>
+					<SkipOnInput>false</SkipOnInput>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пользователь, автор документа</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>StdPicture.User</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="КартинкаАвторДокументаКонтекстноеМеню" id="86"/>
+					<ExtendedTooltip name="КартинкаАвторДокументаРасширеннаяПодсказка" id="87"/>
+				</PictureDecoration>
+				<LabelField name="Автор" id="9">
+					<DataPath>Объект.Автор</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="АвторКонтекстноеМеню" id="10"/>
+					<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="63"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.АктОсмотраМестХранения</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Печать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Печать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

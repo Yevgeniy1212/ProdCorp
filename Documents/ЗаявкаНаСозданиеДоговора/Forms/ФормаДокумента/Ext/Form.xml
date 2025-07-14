@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.18">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаСоздатьДоговор" id="71">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.СоздатьДоговор</CommandName>
+				<ExtendedTooltip name="ФормаСоздатьДоговорРасширеннаяПодсказка" id="72"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="52">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="53"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Дата" id="4">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа2" id="54">
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="55"/>
+			<ChildItems>
+				<InputField name="БИНКонтрагента" id="7">
+					<DataPath>Объект.БИНКонтрагента</DataPath>
+					<SkipOnInput>false</SkipOnInput>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="БИНКонтрагентаКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="БИНКонтрагентаРасширеннаяПодсказка" id="9"/>
+					<Events>
+						<Event name="OnChange">БИНКонтрагентаПриИзменении</Event>
+						<Event name="Creating">БИНКонтрагентаСоздание</Event>
+					</Events>
+				</InputField>
+				<LabelField name="Контрагент" id="10">
+					<DataPath>Объект.Контрагент</DataPath>
+					<SkipOnInput>false</SkipOnInput>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КонтрагентКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="12"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Вид" id="13">
+			<DataPath>Объект.Вид</DataPath>
+			<SkipOnInput>false</SkipOnInput>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ВидКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ВидРасширеннаяПодсказка" id="15"/>
+			<Events>
+				<Event name="OnChange">ВидПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="ВидДоговора" id="46">
+			<DataPath>Объект.ВидДоговора</DataPath>
+			<SkipOnInput>false</SkipOnInput>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ВидДоговораКонтекстноеМеню" id="47"/>
+			<ExtendedTooltip name="ВидДоговораРасширеннаяПодсказка" id="48"/>
+		</InputField>
+		<InputField name="ОсновнойДоговор" id="62">
+			<DataPath>Объект.ОсновнойДоговор</DataPath>
+			<ContextMenu name="ОсновнойДоговорКонтекстноеМеню" id="63"/>
+			<ExtendedTooltip name="ОсновнойДоговорРасширеннаяПодсказка" id="64"/>
+		</InputField>
+		<UsualGroup name="Группа3" id="56">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="57"/>
+			<ChildItems>
+				<InputField name="НомерДоговора" id="16">
+					<DataPath>Объект.НомерДоговора</DataPath>
+					<SkipOnInput>false</SkipOnInput>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерДоговораКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="НомерДоговораРасширеннаяПодсказка" id="18"/>
+				</InputField>
+				<InputField name="ДатаЗаключенияДоговора" id="19">
+					<DataPath>Объект.ДатаЗаключенияДоговора</DataPath>
+					<SkipOnInput>false</SkipOnInput>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаЗаключенияДоговораКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ДатаЗаключенияДоговораРасширеннаяПодсказка" id="21"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа4" id="58">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="59"/>
+			<ChildItems>
+				<InputField name="СуммаДоговора" id="22">
+					<DataPath>Объект.СуммаДоговора</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СуммаДоговораКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="СуммаДоговораРасширеннаяПодсказка" id="24"/>
+				</InputField>
+				<InputField name="ВеличинаМестногоСодержания" id="25">
+					<DataPath>Объект.ВеличинаМестногоСодержания</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВеличинаМестногоСодержанияКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ВеличинаМестногоСодержанияРасширеннаяПодсказка" id="27"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа5" id="60">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="61"/>
+			<ChildItems>
+				<InputField name="ДатаНачала" id="31">
+					<DataPath>Объект.ДатаНачала</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаНачалаКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ДатаНачалаРасширеннаяПодсказка" id="33"/>
+				</InputField>
+				<InputField name="ДатаОкончания" id="34">
+					<DataPath>Объект.ДатаОкончания</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаОкончанияКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ДатаОкончанияРасширеннаяПодсказка" id="36"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ПредметДоговора" id="28">
+			<DataPath>Объект.ПредметДоговора</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПредметДоговораКонтекстноеМеню" id="29"/>
+			<ExtendedTooltip name="ПредметДоговораРасширеннаяПодсказка" id="30"/>
+		</InputField>
+		<InputField name="СпособОплаты" id="37">
+			<DataPath>Объект.СпособОплаты</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="СпособОплатыКонтекстноеМеню" id="38"/>
+			<ExtendedTooltip name="СпособОплатыРасширеннаяПодсказка" id="39"/>
+		</InputField>
+		<InputField name="РазмерАвансовогоПлатежа" id="40">
+			<DataPath>Объект.РазмерАвансовогоПлатежа</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="РазмерАвансовогоПлатежаКонтекстноеМеню" id="41"/>
+			<ExtendedTooltip name="РазмерАвансовогоПлатежаРасширеннаяПодсказка" id="42"/>
+		</InputField>
+		<InputField name="ФинансовыйГод" id="43">
+			<DataPath>Объект.ФинансовыйГод</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ФинансовыйГодКонтекстноеМеню" id="44"/>
+			<ExtendedTooltip name="ФинансовыйГодРасширеннаяПодсказка" id="45"/>
+		</InputField>
+		<InputField name="Примечание" id="49">
+			<DataPath>Объект.Примечание</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПримечаниеКонтекстноеМеню" id="50"/>
+			<ExtendedTooltip name="ПримечаниеРасширеннаяПодсказка" id="51"/>
+		</InputField>
+		<UsualGroup name="Группа6" id="76">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="77"/>
+			<ChildItems>
+				<PictureDecoration name="КартинкаАвторДокумента" id="68">
+					<Width>2</Width>
+					<Height>1</Height>
+					<HorizontalStretch>false</HorizontalStretch>
+					<VerticalStretch>false</VerticalStretch>
+					<SkipOnInput>false</SkipOnInput>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пользователь, автор документа</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>StdPicture.User</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="КартинкаАвторДокументаКонтекстноеМеню" id="69"/>
+					<ExtendedTooltip name="КартинкаАвторДокументаРасширеннаяПодсказка" id="70"/>
+				</PictureDecoration>
+				<LabelField name="Автор" id="73">
+					<DataPath>Объект.Автор</DataPath>
+					<ContextMenu name="АвторКонтекстноеМеню" id="74"/>
+					<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="75"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.ЗаявкаНаСозданиеДоговора</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СоздатьДоговор" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать договор</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать договор</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьДоговор</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>
